@@ -1,4 +1,5 @@
-sw897.github.com
-================
+# sw897 blog
 
-blog
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
