@@ -11,7 +11,7 @@ pygments: true
 title : sw897 blog
 tagline: sw897 blog
 author :
-  name : sunwei
+  name : sw897
   email : sunwei.r@gmail.com
   github : sw897.github.com
   twitter :
@@ -69,6 +69,7 @@ JB :
   # These paths are to the main pages Jekyll-Bootstrap ships with.
   # Some JB helpers refer to these paths; change them here if needed.
   #
+  about_path: /about.html
   archive_path: /archive.html
   categories_path : /categories.html
   tags_path : /tags.html
@@ -80,7 +81,20 @@ JB :
   # Set 'provider' to false to turn commenting off globally.
   #
   comments :
-    provider :
+    provider : duoshuo
+    duoshuo:
+      short_name : sw897
+    disqus :
+      short_name : sw897
+    livefyre :
+      site_id : 123
+    intensedebate :
+      account : 123abc
+    facebook :
+      appid : 123
+      num_posts: 5
+      width: 580
+      colorscheme: light
 
   # Settings for analytics helper
   # Set 'provider' to the analytics provider you want to use.

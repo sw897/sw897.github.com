@@ -4,20 +4,63 @@
  <title>sw897 blog</title>
  <link href="http://sw897.github.io/" rel="self"/>
  <link href="http://sw897.github.io"/>
- <updated>2014-01-03T12:06:22+08:00</updated>
+ <updated>2014-01-03T16:31:49+08:00</updated>
  <id>http://sw897.github.io</id>
  <author>
-   <name>sunwei</name>
+   <name>sw897</name>
    <email>sunwei.r@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>给jekyll bootstrap增加评论系统</title>
+   <link href="http://sw897.github.io/2014/01/03/%E7%BB%99jekyll-bootstrap%E5%A2%9E%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F"/>
+   <updated>2014-01-03T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/01/03/给jekyll-bootstrap增加评论系统</id>
+   <content type="html">&lt;p&gt;jekyll bootstrap默认的评论系统是disqus,同时还可以配置使用livefyre,intensedebate,facebook， 这些虽然都不错，不过不符合我国国情，有必要换成国内的常用评论系统，用来支持国内的SNS平台， 比如新浪微博，豆瓣，人人等。国内评论系统也很多，常用的有&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;和&lt;a href=&quot;http://www.uyan.cc/&quot;&gt;友言&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;虽然不懂Ruby，但jekyll bootstrap把结构做的相当完美，过程很简单，下面把配置&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的方法记录一下。 当然，开始之前需要先注册好&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的个人账号&lt;/p&gt;
+
+&lt;p&gt;1 在_includes/JB/comments-providers文件夹下增加多说的配置文件duoshuo，内容如下， 其中把short_name的值使用双大括号’{}’括起来&lt;/p&gt;
+
+&lt;pre class=&quot;xml&quot;&gt;&lt;code class=&quot;xml&quot;&gt;
+&amp;lt;div class=&amp;quot;ds-thread&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;#39;};
+    (function() {
+        var ds = document.createElement(&amp;#39;script&amp;#39;);
+         ds.type = &amp;#39;text/javascript&amp;#39;;ds.async = true;
+         ds.src = &amp;#39;http://static.duoshuo.com/embed.js&amp;#39;;
+         ds.charset = &amp;#39;UTF-8&amp;#39;;
+         (document.getElementsByTagName(&amp;#39;head&amp;#39;)[0]
+         || document.getElementsByTagName(&amp;#39;body&amp;#39;)[0]).appendChild(ds);
+    })();
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;内容已经使用jb的模板变量，不需要修改可以直接拷贝使用。&lt;/p&gt;
+
+&lt;p&gt;2 在_includes/JB目录下，修改comments文件，在第4行插入duoshuo的判断段，前后去掉了关键字， 打开comments看一下就会明白&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  when &amp;quot;duoshuo&amp;quot;
+     include JB/comments-providers/duoshuo&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;3 最后修改_config.yml文件中comments部分即可&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;comments :
+    provider : duoshuo
+    duoshuo:
+       short_name : 你的多说账号&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;经过以上3步即可配置完成，有兴趣的朋友可以用同样方法可以试试友言，除评论系统账号部分，全部能用， 其实可以向jekyll bootstrap提交一下代码，方便国人配置使用。&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Web地图制图应用介绍</title>
    <link href="http://sw897.github.io/2014/01/03/Web%E5%88%B6%E5%9B%BE%E5%BA%94%E7%94%A8%E4%BB%8B%E7%BB%8D"/>
    <updated>2014-01-03T00:00:00+08:00</updated>
    <id>http://sw897.github.io/2014/01/03/Web制图应用介绍</id>
-   <content type="html">&lt;pre&gt;&lt;code&gt;本文总结一下当前流行的在线制图应用。&lt;/code&gt;&lt;/pre&gt;
+   <content type="html">&lt;pre&gt;&lt;code&gt;本文总结一下当前流行的在线地图制图应用。&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Web地图(WebMap)大家都不陌生，相信没有人没有用过GoogleMaps，它把GIS特别是WebGIS带入的主流的IT队伍中， 大大提高了这个小行业的技术进步速度。Web地图制图这个概念在Wikipedia中文中还没有定义页，但对照英语版有两个， Web Cartography与Web Mapping，前者重定向于后者。引用Wikipedia里的一句介绍:&lt;/p&gt;
 

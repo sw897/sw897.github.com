@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>给jekyll bootstrap增加评论系统</title>
+    <meta name="description" content="">
+    <meta name="author" content="sw897">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">sw897 blog</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>给jekyll bootstrap增加评论系统 </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>03 January 2014</span>
+    </div>
+    <div class="content">
+      <p>jekyll bootstrap默认的评论系统是disqus,同时还可以配置使用livefyre,intensedebate,facebook， 这些虽然都不错，不过不符合我国国情，有必要换成国内的常用评论系统，用来支持国内的SNS平台， 比如新浪微博，豆瓣，人人等。国内评论系统也很多，常用的有<a href="www.duoshuo.com">多说</a>和<a href="http://www.uyan.cc/">友言</a>。</p>
+
+<p>虽然不懂Ruby，但jekyll bootstrap把结构做的相当完美，过程很简单，下面把配置<a href="www.duoshuo.com">多说</a>的方法记录一下。 当然，开始之前需要先注册好<a href="www.duoshuo.com">多说</a>的个人账号</p>
+
+<p>1 在_includes/JB/comments-providers文件夹下增加多说的配置文件duoshuo，内容如下， 其中把short_name的值使用双大括号’{}’括起来</p>
+
+<pre class="xml"><code class="xml">
+&lt;div class=&quot;ds-thread&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var duoshuoQuery = {short_name:&#39;site.JB.comments.duoshuo.short_name&#39;};
+    (function() {
+        var ds = document.createElement(&#39;script&#39;);
+         ds.type = &#39;text/javascript&#39;;ds.async = true;
+         ds.src = &#39;http://static.duoshuo.com/embed.js&#39;;
+         ds.charset = &#39;UTF-8&#39;;
+         (document.getElementsByTagName(&#39;head&#39;)[0]
+         || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(ds);
+    })();
+&lt;/script&gt;
+</code></pre>
+
+<p>内容已经使用jb的模板变量，不需要修改可以直接拷贝使用。</p>
+
+<p>2 在_includes/JB目录下，修改comments文件，在第4行插入duoshuo的判断段，前后去掉了关键字， 打开comments看一下就会明白</p>
+
+<pre><code>  when &quot;duoshuo&quot;
+     include JB/comments-providers/duoshuo</code></pre>
+
+<p>3 最后修改_config.yml文件中comments部分即可</p>
+
+<pre><code>comments :
+    provider : duoshuo
+    duoshuo:
+       short_name : 你的多说账号</code></pre>
+
+<p>经过以上3步即可配置完成，有兴趣的朋友可以用同样方法可以试试友言，除评论系统账号部分，全部能用， 其实可以向jekyll bootstrap提交一下代码，方便国人配置使用。</p>
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#-ref">
+    		 <span>3</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#Jekyll-ref">Jekyll <span>2</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2014/01/03/Web%E5%88%B6%E5%9B%BE%E5%BA%94%E7%94%A8%E4%BB%8B%E7%BB%8D" title="Web地图制图应用介绍">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:'sw897'};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2014 sw897
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
