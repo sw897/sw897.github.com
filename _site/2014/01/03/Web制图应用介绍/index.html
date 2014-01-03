@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Web地图制图应用介绍</title>
+    <meta name="description" content="">
+    <meta name="author" content="sunwei">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">sw897 blog</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Web地图制图应用介绍 </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>03 January 2014</span>
+    </div>
+    <div class="content">
+      <pre><code>本文总结一下当前流行的在线制图应用。</code></pre>
+
+<p>Web地图(WebMap)大家都不陌生，相信没有人没有用过GoogleMaps，它把GIS特别是WebGIS带入的主流的IT队伍中， 大大提高了这个小行业的技术进步速度。Web地图制图这个概念在Wikipedia中文中还没有定义页，但对照英语版有两个， Web Cartography与Web Mapping，前者重定向于后者。引用Wikipedia里的一句介绍:</p>
+
+<blockquote>
+<p>web mapping is more than just web cartography,it is both a service activity and consumer activity.</p>
+</blockquote>
+
+<p>也就是mapping不止于cartography。这里汇总的应用大体就就当属于cartography，简单理解就是通过Web制作地图。 这种应用也结合云计算与大数据的趋势。</p>
+
+<p>这些应用大体可以分这么两类：</p>
+
+<ul>
+<li>
+<p>UGC制图，是一种交互式制图，用户参与更新底图、扩充POI等数据</p>
+
+<ul>
+<li><a href="http://www.openstreetmap.org">OpenStreetMap</a></li>
+
+<li><a href="https://www.google.com/mapmaker">Google Map Maker</a></li>
+
+<li><a href="http://heremaps.cn/mapcreator">Nokia HERE Map Creator</a></li>
+
+<li>当然还有在移动终端应用<a href="https://www.waze.com/editor/">位智(Waze)</a>，使用众包地图大火， 众包地图其实与这里的UGC制图相差不多，就当算高阶模式。</li>
+</ul>
+</li>
+
+<li>
+<p>个人专题地图制作，用户提供专题数据，使用应用平台完成可视化与交互， 这种是一个云应用，用户使用它完成工作或作品，然后共享分发</p>
+
+<ul>
+<li><a href="https://tiles.mapbox.com/sw897">Mapbox</a></li>
+
+<li><a href="https://sw897.cartodb.com/dashboard/">CartoDb</a></li>
+
+<li><a href="https://mangomap.com/maps">MangoMap</a></li>
+
+<li><a href="http://storymaps.arcgisonline.cn/home/index.html">ArcGIS Online 地图故事</a></li>
+
+<li><a href="http://www.dituhui.com/">SuperMap 地图汇</a></li>
+</ul>
+</li>
+</ul>
+
+<p>UGC那几个不说了，公司或机构拥有海量基础数据，本身就是举足轻重的地图数据提供者， 感兴趣的朋友可以加入到其中，做做贡献，今天只为几个个人专题地图制作云应用而来。</p>
+
+<p>个人专题地图应用是最近比较时兴的，它们一般技术先进并开放，把科研人员从基本编码中解放出来， 把非专业人员带入制图的世界，让专业人员更专注于专业的事情。总之，大体路线是提供云Host， 解决基础制图问题，包括底图，符号表达，专题可视化等等，剩下的，就是让用户专注专题数据，专注要表达的信息处理， 同时，可视化表达上，也有多种方案，可以让用户快速完成一个拥有绝佳交互体验与视觉冲击的地图。 是GIS社会化应用中功不可没，福泽天下的事情！</p>
+
+<p>当然，几家技术路线与背景不同，提供的功能也有差别，但定位与愿望都是美好的。接下我会结合自己的试用逐个介绍， 从前端使用到后端技术两个方面展开，尽量公平公正，不为任何一家广告，让用户按自己的喜好与需求选择。</p>
+
+<h2 id="mapbox">MapBox</h2>
+
+<h2 id="cartodb">CartoDb</h2>
+
+<h2 id="mangomap">MangoMap</h2>
+
+<h2 id="">地图故事</h2>
+
+<h2 id="_2">地图汇</h2>
+
+<blockquote>
+<p>今天没时间了，先列一下标题，内容以后再慢慢补充，一会还要想办法给这个blog加个评论系统，没有交互的blog怎么行</p>
+</blockquote>
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#-ref">
+    		 <span>2</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2013/12/31/%E4%B8%80%E4%B8%AA%E5%BC%80%E5%A7%8B%E4%BA%8E2013%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9" title="一个开始于2013的最后一天">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2014 sunwei
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

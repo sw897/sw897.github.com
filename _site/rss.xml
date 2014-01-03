@@ -5,13 +5,83 @@
         <description>sw897 blog - sunwei</description>
         <link>http://sw897.github.io</link>
         <link>http://sw897.github.io</link>
-        <lastBuildDate>2013-12-30T19:23:28+08:00</lastBuildDate>
-        <pubDate>2013-12-30T19:23:28+08:00</pubDate>
+        <lastBuildDate>2014-01-03T12:06:22+08:00</lastBuildDate>
+        <pubDate>2014-01-03T12:06:22+08:00</pubDate>
         <ttl>1800</ttl>
 
 
         <item>
-                <title>一个开始于2013的最后一天,基于Jekyll的博客开张了</title>
+                <title>Web地图制图应用介绍</title>
+                <description>&lt;pre&gt;&lt;code&gt;本文总结一下当前流行的在线制图应用。&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Web地图(WebMap)大家都不陌生，相信没有人没有用过GoogleMaps，它把GIS特别是WebGIS带入的主流的IT队伍中， 大大提高了这个小行业的技术进步速度。Web地图制图这个概念在Wikipedia中文中还没有定义页，但对照英语版有两个， Web Cartography与Web Mapping，前者重定向于后者。引用Wikipedia里的一句介绍:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;web mapping is more than just web cartography,it is both a service activity and consumer activity.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;也就是mapping不止于cartography。这里汇总的应用大体就就当属于cartography，简单理解就是通过Web制作地图。 这种应用也结合云计算与大数据的趋势。&lt;/p&gt;
+
+&lt;p&gt;这些应用大体可以分这么两类：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;UGC制图，是一种交互式制图，用户参与更新底图、扩充POI等数据&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;https://www.google.com/mapmaker&quot;&gt;Google Map Maker&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://heremaps.cn/mapcreator&quot;&gt;Nokia HERE Map Creator&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;当然还有在移动终端应用&lt;a href=&quot;https://www.waze.com/editor/&quot;&gt;位智(Waze)&lt;/a&gt;，使用众包地图大火， 众包地图其实与这里的UGC制图相差不多，就当算高阶模式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;个人专题地图制作，用户提供专题数据，使用应用平台完成可视化与交互， 这种是一个云应用，用户使用它完成工作或作品，然后共享分发&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://tiles.mapbox.com/sw897&quot;&gt;Mapbox&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;https://sw897.cartodb.com/dashboard/&quot;&gt;CartoDb&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;https://mangomap.com/maps&quot;&gt;MangoMap&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://storymaps.arcgisonline.cn/home/index.html&quot;&gt;ArcGIS Online 地图故事&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://www.dituhui.com/&quot;&gt;SuperMap 地图汇&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;UGC那几个不说了，公司或机构拥有海量基础数据，本身就是举足轻重的地图数据提供者， 感兴趣的朋友可以加入到其中，做做贡献，今天只为几个个人专题地图制作云应用而来。&lt;/p&gt;
+
+&lt;p&gt;个人专题地图应用是最近比较时兴的，它们一般技术先进并开放，把科研人员从基本编码中解放出来， 把非专业人员带入制图的世界，让专业人员更专注于专业的事情。总之，大体路线是提供云Host， 解决基础制图问题，包括底图，符号表达，专题可视化等等，剩下的，就是让用户专注专题数据，专注要表达的信息处理， 同时，可视化表达上，也有多种方案，可以让用户快速完成一个拥有绝佳交互体验与视觉冲击的地图。 是GIS社会化应用中功不可没，福泽天下的事情！&lt;/p&gt;
+
+&lt;p&gt;当然，几家技术路线与背景不同，提供的功能也有差别，但定位与愿望都是美好的。接下我会结合自己的试用逐个介绍， 从前端使用到后端技术两个方面展开，尽量公平公正，不为任何一家广告，让用户按自己的喜好与需求选择。&lt;/p&gt;
+
+&lt;h2 id=&quot;mapbox&quot;&gt;MapBox&lt;/h2&gt;
+
+&lt;h2 id=&quot;cartodb&quot;&gt;CartoDb&lt;/h2&gt;
+
+&lt;h2 id=&quot;mangomap&quot;&gt;MangoMap&lt;/h2&gt;
+
+&lt;h2 id=&quot;&quot;&gt;地图故事&lt;/h2&gt;
+
+&lt;h2 id=&quot;_2&quot;&gt;地图汇&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;今天没时间了，先列一下标题，内容以后再慢慢补充，一会还要想办法给这个blog加个评论系统，没有交互的blog怎么行&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+                <link>http://sw897.github.io/2014/01/03/Web%E5%88%B6%E5%9B%BE%E5%BA%94%E7%94%A8%E4%BB%8B%E7%BB%8D</link>
+                <guid>http://sw897.github.io/2014/01/03/Web制图应用介绍</guid>
+                <pubDate>2014-01-03T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>一个开始于2013的最后一天</title>
                 <description>&lt;p&gt;开始了，终于开始了。&lt;/p&gt;
 
 &lt;p&gt;一个结束，预示着一个开始。一年的最后一天，是一个结束，更是一个开始。&lt;/p&gt;
@@ -40,13 +110,13 @@
 &lt;li&gt;&lt;a href=&quot;http://mac.github.com/&quot;&gt;GitHub for Mac&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;对于不熟悉Git命令的人来说，直接使用GitHub的图形界面，可以省去不少麻烦，在setting中绑定个人github账号后， 创建username.github.com的项目，拷贝jekyll bootstrap的代码到该目录，commit+sync，完成&lt;/p&gt;
+&lt;p&gt;对于不熟悉Git命令的人来说，直接使用GitHub的图形界面，可以省去不少麻烦，在setting中绑定个人github账号后， 创建username.github.com的项目，拷贝jekyll bootstrap的代码到该目录，commit,sync都有图形化界面&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;这个也不需过多说明，做开发，追开源的利器，直接按Linux来打造Mac&lt;/p&gt;
+&lt;p&gt;这个也不需过多说明，直接按Linux来打造Mac，让在Mac上开发与Linux无异&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.sublimetext.com/2&quot;&gt;Sublime Text&lt;/a&gt;&lt;/li&gt;
@@ -58,11 +128,11 @@
 
 &lt;h3 id=&quot;_jekyllmacruby&quot;&gt;安装 Jekyll的准备，更新Mac的Ruby&lt;/h3&gt;
 
-&lt;p&gt;Mac 10.7自带的Ruby版本为1.8.6，使用其gem安装Jekyll后会有若干莫名其妙的错误， 还是自行安装新版本解决来的快些。 &lt;a href=&quot;http://www.chenzixin.com/program/2013/03/06/mac-jekyll-install-log/&quot;&gt;Mac OS X 安装 Jekyll 记录&lt;/a&gt; 文档教的方法是使用rvm，这里对于不懂Ruby的人来说，我也不想去装rvm，还是使用神器[Homebrew]吧&lt;/p&gt;
+&lt;p&gt;Mac 10.7自带的Ruby版本为1.8.6，使用其gem安装Jekyll后会有若干莫名其妙的错误， 其原因还是我们的Jekyll需要1.9.2+才行，还是自行安装新版本解决来的快些。 &lt;a href=&quot;http://www.chenzixin.com/program/2013/03/06/mac-jekyll-install-log/&quot;&gt;Mac OS X 安装 Jekyll 记录&lt;/a&gt; 文档教的方法是使用rvm，这里对于不懂Ruby的人来说，我也不想去装rvm，还是使用&lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;来搞定吧&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ brew install ruby&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;默认安装Ruby的最新版本2.1，上篇教程说是最好是1.9.3版本，这里经实验2.1也是没有问题的。&lt;/p&gt;
+&lt;p&gt;默认安装Ruby的最新版本2.1，教程说是最好是1.9.3版本，这里经实验2.1也是没有问题的。&lt;/p&gt;
 
 &lt;h3 id=&quot;jekyll&quot;&gt;安装本地jekyll&lt;/h3&gt;
 
@@ -88,21 +158,17 @@ $ which jekyll
 
 &lt;p&gt;首次在在本地折腾差不多后，使用GitHub for Mac Commit&amp;amp;Sync到GitHub上，就与大家同享文章了。&lt;/p&gt;
 
-&lt;p&gt;新发文章或增加Page时，使用Jekyll Bootstrap提供的小工具很方便，专业写文章吧！&lt;/p&gt;
+&lt;p&gt;新发文章或增加Page时，使用Jekyll Bootstrap提供的小工具很方便，专心写文章吧！&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;这个安装记录写的还真不清楚，按我这个来估计还是不行，还请参考以下文章&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html&quot;&gt;搭建一个免费的，无限流量的Blog—-github Pages和Jekyll入门&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html&quot;&gt;搭建一个免费的，无限流量的Blog—-github Pages和Jekyll入门&lt;/a&gt;&lt;/li&gt;
 
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.chenzixin.com/program/2013/03/06/mac-jekyll-install-log/&quot;&gt;Mac OS X 安装 Jekyll 记录&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.chenzixin.com/program/2013/03/06/mac-jekyll-install-log/&quot;&gt;Mac OS X 安装 Jekyll 记录&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
-                <link>http://sw897.github.io/2013/12/31/2013</link>
-                <guid>http://sw897.github.io/2013/12/31/2013</guid>
+                <link>http://sw897.github.io/2013/12/31/%E4%B8%80%E4%B8%AA%E5%BC%80%E5%A7%8B%E4%BA%8E2013%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9</link>
+                <guid>http://sw897.github.io/2013/12/31/一个开始于2013的最后一天</guid>
                 <pubDate>2013-12-31T00:00:00+08:00</pubDate>
         </item>
 
