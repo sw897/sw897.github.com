@@ -1,6 +1,8 @@
 ---
 layout: nil
-title : RSS Feed
+title : RSS
+header : RSS Feed
+group: navigation
 ---
 
 <?xml version="1.0" encoding="UTF-8" ?>

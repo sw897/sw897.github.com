@@ -29,7 +29,17 @@
     <!-- atom & rss feed -->
     <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-
+<!-- 百度异步统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?99b0271e86dcbaf261c060442ef468d3";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 百度异步统计 -->
   </head>
 
   <body>
@@ -53,14 +63,13 @@
       </div>
       <hr>
       <footer>
-        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        <p><small>Powered by <a href="http://jekyllbootstrap.com">Jekyll Bootstrap</a> & <a href="http://pages.github.com">GitHub</a> | &copy; {{site.time | date:"%Y"}} by <a href="/about.html">{{ site.author.name }}</a></small>
         </p>
       </footer>
 
     </div>
 
     {% include JB/analytics %}
+
   </body>
 </html>
