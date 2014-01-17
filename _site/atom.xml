@@ -4,7 +4,7 @@
  <title>sw897 blog</title>
  <link href="http://sw897.github.io/" rel="self"/>
  <link href="http://sw897.github.io"/>
- <updated>2014-01-17T17:27:25+08:00</updated>
+ <updated>2014-01-17T20:04:34+08:00</updated>
  <id>http://sw897.github.io</id>
  <author>
    <name>sw897</name>
@@ -74,13 +74,17 @@
 &lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/Pictures/cdb_publish.png&#39; /&gt;&lt;/p&gt;
 
 &lt;p&gt;这里按embed的方式，引用交互地图&lt;/p&gt;
-&lt;iframe frameborder=&#39;0&#39; height=&#39;520&#39; src=&#39;http://sw897.cartodb.com/viz/68695938-7f47-11e3-9aeb-9b0c6170d3d4/embed_map?title=true&amp;amp;description=true&amp;amp;search=false&amp;amp;shareable=true&amp;amp;cartodb_logo=true&amp;amp;layer_selector=false&amp;amp;legends=false&amp;amp;scrollwheel=true&amp;amp;sublayer_options=1&amp;amp;sql=&amp;amp;zoom=3&amp;amp;center_lat=36.77409249464195&amp;amp;center_lon=-79.453125&#39; width=&#39;100%&#39; /&gt;
+&lt;iframe frameborder=&#39;0&#39; height=&#39;520&#39; src=&#39;http://sw897.cartodb.com/viz/68695938-7f47-11e3-9aeb-9b0c6170d3d4/embed_map?title=true&amp;amp;description=true&amp;amp;search=false&amp;amp;shareable=true&amp;amp;cartodb_logo=true&amp;amp;layer_selector=false&amp;amp;legends=false&amp;amp;scrollwheel=true&amp;amp;sublayer_options=1&amp;amp;sql=&amp;amp;zoom=3&amp;amp;center_lat=36.77409249464195&amp;amp;center_lon=-79.453125&#39; width=&#39;100%&#39;&gt; &lt;/iframe&gt;
 &lt;ul&gt;
 &lt;li&gt;创建新的可视化方案，使用密度图方案，效果如下&lt;/li&gt;
 &lt;/ul&gt;
-&lt;iframe frameborder=&#39;0&#39; height=&#39;520&#39; src=&#39;http://sw897.cartodb.com/viz/bd2d7962-7f48-11e3-a612-db6222d3edab/embed_map?title=true&amp;amp;description=true&amp;amp;search=false&amp;amp;shareable=true&amp;amp;cartodb_logo=true&amp;amp;layer_selector=false&amp;amp;legends=false&amp;amp;scrollwheel=true&amp;amp;sublayer_options=1&amp;amp;sql=&amp;amp;zoom=3&amp;amp;center_lat=36.77409249464195&amp;amp;center_lon=-79.453125&#39; width=&#39;100%&#39; /&gt;
+&lt;iframe frameborder=&#39;0&#39; height=&#39;520&#39; src=&#39;http://sw897.cartodb.com/viz/bd2d7962-7f48-11e3-a612-db6222d3edab/embed_map?title=true&amp;amp;description=true&amp;amp;search=false&amp;amp;shareable=true&amp;amp;cartodb_logo=true&amp;amp;layer_selector=false&amp;amp;legends=false&amp;amp;scrollwheel=true&amp;amp;sublayer_options=1&amp;amp;sql=&amp;amp;zoom=3&amp;amp;center_lat=36.77409249464195&amp;amp;center_lon=-79.453125&#39; width=&#39;100%&#39;&gt; &lt;/iframe&gt;
 &lt;blockquote&gt;
 &lt;p&gt;由于免费账户只有1万的浏览次数，所以很容易挂掉，看不到地图不要惊奇&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;注意：直接从cartodb的public中拷贝的embed script不能直接在jekyll中使用，需要在\&amp;lt;/iframe&amp;gt;结束标签前加入一个空格&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id=&quot;cartodb&quot;&gt;CartoDB&lt;/h3&gt;
@@ -109,7 +113,13 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;在单台机器上搭建一个CartoDB的服务器，可按如下操作：&lt;/p&gt;</content>
+&lt;p&gt;在单台机器上搭建一个CartoDB的服务器，其文档中有在 Ubuntu 10.04 上的安装步骤。以下记录自己的安装过程。&lt;/p&gt;
+
+&lt;h4 id=&quot;step1&quot;&gt;STEP1.&lt;/h4&gt;
+
+&lt;h4 id=&quot;step2&quot;&gt;STEP2.&lt;/h4&gt;
+
+&lt;h4 id=&quot;step3&quot;&gt;STEP3.&lt;/h4&gt;</content>
  </entry>
  
  <entry>

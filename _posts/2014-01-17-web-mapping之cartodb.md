@@ -49,13 +49,17 @@ tags: []
 
 这里按embed的方式，引用交互地图
 
-<iframe width='100%' height='520' frameborder='0' src='http://sw897.cartodb.com/viz/68695938-7f47-11e3-9aeb-9b0c6170d3d4/embed_map?title=true&amp;description=true&amp;search=false&amp;shareable=true&amp;cartodb_logo=true&amp;layer_selector=false&amp;legends=false&amp;scrollwheel=true&amp;sublayer_options=1&amp;sql=&amp;zoom=3&amp;center_lat=36.77409249464195&amp;center_lon=-79.453125'></iframe>
+<iframe width='100%' height='520' frameborder='0' src='http://sw897.cartodb.com/viz/68695938-7f47-11e3-9aeb-9b0c6170d3d4/embed_map?title=true&amp;description=true&amp;search=false&amp;shareable=true&amp;cartodb_logo=true&amp;layer_selector=false&amp;legends=false&amp;scrollwheel=true&amp;sublayer_options=1&amp;sql=&amp;zoom=3&amp;center_lat=36.77409249464195&amp;center_lon=-79.453125'> </iframe>
+
 
 * 创建新的可视化方案，使用密度图方案，效果如下
 
-<iframe width='100%' height='520' frameborder='0' src='http://sw897.cartodb.com/viz/bd2d7962-7f48-11e3-a612-db6222d3edab/embed_map?title=true&amp;description=true&amp;search=false&amp;shareable=true&amp;cartodb_logo=true&amp;layer_selector=false&amp;legends=false&amp;scrollwheel=true&amp;sublayer_options=1&amp;sql=&amp;zoom=3&amp;center_lat=36.77409249464195&amp;center_lon=-79.453125'></iframe>
+<iframe width='100%' height='520' frameborder='0' src='http://sw897.cartodb.com/viz/bd2d7962-7f48-11e3-a612-db6222d3edab/embed_map?title=true&amp;description=true&amp;search=false&amp;shareable=true&amp;cartodb_logo=true&amp;layer_selector=false&amp;legends=false&amp;scrollwheel=true&amp;sublayer_options=1&amp;sql=&amp;zoom=3&amp;center_lat=36.77409249464195&amp;center_lon=-79.453125'> </iframe>
+
 
 > 由于免费账户只有1万的浏览次数，所以很容易挂掉，看不到地图不要惊奇
+
+> 注意：直接从cartodb的public中拷贝的embed script不能直接在jekyll中使用，需要在\</iframe\>结束标签前加入一个空格
 
 ### CartoDB
 
