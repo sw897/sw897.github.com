@@ -3,7 +3,7 @@ layout: post
 title: "Web Mapping之CartoDB"
 description: ""
 category: ""
-tags: []
+tags: [Map,CartoDB]
 ---
 {% include JB/setup %}
 
