@@ -5,10 +5,110 @@
         <description>sw897 blog - sw897</description>
         <link>http://sw897.github.io</link>
         <link>http://sw897.github.io</link>
-        <lastBuildDate>2014-01-04T15:43:19+08:00</lastBuildDate>
-        <pubDate>2014-01-04T15:43:19+08:00</pubDate>
+        <lastBuildDate>2014-01-17T17:27:25+08:00</lastBuildDate>
+        <pubDate>2014-01-17T17:27:25+08:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Web Mapping之CartoDB</title>
+                <description>&lt;blockquote&gt;
+&lt;p&gt;We help people visualize and analyze geospatial data. From polygons to points. From hundreds to millions. No limits with CartoDB.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这是CartoDB主页上的介绍，帮助用户分析与可视化地理空间数据。可以应对成千上万的点或多边形数据。&lt;/p&gt;
+
+&lt;p&gt;在注册过免费账号后，其当前提供的免费服务内容有：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;5个专题表&lt;/li&gt;
+
+&lt;li&gt;5M存储空间&lt;/li&gt;
+
+&lt;li&gt;每月1万次地图浏览&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img alt=&#39;cdb_freeserver&#39; src=&#39;https://dl.dropboxusercontent.com/u/57451074/Pictures/cdb_freeserver.png&#39; /&gt;&lt;/p&gt;
+
+&lt;p&gt;只能用少得可怜来形容。但这些足以来了解其灵活的功能会为您的工作带来的便利。如果有需求，可以转为付费用户。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;以下以CartoDB Blog上的一个展示为例，数据为美国邮局的shp文件，在以下地址下载&lt;a href=&quot;https://viz2.cartodb.com/api/v2/sql?q=SELECT%20*%20FROM%20us_po_offices&amp;format=SHP&quot;&gt;邮局SHP&lt;/a&gt;，包含位置与建立时间等属性字段。 准备好数据后，进入cartodb准备开始&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;&quot;&gt;试用&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;创建新表，并选择刚下载到本地的shp压缩包&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/Pictures/cdb_newtable.png&#39; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;自动上传完成后会进入Table的浏览页面&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;选择创建Map View，更换底图(BaseMap)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/Pictures/cdb_mapview.png&#39; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;通过Wizards来配置专题地图表现，这里模仿blog中的设置，选择Toque进行时间序列可视化，其它设置如图&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/Pictures/cdb_config.png&#39; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;发布与分享，通过Publish功能，可以选择:URL,Embed,API三种发布方式，并可将url发布到facebook或twitter&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/Pictures/cdb_publish.png&#39; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这里按embed的方式，引用交互地图&lt;/p&gt;
+&lt;iframe frameborder=&#39;0&#39; height=&#39;520&#39; src=&#39;http://sw897.cartodb.com/viz/68695938-7f47-11e3-9aeb-9b0c6170d3d4/embed_map?title=true&amp;amp;description=true&amp;amp;search=false&amp;amp;shareable=true&amp;amp;cartodb_logo=true&amp;amp;layer_selector=false&amp;amp;legends=false&amp;amp;scrollwheel=true&amp;amp;sublayer_options=1&amp;amp;sql=&amp;amp;zoom=3&amp;amp;center_lat=36.77409249464195&amp;amp;center_lon=-79.453125&#39; width=&#39;100%&#39; /&gt;
+&lt;ul&gt;
+&lt;li&gt;创建新的可视化方案，使用密度图方案，效果如下&lt;/li&gt;
+&lt;/ul&gt;
+&lt;iframe frameborder=&#39;0&#39; height=&#39;520&#39; src=&#39;http://sw897.cartodb.com/viz/bd2d7962-7f48-11e3-a612-db6222d3edab/embed_map?title=true&amp;amp;description=true&amp;amp;search=false&amp;amp;shareable=true&amp;amp;cartodb_logo=true&amp;amp;layer_selector=false&amp;amp;legends=false&amp;amp;scrollwheel=true&amp;amp;sublayer_options=1&amp;amp;sql=&amp;amp;zoom=3&amp;amp;center_lat=36.77409249464195&amp;amp;center_lon=-79.453125&#39; width=&#39;100%&#39; /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由于免费账户只有1万的浏览次数，所以很容易挂掉，看不到地图不要惊奇&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;cartodb&quot;&gt;CartoDB&lt;/h3&gt;
+
+&lt;p&gt;CartoDB的HOST基础设施并无太多介绍，不能判断是否使用了云计算，但知道其使用Ubuntu12.04LTS操作系统， 其上的软件全部使用开源软件，在GitHub可以找到其项目，其特性如下：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;上传、创建、编辑、可视化和导出空间数据的用户界面&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;利用 PostgreSQL 和 PostGIS 构建空间数据库&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;提供支持SQL查询的API，API使用GeoJSON和KML格式化结果，并基于HTTP提供&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;支持SQL的地图瓦片化，并利用 CartoCSS 支持样式配置&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;基于OAuth的认证&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在单台机器上搭建一个CartoDB的服务器，可按如下操作：&lt;/p&gt;</description>
+                <link>http://sw897.github.io/2014/01/17/web-mapping%E4%B9%8Bcartodb</link>
+                <guid>http://sw897.github.io/2014/01/17/web-mapping之cartodb</guid>
+                <pubDate>2014-01-17T00:00:00+08:00</pubDate>
+        </item>
 
         <item>
                 <title>给jekyll bootstrap增加评论系统</title>
@@ -47,7 +147,7 @@ var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;
     duoshuo:
        short_name : 你的多说账号&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;经过以上3步即可配置完成，有兴趣的朋友可以用同样方法可以试试友言，除评论系统账号部分，全部能用， 其实可以向jekyll bootstrap提交一下代码，方便国人配置使用。&lt;/p&gt;</description>
+&lt;p&gt;经过以上3步即可配置完成，有兴趣的朋友可以用同样方法可以试试&lt;a href=&quot;http://www.uyan.cc/&quot;&gt;友言&lt;/a&gt;，除评论系统账号部分，全部能用， 其实可以向jekyll bootstrap提交一下代码，方便国人配置使用。&lt;/p&gt;</description>
                 <link>http://sw897.github.io/2014/01/03/%E7%BB%99jekyll-bootstrap%E5%A2%9E%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F</link>
                 <guid>http://sw897.github.io/2014/01/03/给jekyll-bootstrap增加评论系统</guid>
                 <pubDate>2014-01-03T00:00:00+08:00</pubDate>
@@ -57,13 +157,13 @@ var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;
                 <title>Web地图制图应用介绍</title>
                 <description>&lt;pre&gt;&lt;code&gt;本文总结一下当前流行的在线地图制图应用。&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Web地图(WebMap)大家都不陌生，相信没有人没有用过GoogleMaps，它把GIS特别是WebGIS带入的主流的IT队伍中， 大大提高了这个小行业的技术进步速度。Web地图制图这个概念在Wikipedia中文中还没有定义页，但对照英语版有两个， Web Cartography与Web Mapping，前者重定向于后者。引用Wikipedia里的一句介绍:&lt;/p&gt;
+&lt;p&gt;Web地图(WebMap)大家都不陌生，相信没有人没有用过GoogleMaps，它把GIS特别是WebGIS带入的主流的IT队伍中， 大大提高了这个小行业的技术进步速度。Web地图制图这个概念在Wikipedia中文中还没有定义页，但对照英语版有两个， &lt;a href=&quot;http://en.wikipedia.org/wiki/Web_cartography&quot;&gt;Web Cartography&lt;/a&gt;与&lt;a href=&quot;http://en.wikipedia.org/wiki/Web_mapping&quot;&gt;Web Mapping&lt;/a&gt;，前者重定向于后者。引用Wikipedia里的一句介绍:&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;web mapping is more than just web cartography,it is both a service activity and consumer activity.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;也就是mapping不止于cartography。这里汇总的应用大体就就当属于cartography，简单理解就是通过Web制作地图。 这种应用也结合云计算与大数据的趋势。&lt;/p&gt;
+&lt;p&gt;也就是mapping不止于cartography。这里汇总的应用大体就就当属于cartography，简单理解就是通过Web在线制作地图(Online Mapping)。 这种应用一般需要解决海量存储等基础设施，所以应当是基于云计算架构的。&lt;/p&gt;
 
 &lt;p&gt;这些应用大体可以分这么两类：&lt;/p&gt;
 
@@ -88,36 +188,34 @@ var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://tiles.mapbox.com/sw897&quot;&gt;Mapbox&lt;/a&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;a href=&quot;https://sw897.cartodb.com/dashboard/&quot;&gt;CartoDb&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://sw897.CartoDB.com/dashboard/&quot;&gt;CartoDB&lt;/a&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;a href=&quot;https://mangomap.com/maps&quot;&gt;MangoMap&lt;/a&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;a href=&quot;http://storymaps.arcgisonline.cn/home/index.html&quot;&gt;ArcGIS Online 地图故事&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;ArcGIS Online&lt;a href=&quot;http://storymaps.arcgisonline.cn/home/index.html&quot;&gt;地图故事&lt;/a&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;a href=&quot;http://www.dituhui.com/&quot;&gt;SuperMap 地图汇&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;SuperMap&lt;a href=&quot;http://www.dituhui.com/&quot;&gt;地图汇&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;UGC那几个不说了，公司或机构拥有海量基础数据，本身就是举足轻重的地图数据提供者， 感兴趣的朋友可以加入到其中，做做贡献，今天只为几个个人专题地图制作云应用而来。&lt;/p&gt;
+&lt;p&gt;UGC制图公司或机构一般需要拥有海量基础数据，本身就是举足轻重的地图数据提供者，使用UGC的模式，借助用户来改善地图数据。 感兴趣的朋友可以加入到其中，做做贡献。&lt;/p&gt;
 
-&lt;p&gt;个人专题地图应用是最近比较时兴的，它们一般技术先进并开放，把科研人员从基本编码中解放出来， 把非专业人员带入制图的世界，让专业人员更专注于专业的事情。总之，大体路线是提供云Host， 解决基础制图问题，包括底图，符号表达，专题可视化等等，剩下的，就是让用户专注专题数据，专注要表达的信息处理， 同时，可视化表达上，也有多种方案，可以让用户快速完成一个拥有绝佳交互体验与视觉冲击的地图。 是GIS社会化应用中功不可没，福泽天下的事情！&lt;/p&gt;
+&lt;p&gt;个人专题地图应用是最近比较时兴的，它们一般技术先进并开放，把科研人员从基本编码中解放出来， 把非专业人员带入制图的世界，让专业人员更专注于专业的事情。总之，大体路线是提供Cloud Infrastructure和制图服务， 解决基础制图问题，包括底图，符号表达，专题可视化等等，剩下的，就是让用户专注专题数据，专注要表达的信息处理， 同时，可视化表达上，也有多种方案，可以让用户快速完成一个拥有绝佳交互体验与视觉冲击的地图。 但这些应用并不是免费的大餐，付费比较昂贵，对于一般用户，只能免费试用一下。&lt;/p&gt;
 
-&lt;p&gt;当然，几家技术路线与背景不同，提供的功能也有差别，但定位与愿望都是美好的。接下我会结合自己的试用逐个介绍， 从前端使用到后端技术两个方面展开，尽量公平公正，不为任何一家广告，让用户按自己的喜好与需求选择。&lt;/p&gt;
+&lt;p&gt;当然，几家技术路线与背景各有不同，提供的功能也有差别。接下我会结合自己的免费试用逐个介绍， 从前端使用到后端技术两个方面展开，让用户按自己的喜好与需求进行选择的时候有所参照。&lt;/p&gt;
 
-&lt;h2 id=&quot;mapbox&quot;&gt;MapBox&lt;/h2&gt;
+&lt;h3 id=&quot;mapbox&quot;&gt;&lt;a href=&quot;https://tiles.mapbox.com/sw897&quot;&gt;MapBox&lt;/a&gt;&lt;/h3&gt;
 
-&lt;h2 id=&quot;cartodb&quot;&gt;CartoDb&lt;/h2&gt;
+&lt;h3 id=&quot;cartodb&quot;&gt;&lt;a href=&quot;https://sw897.CartoDB.com/dashboard/&quot;&gt;CartoDB&lt;/a&gt;&lt;/h3&gt;
 
-&lt;h2 id=&quot;mangomap&quot;&gt;MangoMap&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/2014/01/17/web-mapping%E4%B9%8Bcartodb/&quot;&gt;CartoDB的介绍&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;&quot;&gt;地图故事&lt;/h2&gt;
+&lt;h3 id=&quot;mangomap&quot;&gt;&lt;a href=&quot;https://mangomap.com/maps&quot;&gt;MangoMap&lt;/a&gt;&lt;/h3&gt;
 
-&lt;h2 id=&quot;_2&quot;&gt;地图汇&lt;/h2&gt;
+&lt;h3 id=&quot;&quot;&gt;&lt;a href=&quot;http://storymaps.arcgisonline.cn/home/index.html&quot;&gt;地图故事&lt;/a&gt;&lt;/h3&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;今天没时间了，先列一下标题，内容以后再慢慢补充，一会还要想办法给这个blog加个评论系统，没有交互的blog怎么行&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+&lt;h3 id=&quot;_2&quot;&gt;&lt;a href=&quot;http://www.dituhui.com/&quot;&gt;地图汇&lt;/a&gt;&lt;/h3&gt;</description>
                 <link>http://sw897.github.io/2014/01/03/Web%E5%88%B6%E5%9B%BE%E5%BA%94%E7%94%A8%E4%BB%8B%E7%BB%8D</link>
                 <guid>http://sw897.github.io/2014/01/03/Web制图应用介绍</guid>
                 <pubDate>2014-01-03T00:00:00+08:00</pubDate>

@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Web Mapping之CartoDB</title>
+    <meta name="description" content="">
+    <meta name="author" content="sw897">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<!-- 百度异步统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?99b0271e86dcbaf261c060442ef468d3";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 百度异步统计 -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">sw897 blog</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/rss.xml">RSS</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Web Mapping之CartoDB </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>17 January 2014</span>
+    </div>
+    <div class="content">
+      <blockquote>
+<p>We help people visualize and analyze geospatial data. From polygons to points. From hundreds to millions. No limits with CartoDB.</p>
+</blockquote>
+
+<p>这是CartoDB主页上的介绍，帮助用户分析与可视化地理空间数据。可以应对成千上万的点或多边形数据。</p>
+
+<p>在注册过免费账号后，其当前提供的免费服务内容有：</p>
+
+<ul>
+<li>5个专题表</li>
+
+<li>5M存储空间</li>
+
+<li>每月1万次地图浏览</li>
+</ul>
+
+<p><img alt='cdb_freeserver' src='https://dl.dropboxusercontent.com/u/57451074/Pictures/cdb_freeserver.png' /></p>
+
+<p>只能用少得可怜来形容。但这些足以来了解其灵活的功能会为您的工作带来的便利。如果有需求，可以转为付费用户。</p>
+
+<blockquote>
+<p>以下以CartoDB Blog上的一个展示为例，数据为美国邮局的shp文件，在以下地址下载<a href="https://viz2.cartodb.com/api/v2/sql?q=SELECT%20*%20FROM%20us_po_offices&format=SHP">邮局SHP</a>，包含位置与建立时间等属性字段。 准备好数据后，进入cartodb准备开始</p>
+</blockquote>
+
+<h3 id="">试用</h3>
+
+<ul>
+<li>创建新表，并选择刚下载到本地的shp压缩包</li>
+</ul>
+
+<p><img src='https://dl.dropboxusercontent.com/u/57451074/Pictures/cdb_newtable.png' /></p>
+
+<ul>
+<li>
+<p>自动上传完成后会进入Table的浏览页面</p>
+</li>
+
+<li>
+<p>选择创建Map View，更换底图(BaseMap)</p>
+</li>
+</ul>
+
+<p><img src='https://dl.dropboxusercontent.com/u/57451074/Pictures/cdb_mapview.png' /></p>
+
+<ul>
+<li>通过Wizards来配置专题地图表现，这里模仿blog中的设置，选择Toque进行时间序列可视化，其它设置如图</li>
+</ul>
+
+<p><img src='https://dl.dropboxusercontent.com/u/57451074/Pictures/cdb_config.png' /></p>
+
+<ul>
+<li>发布与分享，通过Publish功能，可以选择:URL,Embed,API三种发布方式，并可将url发布到facebook或twitter</li>
+</ul>
+
+<p><img src='https://dl.dropboxusercontent.com/u/57451074/Pictures/cdb_publish.png' /></p>
+
+<p>这里按embed的方式，引用交互地图</p>
+<iframe frameborder='0' height='520' src='http://sw897.cartodb.com/viz/68695938-7f47-11e3-9aeb-9b0c6170d3d4/embed_map?title=true&amp;description=true&amp;search=false&amp;shareable=true&amp;cartodb_logo=true&amp;layer_selector=false&amp;legends=false&amp;scrollwheel=true&amp;sublayer_options=1&amp;sql=&amp;zoom=3&amp;center_lat=36.77409249464195&amp;center_lon=-79.453125' width='100%' />
+<ul>
+<li>创建新的可视化方案，使用密度图方案，效果如下</li>
+</ul>
+<iframe frameborder='0' height='520' src='http://sw897.cartodb.com/viz/bd2d7962-7f48-11e3-a612-db6222d3edab/embed_map?title=true&amp;description=true&amp;search=false&amp;shareable=true&amp;cartodb_logo=true&amp;layer_selector=false&amp;legends=false&amp;scrollwheel=true&amp;sublayer_options=1&amp;sql=&amp;zoom=3&amp;center_lat=36.77409249464195&amp;center_lon=-79.453125' width='100%' />
+<blockquote>
+<p>由于免费账户只有1万的浏览次数，所以很容易挂掉，看不到地图不要惊奇</p>
+</blockquote>
+
+<h3 id="cartodb">CartoDB</h3>
+
+<p>CartoDB的HOST基础设施并无太多介绍，不能判断是否使用了云计算，但知道其使用Ubuntu12.04LTS操作系统， 其上的软件全部使用开源软件，在GitHub可以找到其项目，其特性如下：</p>
+
+<ul>
+<li>
+<p>上传、创建、编辑、可视化和导出空间数据的用户界面</p>
+</li>
+
+<li>
+<p>利用 PostgreSQL 和 PostGIS 构建空间数据库</p>
+</li>
+
+<li>
+<p>提供支持SQL查询的API，API使用GeoJSON和KML格式化结果，并基于HTTP提供</p>
+</li>
+
+<li>
+<p>支持SQL的地图瓦片化，并利用 CartoCSS 支持样式配置</p>
+</li>
+
+<li>
+<p>基于OAuth的认证</p>
+</li>
+</ul>
+
+<p>在单台机器上搭建一个CartoDB的服务器，可按如下操作：</p>
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#-ref">
+    		 <span>4</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+  
+
+  
+
+    <hr>
+    <div class="pagination">
+      <ul class="pager">
+      
+      <li class="previous"><a href="/2014/01/03/%E7%BB%99jekyll-bootstrap%E5%A2%9E%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F" title="给jekyll bootstrap增加评论系统">&larr; 给jekyll bootstrap增加评论系统</a></li>
+      
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:'sw897'};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p><small>Powered by <a href="http://jekyllbootstrap.com">Jekyll Bootstrap</a> & <a href="http://pages.github.com">GitHub</a> | &copy; 2014 by <a href="/about.html">sw897</a></small>
+        </p>
+      </footer>
+
+    </div>
+
+    
+
+  </body>
+</html>
+
