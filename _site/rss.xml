@@ -5,20 +5,22 @@
         <description>sw897 blog - sw897</description>
         <link>http://sw897.github.io</link>
         <link>http://sw897.github.io</link>
-        <lastBuildDate>2014-02-15T20:30:38+08:00</lastBuildDate>
-        <pubDate>2014-02-15T20:30:38+08:00</pubDate>
+        <lastBuildDate>2014-02-15T20:48:18+08:00</lastBuildDate>
+        <pubDate>2014-02-15T20:48:18+08:00</pubDate>
         <ttl>1800</ttl>
 
 
         <item>
                 <title>使用Sublime Text 3做Python开发</title>
-                <description>&lt;p&gt;刚转到OS X平台时，寻找写Python,JavaScript,Markdown等文件的工具时，比较了许多工具， 最终选择了Sublime Text 2，主要原因是其跨平台， 想着用习惯后再转到windows下时不会再重新适应。 即使在使用Sublime Text 2以后，还是有相当长的时间在怀念Notepad++的各种好，盼望其明天就有OS X版本。 经过一段时间后，才越来越感觉到她的各种好，用来做一些python的简单开发逐渐得心应手。 Sublime Text 3的beta版本也推出挺长时间了，但其中文介绍文档少得可怜，而且还只是停留在安装Package Control上， 而且担心自己在使用的plugins会不会不支持3版本，于是就一直没有尝试。 这段时间有空，禁不住天天想3会比2更完美，于是决定折腾一下。&lt;/p&gt;
+                <description>&lt;p&gt;刚转到OS X平台时，寻找写Python,JavaScript,Markdown等文件的工具时，比较了许多工具， 最终选择了Sublime Text 2，主要原因是其跨平台， 想着以后再转到windows下开发时，不需要再重新适应其他工具。 Sublime Text 2学习曲线不像Vim那么陡峭，但想用得顺手，还是需要时间。在使用Sublime Text 2以后，还是有一段时间在怀念Notepad++的各种好，幻想notpad++明天会有OS X版本。 这段时间过后，越来越感觉到Sublime的强大，notepad++开始淡出了记忆。 Sublime Text 3的beta版本推出很长时间了，但其中文介绍文档非常少，多数介绍也只是停留在如何安装Package Control上，对开发相关插件介绍很少。正因为如此，许多人都在担心自己使用的plugins还不支持版本3，于是就一直不进行升级，我也是这种心态的其中一个。 这段时间有空，终于决定折腾一下。&lt;/p&gt;
 
-&lt;p&gt;首先，看一下&lt;a href=&quot;https://sublime.wbond.net&quot;&gt;Package Contorl网站&lt;/a&gt;上的一张统计图，给大家吃个定心丸&lt;/p&gt;
+&lt;p&gt;开始之前，看到&lt;a href=&quot;https://sublime.wbond.net&quot;&gt;Package Contorl网站&lt;/a&gt;上的一张统计图，给自己吃了个定心丸&lt;/p&gt;
 
 &lt;p&gt;&lt;img alt=&#39;sublime text package control stat&#39; src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/sublime_pc_stat.png&#39; /&gt;&lt;/p&gt;
 
-&lt;p&gt;可以看到，绝大部的插件已完成3版本的兼容，而且还有少量专为3定制的新插件。所以，大家可以放心转到3版本上来试用了。 不排除你用的奇葩插件还不支持3版本，但如果这样，我的建议就是把那个插件换掉吧，更新这么不及时，一定不是最合适的了。&lt;/p&gt;
+&lt;p&gt;可以看到，绝大部的插件已完成3版本的兼容，而且还有少量专为3定制的新插件。所以，大家可以放心转到3版本上来试用了。后面介绍的python开发环境支持插件就是从Sublime 3独有，具体是哪个这里暂不解密。&lt;/p&gt;
+
+&lt;p&gt;当然，不排除有些奇葩插件还不支持3版本，但如果这样，我的建议就是把那个插件换掉吧，更新这么不及时，一定不是最合适的了。&lt;/p&gt;
 
 &lt;h3 id=&quot;package_control&quot;&gt;安装Package Control&lt;/h3&gt;
 
@@ -32,7 +34,7 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 
 &lt;h3 id=&quot;plugins&quot;&gt;安装Plugins的万能方法&lt;/h3&gt;
 
-&lt;p&gt;通过&lt;code&gt;ctrl+shift+p&lt;/code&gt;进入&lt;code&gt;Command Palette&lt;/code&gt;， 输入&lt;code&gt;Package Contorl: Install Package&lt;/code&gt;或简写为&lt;code&gt;ip&lt;/code&gt;， 回车执行，进入插件的搜索窗口，查找选择到需要的插件后，回车即可等待完成安装，具体状况在状态栏内会有文字提示。&lt;/p&gt;
+&lt;p&gt;通过&lt;code&gt;ctrl+shift+p&lt;/code&gt;进入&lt;code&gt;Command Palette&lt;/code&gt;， 输入&lt;code&gt;Package Contorl: Install Package&lt;/code&gt;或简写为&lt;code&gt;ip&lt;/code&gt;， 回车执行，进入插件的搜索窗口，查找选择到需要的插件后，回车即可等待完成安装，招待状态在sublime最下面的状态栏内会有文字提示。&lt;/p&gt;
 
 &lt;h3 id=&quot;&quot;&gt;一般配置&lt;/h3&gt;
 
@@ -120,7 +122,7 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 &lt;li&gt;&lt;a href=&quot;https://sublime.wbond.net/packages/Anaconda&quot;&gt;Anaconda&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://sublime.wbond.net/packages/Anaconda&quot;&gt;Anaconda&lt;/a&gt;绝对是换到Sublime Text 3后最令我兴奋的插件，没有之一。在Sublime Text 2的时代，为配置一个好用的python开发环境， 我们需要分别安装All Autocomplete,SublimeREPL,Pylinter和PEP8等诸多插件。 Geek就是让一切变得更简单，该插件作者就为了简便，把这些功能集中起来，方便自己同时造福大家。 &lt;a href=&quot;https://sublime.wbond.net/packages/Anaconda&quot;&gt;Anaconda&lt;/a&gt;把PyFlakes, pep8 和 McCabe以插件的方式集成起来。安装&lt;a href=&quot;https://sublime.wbond.net/packages/Anaconda&quot;&gt;Anaconda&lt;/a&gt;后，通过配置即可完成一个良好的Python开发环境。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://sublime.wbond.net/packages/Anaconda&quot;&gt;Anaconda&lt;/a&gt;绝对是换到Sublime Text 3后最令我兴奋的插件，没有之一。在Sublime Text 2的时代，为配置一个好用的python开发环境， 我们需要分别安装All Autocomplete,SublimeREPL,Pylinter和PEP8等诸多插件。 Geek就是让一切变得更简单，该插件作者就为了简便，把这些功能集中起来了。 &lt;a href=&quot;https://sublime.wbond.net/packages/Anaconda&quot;&gt;Anaconda&lt;/a&gt;把PyFlakes, pep8 和 McCabe以插件的方式集成起来。安装&lt;a href=&quot;https://sublime.wbond.net/packages/Anaconda&quot;&gt;Anaconda&lt;/a&gt;后，通过配置即可完成一个良好的Python开发环境。&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Anaconda is a python development suite that includes autocompletion, IDE features, linting with PyLint or PyFlakes + pep8, AutoPEP8 , Vagrant and more for Sublime Text 3.&lt;/p&gt;
@@ -160,7 +162,7 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 
 &lt;h3 id=&quot;_3&quot;&gt;结束&lt;/h3&gt;
 
-&lt;p&gt;到此配置完成，感受 Sublime Text 3的快如疾风，风驰电掣吧！&lt;/p&gt;</description>
+&lt;p&gt;只需要这几个插件的安装与配置，就能使sublime text 3成为一个高效的python开发工具，接下来，感受 Sublime Text 3的快如疾风，风驰电掣吧！&lt;/p&gt;</description>
                 <link>http://sw897.github.io/2014/02/13/%E4%BD%BF%E7%94%A8sublime-text-3%E5%81%9Apython%E5%BC%80%E5%8F%91</link>
                 <guid>http://sw897.github.io/2014/02/13/使用sublime-text-3做python开发</guid>
                 <pubDate>2014-02-13T00:00:00+08:00</pubDate>
