@@ -4,7 +4,7 @@
  <title>sw897 blog</title>
  <link href="http://sw897.github.io/" rel="self"/>
  <link href="http://sw897.github.io"/>
- <updated>2014-02-10T15:13:47+08:00</updated>
+ <updated>2014-02-15T20:30:38+08:00</updated>
  <id>http://sw897.github.io</id>
  <author>
    <name>sw897</name>
@@ -13,11 +13,167 @@
 
  
  <entry>
+   <title>使用Sublime Text 3做Python开发</title>
+   <link href="http://sw897.github.io/2014/02/13/%E4%BD%BF%E7%94%A8sublime-text-3%E5%81%9Apython%E5%BC%80%E5%8F%91"/>
+   <updated>2014-02-13T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/02/13/使用sublime-text-3做python开发</id>
+   <content type="html">&lt;p&gt;刚转到OS X平台时，寻找写Python,JavaScript,Markdown等文件的工具时，比较了许多工具， 最终选择了Sublime Text 2，主要原因是其跨平台， 想着用习惯后再转到windows下时不会再重新适应。 即使在使用Sublime Text 2以后，还是有相当长的时间在怀念Notepad++的各种好，盼望其明天就有OS X版本。 经过一段时间后，才越来越感觉到她的各种好，用来做一些python的简单开发逐渐得心应手。 Sublime Text 3的beta版本也推出挺长时间了，但其中文介绍文档少得可怜，而且还只是停留在安装Package Control上， 而且担心自己在使用的plugins会不会不支持3版本，于是就一直没有尝试。 这段时间有空，禁不住天天想3会比2更完美，于是决定折腾一下。&lt;/p&gt;
+
+&lt;p&gt;首先，看一下&lt;a href=&quot;https://sublime.wbond.net&quot;&gt;Package Contorl网站&lt;/a&gt;上的一张统计图，给大家吃个定心丸&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#39;sublime text package control stat&#39; src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/sublime_pc_stat.png&#39; /&gt;&lt;/p&gt;
+
+&lt;p&gt;可以看到，绝大部的插件已完成3版本的兼容，而且还有少量专为3定制的新插件。所以，大家可以放心转到3版本上来试用了。 不排除你用的奇葩插件还不支持3版本，但如果这样，我的建议就是把那个插件换掉吧，更新这么不及时，一定不是最合适的了。&lt;/p&gt;
+
+&lt;h3 id=&quot;package_control&quot;&gt;安装Package Control&lt;/h3&gt;
+
+&lt;p&gt;现在Sublime Text 3的安装方法和版本2一样，只是粘贴的代码内容稍有不同，在&lt;a href=&quot;https://sublime.wbond.net&quot;&gt;Package Contorl网站&lt;/a&gt;上有安装方法。使用快捷键&lt;code&gt;ctrl+`&lt;/code&gt;或通过菜单选项&lt;code&gt;View &amp;gt; Show Console&lt;/code&gt;进入控制台Console，然后粘贴如下代码，回车运行。&lt;/p&gt;
+
+&lt;pre class=&quot;python&quot;&gt;&lt;code class=&quot;python&quot;&gt;
+import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0&amp;#39;; pf = &amp;#39;Package Control.sublime-package&amp;#39;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &amp;#39;http://sublime.wbond.net/&amp;#39; + pf.replace(&amp;#39; &amp;#39;, &amp;#39;%20&amp;#39;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&amp;#39;Error validating download (got %s instead of %s), please try manual install&amp;#39; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &amp;#39;wb&amp;#39; ).write(by)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;安装完成后我们就正式开始配置Sublime Text!&lt;/p&gt;
+
+&lt;h3 id=&quot;plugins&quot;&gt;安装Plugins的万能方法&lt;/h3&gt;
+
+&lt;p&gt;通过&lt;code&gt;ctrl+shift+p&lt;/code&gt;进入&lt;code&gt;Command Palette&lt;/code&gt;， 输入&lt;code&gt;Package Contorl: Install Package&lt;/code&gt;或简写为&lt;code&gt;ip&lt;/code&gt;， 回车执行，进入插件的搜索窗口，查找选择到需要的插件后，回车即可等待完成安装，具体状况在状态栏内会有文字提示。&lt;/p&gt;
+
+&lt;h3 id=&quot;&quot;&gt;一般配置&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;主题&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;sublime text可以通过插件安装很多主题，肯定有一款适合你。这里还是推荐在Sublime Text 2上一直使用的&lt;a href=&quot;http://buymeasoda.github.io/soda-theme/&quot;&gt;Theme - Soda Dark&lt;/a&gt;主题， 颜色模板使用&lt;a href=&quot;https://github.com/theymaybecoders/sublime-tomorrow-theme&quot;&gt;Color Scheme - Tomorrow Night&lt;/a&gt;，两者的搭配应该算的上经典，从notepad++转到Sublime Text 2时基本所有的介绍文档都是这么推荐的。 大家可以通过上面介绍的插件安装方法尝试一下。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;配置文件内容
+&lt;pre class=&quot;json&quot;&gt;&lt;code class=&quot;json&quot;&gt;
+  // Colors
+  &amp;quot;color_scheme&amp;quot;: &amp;quot;Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme&amp;quot;,
+  &amp;quot;theme&amp;quot;: &amp;quot;Soda Dark 3.sublime-theme&amp;quot;,
+  // Font
+  &amp;quot;font_size&amp;quot;: 12.0,
+  &amp;quot;font_options&amp;quot;: [&amp;quot;subpixel_antialias&amp;quot;, &amp;quot;no_bold&amp;quot;],
+  &amp;quot;line_padding_bottom&amp;quot;: 1,
+  &amp;quot;line_padding_top&amp;quot;: 1,
+  // Editor view
+  &amp;quot;draw_white_space&amp;quot;: &amp;quot;all&amp;quot;,
+  &amp;quot;fold_buttons&amp;quot;: false,
+  &amp;quot;highlight_line&amp;quot;: true,
+  &amp;quot;auto_complete&amp;quot;: false,
+  &amp;quot;show_minimap&amp;quot;: false,
+  &amp;quot;show_full_path&amp;quot;: true,
+  // Editor behavior
+  &amp;quot;scroll_past_end&amp;quot;: false,
+  &amp;quot;highlight_modified_tabs&amp;quot;: true,
+  &amp;quot;find_selected_text&amp;quot;: true,
+  // Whitespace - no tabs, trimming, end files with \n
+  &amp;quot;tab_size&amp;quot;: 4,
+  &amp;quot;translate_tabs_to_spaces&amp;quot;: true,
+  &amp;quot;trim_trailing_white_space_on_save&amp;quot;: true,
+  &amp;quot;ensure_newline_at_eof_on_save&amp;quot;: true,
+  // Sidebar
+  &amp;quot;file_exclude_patterns&amp;quot;:
+  [
+      &amp;quot;.DS_Store&amp;quot;,
+      &amp;quot;*.pid&amp;quot;,
+      &amp;quot;*.pyc&amp;quot;
+  ],
+  &amp;quot;folder_exclude_patterns&amp;quot;:
+  [
+      &amp;quot;.git&amp;quot;,
+      &amp;quot;__pycache__&amp;quot;
+  ],
+  // Package Control
+  &amp;quot;ignored_packages&amp;quot;:
+  [
+      &amp;quot;Vintage&amp;quot;
+  ]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;个人不喜欢自动切分换行功能，于是没有配置，所以后面把PEP8中的E501排除掉了&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;_2&quot;&gt;开发环境插件&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://sublime.wbond.net/packages/Git&quot;&gt;Git&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;版本库是软件开发中不可缺少的工具，该插件把Git常用命令加入了&lt;code&gt;Command Palette&lt;/code&gt;，让开发人员进行代码管理方便不少。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/sublime_git.png&#39; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://sublime.wbond.net/packages/GitGutter&quot;&gt;GitGutter&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这个小插件是在修改后的文件行号前增加一些标识图片，方便与版本库对比，修改内容一目了然。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/sublime_gitgutter.png&#39; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://sublime.wbond.net/packages/Gist&quot;&gt;Gist&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;创建新Gists的插件&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://sublime.wbond.net/packages/Anaconda&quot;&gt;Anaconda&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://sublime.wbond.net/packages/Anaconda&quot;&gt;Anaconda&lt;/a&gt;绝对是换到Sublime Text 3后最令我兴奋的插件，没有之一。在Sublime Text 2的时代，为配置一个好用的python开发环境， 我们需要分别安装All Autocomplete,SublimeREPL,Pylinter和PEP8等诸多插件。 Geek就是让一切变得更简单，该插件作者就为了简便，把这些功能集中起来，方便自己同时造福大家。 &lt;a href=&quot;https://sublime.wbond.net/packages/Anaconda&quot;&gt;Anaconda&lt;/a&gt;把PyFlakes, pep8 和 McCabe以插件的方式集成起来。安装&lt;a href=&quot;https://sublime.wbond.net/packages/Anaconda&quot;&gt;Anaconda&lt;/a&gt;后，通过配置即可完成一个良好的Python开发环境。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Anaconda is a python development suite that includes autocompletion, IDE features, linting with PyLint or PyFlakes + pep8, AutoPEP8 , Vagrant and more for Sublime Text 3.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;安装时可以通过Package Control安装，也可以使用Git追踪最新版本。&lt;a href=&quot;https://github.com/DamnWidget/anaconda&quot;&gt;GitHub地址&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;安装成功后在插件配置内打开&lt;a href=&quot;https://sublime.wbond.net/packages/Anaconda&quot;&gt;Anaconda&lt;/a&gt;的REAMME，可以参考进行个性配置。我这里做了如下的修改：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;增加对象的点操作符时的自动提示&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在&lt;code&gt;Packages/User&lt;/code&gt;目录下创建&lt;code&gt;Python.sublime-settings&lt;/code&gt;文件，增加如下内容&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;auto_complete_triggers&amp;quot;: [{&amp;quot;selector&amp;quot;: &amp;quot;source.python - string - comment - constant.numeric&amp;quot;, &amp;quot;characters&amp;quot;: &amp;quot;.&amp;quot;}]
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;增加括号操作符后的参数自动完成&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在&lt;code&gt;Anaconda Setting&lt;/code&gt;中修改&lt;code&gt;complete_parameters&lt;/code&gt;参数的值为&lt;code&gt;true&lt;/code&gt;。 这里还有一个参数为&lt;code&gt;complete_all_parameters&lt;/code&gt;，设置其为&lt;code&gt;true&lt;/code&gt;后，则带默认值的参数也会自动完成。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;忽略&lt;code&gt;AutoFormat PEP8&lt;/code&gt;中E501的提示&lt;/p&gt;
+
+&lt;p&gt;“pep8_ignore”: [ “E501” ]&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;其他设置均使用默认值。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/sublime_anaconda.png&#39; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;_3&quot;&gt;结束&lt;/h3&gt;
+
+&lt;p&gt;到此配置完成，感受 Sublime Text 3的快如疾风，风驰电掣吧！&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>动态链接库的搜索</title>
    <link href="http://sw897.github.io/2014/02/10/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%90%9C%E7%B4%A2"/>
    <updated>2014-02-10T00:00:00+08:00</updated>
    <id>http://sw897.github.io/2014/02/10/动态链接库的搜索</id>
-   <content type="html">&lt;h4 id=&quot;windows&quot;&gt;Windows&lt;/h4&gt;
+   <content type="html">&lt;h3 id=&quot;windows&quot;&gt;Windows&lt;/h3&gt;
 
 &lt;p&gt;最早开发程序的运行平台是windows的，这也是学习的起点。当时对动态链接库的认识就是DLL， 以为天下的动态链接库都是DLL。对动态库的喜爱也随着开发的深入，动态库的不同版本之间的冲突带入了恶梦。 怎样解决不同程序间使用的相同动态库的不同版本？了解了windows上动态库的搜索顺序，才有了大约的解决。 如果有对应的*.manifest文件，则按其文件内的绝对路径，否则按如下的顺序：&lt;/p&gt;
 
@@ -45,19 +201,27 @@
 
 &lt;p&gt;太久没有做windows开发了，认识也就停留在这个层面，MSDN上的 &lt;a href=&quot;http://msdn.microsoft.com/en-us/library/ms682586%28VS.85%29.aspx&quot;&gt;这篇文章&lt;/a&gt; 有更新更准确的介绍，这里留个链接，对有需要的朋友转入学习。&lt;/p&gt;
 
-&lt;h4 id=&quot;linux&quot;&gt;Linux&lt;/h4&gt;
+&lt;h3 id=&quot;linux&quot;&gt;Linux&lt;/h3&gt;
 
 &lt;p&gt;过去一段时间用的最多的，也是比较熟悉的一个了。也就是从这个系统开始知道：DLL是动态链接库，但动态链接库不一定是DLL。 了解了linux上的动态库的搜索方法，才感叹在windows上处理方法的笨拙。 Linux系统中，动态链接的程序在运行时会自动链接ld.so这个库，ld.so负责找到其他的链接库。 搜索的依据有若干条，优先级最高，也是最推荐的是，在链接的时候加入 -rpath 参数指明所谓的 RUNPATH，这样可执行文件（或者依赖其他动态链接库的动态链接库）就能告诉 ld.so 到哪里去搜索对应的动态链接库了。 对于没有设定 RPATH 的可执行文件或者动态链接库，我们可以用 LD_LIBRARY_PATH 这个环境变量通知 ld.so， 这个方法的问题是，环境变量有时候设置了（如果 export 的话）会导致其他不需要设置的程序载入了不应该载入的动态链接库， 不 export 就得每次先设定再执行。通过 LD_PRELOAD 我们可以要求 ld.so 预先载入某些动态链接库， 这样就能 override 系统的动态链接库（比如使用特殊版本的 libc.so）。 还有就是在/etc/ld.so.conf中指定的路径。&lt;/p&gt;
 
 &lt;p&gt;可以通过 man ld.so查看更多的帮助，通过 ldd查看一个文件依赖的动态链接库，通过 chrpath 修改文件的 RPATH。 值得注意的是 RPATH 本身也可以通过环境变量 RUNPATH 进行覆盖。&lt;/p&gt;
 
-&lt;h4 id=&quot;os_x&quot;&gt;OS X&lt;/h4&gt;
+&lt;h3 id=&quot;os_x&quot;&gt;OS X&lt;/h3&gt;
 
 &lt;p&gt;苹果的Mac OS X从10.8改为了OS X，也就是在这个时候我开始接触这个操作系统，并准备把工作转到这里进行。 虽然并未准备做OS X或iOS的原生开发，但只是安装一些开源软件也需要把动态链接库的搜索搞明白。 Mac从BSD走来，它与Linux的还是有区别的，特别是实行dmg的安装包，以及FrameWorks的引入，更显复杂了。&lt;/p&gt;
 
 &lt;p&gt;它的 dynamic linker 是 dyld 这个程序，动态链接库的载入是依靠它完成解析之类的事情，它支持三个@executable_path, @loader_path, @rpath，具体可以参考&lt;a href=&quot;https://wincent.com/wiki/@executable_path,_@load_path_and_@rpath&quot;&gt;这篇&lt;/a&gt;, 以及&lt;a href=&quot;http://www.dribin.org/dave/blog/archives/2009/11/15/rpath/&quot;&gt;另一篇&lt;/a&gt;文章来学习。&lt;/p&gt;
 
 &lt;p&gt;可以通过man dyld查看更多帮助，通过 otool -L查看一个文件依赖的动态链接库， 通过 install_name_tool -change 修改动态链接库的位置。 开发阶段往往直接链接到本地的dylib，此时对应的文件里面的路径一般是绝对路径，可以在发布的时候替换成相对路径。 编译动态链接库时，如果是 share 到任意程序的的动态库，通过 -install_name 插入绝对路径； 否则根据情况，比如是 app bundle 还是 plugin，设定为对应变量的相对位置; install_name 保证其他文件动态连接它时插入的名字是这个给定的字符串。 install name 可以用 install_name_tool -id 来修改。它依赖的动态链接库使用 -rpath 指定， 这样就算连接的动态链接库位置不是系统路径，也能自动找到。 比如我们写了一个 liba.dylib，为了很多其他程序方便用它，如果是类似 Linux 的做法， install name 可能是 /usr/local/lib/liba.dylib， 这样我的程序 app_a 直接写 -L/usr/local/lib -la 就能正确的找到在 /usr/local/lib 下的动态链接库。 如果 app_a 在写的时候 liba 也没写完，那么编译 liba 时写成 @rpath/liba.dylib 更合适， 因为 app_a 通过修改 -rpath 就可以测试正在写的 liba 或者是 deploy 到 /usr/local/lib 下的两个版本。 尽管仍然是 -L some-dir -la 链接 app_a 的，这里的 some-dir 可以是 /usr/local/lib 也可以是开发环境下的目录。&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Web Mapping之MapBox</title>
+   <link href="http://sw897.github.io/2014/02/10/web-mapping%E4%B9%8Bmapbox"/>
+   <updated>2014-02-10T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/02/10/web-mapping之mapbox</id>
+   <content type="html"></content>
  </entry>
  
  <entry>
@@ -260,21 +424,23 @@ var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;
 
 &lt;p&gt;ArcGIS做为业内的领军，Online产品也是越来越好，而且商业化模式成功，&lt;a href=&quot;http://storymaps.arcgisonline.cn/home/index.html&quot;&gt;地图故事&lt;/a&gt;应当算是这几个中名气最大的了，本土化支撑， 特别是在高校中举办各种活动，培养新生的GISer们，大家都快感觉”ArcGIS是国产软件”不是错觉了。&lt;/p&gt;
 
-&lt;p&gt;超图的&lt;a href=&quot;http://www.dituhui.com/&quot;&gt;地图汇&lt;/a&gt;也是其中很有特色的产品，结合建设国内大量在线地图应用的经验， 直接将属性与空间的连接功能(GeoCode,GeoReference)结合进去， 按世界，国家，省，市等几个等级组织，如果属性表里中有标准地名字段，可直接在图上形成专题图。 这种方法大大降低了用户门槛，更适合一般用户使用。另外，还提供了变形地图等少见的可视化方法，也是一个创新。 不过产品比较固化，没有给用户提供更多层次的接口，给人传统网站应用的感觉。 特别国内特色的，针对局域网的部署方案，典型的面向政府部分的应用模式。只能问一句：咱能有点互联网应用的节操么？&lt;/p&gt;
+&lt;p&gt;超图的&lt;a href=&quot;http://www.dituhui.com/&quot;&gt;地图汇&lt;/a&gt;也是其中很有特色的产品，结合建设国内大量在线地图应用的经验， 直接将属性与空间的连接功能(GeoCode,GeoReference)结合进去， 按世界，国家，省，市等几个等级组织，如果属性表里中有标准地名字段，可直接在图上形成专题图。 这种方法大大降低了用户门槛，更适合一般用户使用。另外，还提供了变形地图等少见的可视化方法，也是一个创新。 不过产品比较固化，没有给用户提供更多层次的接口，给人传统网站应用的感觉。 特别国内特色的，针对局域网的部署方案，典型的面向政府部门的应用模式。只能问一句：咱能有点互联网应用的节操么？&lt;/p&gt;
 
 &lt;p&gt;这里主要介绍几个制图应用，至于如何选择，还要看大家的需求而定。 个人比较推荐的是&lt;a href=&quot;https://sw897.CartoDB.com/dashboard/&quot;&gt;CartoDB&lt;/a&gt;，本身功能强大，分发方便，又提供多种层次接口，可伸缩性强，适合有一定想法的用户。&lt;/p&gt;</content>
  </entry>
  
  <entry>
-   <title>一个开始于2013的最后一天</title>
-   <link href="http://sw897.github.io/2013/12/31/%E4%B8%80%E4%B8%AA%E5%BC%80%E5%A7%8B%E4%BA%8E2013%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9"/>
+   <title>开始于2013的最后一天</title>
+   <link href="http://sw897.github.io/2013/12/31/%E5%BC%80%E5%A7%8B%E4%BA%8E2013%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9"/>
    <updated>2013-12-31T00:00:00+08:00</updated>
-   <id>http://sw897.github.io/2013/12/31/一个开始于2013的最后一天</id>
-   <content type="html">&lt;p&gt;开始了，终于开始了。&lt;/p&gt;
+   <id>http://sw897.github.io/2013/12/31/开始于2013的最后一天</id>
+   <content type="html">&lt;p&gt;终于开始自己的博客了。&lt;/p&gt;
 
-&lt;p&gt;一个结束，预示着一个开始。一年的最后一天，是一个结束，更是一个开始。&lt;/p&gt;
+&lt;p&gt;今天是一年的最后一天，是一个结束，而预示着一个新的开始。&lt;/p&gt;
 
-&lt;p&gt;一个开头，也不知道写什么，也不想总结过去或是写什么技术，总结一下选择从这里开始的原因与过程吧。&lt;/p&gt;
+&lt;p&gt;这个博客准备组织些什么文字，自己还没想好，应该不是过往的专业相关内容的总结， 总体构想是基于MacBook的适应使用过程，结合在读在看的一些东西，随便敲些文字。向着诸多大神的“技术+文艺”出发！&lt;/p&gt;
+
+&lt;p&gt;一个开头，也不知道写什么，就总结一下选择在GitHub开博的原因与过程吧。&lt;/p&gt;
 
 &lt;h2 id=&quot;githubjekyll&quot;&gt;为什么选择使用GitHub+Jekyll？&lt;/h2&gt;
 
@@ -344,7 +510,7 @@ $ which jekyll
 
 &lt;h3 id=&quot;github&quot;&gt;同步到GitHub&lt;/h3&gt;
 
-&lt;p&gt;首次在在本地折腾差不多后，使用GitHub for Mac Commit&amp;amp;Sync到GitHub上，就与大家同享文章了。&lt;/p&gt;
+&lt;p&gt;首次在在本地折腾差不多后，使用GitHub for Mac Commit&amp;amp;Sync到GitHub上，就与大家共享文章了。&lt;/p&gt;
 
 &lt;p&gt;新发文章或增加Page时，使用Jekyll Bootstrap提供的小工具很方便，专心写文章吧！&lt;/p&gt;
 &lt;hr /&gt;

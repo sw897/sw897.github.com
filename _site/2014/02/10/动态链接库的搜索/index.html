@@ -129,7 +129,7 @@ var _hmt = _hmt || [];
       <span>10 February 2014</span>
     </div>
     <div class="content">
-      <h4 id="windows">Windows</h4>
+      <h3 id="windows">Windows</h3>
 
 <p>最早开发程序的运行平台是windows的，这也是学习的起点。当时对动态链接库的认识就是DLL， 以为天下的动态链接库都是DLL。对动态库的喜爱也随着开发的深入，动态库的不同版本之间的冲突带入了恶梦。 怎样解决不同程序间使用的相同动态库的不同版本？了解了windows上动态库的搜索顺序，才有了大约的解决。 如果有对应的*.manifest文件，则按其文件内的绝对路径，否则按如下的顺序：</p>
 
@@ -157,13 +157,13 @@ var _hmt = _hmt || [];
 
 <p>太久没有做windows开发了，认识也就停留在这个层面，MSDN上的 <a href="http://msdn.microsoft.com/en-us/library/ms682586%28VS.85%29.aspx">这篇文章</a> 有更新更准确的介绍，这里留个链接，对有需要的朋友转入学习。</p>
 
-<h4 id="linux">Linux</h4>
+<h3 id="linux">Linux</h3>
 
 <p>过去一段时间用的最多的，也是比较熟悉的一个了。也就是从这个系统开始知道：DLL是动态链接库，但动态链接库不一定是DLL。 了解了linux上的动态库的搜索方法，才感叹在windows上处理方法的笨拙。 Linux系统中，动态链接的程序在运行时会自动链接ld.so这个库，ld.so负责找到其他的链接库。 搜索的依据有若干条，优先级最高，也是最推荐的是，在链接的时候加入 -rpath 参数指明所谓的 RUNPATH，这样可执行文件（或者依赖其他动态链接库的动态链接库）就能告诉 ld.so 到哪里去搜索对应的动态链接库了。 对于没有设定 RPATH 的可执行文件或者动态链接库，我们可以用 LD_LIBRARY_PATH 这个环境变量通知 ld.so， 这个方法的问题是，环境变量有时候设置了（如果 export 的话）会导致其他不需要设置的程序载入了不应该载入的动态链接库， 不 export 就得每次先设定再执行。通过 LD_PRELOAD 我们可以要求 ld.so 预先载入某些动态链接库， 这样就能 override 系统的动态链接库（比如使用特殊版本的 libc.so）。 还有就是在/etc/ld.so.conf中指定的路径。</p>
 
 <p>可以通过 man ld.so查看更多的帮助，通过 ldd查看一个文件依赖的动态链接库，通过 chrpath 修改文件的 RPATH。 值得注意的是 RPATH 本身也可以通过环境变量 RUNPATH 进行覆盖。</p>
 
-<h4 id="os_x">OS X</h4>
+<h3 id="os_x">OS X</h3>
 
 <p>苹果的Mac OS X从10.8改为了OS X，也就是在这个时候我开始接触这个操作系统，并准备把工作转到这里进行。 虽然并未准备做OS X或iOS的原生开发，但只是安装一些开源软件也需要把动态链接库的搜索搞明白。 Mac从BSD走来，它与Linux的还是有区别的，特别是实行dmg的安装包，以及FrameWorks的引入，更显复杂了。</p>
 
@@ -182,7 +182,7 @@ var _hmt = _hmt || [];
   
      
     	<li><a href="/categories.html#-ref">
-    		 <span>5</span>
+    		 <span>7</span>
     	</a></li>
     
   
@@ -215,8 +215,10 @@ var _hmt = _hmt || [];
     <div class="pagination">
       <ul class="pager">
       
-      <li class="previous"><a href="/2014/01/17/web-mapping%E4%B9%8Bcartodb" title="Web Mapping之CartoDB">&larr; Web Mapping之CartoDB</a></li>
+      <li class="previous"><a href="/2014/02/10/web-mapping%E4%B9%8Bmapbox" title="Web Mapping之MapBox">&larr; Web Mapping之MapBox</a></li>
       
+      
+        <li class="next"><a href="/2014/02/13/%E4%BD%BF%E7%94%A8sublime-text-3%E5%81%9Apython%E5%BC%80%E5%8F%91" title="使用Sublime Text 3做Python开发">使用Sublime Text 3做Python开发&rarr;</a></li>
       
       </ul>
     </div>
