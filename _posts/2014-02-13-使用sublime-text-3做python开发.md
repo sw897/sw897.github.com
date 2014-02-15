@@ -3,7 +3,7 @@ layout: post
 title: "使用Sublime Text 3做Python开发"
 description: ""
 category: ""
-tags: [Sublime Text, Python]
+tags: [Sublime Text, Python, Anaconda, OS X]
 ---
 {% include JB/setup %}
 
