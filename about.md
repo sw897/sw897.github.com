@@ -7,7 +7,7 @@ comments: no
 ---
 {% include JB/setup %}
 
-热爱开源，专注技术
+人文+技术，谁也挡不住
 
 ---
 
