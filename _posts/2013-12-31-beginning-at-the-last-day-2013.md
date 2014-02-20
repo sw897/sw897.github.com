@@ -17,7 +17,7 @@ tags: [Jekyll,GitHub,Git]
 
 一个开头，也不知道写什么，就总结一下选择在GitHub开博的原因与过程吧。
 
-## 为什么选择使用GitHub+Jekyll？
+### 为什么选择使用GitHub+Jekyll？
 
 这个也不需要太多解释，
 
@@ -26,7 +26,7 @@ tags: [Jekyll,GitHub,Git]
 - 最后一条但很重要，[阮一峰博客](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
 中将写博分为三阶段，前两阶段只是实验与观望了，既然要开始，就选择高阶点的吧，也对得起老兵一枚。-_-
 
-## 在MacOS 10.7上搭建基于Jekyll的个人博客
+### 在MacOS 10.7上搭建基于Jekyll的个人博客
 
 网上基于GitHub+Jekyll的博客搭建教程太多了，再写有些重复，我主要参考了
 [Mac OS X 安装 Jekyll 记录][]
@@ -50,9 +50,9 @@ tags: [Jekyll,GitHub,Git]
 
 好了，下面开始重点
 
-## 搭建本地的Jekyll环境
+### 搭建本地的Jekyll环境
 
-### 安装准备，更新Mac的Ruby
+#### 安装准备，更新Mac的Ruby
 
 Mac 10.7自带的Ruby版本为1.8.6，使用其gem安装Jekyll后会有若干莫名其妙的错误，
 其原因还是我们的Jekyll需要1.9.2+才行，还是自行安装新版本解决来的快些。
@@ -63,7 +63,7 @@ Mac 10.7自带的Ruby版本为1.8.6，使用其gem安装Jekyll后会有若干莫
 
 默认安装Ruby的最新版本2.1，教程说是最好是1.9.3版本，这里经实验2.1也是没有问题的。
 
-### 安装本地jekyll
+#### 安装本地jekyll
 
     $ sudo gem install jekyll
 这里要使用sudo，至于为什么，你可以试试不带sudo进行安装，看看提示就明白了。安装完成后会有一个提示，
@@ -81,7 +81,7 @@ Mac 10.7自带的Ruby版本为1.8.6，使用其gem安装Jekyll后会有若干莫
     $ jekyll serve
 访问127.0.0.1:4000就可以查看jekyll bootstrap的默认blog了
 
-### 同步到GitHub
+#### 同步到GitHub
 
 首次在在本地折腾差不多后，使用GitHub for Mac Commit&Sync到GitHub上，就与大家共享文章了。
 

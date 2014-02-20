@@ -5,8 +5,8 @@
         <description>sw897's blog - sw897</description>
         <link>http://sw897.github.io</link>
         <link>http://sw897.github.io</link>
-        <lastBuildDate>2014-02-20T15:30:23+08:00</lastBuildDate>
-        <pubDate>2014-02-20T15:30:23+08:00</pubDate>
+        <lastBuildDate>2014-02-20T17:57:16+08:00</lastBuildDate>
+        <pubDate>2014-02-20T17:57:16+08:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -428,7 +428,7 @@ var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;
 
 &lt;p&gt;一个开头，也不知道写什么，就总结一下选择在GitHub开博的原因与过程吧。&lt;/p&gt;
 
-&lt;h2 id=&quot;githubjekyll&quot;&gt;为什么选择使用GitHub+Jekyll？&lt;/h2&gt;
+&lt;h3 id=&quot;githubjekyll&quot;&gt;为什么选择使用GitHub+Jekyll？&lt;/h3&gt;
 
 &lt;p&gt;这个也不需要太多解释，&lt;/p&gt;
 
@@ -440,7 +440,7 @@ var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;
 &lt;li&gt;最后一条但很重要，&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html&quot;&gt;阮一峰博客&lt;/a&gt; 中将写博分为三阶段，前两阶段只是实验与观望了，既然要开始，就选择高阶点的吧，也对得起老兵一枚。-_-&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;macos_107jekyll&quot;&gt;在MacOS 10.7上搭建基于Jekyll的个人博客&lt;/h2&gt;
+&lt;h3 id=&quot;macos_107jekyll&quot;&gt;在MacOS 10.7上搭建基于Jekyll的个人博客&lt;/h3&gt;
 
 &lt;p&gt;网上基于GitHub+Jekyll的博客搭建教程太多了，再写有些重复，我主要参考了 &lt;a href=&quot;http://www.chenzixin.com/program/2013/03/06/mac-jekyll-install-log/&quot;&gt;Mac OS X 安装 Jekyll 记录&lt;/a&gt; 这篇文章，操作过程略有不同，这里把结合个人电脑中使用情况来个简单介绍，如果是需要按步骤一步步安装请稳步上面那篇文章。&lt;/p&gt;
 
@@ -466,9 +466,9 @@ var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;
 
 &lt;p&gt;好了，下面开始重点&lt;/p&gt;
 
-&lt;h2 id=&quot;jekyll&quot;&gt;搭建本地的Jekyll环境&lt;/h2&gt;
+&lt;h3 id=&quot;jekyll&quot;&gt;搭建本地的Jekyll环境&lt;/h3&gt;
 
-&lt;h3 id=&quot;macruby&quot;&gt;安装准备，更新Mac的Ruby&lt;/h3&gt;
+&lt;h4 id=&quot;macruby&quot;&gt;安装准备，更新Mac的Ruby&lt;/h4&gt;
 
 &lt;p&gt;Mac 10.7自带的Ruby版本为1.8.6，使用其gem安装Jekyll后会有若干莫名其妙的错误， 其原因还是我们的Jekyll需要1.9.2+才行，还是自行安装新版本解决来的快些。 &lt;a href=&quot;http://www.chenzixin.com/program/2013/03/06/mac-jekyll-install-log/&quot;&gt;Mac OS X 安装 Jekyll 记录&lt;/a&gt; 文档教的方法是使用rvm，这里对于不懂Ruby的人来说，我也不想去装rvm，还是使用&lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;来搞定吧&lt;/p&gt;
 
@@ -476,7 +476,7 @@ var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;
 
 &lt;p&gt;默认安装Ruby的最新版本2.1，教程说是最好是1.9.3版本，这里经实验2.1也是没有问题的。&lt;/p&gt;
 
-&lt;h3 id=&quot;jekyll_2&quot;&gt;安装本地jekyll&lt;/h3&gt;
+&lt;h4 id=&quot;jekyll_2&quot;&gt;安装本地jekyll&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;$ sudo gem install jekyll&lt;/code&gt;&lt;/pre&gt;
 
@@ -496,7 +496,7 @@ $ which jekyll
 
 &lt;p&gt;访问127.0.0.1:4000就可以查看jekyll bootstrap的默认blog了&lt;/p&gt;
 
-&lt;h3 id=&quot;github&quot;&gt;同步到GitHub&lt;/h3&gt;
+&lt;h4 id=&quot;github&quot;&gt;同步到GitHub&lt;/h4&gt;
 
 &lt;p&gt;首次在在本地折腾差不多后，使用GitHub for Mac Commit&amp;amp;Sync到GitHub上，就与大家共享文章了。&lt;/p&gt;
 
