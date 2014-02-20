@@ -8,6 +8,8 @@ tags: [Map,CartoDB]
 ---
 {% include JB/setup %}
 
+### 介绍
+
 > We help people visualize and analyze geospatial data.
 > From polygons to points. From hundreds to millions. No limits with CartoDB.
 
@@ -61,7 +63,7 @@ tags: [Map,CartoDB]
 
 > 注意：直接从cartodb的public中拷贝的embed script不能直接在jekyll中使用，需要在\</iframe\>结束标签前加入一个空格
 
-### CartoDB
+### 总结
 
 CartoDB的HOST基础设施并无太多介绍，但知道其使用Ubuntu10.04操作系统，支持CDN等。
 其上的软件全部使用开源，除依赖其它开源软件，本身部分主要基于Ruby与JavaScript完成，在GitHub可以找到其项目，其特性如下：

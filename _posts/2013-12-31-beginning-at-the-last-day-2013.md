@@ -48,9 +48,11 @@ tags: [Jekyll,GitHub,Git]
 这里不讨论Mac上到底用什么编辑器更好，只说明Sublime Text是个不错的选择，安装Markdown相关插件，
 编辑Markdown相当犀利，高尚显示，直接Ctrl+B还可以直接浏览器预览 ^_^
 
-好了，下面开始重点，搭建本地的Jekyll环境，
+好了，下面开始重点
 
-### 安装 Jekyll的准备，更新Mac的Ruby
+## 搭建本地的Jekyll环境
+
+### 安装准备，更新Mac的Ruby
 
 Mac 10.7自带的Ruby版本为1.8.6，使用其gem安装Jekyll后会有若干莫名其妙的错误，
 其原因还是我们的Jekyll需要1.9.2+才行，还是自行安装新版本解决来的快些。

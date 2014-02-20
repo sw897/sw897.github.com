@@ -8,6 +8,8 @@ tags: [Sublime Text, Python, Anaconda, OS X]
 ---
 {% include JB/setup %}
 
+### 引言
+
 刚转到OS X平台时，寻找写Python,JavaScript,Markdown等文件的工具时，比较了许多工具，
 最终选择了Sublime Text 2，主要原因是其跨平台，
 想着以后再转到windows下开发时，不需要再重新适应其他工具。

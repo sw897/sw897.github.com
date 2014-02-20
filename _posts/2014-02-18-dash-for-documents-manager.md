@@ -3,8 +3,8 @@ layout: post
 title: "使用Dash管理常用帮助文档"
 description: "介绍文档管理工具Dash，总结使用doc2dash转换sphinx生成的python文档，以及直接使用doxygen生成docset"
 category: "OS"
-keywords: "Dash, Doc2Dash, DocSet"
-tags: [Dash, Doxygen, Sphinx, OS X]
+keywords: "Dash, Doc2Dash, Docsets, doxygen"
+tags: [Dash, OS X, Docsets]
 published: false
 ---
 {% include JB/setup %}

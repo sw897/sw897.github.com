@@ -4,7 +4,7 @@
  <title>sw897's blog</title>
  <link href="http://sw897.github.io/" rel="self"/>
  <link href="http://sw897.github.io"/>
- <updated>2014-02-20T15:05:12+08:00</updated>
+ <updated>2014-02-20T15:30:23+08:00</updated>
  <id>http://sw897.github.io</id>
  <author>
    <name>sw897</name>
@@ -14,10 +14,12 @@
  
  <entry>
    <title>使用Sublime Text 3做Python开发</title>
-   <link href="http://sw897.github.io/2014/02/13/using-sublime-text-3-for-python-developing"/>
+   <link href="http://sw897.github.io/2014/02/13/sublime-text-3-for-python"/>
    <updated>2014-02-13T00:00:00+08:00</updated>
-   <id>http://sw897.github.io/2014/02/13/using-sublime-text-3-for-python-developing</id>
-   <content type="html">&lt;p&gt;刚转到OS X平台时，寻找写Python,JavaScript,Markdown等文件的工具时，比较了许多工具， 最终选择了Sublime Text 2，主要原因是其跨平台， 想着以后再转到windows下开发时，不需要再重新适应其他工具。 Sublime Text 2学习曲线不像Vim那么陡峭，但想用得顺手，还是需要时间。在使用Sublime Text 2以后，还是有一段时间在怀念Notepad++的各种好，幻想notpad++明天会有OS X版本。 这段时间过后，越来越感觉到Sublime的强大，notepad++开始淡出了记忆。 Sublime Text 3的beta版本推出很长时间了，但其中文介绍文档非常少，多数介绍也只是停留在如何安装Package Control上，对开发相关插件介绍很少。正因为如此，许多人都在担心自己使用的plugins还不支持版本3，于是就一直不进行升级，我也是这种心态的其中一个。 这段时间有空，终于决定折腾一下。&lt;/p&gt;
+   <id>http://sw897.github.io/2014/02/13/sublime-text-3-for-python</id>
+   <content type="html">&lt;h3 id=&quot;&quot;&gt;引言&lt;/h3&gt;
+
+&lt;p&gt;刚转到OS X平台时，寻找写Python,JavaScript,Markdown等文件的工具时，比较了许多工具， 最终选择了Sublime Text 2，主要原因是其跨平台， 想着以后再转到windows下开发时，不需要再重新适应其他工具。 Sublime Text 2学习曲线不像Vim那么陡峭，但想用得顺手，还是需要时间。在使用Sublime Text 2以后，还是有一段时间在怀念Notepad++的各种好，幻想notpad++明天会有OS X版本。 这段时间过后，越来越感觉到Sublime的强大，notepad++开始淡出了记忆。 Sublime Text 3的beta版本推出很长时间了，但其中文介绍文档非常少，多数介绍也只是停留在如何安装Package Control上，对开发相关插件介绍很少。正因为如此，许多人都在担心自己使用的plugins还不支持版本3，于是就一直不进行升级，我也是这种心态的其中一个。 这段时间有空，终于决定折腾一下。&lt;/p&gt;
 
 &lt;p&gt;开始之前，看到&lt;a href=&quot;https://sublime.wbond.net&quot;&gt;Package Contorl网站&lt;/a&gt;上的一张统计图，给自己吃了个定心丸&lt;/p&gt;
 
@@ -41,7 +43,7 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 
 &lt;p&gt;通过&lt;code&gt;ctrl+shift+p&lt;/code&gt;进入&lt;code&gt;Command Palette&lt;/code&gt;， 输入&lt;code&gt;Package Contorl: Install Package&lt;/code&gt;或简写为&lt;code&gt;ip&lt;/code&gt;， 回车执行，进入插件的搜索窗口，查找选择到需要的插件后，回车即可等待完成安装，招待状态在sublime最下面的状态栏内会有文字提示。&lt;/p&gt;
 
-&lt;h3 id=&quot;&quot;&gt;一般配置&lt;/h3&gt;
+&lt;h3 id=&quot;_2&quot;&gt;一般配置&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;主题&lt;/li&gt;
@@ -99,7 +101,7 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;_2&quot;&gt;开发环境插件&lt;/h3&gt;
+&lt;h3 id=&quot;_3&quot;&gt;开发环境插件&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://sublime.wbond.net/packages/Git&quot;&gt;Git&lt;/a&gt;&lt;/li&gt;
@@ -165,16 +167,16 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 
 &lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/sublime_anaconda.png&#39; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;_3&quot;&gt;结束&lt;/h3&gt;
+&lt;h3 id=&quot;_4&quot;&gt;结束&lt;/h3&gt;
 
 &lt;p&gt;只需要这几个插件的安装与配置，就能使sublime text 3成为一个高效的python开发工具，接下来，感受 Sublime Text 3的快如疾风，风驰电掣吧！&lt;/p&gt;</content>
  </entry>
  
  <entry>
    <title>动态链接库的搜索</title>
-   <link href="http://sw897.github.io/2014/02/10/dynamic-linking-libaray-searching"/>
+   <link href="http://sw897.github.io/2014/02/10/dynamic-link-library-searching"/>
    <updated>2014-02-10T00:00:00+08:00</updated>
-   <id>http://sw897.github.io/2014/02/10/dynamic-linking-libaray-searching</id>
+   <id>http://sw897.github.io/2014/02/10/dynamic-link-library-searching</id>
    <content type="html">&lt;blockquote&gt;
 &lt;p&gt;在OS X下安装一些开源软件，其动态链接库的依赖比较复杂，为了搞明白还是花了些功夫。 在这里把Windows,Linux,OS X这三种常用桌面的动态链接库的搜索方法总结一下。 有些问题还是没有搞太清楚，如有错误，请大家指教。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -227,7 +229,9 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
    <link href="http://sw897.github.io/2014/01/17/web-mapping-cartodb"/>
    <updated>2014-01-17T00:00:00+08:00</updated>
    <id>http://sw897.github.io/2014/01/17/web-mapping-cartodb</id>
-   <content type="html">&lt;blockquote&gt;
+   <content type="html">&lt;h3 id=&quot;&quot;&gt;介绍&lt;/h3&gt;
+
+&lt;blockquote&gt;
 &lt;p&gt;We help people visualize and analyze geospatial data. From polygons to points. From hundreds to millions. No limits with CartoDB.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -251,7 +255,7 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 &lt;p&gt;以下以CartoDB Blog上的一个展示为例，数据为美国邮局的shp文件，在以下地址下载&lt;a href=&quot;https://viz2.cartodb.com/api/v2/sql?q=SELECT%20*%20FROM%20us_po_offices&amp;format=SHP&quot;&gt;邮局SHP&lt;/a&gt;，包含位置与建立时间等属性字段。 准备好数据后，进入cartodb准备开始&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3 id=&quot;&quot;&gt;试用&lt;/h3&gt;
+&lt;h3 id=&quot;_2&quot;&gt;试用&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;创建新表，并选择刚下载到本地的shp压缩包&lt;/li&gt;
@@ -297,7 +301,7 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 &lt;p&gt;注意：直接从cartodb的public中拷贝的embed script不能直接在jekyll中使用，需要在\&amp;lt;/iframe&amp;gt;结束标签前加入一个空格&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3 id=&quot;cartodb&quot;&gt;CartoDB&lt;/h3&gt;
+&lt;h3 id=&quot;_3&quot;&gt;总结&lt;/h3&gt;
 
 &lt;p&gt;CartoDB的HOST基础设施并无太多介绍，但知道其使用Ubuntu10.04操作系统，支持CDN等。 其上的软件全部使用开源，除依赖其它开源软件，本身部分主要基于Ruby与JavaScript完成，在GitHub可以找到其项目，其特性如下：&lt;/p&gt;
 
@@ -341,37 +345,26 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 
 &lt;p&gt;这些应用大体可以分这么两类：&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;UGC制图，是一种交互式制图，用户参与更新底图、扩充POI等数据
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt;&lt;/li&gt;
+&lt;h3 id=&quot;ugc&quot;&gt;UGC制图&lt;/h3&gt;
 
-&lt;li&gt;&lt;a href=&quot;https://www.google.com/mapmaker&quot;&gt;Google Map Maker&lt;/a&gt;&lt;/li&gt;
+&lt;p&gt;UGC制图是一种交互式制图，用户参与更新底图、扩充POI等数据&lt;/p&gt;
 
-&lt;li&gt;&lt;a href=&quot;http://heremaps.cn/mapcreator&quot;&gt;Nokia HERE Map Creator&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;当然还有移动终端应用&lt;a href=&quot;https://www.waze.com/editor/&quot;&gt;Waze&lt;/a&gt;，它的众包的概念，个人理解就是UGC的高阶模式&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;* [OpenStreetMap][]
+* [Google Map Maker][]
+* [Nokia HERE Map Creator][]
+* 当然还有移动终端应用[Waze][]，它的众包的概念，个人理解就是UGC的高阶模式&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;UGC制图公司或机构一般需要拥有海量基础数据，本身就是举足轻重的地图数据提供者，使用UGC的模式， 借助用户来改善地图数据，是“大家帮助大家”的思想。感兴趣的朋友可以加入到其中，做做贡献。&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;在线制图(Online Mapping)应用，主要是个人专题地图制图，用户提供专题数据，使用应用平台完成可视化与交互， 这种应用属于云计算的一种形式，即应用即服务。用户使用它完成工作或作品，然后共享分发
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://tiles.mapbox.com/sw897&quot;&gt;Mapbox&lt;/a&gt;&lt;/li&gt;
+&lt;h3 id=&quot;online_mapping&quot;&gt;在线制图(Online Mapping)&lt;/h3&gt;
 
-&lt;li&gt;&lt;a href=&quot;https://sw897.CartoDB.com/dashboard/&quot;&gt;CartoDB&lt;/a&gt;&lt;/li&gt;
+&lt;p&gt;在线制图应用，主要是个人专题地图制图，用户提供专题数据，使用应用平台完成可视化与交互， 这种应用属于云计算的一种形式，即应用即服务。用户使用它完成工作或作品，然后共享分发&lt;/p&gt;
 
-&lt;li&gt;&lt;a href=&quot;https://mangomap.com/maps&quot;&gt;MangoMap&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;ArcGIS Online&lt;a href=&quot;http://storymaps.arcgisonline.cn/home/index.html&quot;&gt;地图故事&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;SuperMap&lt;a href=&quot;http://www.dituhui.com/&quot;&gt;地图汇&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;* [Mapbox][]
+* [CartoDB][]
+* [MangoMap][]
+* ArcGIS Online[地图故事][]
+* SuperMap[地图汇][]&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;这些应用是最近比较时兴的，它们一般技术先进并开放，把科研人员从基本编码中解放出来， 把非专业人员带入制图的世界，让专业人员更专注于专业的事情。总之，大体路线是提供Cloud Infrastructure和制图服务， 解决基础制图问题，包括底图，符号表达，专题可视化等等，剩下的，就是让用户专注专题数据，专注要表达的信息处理， 同时，可视化表达上，也有多种方案，可以让用户快速完成一个拥有绝佳交互体验与视觉冲击的地图。 但这些应用并不是免费的大餐，付费比较昂贵，对于一般用户，只能免费试用一下。&lt;/p&gt;
 
@@ -386,9 +379,9 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
  
  <entry>
    <title>给jekyll bootstrap增加评论系统</title>
-   <link href="http://sw897.github.io/2014/01/03/jekyll-bootstrap-add-commet"/>
-   <updated>2014-01-03T00:00:00+08:00</updated>
-   <id>http://sw897.github.io/2014/01/03/jekyll-bootstrap-add-commet</id>
+   <link href="http://sw897.github.io/2014/01/02/jekyll-bootstrap-add-comment"/>
+   <updated>2014-01-02T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/01/02/jekyll-bootstrap-add-comment</id>
    <content type="html">&lt;p&gt;jekyll bootstrap默认的评论系统是disqus,同时还可以配置使用livefyre,intensedebate,facebook， 这些虽然都不错，不过不符合我国国情，有必要换成国内的常用评论系统，用来支持国内的SNS平台， 比如新浪微博，豆瓣，人人等。国内评论系统也很多，常用的有&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;和&lt;a href=&quot;http://www.uyan.cc/&quot;&gt;友言&lt;/a&gt;。&lt;/p&gt;
 
 &lt;p&gt;虽然不懂Ruby，但jekyll bootstrap把结构做的相当完美，过程很简单，下面把配置&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的方法记录一下。 当然，开始之前需要先注册好&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的个人账号&lt;/p&gt;
@@ -476,9 +469,11 @@ var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;
 
 &lt;p&gt;这里不讨论Mac上到底用什么编辑器更好，只说明Sublime Text是个不错的选择，安装Markdown相关插件， 编辑Markdown相当犀利，高尚显示，直接Ctrl+B还可以直接浏览器预览 ^_^&lt;/p&gt;
 
-&lt;p&gt;好了，下面开始重点，搭建本地的Jekyll环境，&lt;/p&gt;
+&lt;p&gt;好了，下面开始重点&lt;/p&gt;
 
-&lt;h3 id=&quot;_jekyllmacruby&quot;&gt;安装 Jekyll的准备，更新Mac的Ruby&lt;/h3&gt;
+&lt;h2 id=&quot;jekyll&quot;&gt;搭建本地的Jekyll环境&lt;/h2&gt;
+
+&lt;h3 id=&quot;macruby&quot;&gt;安装准备，更新Mac的Ruby&lt;/h3&gt;
 
 &lt;p&gt;Mac 10.7自带的Ruby版本为1.8.6，使用其gem安装Jekyll后会有若干莫名其妙的错误， 其原因还是我们的Jekyll需要1.9.2+才行，还是自行安装新版本解决来的快些。 &lt;a href=&quot;http://www.chenzixin.com/program/2013/03/06/mac-jekyll-install-log/&quot;&gt;Mac OS X 安装 Jekyll 记录&lt;/a&gt; 文档教的方法是使用rvm，这里对于不懂Ruby的人来说，我也不想去装rvm，还是使用&lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;来搞定吧&lt;/p&gt;
 
@@ -486,7 +481,7 @@ var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;
 
 &lt;p&gt;默认安装Ruby的最新版本2.1，教程说是最好是1.9.3版本，这里经实验2.1也是没有问题的。&lt;/p&gt;
 
-&lt;h3 id=&quot;jekyll&quot;&gt;安装本地jekyll&lt;/h3&gt;
+&lt;h3 id=&quot;jekyll_2&quot;&gt;安装本地jekyll&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;$ sudo gem install jekyll&lt;/code&gt;&lt;/pre&gt;
 

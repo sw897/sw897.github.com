@@ -9,6 +9,10 @@ published: false
 ---
 {% include JB/setup %}
 
+### 为什么需要SEO
+
+当我写下这个标题就意识到没有味道，
+
 * 固定链接
 * posts英文别名
 * 增加meta信息，如keywords
