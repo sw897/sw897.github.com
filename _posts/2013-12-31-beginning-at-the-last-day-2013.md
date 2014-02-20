@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "开始于2013的最后一天"
-description: ""
-category: ""
+description: "在OS X上安装Jekyll本地环境,使用Jekyll在GitHub上搭建个人博客"
+category: "Jekyll"
+keywords: "Jekyll,GitHub,Git"
 tags: [Jekyll,GitHub,Git]
 ---
 {% include JB/setup %}

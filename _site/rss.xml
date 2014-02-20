@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-        <title>sw897 blog</title>
-        <description>sw897 blog - sw897</description>
+        <title>sw897's blog</title>
+        <description>sw897's blog - sw897</description>
         <link>http://sw897.github.io</link>
         <link>http://sw897.github.io</link>
-        <lastBuildDate>2014-02-15T21:01:25+08:00</lastBuildDate>
-        <pubDate>2014-02-15T21:01:25+08:00</pubDate>
+        <lastBuildDate>2014-02-20T15:05:12+08:00</lastBuildDate>
+        <pubDate>2014-02-20T15:05:12+08:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -163,8 +163,8 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 &lt;h3 id=&quot;_3&quot;&gt;结束&lt;/h3&gt;
 
 &lt;p&gt;只需要这几个插件的安装与配置，就能使sublime text 3成为一个高效的python开发工具，接下来，感受 Sublime Text 3的快如疾风，风驰电掣吧！&lt;/p&gt;</description>
-                <link>http://sw897.github.io/2014/02/13/%E4%BD%BF%E7%94%A8sublime-text-3%E5%81%9Apython%E5%BC%80%E5%8F%91</link>
-                <guid>http://sw897.github.io/2014/02/13/使用sublime-text-3做python开发</guid>
+                <link>http://sw897.github.io/2014/02/13/using-sublime-text-3-for-python-developing</link>
+                <guid>http://sw897.github.io/2014/02/13/using-sublime-text-3-for-python-developing</guid>
                 <pubDate>2014-02-13T00:00:00+08:00</pubDate>
         </item>
 
@@ -215,16 +215,8 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 &lt;p&gt;它的 dynamic linker 是 dyld 这个程序，动态链接库的载入是依靠它完成解析之类的事情，它支持三个@executable_path, @loader_path, @rpath，具体可以参考&lt;a href=&quot;https://wincent.com/wiki/@executable_path,_@load_path_and_@rpath&quot;&gt;这篇&lt;/a&gt;, 以及&lt;a href=&quot;http://www.dribin.org/dave/blog/archives/2009/11/15/rpath/&quot;&gt;另一篇&lt;/a&gt;文章来学习。&lt;/p&gt;
 
 &lt;p&gt;可以通过man dyld查看更多帮助，通过 otool -L查看一个文件依赖的动态链接库， 通过 install_name_tool -change 修改动态链接库的位置。 开发阶段往往直接链接到本地的dylib，此时对应的文件里面的路径一般是绝对路径，可以在发布的时候替换成相对路径。 编译动态链接库时，如果是 share 到任意程序的的动态库，通过 -install_name 插入绝对路径； 否则根据情况，比如是 app bundle 还是 plugin，设定为对应变量的相对位置; install_name 保证其他文件动态连接它时插入的名字是这个给定的字符串。 install name 可以用 install_name_tool -id 来修改。它依赖的动态链接库使用 -rpath 指定， 这样就算连接的动态链接库位置不是系统路径，也能自动找到。 比如我们写了一个 liba.dylib，为了很多其他程序方便用它，如果是类似 Linux 的做法， install name 可能是 /usr/local/lib/liba.dylib， 这样我的程序 app_a 直接写 -L/usr/local/lib -la 就能正确的找到在 /usr/local/lib 下的动态链接库。 如果 app_a 在写的时候 liba 也没写完，那么编译 liba 时写成 @rpath/liba.dylib 更合适， 因为 app_a 通过修改 -rpath 就可以测试正在写的 liba 或者是 deploy 到 /usr/local/lib 下的两个版本。 尽管仍然是 -L some-dir -la 链接 app_a 的，这里的 some-dir 可以是 /usr/local/lib 也可以是开发环境下的目录。&lt;/p&gt;</description>
-                <link>http://sw897.github.io/2014/02/10/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%90%9C%E7%B4%A2</link>
-                <guid>http://sw897.github.io/2014/02/10/动态链接库的搜索</guid>
-                <pubDate>2014-02-10T00:00:00+08:00</pubDate>
-        </item>
-
-        <item>
-                <title>Web Mapping之MapBox</title>
-                <description></description>
-                <link>http://sw897.github.io/2014/02/10/web-mapping%E4%B9%8Bmapbox</link>
-                <guid>http://sw897.github.io/2014/02/10/web-mapping之mapbox</guid>
+                <link>http://sw897.github.io/2014/02/10/dynamic-linking-libaray-searching</link>
+                <guid>http://sw897.github.io/2014/02/10/dynamic-linking-libaray-searching</guid>
                 <pubDate>2014-02-10T00:00:00+08:00</pubDate>
         </item>
 
@@ -325,52 +317,9 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 &lt;p&gt;基于OAuth的认证&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</description>
-                <link>http://sw897.github.io/2014/01/17/web-mapping%E4%B9%8Bcartodb</link>
-                <guid>http://sw897.github.io/2014/01/17/web-mapping之cartodb</guid>
+                <link>http://sw897.github.io/2014/01/17/web-mapping-cartodb</link>
+                <guid>http://sw897.github.io/2014/01/17/web-mapping-cartodb</guid>
                 <pubDate>2014-01-17T00:00:00+08:00</pubDate>
-        </item>
-
-        <item>
-                <title>给jekyll bootstrap增加评论系统</title>
-                <description>&lt;p&gt;jekyll bootstrap默认的评论系统是disqus,同时还可以配置使用livefyre,intensedebate,facebook， 这些虽然都不错，不过不符合我国国情，有必要换成国内的常用评论系统，用来支持国内的SNS平台， 比如新浪微博，豆瓣，人人等。国内评论系统也很多，常用的有&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;和&lt;a href=&quot;http://www.uyan.cc/&quot;&gt;友言&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;虽然不懂Ruby，但jekyll bootstrap把结构做的相当完美，过程很简单，下面把配置&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的方法记录一下。 当然，开始之前需要先注册好&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的个人账号&lt;/p&gt;
-
-&lt;p&gt;1 在_includes/JB/comments-providers文件夹下增加多说的配置文件duoshuo，内容如下， 其中把short_name的值使用双大括号’{}’括起来&lt;/p&gt;
-
-&lt;pre class=&quot;xml&quot;&gt;&lt;code class=&quot;xml&quot;&gt;
-&amp;lt;div class=&amp;quot;ds-thread&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;#39;};
-    (function() {
-        var ds = document.createElement(&amp;#39;script&amp;#39;);
-         ds.type = &amp;#39;text/javascript&amp;#39;;ds.async = true;
-         ds.src = &amp;#39;http://static.duoshuo.com/embed.js&amp;#39;;
-         ds.charset = &amp;#39;UTF-8&amp;#39;;
-         (document.getElementsByTagName(&amp;#39;head&amp;#39;)[0]
-         || document.getElementsByTagName(&amp;#39;body&amp;#39;)[0]).appendChild(ds);
-    })();
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;内容已经使用jb的模板变量，不需要修改可以直接拷贝使用。&lt;/p&gt;
-
-&lt;p&gt;2 在_includes/JB目录下，修改comments文件，在第4行插入duoshuo的判断段，前后去掉了关键字， 打开comments看一下就会明白&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  when &amp;quot;duoshuo&amp;quot;
-     include JB/comments-providers/duoshuo&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;3 最后修改_config.yml文件中comments部分即可&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;comments :
-    provider : duoshuo
-    duoshuo:
-       short_name : 你的多说账号&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;经过以上3步即可配置完成，有兴趣的朋友可以用同样方法可以试试&lt;a href=&quot;http://www.uyan.cc/&quot;&gt;友言&lt;/a&gt;，除评论系统账号部分，全部能用， 其实可以向jekyll bootstrap提交一下代码，方便国人配置使用。&lt;/p&gt;</description>
-                <link>http://sw897.github.io/2014/01/03/%E7%BB%99jekyll-bootstrap%E5%A2%9E%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F</link>
-                <guid>http://sw897.github.io/2014/01/03/给jekyll-bootstrap增加评论系统</guid>
-                <pubDate>2014-01-03T00:00:00+08:00</pubDate>
         </item>
 
         <item>
@@ -428,8 +377,51 @@ var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;
 &lt;p&gt;超图的&lt;a href=&quot;http://www.dituhui.com/&quot;&gt;地图汇&lt;/a&gt;也是其中很有特色的产品，结合建设国内大量在线地图应用的经验， 直接将属性与空间的连接功能(GeoCode,GeoReference)结合进去， 按世界，国家，省，市等几个等级组织，如果属性表里中有标准地名字段，可直接在图上形成专题图。 这种方法大大降低了用户门槛，更适合一般用户使用。另外，还提供了变形地图等少见的可视化方法，也是一个创新。 不过产品比较固化，没有给用户提供更多层次的接口，给人传统网站应用的感觉。 特别国内特色的，针对局域网的部署方案，典型的面向政府部门的应用模式。只能问一句：咱能有点互联网应用的节操么？&lt;/p&gt;
 
 &lt;p&gt;这里主要介绍几个制图应用，至于如何选择，还要看大家的需求而定。 个人比较推荐的是&lt;a href=&quot;https://sw897.CartoDB.com/dashboard/&quot;&gt;CartoDB&lt;/a&gt;，本身功能强大，分发方便，又提供多种层次接口，可伸缩性强，适合有一定想法的用户。&lt;/p&gt;</description>
-                <link>http://sw897.github.io/2014/01/03/Web%E5%88%B6%E5%9B%BE%E5%BA%94%E7%94%A8%E4%BB%8B%E7%BB%8D</link>
-                <guid>http://sw897.github.io/2014/01/03/Web制图应用介绍</guid>
+                <link>http://sw897.github.io/2014/01/03/web-maping-introduce</link>
+                <guid>http://sw897.github.io/2014/01/03/web-maping-introduce</guid>
+                <pubDate>2014-01-03T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>给jekyll bootstrap增加评论系统</title>
+                <description>&lt;p&gt;jekyll bootstrap默认的评论系统是disqus,同时还可以配置使用livefyre,intensedebate,facebook， 这些虽然都不错，不过不符合我国国情，有必要换成国内的常用评论系统，用来支持国内的SNS平台， 比如新浪微博，豆瓣，人人等。国内评论系统也很多，常用的有&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;和&lt;a href=&quot;http://www.uyan.cc/&quot;&gt;友言&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;虽然不懂Ruby，但jekyll bootstrap把结构做的相当完美，过程很简单，下面把配置&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的方法记录一下。 当然，开始之前需要先注册好&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的个人账号&lt;/p&gt;
+
+&lt;p&gt;1 在_includes/JB/comments-providers文件夹下增加多说的配置文件duoshuo，内容如下， 其中把short_name的值使用双大括号’{}’括起来&lt;/p&gt;
+
+&lt;pre class=&quot;xml&quot;&gt;&lt;code class=&quot;xml&quot;&gt;
+&amp;lt;div class=&amp;quot;ds-thread&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;#39;};
+    (function() {
+        var ds = document.createElement(&amp;#39;script&amp;#39;);
+         ds.type = &amp;#39;text/javascript&amp;#39;;ds.async = true;
+         ds.src = &amp;#39;http://static.duoshuo.com/embed.js&amp;#39;;
+         ds.charset = &amp;#39;UTF-8&amp;#39;;
+         (document.getElementsByTagName(&amp;#39;head&amp;#39;)[0]
+         || document.getElementsByTagName(&amp;#39;body&amp;#39;)[0]).appendChild(ds);
+    })();
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;内容已经使用jb的模板变量，不需要修改可以直接拷贝使用。&lt;/p&gt;
+
+&lt;p&gt;2 在_includes/JB目录下，修改comments文件，在第4行插入duoshuo的判断段，前后去掉了关键字， 打开comments看一下就会明白&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  when &amp;quot;duoshuo&amp;quot;
+     include JB/comments-providers/duoshuo&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;3 最后修改_config.yml文件中comments部分即可&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;comments :
+    provider : duoshuo
+    duoshuo:
+       short_name : 你的多说账号&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;经过以上3步即可配置完成，有兴趣的朋友可以用同样方法可以试试&lt;a href=&quot;http://www.uyan.cc/&quot;&gt;友言&lt;/a&gt;，除评论系统账号部分，全部能用， 其实可以向jekyll bootstrap提交一下代码，方便国人配置使用。&lt;/p&gt;</description>
+                <link>http://sw897.github.io/2014/01/03/jekyll-bootstrap-add-commet</link>
+                <guid>http://sw897.github.io/2014/01/03/jekyll-bootstrap-add-commet</guid>
                 <pubDate>2014-01-03T00:00:00+08:00</pubDate>
         </item>
 
@@ -522,8 +514,8 @@ $ which jekyll
 
 &lt;li&gt;&lt;a href=&quot;http://www.chenzixin.com/program/2013/03/06/mac-jekyll-install-log/&quot;&gt;Mac OS X 安装 Jekyll 记录&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
-                <link>http://sw897.github.io/2013/12/31/%E5%BC%80%E5%A7%8B%E4%BA%8E2013%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9</link>
-                <guid>http://sw897.github.io/2013/12/31/开始于2013的最后一天</guid>
+                <link>http://sw897.github.io/2013/12/31/beginning-at-the-last-day-2013</link>
+                <guid>http://sw897.github.io/2013/12/31/beginning-at-the-last-day-2013</guid>
                 <pubDate>2013-12-31T00:00:00+08:00</pubDate>
         </item>
 

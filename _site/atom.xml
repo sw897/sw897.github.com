@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>sw897 blog</title>
+ <title>sw897's blog</title>
  <link href="http://sw897.github.io/" rel="self"/>
  <link href="http://sw897.github.io"/>
- <updated>2014-02-15T21:01:25+08:00</updated>
+ <updated>2014-02-20T15:05:12+08:00</updated>
  <id>http://sw897.github.io</id>
  <author>
    <name>sw897</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>使用Sublime Text 3做Python开发</title>
-   <link href="http://sw897.github.io/2014/02/13/%E4%BD%BF%E7%94%A8sublime-text-3%E5%81%9Apython%E5%BC%80%E5%8F%91"/>
+   <link href="http://sw897.github.io/2014/02/13/using-sublime-text-3-for-python-developing"/>
    <updated>2014-02-13T00:00:00+08:00</updated>
-   <id>http://sw897.github.io/2014/02/13/使用sublime-text-3做python开发</id>
+   <id>http://sw897.github.io/2014/02/13/using-sublime-text-3-for-python-developing</id>
    <content type="html">&lt;p&gt;刚转到OS X平台时，寻找写Python,JavaScript,Markdown等文件的工具时，比较了许多工具， 最终选择了Sublime Text 2，主要原因是其跨平台， 想着以后再转到windows下开发时，不需要再重新适应其他工具。 Sublime Text 2学习曲线不像Vim那么陡峭，但想用得顺手，还是需要时间。在使用Sublime Text 2以后，还是有一段时间在怀念Notepad++的各种好，幻想notpad++明天会有OS X版本。 这段时间过后，越来越感觉到Sublime的强大，notepad++开始淡出了记忆。 Sublime Text 3的beta版本推出很长时间了，但其中文介绍文档非常少，多数介绍也只是停留在如何安装Package Control上，对开发相关插件介绍很少。正因为如此，许多人都在担心自己使用的plugins还不支持版本3，于是就一直不进行升级，我也是这种心态的其中一个。 这段时间有空，终于决定折腾一下。&lt;/p&gt;
 
 &lt;p&gt;开始之前，看到&lt;a href=&quot;https://sublime.wbond.net&quot;&gt;Package Contorl网站&lt;/a&gt;上的一张统计图，给自己吃了个定心丸&lt;/p&gt;
@@ -172,9 +172,9 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
  
  <entry>
    <title>动态链接库的搜索</title>
-   <link href="http://sw897.github.io/2014/02/10/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%90%9C%E7%B4%A2"/>
+   <link href="http://sw897.github.io/2014/02/10/dynamic-linking-libaray-searching"/>
    <updated>2014-02-10T00:00:00+08:00</updated>
-   <id>http://sw897.github.io/2014/02/10/动态链接库的搜索</id>
+   <id>http://sw897.github.io/2014/02/10/dynamic-linking-libaray-searching</id>
    <content type="html">&lt;blockquote&gt;
 &lt;p&gt;在OS X下安装一些开源软件，其动态链接库的依赖比较复杂，为了搞明白还是花了些功夫。 在这里把Windows,Linux,OS X这三种常用桌面的动态链接库的搜索方法总结一下。 有些问题还是没有搞太清楚，如有错误，请大家指教。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -223,18 +223,10 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
  </entry>
  
  <entry>
-   <title>Web Mapping之MapBox</title>
-   <link href="http://sw897.github.io/2014/02/10/web-mapping%E4%B9%8Bmapbox"/>
-   <updated>2014-02-10T00:00:00+08:00</updated>
-   <id>http://sw897.github.io/2014/02/10/web-mapping之mapbox</id>
-   <content type="html"></content>
- </entry>
- 
- <entry>
    <title>Web Mapping之CartoDB</title>
-   <link href="http://sw897.github.io/2014/01/17/web-mapping%E4%B9%8Bcartodb"/>
+   <link href="http://sw897.github.io/2014/01/17/web-mapping-cartodb"/>
    <updated>2014-01-17T00:00:00+08:00</updated>
-   <id>http://sw897.github.io/2014/01/17/web-mapping之cartodb</id>
+   <id>http://sw897.github.io/2014/01/17/web-mapping-cartodb</id>
    <content type="html">&lt;blockquote&gt;
 &lt;p&gt;We help people visualize and analyze geospatial data. From polygons to points. From hundreds to millions. No limits with CartoDB.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -333,53 +325,10 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
  </entry>
  
  <entry>
-   <title>给jekyll bootstrap增加评论系统</title>
-   <link href="http://sw897.github.io/2014/01/03/%E7%BB%99jekyll-bootstrap%E5%A2%9E%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F"/>
-   <updated>2014-01-03T00:00:00+08:00</updated>
-   <id>http://sw897.github.io/2014/01/03/给jekyll-bootstrap增加评论系统</id>
-   <content type="html">&lt;p&gt;jekyll bootstrap默认的评论系统是disqus,同时还可以配置使用livefyre,intensedebate,facebook， 这些虽然都不错，不过不符合我国国情，有必要换成国内的常用评论系统，用来支持国内的SNS平台， 比如新浪微博，豆瓣，人人等。国内评论系统也很多，常用的有&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;和&lt;a href=&quot;http://www.uyan.cc/&quot;&gt;友言&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;虽然不懂Ruby，但jekyll bootstrap把结构做的相当完美，过程很简单，下面把配置&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的方法记录一下。 当然，开始之前需要先注册好&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的个人账号&lt;/p&gt;
-
-&lt;p&gt;1 在_includes/JB/comments-providers文件夹下增加多说的配置文件duoshuo，内容如下， 其中把short_name的值使用双大括号’{}’括起来&lt;/p&gt;
-
-&lt;pre class=&quot;xml&quot;&gt;&lt;code class=&quot;xml&quot;&gt;
-&amp;lt;div class=&amp;quot;ds-thread&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;#39;};
-    (function() {
-        var ds = document.createElement(&amp;#39;script&amp;#39;);
-         ds.type = &amp;#39;text/javascript&amp;#39;;ds.async = true;
-         ds.src = &amp;#39;http://static.duoshuo.com/embed.js&amp;#39;;
-         ds.charset = &amp;#39;UTF-8&amp;#39;;
-         (document.getElementsByTagName(&amp;#39;head&amp;#39;)[0]
-         || document.getElementsByTagName(&amp;#39;body&amp;#39;)[0]).appendChild(ds);
-    })();
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;内容已经使用jb的模板变量，不需要修改可以直接拷贝使用。&lt;/p&gt;
-
-&lt;p&gt;2 在_includes/JB目录下，修改comments文件，在第4行插入duoshuo的判断段，前后去掉了关键字， 打开comments看一下就会明白&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  when &amp;quot;duoshuo&amp;quot;
-     include JB/comments-providers/duoshuo&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;3 最后修改_config.yml文件中comments部分即可&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;comments :
-    provider : duoshuo
-    duoshuo:
-       short_name : 你的多说账号&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;经过以上3步即可配置完成，有兴趣的朋友可以用同样方法可以试试&lt;a href=&quot;http://www.uyan.cc/&quot;&gt;友言&lt;/a&gt;，除评论系统账号部分，全部能用， 其实可以向jekyll bootstrap提交一下代码，方便国人配置使用。&lt;/p&gt;</content>
- </entry>
- 
- <entry>
    <title>Web地图制图应用介绍</title>
-   <link href="http://sw897.github.io/2014/01/03/Web%E5%88%B6%E5%9B%BE%E5%BA%94%E7%94%A8%E4%BB%8B%E7%BB%8D"/>
+   <link href="http://sw897.github.io/2014/01/03/web-maping-introduce"/>
    <updated>2014-01-03T00:00:00+08:00</updated>
-   <id>http://sw897.github.io/2014/01/03/Web制图应用介绍</id>
+   <id>http://sw897.github.io/2014/01/03/web-maping-introduce</id>
    <content type="html">&lt;pre&gt;&lt;code&gt;本文介绍一下当前流行的在线地图制图应用。&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Web地图(WebMap)大家都不陌生，相信没有人没有用过GoogleMaps，它把GIS特别是WebGIS带入的主流的IT队伍中， 大大提高了这个小行业的技术进步速度。Web地图制图这个概念在Wikipedia中文中还没有定义页，但对照英语版有两个， &lt;a href=&quot;http://en.wikipedia.org/wiki/Web_cartography&quot;&gt;Web Cartography&lt;/a&gt;与&lt;a href=&quot;http://en.wikipedia.org/wiki/Web_mapping&quot;&gt;Web Mapping&lt;/a&gt;，前者重定向于后者。引用Wikipedia里的一句介绍:&lt;/p&gt;
@@ -436,10 +385,53 @@ var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;
  </entry>
  
  <entry>
+   <title>给jekyll bootstrap增加评论系统</title>
+   <link href="http://sw897.github.io/2014/01/03/jekyll-bootstrap-add-commet"/>
+   <updated>2014-01-03T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/01/03/jekyll-bootstrap-add-commet</id>
+   <content type="html">&lt;p&gt;jekyll bootstrap默认的评论系统是disqus,同时还可以配置使用livefyre,intensedebate,facebook， 这些虽然都不错，不过不符合我国国情，有必要换成国内的常用评论系统，用来支持国内的SNS平台， 比如新浪微博，豆瓣，人人等。国内评论系统也很多，常用的有&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;和&lt;a href=&quot;http://www.uyan.cc/&quot;&gt;友言&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;虽然不懂Ruby，但jekyll bootstrap把结构做的相当完美，过程很简单，下面把配置&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的方法记录一下。 当然，开始之前需要先注册好&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的个人账号&lt;/p&gt;
+
+&lt;p&gt;1 在_includes/JB/comments-providers文件夹下增加多说的配置文件duoshuo，内容如下， 其中把short_name的值使用双大括号’{}’括起来&lt;/p&gt;
+
+&lt;pre class=&quot;xml&quot;&gt;&lt;code class=&quot;xml&quot;&gt;
+&amp;lt;div class=&amp;quot;ds-thread&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;#39;};
+    (function() {
+        var ds = document.createElement(&amp;#39;script&amp;#39;);
+         ds.type = &amp;#39;text/javascript&amp;#39;;ds.async = true;
+         ds.src = &amp;#39;http://static.duoshuo.com/embed.js&amp;#39;;
+         ds.charset = &amp;#39;UTF-8&amp;#39;;
+         (document.getElementsByTagName(&amp;#39;head&amp;#39;)[0]
+         || document.getElementsByTagName(&amp;#39;body&amp;#39;)[0]).appendChild(ds);
+    })();
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;内容已经使用jb的模板变量，不需要修改可以直接拷贝使用。&lt;/p&gt;
+
+&lt;p&gt;2 在_includes/JB目录下，修改comments文件，在第4行插入duoshuo的判断段，前后去掉了关键字， 打开comments看一下就会明白&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  when &amp;quot;duoshuo&amp;quot;
+     include JB/comments-providers/duoshuo&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;3 最后修改_config.yml文件中comments部分即可&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;comments :
+    provider : duoshuo
+    duoshuo:
+       short_name : 你的多说账号&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;经过以上3步即可配置完成，有兴趣的朋友可以用同样方法可以试试&lt;a href=&quot;http://www.uyan.cc/&quot;&gt;友言&lt;/a&gt;，除评论系统账号部分，全部能用， 其实可以向jekyll bootstrap提交一下代码，方便国人配置使用。&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>开始于2013的最后一天</title>
-   <link href="http://sw897.github.io/2013/12/31/%E5%BC%80%E5%A7%8B%E4%BA%8E2013%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9"/>
+   <link href="http://sw897.github.io/2013/12/31/beginning-at-the-last-day-2013"/>
    <updated>2013-12-31T00:00:00+08:00</updated>
-   <id>http://sw897.github.io/2013/12/31/开始于2013的最后一天</id>
+   <id>http://sw897.github.io/2013/12/31/beginning-at-the-last-day-2013</id>
    <content type="html">&lt;p&gt;终于开始自己的博客了。&lt;/p&gt;
 
 &lt;p&gt;今天是一年的最后一天，是一个结束，而预示着一个新的开始。&lt;/p&gt;

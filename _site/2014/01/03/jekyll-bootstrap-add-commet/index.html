@@ -1,10 +1,11 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
   <head>
     <meta charset="utf-8">
-    <title>Web Mapping之MapBox</title>
-    <meta name="description" content="">
+    <title>给jekyll bootstrap增加评论系统 | sw897's blog</title>
+    <meta name="description" content="给jekyll bootstrap增加多说评论系统">
+    <meta name="keywords" content="Jekyll">
     <meta name="author" content="sw897">
 
     <!-- Enable responsive viewport -->
@@ -47,7 +48,7 @@ var _hmt = _hmt || [];
     <div class="navbar">
       <div class="navbar-inner">
         <div class="container-narrow">
-          <a class="brand" href="/">sw897 blog</a>
+          <a class="brand" href="/">sw897's blog</a>
           <ul class="nav">
             
             
@@ -68,6 +69,10 @@ var _hmt = _hmt || [];
       	
       	<li><a href="/archive.html">Archive</a></li>
       	
+      
+    
+  
+    
       
     
   
@@ -120,16 +125,51 @@ var _hmt = _hmt || [];
       <div class="content">
         
 <div class="page-header">
-  <h1>Web Mapping之MapBox </h1>
+  <h1>给jekyll bootstrap增加评论系统 </h1>
 </div>
 
 <div class="row-fluid post-full">
   <div class="span12">
     <div class="date">
-      <span>10 February 2014</span>
+      <span>03 January 2014</span>
     </div>
     <div class="content">
-      
+      <p>jekyll bootstrap默认的评论系统是disqus,同时还可以配置使用livefyre,intensedebate,facebook， 这些虽然都不错，不过不符合我国国情，有必要换成国内的常用评论系统，用来支持国内的SNS平台， 比如新浪微博，豆瓣，人人等。国内评论系统也很多，常用的有<a href="www.duoshuo.com">多说</a>和<a href="http://www.uyan.cc/">友言</a>。</p>
+
+<p>虽然不懂Ruby，但jekyll bootstrap把结构做的相当完美，过程很简单，下面把配置<a href="www.duoshuo.com">多说</a>的方法记录一下。 当然，开始之前需要先注册好<a href="www.duoshuo.com">多说</a>的个人账号</p>
+
+<p>1 在_includes/JB/comments-providers文件夹下增加多说的配置文件duoshuo，内容如下， 其中把short_name的值使用双大括号’{}’括起来</p>
+
+<pre class="xml"><code class="xml">
+&lt;div class=&quot;ds-thread&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var duoshuoQuery = {short_name:&#39;site.JB.comments.duoshuo.short_name&#39;};
+    (function() {
+        var ds = document.createElement(&#39;script&#39;);
+         ds.type = &#39;text/javascript&#39;;ds.async = true;
+         ds.src = &#39;http://static.duoshuo.com/embed.js&#39;;
+         ds.charset = &#39;UTF-8&#39;;
+         (document.getElementsByTagName(&#39;head&#39;)[0]
+         || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(ds);
+    })();
+&lt;/script&gt;
+</code></pre>
+
+<p>内容已经使用jb的模板变量，不需要修改可以直接拷贝使用。</p>
+
+<p>2 在_includes/JB目录下，修改comments文件，在第4行插入duoshuo的判断段，前后去掉了关键字， 打开comments看一下就会明白</p>
+
+<pre><code>  when &quot;duoshuo&quot;
+     include JB/comments-providers/duoshuo</code></pre>
+
+<p>3 最后修改_config.yml文件中comments部分即可</p>
+
+<pre><code>comments :
+    provider : duoshuo
+    duoshuo:
+       short_name : 你的多说账号</code></pre>
+
+<p>经过以上3步即可配置完成，有兴趣的朋友可以用同样方法可以试试<a href="http://www.uyan.cc/">友言</a>，除评论系统账号部分，全部能用， 其实可以向jekyll bootstrap提交一下代码，方便国人配置使用。</p>
     </div>
 
   
@@ -141,8 +181,8 @@ var _hmt = _hmt || [];
 
   
      
-    	<li><a href="/categories.html#-ref">
-    		 <span>7</span>
+    	<li><a href="/categories.html#jekyll-ref">
+    		jekyll <span>2</span>
     	</a></li>
     
   
@@ -160,9 +200,7 @@ var _hmt = _hmt || [];
 
   
      
-    	<li><a href="/tags.html#Map-ref">Map <span>3</span></a></li>
-     
-    	<li><a href="/tags.html#MapBox-ref">MapBox <span>2</span></a></li>
+    	<li><a href="/tags.html#Jekyll-ref">Jekyll <span>2</span></a></li>
     
   
 
@@ -175,10 +213,10 @@ var _hmt = _hmt || [];
     <div class="pagination">
       <ul class="pager">
       
-      <li class="previous"><a href="/2014/01/17/web-mapping%E4%B9%8Bcartodb" title="Web Mapping之CartoDB">&larr; Web Mapping之CartoDB</a></li>
+      <li class="previous"><a href="/2013/12/31/beginning-at-the-last-day-2013" title="开始于2013的最后一天">&larr; 开始于2013的最后一天</a></li>
       
       
-        <li class="next"><a href="/2014/02/10/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%E7%9A%84%E6%90%9C%E7%B4%A2" title="动态链接库的搜索">动态链接库的搜索&rarr;</a></li>
+        <li class="next"><a href="/2014/01/03/web-maping-introduce" title="Web地图制图应用介绍">Web地图制图应用介绍&rarr;</a></li>
       
       </ul>
     </div>

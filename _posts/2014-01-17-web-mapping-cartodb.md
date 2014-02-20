@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "Web Mapping之CartoDB"
-description: ""
-category: ""
+description: "在线地图制图应用，CartoDb"
+category: "Map"
+keywords: "Map, CartoDB"
 tags: [Map,CartoDB]
 ---
 {% include JB/setup %}

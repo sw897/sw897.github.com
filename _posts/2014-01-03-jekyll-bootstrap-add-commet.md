@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "给jekyll bootstrap增加评论系统"
-description: ""
-category: ""
+description: "给jekyll bootstrap增加多说评论系统"
+category: "Jekyll"
+keywords: "Jekyll"
 tags: [Jekyll]
 ---
 {% include JB/setup %}
