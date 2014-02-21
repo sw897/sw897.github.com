@@ -5,8 +5,8 @@
         <description>sw897's blog - sw897</description>
         <link>http://sw897.github.io</link>
         <link>http://sw897.github.io</link>
-        <lastBuildDate>2014-02-21T16:48:39+08:00</lastBuildDate>
-        <pubDate>2014-02-21T16:48:39+08:00</pubDate>
+        <lastBuildDate>2014-02-21T17:30:12+08:00</lastBuildDate>
+        <pubDate>2014-02-21T17:30:12+08:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -39,7 +39,7 @@
 &lt;pre&gt;&lt;code&gt;post.puts &amp;#39;keywords: &amp;quot;&amp;quot;&amp;#39;&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;这样下次再使用rake命令创建post时会自动增加keywords声明。然后修改自己在用的模板主文件。我这里是&lt;code&gt;_includes/themes/twitter/default.html&lt;/code&gt;，增加如下：&lt;/p&gt;
-&lt;script src=&#39;https://gist.github.com/sw897/b6c9d9aa30cc72a95f3d.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
+&lt;script src=&#39;https://gist.github.com/sw897/9131091.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
 &lt;p&gt;这样，会在生成html中增加keywords的meta信息。&lt;/p&gt;
 
 &lt;p&gt;另外，title默认是文章标题，可以修改模板，增加博客主题内容，我的修改如下，这样在生成的所有页面中，title的内容为title之后加上&lt;strong&gt;sw897&amp;#39;s blog&lt;/strong&gt;&lt;/p&gt;
@@ -51,13 +51,13 @@
 &lt;/ul&gt;
 
 &lt;p&gt;jekyll bootstrap里自带有sitemap.txt，对于sitemap.txt与sitemap.xml的优劣，这里有篇&lt;a href=&quot;https://forums.digitalpoint.com/threads/xml-vs-txt-sitemap.114286/&quot;&gt;文章&lt;/a&gt;有讨论， 大体读了一下，大部分人的意思就是xml的比txt的强，既然如此，改一下又不麻烦，删除sitemap.txt，创建sitemap.xml，内容如下：&lt;/p&gt;
-&lt;script src=&#39;https://gist.github.com/sw897/b1974e27b1f6309d9656.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
+&lt;script src=&#39;https://gist.github.com/sw897/9131118.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
 &lt;ul&gt;
 &lt;li&gt;增加robots.txt&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;robots.txt是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被（漫游器）获取的，以上摘自&lt;a href=&quot;&quot;&gt;robots.txt维基百科&lt;/a&gt;。在根目录下创建robots.txt，内容如下即可：&lt;/p&gt;
-&lt;script src=&#39;https://gist.github.com/sw897/ccd18f95beaa7bb6aec4.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
+&lt;script src=&#39;https://gist.github.com/sw897/9131109.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
 &lt;ul&gt;
 &lt;li&gt;增加外链&lt;/li&gt;
 &lt;/ul&gt;
@@ -260,9 +260,9 @@
 
 &lt;h3 id=&quot;linux&quot;&gt;Linux&lt;/h3&gt;
 
-&lt;p&gt;过去一段时间用的最多的，也是比较熟悉的一个了。也就是从这个系统开始知道：DLL是动态链接库，但动态链接库不一定是DLL。 了解了linux上的动态库的搜索方法，才感叹在windows上处理方法的笨拙。 Linux系统中，动态链接的程序在运行时会自动链接ld.so这个库，ld.so负责找到其他的链接库。 搜索的依据有若干条，优先级最高，也是最推荐的是，在链接的时候加入 -rpath 参数指明所谓的 RUNPATH，这样可执行文件（或者依赖其他动态链接库的动态链接库）就能告诉 ld.so 到哪里去搜索对应的动态链接库了。 对于没有设定 RPATH 的可执行文件或者动态链接库，我们可以用 LD_LIBRARY_PATH 这个环境变量通知 ld.so， 这个方法的问题是，环境变量有时候设置了（如果 export 的话）会导致其他不需要设置的程序载入了不应该载入的动态链接库， 不 export 就得每次先设定再执行。通过 LD_PRELOAD 我们可以要求 ld.so 预先载入某些动态链接库， 这样就能 override 系统的动态链接库（比如使用特殊版本的 libc.so）。 还有就是在/etc/ld.so.conf中指定的路径。&lt;/p&gt;
+&lt;p&gt;过去一段时间用的最多的，也是比较熟悉的一个了。也就是从这个系统开始知道：DLL是动态链接库，但动态链接库不一定是DLL。 了解了linux上的动态库的搜索方法，才感叹在windows上处理方法的笨拙。 Linux系统中，动态链接的程序在运行时会自动链接ld.so这个库，ld.so负责找到其他的链接库。 搜索的依据有若干条，优先级最高，也是最推荐的是，在链接的时候加入 -rpath 参数指明所谓的 RUNPATH，这样可执行文件（或者依赖其他动态链接库的动态链接库）就能告诉 ld.so 到哪里去搜索对应的动态链接库了。 对于没有设定 RPATH 的可执行文件或者动态链接库，我们可以用 LD_LIBRARY_PATH 这个环境变量通知 ld.so， 这个方法的问题是，环境变量有时候设置了（如果 export 的话）会导致其他不需要设置的程序载入了不应该载入的动态链接库， 不 export 就得每次先设定再执行。通过 LD_PRELOAD 我们可以要求 ld.so 预先载入某些动态链接库， 这样就能 override 系统的动态链接库（比如使用特殊版本的 libc.so）。 还有就是在&lt;code&gt;/etc/ld.so.conf&lt;/code&gt;中指定的路径。&lt;/p&gt;
 
-&lt;p&gt;可以通过 man ld.so查看更多的帮助，通过 ldd查看一个文件依赖的动态链接库，通过 chrpath 修改文件的 RPATH。 值得注意的是 RPATH 本身也可以通过环境变量 RUNPATH 进行覆盖。&lt;/p&gt;
+&lt;p&gt;可以通过&lt;code&gt;man ld.so&lt;/code&gt;查看更多的帮助，通过&lt;code&gt;ldd&lt;/code&gt;查看一个文件依赖的动态链接库通过 &lt;code&gt;chrpath&lt;/code&gt;修改文件的 RPATH。 值得注意的是 RPATH 本身也可以通过环境变量 RUNPATH 进行覆盖。&lt;/p&gt;
 
 &lt;h3 id=&quot;os_x&quot;&gt;OS X&lt;/h3&gt;
 
@@ -270,7 +270,7 @@
 
 &lt;p&gt;它的 dynamic linker 是 dyld 这个程序，动态链接库的载入是依靠它完成解析之类的事情，它支持三个@executable_path, @loader_path, @rpath，具体可以参考&lt;a href=&quot;https://wincent.com/wiki/@executable_path,_@load_path_and_@rpath&quot;&gt;这篇&lt;/a&gt;, 以及&lt;a href=&quot;http://www.dribin.org/dave/blog/archives/2009/11/15/rpath/&quot;&gt;另一篇&lt;/a&gt;文章来学习。&lt;/p&gt;
 
-&lt;p&gt;可以通过man dyld查看更多帮助，通过 otool -L查看一个文件依赖的动态链接库， 通过 install_name_tool -change 修改动态链接库的位置。 开发阶段往往直接链接到本地的dylib，此时对应的文件里面的路径一般是绝对路径，可以在发布的时候替换成相对路径。 编译动态链接库时，如果是 share 到任意程序的的动态库，通过 -install_name 插入绝对路径； 否则根据情况，比如是 app bundle 还是 plugin，设定为对应变量的相对位置; install_name 保证其他文件动态连接它时插入的名字是这个给定的字符串。 install name 可以用 install_name_tool -id 来修改。它依赖的动态链接库使用 -rpath 指定， 这样就算连接的动态链接库位置不是系统路径，也能自动找到。 比如我们写了一个 liba.dylib，为了很多其他程序方便用它，如果是类似 Linux 的做法， install name 可能是 /usr/local/lib/liba.dylib， 这样我的程序 app_a 直接写 -L/usr/local/lib -la 就能正确的找到在 /usr/local/lib 下的动态链接库。 如果 app_a 在写的时候 liba 也没写完，那么编译 liba 时写成 @rpath/liba.dylib 更合适， 因为 app_a 通过修改 -rpath 就可以测试正在写的 liba 或者是 deploy 到 /usr/local/lib 下的两个版本。 尽管仍然是 -L some-dir -la 链接 app_a 的，这里的 some-dir 可以是 /usr/local/lib 也可以是开发环境下的目录。&lt;/p&gt;</description>
+&lt;p&gt;可以通过&lt;code&gt;man dyld&lt;/code&gt;查看更多帮助，通过&lt;code&gt;otool -L&lt;/code&gt;查看一个文件依赖的动态链接库， 通过&lt;code&gt;install_name_tool -change&lt;/code&gt;修改动态链接库的位置。 开发阶段往往直接链接到本地的dylib，此时对应的文件里面的路径一般是绝对路径，可以在发布的时候替换成相对路径。 编译动态链接库时，如果是 share 到任意程序的的动态库，通过&lt;code&gt;-install_name&lt;/code&gt;插入绝对路径； 否则根据情况，比如是 app bundle 还是 plugin，设定为对应变量的相对位置; install_name 保证其他文件动态连接它时插入的名字是这个给定的字符串。 install name 可以用&lt;code&gt;install_name_tool -id&lt;/code&gt;来修改。它依赖的动态链接库使用&lt;code&gt;-rpath&lt;/code&gt;指定， 这样就算连接的动态链接库位置不是系统路径，也能自动找到。 比如我们写了一个 liba.dylib，为了很多其他程序方便用它，如果是类似 Linux 的做法， install name 可能是&lt;code&gt;/usr/local/lib/liba.dylib&lt;/code&gt;， 这样我的程序 app_a 直接写&lt;code&gt;-L/usr/local/lib -la&lt;/code&gt;就能正确的找到在&lt;code&gt;/usr/local/lib&lt;/code&gt;下的动态链接库。 如果 app_a 在写的时候 liba 也没写完，那么编译 liba 时写成&lt;code&gt;@rpath/liba.dylib&lt;/code&gt;更合适， 因为 app_a 通过修改 -rpath 就可以测试正在写的 liba 或者是 deploy 到&lt;code&gt;/usr/local/lib&lt;/code&gt;下的两个版本。 尽管仍然是&lt;code&gt;-L some-dir -la&lt;/code&gt;链接 app_a 的，这里的 some-dir 可以是&lt;code&gt;/usr/local/lib&lt;/code&gt;也可以是开发环境下的目录。&lt;/p&gt;</description>
                 <link>http://sw897.github.io/2014/02/10/dynamic-link-library-searching</link>
                 <guid>http://sw897.github.io/2014/02/10/dynamic-link-library-searching</guid>
                 <pubDate>2014-02-10T00:00:00+08:00</pubDate>
@@ -435,20 +435,24 @@
 
 &lt;p&gt;虽然不懂Ruby，但jekyll bootstrap把结构做的相当完美，过程很简单，下面把配置&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的方法记录一下。 当然，开始之前需要先注册好&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的个人账号&lt;/p&gt;
 
-&lt;p&gt;1 在_includes/JB/comments-providers文件夹下增加多说的配置文件duoshuo，内容如下&lt;/p&gt;
+&lt;p&gt;1 在&lt;code&gt;_includes/JB/comments-providers&lt;/code&gt;文件夹下增加多说的配置文件duoshuo，内容如下&lt;/p&gt;
 &lt;script src=&#39;https://gist.github.com/sw897/9130242.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
 &lt;p&gt;内容已经使用jb的模板变量，不需要修改可以直接拷贝使用。&lt;/p&gt;
 
-&lt;p&gt;2 在_includes/JB目录下，修改comments文件，在第4行插入duoshuo的判断段&lt;/p&gt;
-&lt;script src=&#39;https://gist.github.com/sw897/27427499bef0d8bd504f.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
-&lt;p&gt;3 最后修改_config.yml文件中comments部分即可&lt;/p&gt;
+&lt;p&gt;2 在&lt;code&gt;_includes/JB&lt;/code&gt;目录下，修改comments文件，在第4行插入duoshuo的判断段&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/sw897/9131080.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
+&lt;p&gt;3 最后修改&lt;code&gt;_config.yml&lt;/code&gt;文件中comments部分即可&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;comments :
     provider : duoshuo
     duoshuo:
        short_name : 你的多说账号&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;经过以上3步即可配置完成，有兴趣的朋友可以用同样方法可以试试&lt;a href=&quot;http://www.uyan.cc/&quot;&gt;友言&lt;/a&gt;，除评论系统账号部分，全部能用， 其实可以向jekyll bootstrap提交一下代码，方便国人配置使用。&lt;/p&gt;</description>
+&lt;p&gt;经过以上3步即可配置完成，有兴趣的朋友可以用同样方法可以试试&lt;a href=&quot;http://www.uyan.cc/&quot;&gt;友言&lt;/a&gt;，除评论系统账号部分，全部能用， 其实可以向jekyll bootstrap提交一下代码，方便国人配置使用。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Updated:2014-02-21&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;之前一直苦恼于怎样在markdown中直接贴Jekyll的相关代码，因为&lt;strong&gt;{}&lt;/strong&gt;、&lt;strong&gt;%&lt;/strong&gt;等关键字包含内容会自动解释，后来结合Gist终于解决：把代码创建gist后，再嵌入回来。虽然会影响速度，但完美解决生成HTML时代码解释运行的问题。&lt;/p&gt;</description>
                 <link>http://sw897.github.io/2014/01/02/jekyll-bootstrap-add-comment</link>
                 <guid>http://sw897.github.io/2014/01/02/jekyll-bootstrap-add-comment</guid>
                 <pubDate>2014-01-02T00:00:00+08:00</pubDate>
@@ -508,27 +512,26 @@
 
 &lt;p&gt;Mac 10.7自带的Ruby版本为1.8.6，使用其gem安装Jekyll后会有若干莫名其妙的错误， 其原因还是我们的Jekyll需要1.9.2+才行，还是自行安装新版本解决来的快些。 &lt;a href=&quot;http://www.chenzixin.com/program/2013/03/06/mac-jekyll-install-log/&quot;&gt;Mac OS X 安装 Jekyll 记录&lt;/a&gt; 文档教的方法是使用rvm，这里对于不懂Ruby的人来说，我也不想去装rvm，还是使用&lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;来搞定吧&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ brew install ruby&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;$ brew install ruby&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;默认安装Ruby的最新版本2.1，教程说是最好是1.9.3版本，这里经实验2.1也是没有问题的。&lt;/p&gt;
 
 &lt;h4 id=&quot;jekyll_2&quot;&gt;安装本地jekyll&lt;/h4&gt;
 
-&lt;pre&gt;&lt;code&gt;$ sudo gem install jekyll&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;$ sudo gem install jekyll&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;这里要使用sudo，至于为什么，你可以试试不带sudo进行安装，看看提示就明白了。安装完成后会有一个提示， 这里没有拷贝下来，大体意思就是gem的工具没link到执行目录，可以通过&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ which jekyll&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;$ which jekyll&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;验证一下，发现查无其人(jekyll)。使用其提示的方法&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo gem pristine --all --only-executables
-$ which jekyll
-/usr/local/bin/jekyll&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;sh&#39;&gt;&lt;span class=&#39;nv&#39;&gt;$ &lt;/span&gt;sudo gem pristine --all --only-executables
+&lt;span class=&#39;nv&#39;&gt;$ &lt;/span&gt;which jekyll
+/usr/local/bin/jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;这样就可以，转到username.github.com目录，&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ jekyll serve&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;$ jekyll serve&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;访问127.0.0.1:4000就可以查看jekyll bootstrap的默认blog了&lt;/p&gt;
 

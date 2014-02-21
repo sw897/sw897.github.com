@@ -45,9 +45,9 @@ Linux系统中，动态链接的程序在运行时会自动链接ld.so这个库�
 这个方法的问题是，环境变量有时候设置了（如果 export 的话）会导致其他不需要设置的程序载入了不应该载入的动态链接库，
 不 export 就得每次先设定再执行。通过 LD_PRELOAD 我们可以要求 ld.so 预先载入某些动态链接库，
 这样就能 override 系统的动态链接库（比如使用特殊版本的 libc.so）。
-还有就是在/etc/ld.so.conf中指定的路径。
+还有就是在<code>/etc/ld.so.conf</code>中指定的路径。
 
-可以通过 man ld.so查看更多的帮助，通过 ldd查看一个文件依赖的动态链接库，通过 chrpath 修改文件的 RPATH。
+可以通过<code>man ld.so</code>查看更多的帮助，通过<code>ldd</code>查看一个文件依赖的动态链接库通过 <code>chrpath</code>修改文件的 RPATH。
 值得注意的是 RPATH 本身也可以通过环境变量 RUNPATH 进行覆盖。
 
 ### OS X
@@ -60,20 +60,20 @@ Mac从BSD走来，它与Linux的还是有区别的，特别是实行dmg的安装
 @loader_path, @rpath，具体可以参考[这篇](https://wincent.com/wiki/@executable_path,_@load_path_and_@rpath),
 以及[另一篇](http://www.dribin.org/dave/blog/archives/2009/11/15/rpath/)文章来学习。
 
-可以通过man dyld查看更多帮助，通过 otool -L查看一个文件依赖的动态链接库，
-通过 install_name_tool -change 修改动态链接库的位置。
+可以通过<code>man dyld</code>查看更多帮助，通过<code>otool -L</code>查看一个文件依赖的动态链接库，
+通过<code>install_name_tool -change</code>修改动态链接库的位置。
 开发阶段往往直接链接到本地的dylib，此时对应的文件里面的路径一般是绝对路径，可以在发布的时候替换成相对路径。
-编译动态链接库时，如果是 share 到任意程序的的动态库，通过 -install_name 插入绝对路径；
+编译动态链接库时，如果是 share 到任意程序的的动态库，通过<code>-install_name</code>插入绝对路径；
 否则根据情况，比如是 app bundle 还是 plugin，设定为对应变量的相对位置;
 install_name 保证其他文件动态连接它时插入的名字是这个给定的字符串。
-install name 可以用 install_name_tool -id 来修改。它依赖的动态链接库使用 -rpath 指定，
+install name 可以用<code>install_name_tool -id</code>来修改。它依赖的动态链接库使用<code>-rpath</code>指定，
 这样就算连接的动态链接库位置不是系统路径，也能自动找到。
 比如我们写了一个 liba.dylib，为了很多其他程序方便用它，如果是类似 Linux 的做法，
-install name 可能是 /usr/local/lib/liba.dylib，
-这样我的程序 app_a 直接写 -L/usr/local/lib -la 就能正确的找到在 /usr/local/lib 下的动态链接库。
-如果 app_a 在写的时候 liba 也没写完，那么编译 liba 时写成 @rpath/liba.dylib 更合适，
-因为 app_a 通过修改 -rpath 就可以测试正在写的 liba 或者是 deploy 到 /usr/local/lib 下的两个版本。
-尽管仍然是 -L some-dir -la 链接 app_a 的，这里的 some-dir 可以是 /usr/local/lib 也可以是开发环境下的目录。
+install name 可能是<code>/usr/local/lib/liba.dylib</code>，
+这样我的程序 app_a 直接写<code>-L/usr/local/lib -la</code>就能正确的找到在<code>/usr/local/lib</code>下的动态链接库。
+如果 app_a 在写的时候 liba 也没写完，那么编译 liba 时写成<code>@rpath/liba.dylib</code>更合适，
+因为 app_a 通过修改 -rpath 就可以测试正在写的 liba 或者是 deploy 到<code>/usr/local/lib</code>下的两个版本。
+尽管仍然是<code>-L some-dir -la</code>链接 app_a 的，这里的 some-dir 可以是<code>/usr/local/lib</code>也可以是开发环境下的目录。
 
 
 

@@ -36,7 +36,7 @@ jekyll bootstrap中使用<code>rake post title="xxx"</code>命令创建post时�
 
 这样下次再使用rake命令创建post时会自动增加keywords声明。然后修改自己在用的模板主文件。我这里是<code>\_includes/themes/twitter/default.html</code>，增加如下：
 
-<script src="https://gist.github.com/sw897/b6c9d9aa30cc72a95f3d.js"></script>
+<script src="https://gist.github.com/sw897/9131091.js"></script>
 
 这样，会在生成html中增加keywords的meta信息。
 
@@ -49,13 +49,13 @@ jekyll bootstrap中使用<code>rake post title="xxx"</code>命令创建post时�
 jekyll bootstrap里自带有sitemap.txt，对于sitemap.txt与sitemap.xml的优劣，这里有篇[文章](https://forums.digitalpoint.com/threads/xml-vs-txt-sitemap.114286/)有讨论，
 大体读了一下，大部分人的意思就是xml的比txt的强，既然如此，改一下又不麻烦，删除sitemap.txt，创建sitemap.xml，内容如下：
 
-<script src="https://gist.github.com/sw897/b1974e27b1f6309d9656.js"></script>
+<script src="https://gist.github.com/sw897/9131118.js"></script>
 
 * 增加robots.txt
 
 robots.txt是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被（漫游器）获取的，以上摘自[robots.txt维基百科]()。在根目录下创建robots.txt，内容如下即可：
 
-<script src="https://gist.github.com/sw897/ccd18f95beaa7bb6aec4.js"></script>
+<script src="https://gist.github.com/sw897/9131109.js"></script>
 
 * 增加外链
 

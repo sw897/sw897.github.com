@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
 <pre><code>post.puts &#39;keywords: &quot;&quot;&#39;</code></pre>
 
 <p>这样下次再使用rake命令创建post时会自动增加keywords声明。然后修改自己在用的模板主文件。我这里是<code>_includes/themes/twitter/default.html</code>，增加如下：</p>
-<script src='https://gist.github.com/sw897/b6c9d9aa30cc72a95f3d.js'><![CDATA[]]></script>
+<script src='https://gist.github.com/sw897/9131091.js'><![CDATA[]]></script>
 <p>这样，会在生成html中增加keywords的meta信息。</p>
 
 <p>另外，title默认是文章标题，可以修改模板，增加博客主题内容，我的修改如下，这样在生成的所有页面中，title的内容为title之后加上<strong>sw897&#39;s blog</strong></p>
@@ -173,13 +173,13 @@ var _hmt = _hmt || [];
 </ul>
 
 <p>jekyll bootstrap里自带有sitemap.txt，对于sitemap.txt与sitemap.xml的优劣，这里有篇<a href="https://forums.digitalpoint.com/threads/xml-vs-txt-sitemap.114286/">文章</a>有讨论， 大体读了一下，大部分人的意思就是xml的比txt的强，既然如此，改一下又不麻烦，删除sitemap.txt，创建sitemap.xml，内容如下：</p>
-<script src='https://gist.github.com/sw897/b1974e27b1f6309d9656.js'><![CDATA[]]></script>
+<script src='https://gist.github.com/sw897/9131118.js'><![CDATA[]]></script>
 <ul>
 <li>增加robots.txt</li>
 </ul>
 
 <p>robots.txt是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被（漫游器）获取的，以上摘自<a href="">robots.txt维基百科</a>。在根目录下创建robots.txt，内容如下即可：</p>
-<script src='https://gist.github.com/sw897/ccd18f95beaa7bb6aec4.js'><![CDATA[]]></script>
+<script src='https://gist.github.com/sw897/9131109.js'><![CDATA[]]></script>
 <ul>
 <li>增加外链</li>
 </ul>

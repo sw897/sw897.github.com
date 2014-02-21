@@ -59,26 +59,31 @@ Mac 10.7自带的Ruby版本为1.8.6，使用其gem安装Jekyll后会有若干莫
 [Mac OS X 安装 Jekyll 记录][]
 文档教的方法是使用rvm，这里对于不懂Ruby的人来说，我也不想去装rvm，还是使用[Homebrew][]来搞定吧
 
-    $ brew install ruby
+<code>$ brew install ruby</code>
 
 默认安装Ruby的最新版本2.1，教程说是最好是1.9.3版本，这里经实验2.1也是没有问题的。
 
 #### 安装本地jekyll
 
-    $ sudo gem install jekyll
+<code>$ sudo gem install jekyll</code>
+
 这里要使用sudo，至于为什么，你可以试试不带sudo进行安装，看看提示就明白了。安装完成后会有一个提示，
 这里没有拷贝下来，大体意思就是gem的工具没link到执行目录，可以通过
 
-    $ which jekyll
+<code>$ which jekyll</code>
+
 验证一下，发现查无其人(jekyll)。使用其提示的方法
 
-    $ sudo gem pristine --all --only-executables
-    $ which jekyll
-    /usr/local/bin/jekyll
+{% highlight sh %}
+$ sudo gem pristine --all --only-executables
+$ which jekyll
+/usr/local/bin/jekyll
+{% endhighlight %}
 
 这样就可以，转到username.github.com目录，
 
-    $ jekyll serve
+<code>$ jekyll serve</code>
+
 访问127.0.0.1:4000就可以查看jekyll bootstrap的默认blog了
 
 #### 同步到GitHub
