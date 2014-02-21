@@ -4,13 +4,77 @@
  <title>sw897's blog</title>
  <link href="http://sw897.github.io/" rel="self"/>
  <link href="http://sw897.github.io"/>
- <updated>2014-02-20T17:57:16+08:00</updated>
+ <updated>2014-02-21T16:48:39+08:00</updated>
  <id>http://sw897.github.io</id>
  <author>
    <name>sw897</name>
    <email>sunwei.r@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>基于Jekyll Bootstrap的博客SEO优化</title>
+   <link href="http://sw897.github.io/2014/02/20/jekyll-bootstrap-seo"/>
+   <updated>2014-02-20T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/02/20/jekyll-bootstrap-seo</id>
+   <content type="html">&lt;p&gt;写博客是为了共享与交流，但一个新博客，其搜索、关注度都很低。 这就要想想是为什么了？当然，最重要的一点，博客需要创造价值内容，没有内容就没有价值， 从而没有阅读，没有评论，没有交互。但对于一个新博客，如果不是靠&lt;code&gt;ctrl+c&lt;/code&gt;与&lt;code&gt;ctrl+v&lt;/code&gt;起家，由于时间短，内容是不会太多的。这个第一步怎样走出去？ 外事问Google，搜索了一下SEO(搜索引擎优化)，看看大家有什么好的办法。这里记录一下本博针对SEO做的调整。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;固定链接&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;修改_config.yml中的permalink，去掉category，防止整理文章时， 修改category后会造成404链接，修改后如下： permalink: /:year/:month/:day/:title&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;posts的URL使用英文&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;jekyll bootstrap中使用&lt;code&gt;rake post title=&amp;quot;xxx&amp;quot;&lt;/code&gt;命令创建post时，创建的markdown文件中会自动把中文去掉，开始认为是对中文支持不好，每每都要rename一下。虽然当前搜索引擎都支持中文，但看到那一串的不能识别的编码后的字符，自己看google analytics时也会不爽，统一改为英文和分割线结构，好看又好记。如本篇&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;http://sw897.github.io/2014/02/20/jekyll-bootstrap-seo&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;完善meta信息，title,description,keywords一个都不能少&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;使用rake创建的post，会在头部自动增加title与description配置,写文章时一定要补全，这样使jekyll会自动添加目标html中。&lt;/p&gt;
+
+&lt;p&gt;至于keywords，虽然都说由于大家的滥用，搜索引擎降低其作用，但了胜于无，加上无坏处。 打开&lt;strong&gt;Rakefile&lt;/strong&gt;,在69行增加如下代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;post.puts &amp;#39;keywords: &amp;quot;&amp;quot;&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这样下次再使用rake命令创建post时会自动增加keywords声明。然后修改自己在用的模板主文件。我这里是&lt;code&gt;_includes/themes/twitter/default.html&lt;/code&gt;，增加如下：&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/sw897/b6c9d9aa30cc72a95f3d.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
+&lt;p&gt;这样，会在生成html中增加keywords的meta信息。&lt;/p&gt;
+
+&lt;p&gt;另外，title默认是文章标题，可以修改模板，增加博客主题内容，我的修改如下，这样在生成的所有页面中，title的内容为title之后加上&lt;strong&gt;sw897&amp;#39;s blog&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;title&amp;gt; page.title | sw897&amp;#39;s blog&amp;lt;/title&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;sitemap.txt转为sitemap.xml&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;jekyll bootstrap里自带有sitemap.txt，对于sitemap.txt与sitemap.xml的优劣，这里有篇&lt;a href=&quot;https://forums.digitalpoint.com/threads/xml-vs-txt-sitemap.114286/&quot;&gt;文章&lt;/a&gt;有讨论， 大体读了一下，大部分人的意思就是xml的比txt的强，既然如此，改一下又不麻烦，删除sitemap.txt，创建sitemap.xml，内容如下：&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/sw897/b1974e27b1f6309d9656.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
+&lt;ul&gt;
+&lt;li&gt;增加robots.txt&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;robots.txt是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被（漫游器）获取的，以上摘自&lt;a href=&quot;&quot;&gt;robots.txt维基百科&lt;/a&gt;。在根目录下创建robots.txt，内容如下即可：&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/sw897/ccd18f95beaa7bb6aec4.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
+&lt;ul&gt;
+&lt;li&gt;增加外链&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在SEO中，外链能够极大的增加网站权重，让网站关键词有好的排名，这是因为搜索引擎是通过外链和锚文本来抓取网页内容的，增加外链能增加网站的曝光度，使网站权重得到提升。具体方法有很多，这里只简单设置一下，在自己github,bitbuck,google+,facebook,twitter里都增加网站链接，虽然不多，但可以让关注的人全面了解一下。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;持之以恒&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最后，也是最重要的，坚持! 自勉！&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>使用Sublime Text 3做Python开发</title>
@@ -32,11 +96,8 @@
 &lt;h3 id=&quot;package_control&quot;&gt;安装Package Control&lt;/h3&gt;
 
 &lt;p&gt;现在Sublime Text 3的安装方法和版本2一样，只是粘贴的代码内容稍有不同，在&lt;a href=&quot;https://sublime.wbond.net&quot;&gt;Package Contorl网站&lt;/a&gt;上有安装方法。使用快捷键&lt;code&gt;ctrl+`&lt;/code&gt;或通过菜单选项&lt;code&gt;View &amp;gt; Show Console&lt;/code&gt;进入控制台Console，然后粘贴如下代码，回车运行。&lt;/p&gt;
-
-&lt;pre class=&quot;python&quot;&gt;&lt;code class=&quot;python&quot;&gt;
-import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0&amp;#39;; pf = &amp;#39;Package Control.sublime-package&amp;#39;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &amp;#39;http://sublime.wbond.net/&amp;#39; + pf.replace(&amp;#39; &amp;#39;, &amp;#39;%20&amp;#39;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&amp;#39;Error validating download (got %s instead of %s), please try manual install&amp;#39; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &amp;#39;wb&amp;#39; ).write(by)
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;python&#39;&gt;&lt;span class=&#39;kn&#39;&gt;import&lt;/span&gt; &lt;span class=&#39;nn&#39;&gt;urllib.request&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;,&lt;/span&gt;&lt;span class=&#39;nn&#39;&gt;os&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;,&lt;/span&gt;&lt;span class=&#39;nn&#39;&gt;hashlib&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;h&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;#39;7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;pf&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;#39;Package Control.sublime-package&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;ipp&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;sublime&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;installed_packages_path&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;();&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;urllib&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;request&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;install_opener&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;urllib&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;request&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;build_opener&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;urllib&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;request&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;ProxyHandler&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;())&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;);&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;by&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;urllib&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;request&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;urlopen&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;#39;http://sublime.wbond.net/&amp;#39;&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;+&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;pf&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;replace&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;#39;%20&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;))&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;read&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;();&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;dh&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;hashlib&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;sha256&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;by&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;hexdigest&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;();&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;print&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;#39;Error validating download (got &lt;/span&gt;&lt;span class=&#39;si&#39;&gt;%s&lt;/span&gt;&lt;span class=&#39;s&#39;&gt; instead of &lt;/span&gt;&lt;span class=&#39;si&#39;&gt;%s&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;), please try manual install&amp;#39;&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;%&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;dh&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;h&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;))&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;if&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;dh&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;!=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;h&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;else&lt;/span&gt; &lt;span class=&#39;nb&#39;&gt;open&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;os&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;path&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;join&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;ipp&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;pf&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;),&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;#39;wb&amp;#39;&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;write&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;by&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;安装完成后我们就正式开始配置Sublime Text!&lt;/p&gt;
 
 &lt;h3 id=&quot;plugins&quot;&gt;安装Plugins的万能方法&lt;/h3&gt;
@@ -52,54 +113,51 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 &lt;p&gt;sublime text可以通过插件安装很多主题，肯定有一款适合你。这里还是推荐在Sublime Text 2上一直使用的&lt;a href=&quot;http://buymeasoda.github.io/soda-theme/&quot;&gt;Theme - Soda Dark&lt;/a&gt;主题， 颜色模板使用&lt;a href=&quot;https://github.com/theymaybecoders/sublime-tomorrow-theme&quot;&gt;Color Scheme - Tomorrow Night&lt;/a&gt;，两者的搭配应该算的上经典，从notepad++转到Sublime Text 2时基本所有的介绍文档都是这么推荐的。 大家可以通过上面介绍的插件安装方法尝试一下。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;配置文件内容
-&lt;pre class=&quot;json&quot;&gt;&lt;code class=&quot;json&quot;&gt;
-  // Colors
-  &amp;quot;color_scheme&amp;quot;: &amp;quot;Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme&amp;quot;,
-  &amp;quot;theme&amp;quot;: &amp;quot;Soda Dark 3.sublime-theme&amp;quot;,
-  // Font
-  &amp;quot;font_size&amp;quot;: 12.0,
-  &amp;quot;font_options&amp;quot;: [&amp;quot;subpixel_antialias&amp;quot;, &amp;quot;no_bold&amp;quot;],
-  &amp;quot;line_padding_bottom&amp;quot;: 1,
-  &amp;quot;line_padding_top&amp;quot;: 1,
-  // Editor view
-  &amp;quot;draw_white_space&amp;quot;: &amp;quot;all&amp;quot;,
-  &amp;quot;fold_buttons&amp;quot;: false,
-  &amp;quot;highlight_line&amp;quot;: true,
-  &amp;quot;auto_complete&amp;quot;: false,
-  &amp;quot;show_minimap&amp;quot;: false,
-  &amp;quot;show_full_path&amp;quot;: true,
-  // Editor behavior
-  &amp;quot;scroll_past_end&amp;quot;: false,
-  &amp;quot;highlight_modified_tabs&amp;quot;: true,
-  &amp;quot;find_selected_text&amp;quot;: true,
-  // Whitespace - no tabs, trimming, end files with \n
-  &amp;quot;tab_size&amp;quot;: 4,
-  &amp;quot;translate_tabs_to_spaces&amp;quot;: true,
-  &amp;quot;trim_trailing_white_space_on_save&amp;quot;: true,
-  &amp;quot;ensure_newline_at_eof_on_save&amp;quot;: true,
-  // Sidebar
-  &amp;quot;file_exclude_patterns&amp;quot;:
-  [
-      &amp;quot;.DS_Store&amp;quot;,
-      &amp;quot;*.pid&amp;quot;,
-      &amp;quot;*.pyc&amp;quot;
-  ],
-  &amp;quot;folder_exclude_patterns&amp;quot;:
-  [
-      &amp;quot;.git&amp;quot;,
-      &amp;quot;__pycache__&amp;quot;
-  ],
-  // Package Control
-  &amp;quot;ignored_packages&amp;quot;:
-  [
-      &amp;quot;Vintage&amp;quot;
-  ]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;个人不喜欢自动切分换行功能，于是没有配置，所以后面把PEP8中的E501排除掉了&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;配置文件内容&lt;/li&gt;
 &lt;/ul&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;javascript&#39;&gt;&lt;span class=&#39;c1&#39;&gt;// Colors&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;color_scheme&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;theme&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;Soda Dark 3.sublime-theme&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;c1&#39;&gt;// Font&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;font_size&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;mf&#39;&gt;12.0&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;font_options&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;[&lt;/span&gt;&lt;span class=&#39;s2&#39;&gt;&amp;quot;subpixel_antialias&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;no_bold&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;],&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;line_padding_bottom&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;line_padding_top&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;c1&#39;&gt;// Editor view&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;draw_white_space&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;all&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;fold_buttons&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;kc&#39;&gt;false&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;highlight_line&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;kc&#39;&gt;true&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;auto_complete&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;kc&#39;&gt;false&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;show_minimap&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;kc&#39;&gt;false&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;show_full_path&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;kc&#39;&gt;true&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;c1&#39;&gt;// Editor behavior&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;scroll_past_end&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;kc&#39;&gt;false&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;highlight_modified_tabs&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;kc&#39;&gt;true&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;find_selected_text&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;kc&#39;&gt;true&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;c1&#39;&gt;// Whitespace - no tabs, trimming, end files with \n&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;tab_size&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;4&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;translate_tabs_to_spaces&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;kc&#39;&gt;true&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;trim_trailing_white_space_on_save&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;kc&#39;&gt;true&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;ensure_newline_at_eof_on_save&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;kc&#39;&gt;true&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+&lt;span class=&#39;c1&#39;&gt;// Sidebar&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;file_exclude_patterns&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt;
+&lt;span class=&#39;p&#39;&gt;[&lt;/span&gt;
+    &lt;span class=&#39;s2&#39;&gt;&amp;quot;.DS_Store&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+    &lt;span class=&#39;s2&#39;&gt;&amp;quot;*.pid&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+    &lt;span class=&#39;s2&#39;&gt;&amp;quot;*.pyc&amp;quot;&lt;/span&gt;
+&lt;span class=&#39;p&#39;&gt;],&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;folder_exclude_patterns&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt;
+&lt;span class=&#39;p&#39;&gt;[&lt;/span&gt;
+    &lt;span class=&#39;s2&#39;&gt;&amp;quot;.git&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;
+    &lt;span class=&#39;s2&#39;&gt;&amp;quot;__pycache__&amp;quot;&lt;/span&gt;
+&lt;span class=&#39;p&#39;&gt;],&lt;/span&gt;
+&lt;span class=&#39;c1&#39;&gt;// Package Control&lt;/span&gt;
+&lt;span class=&#39;s2&#39;&gt;&amp;quot;ignored_packages&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt;
+&lt;span class=&#39;p&#39;&gt;[&lt;/span&gt;
+    &lt;span class=&#39;s2&#39;&gt;&amp;quot;Vintage&amp;quot;&lt;/span&gt;
+&lt;span class=&#39;p&#39;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;个人不喜欢自动切分换行功能，于是没有配置，所以后面把PEP8中的E501排除掉了&lt;/p&gt;
 
 &lt;h3 id=&quot;_3&quot;&gt;开发环境插件&lt;/h3&gt;
 
@@ -123,7 +181,7 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 &lt;li&gt;&lt;a href=&quot;https://sublime.wbond.net/packages/Gist&quot;&gt;Gist&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;创建新Gists的插件&lt;/p&gt;
+&lt;p&gt;创建、管理gist的插件，Gist是GitHub提供的又一强力工具，用Git将用户常用的代码片段在线管理起来。安装此插件后，打开其User-Setting， 增加个人的GitHub访问Token后，即可通过快捷键或Console使用。&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://sublime.wbond.net/packages/Anaconda&quot;&gt;Anaconda&lt;/a&gt;&lt;/li&gt;
@@ -144,11 +202,10 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 &lt;/ul&gt;
 
 &lt;p&gt;在&lt;code&gt;Packages/User&lt;/code&gt;目录下创建&lt;code&gt;Python.sublime-settings&lt;/code&gt;文件，增加如下内容&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-    &amp;quot;auto_complete_triggers&amp;quot;: [{&amp;quot;selector&amp;quot;: &amp;quot;source.python - string - comment - constant.numeric&amp;quot;, &amp;quot;characters&amp;quot;: &amp;quot;.&amp;quot;}]
-}&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;json&#39;&gt;&lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
+    &lt;span class=&#39;nt&#39;&gt;&amp;quot;auto_complete_triggers&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;[{&lt;/span&gt;&lt;span class=&#39;nt&#39;&gt;&amp;quot;selector&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;source.python - string - comment - constant.numeric&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;nt&#39;&gt;&amp;quot;characters&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt; &lt;span class=&#39;s2&#39;&gt;&amp;quot;.&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;}]&lt;/span&gt;
+&lt;span class=&#39;p&#39;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;增加括号操作符后的参数自动完成&lt;/li&gt;
 &lt;/ul&gt;
@@ -156,13 +213,10 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 &lt;p&gt;在&lt;code&gt;Anaconda Setting&lt;/code&gt;中修改&lt;code&gt;complete_parameters&lt;/code&gt;参数的值为&lt;code&gt;true&lt;/code&gt;。 这里还有一个参数为&lt;code&gt;complete_all_parameters&lt;/code&gt;，设置其为&lt;code&gt;true&lt;/code&gt;后，则带默认值的参数也会自动完成。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;忽略&lt;code&gt;AutoFormat PEP8&lt;/code&gt;中E501的提示&lt;/p&gt;
-
-&lt;p&gt;“pep8_ignore”: [ “E501” ]&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;忽略&lt;code&gt;AutoFormat PEP8&lt;/code&gt;中E501的提示&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;javascript&#39;&gt;&lt;span class=&#39;s2&#39;&gt;&amp;quot;pep8_ignore&amp;quot;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;[&lt;/span&gt;&lt;span class=&#39;s2&#39;&gt;&amp;quot;E501&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;其他设置均使用默认值。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/sublime_anaconda.png&#39; /&gt;&lt;/p&gt;
@@ -386,30 +440,12 @@ import urllib.request,os,hashlib; h = &amp;#39;7183a2d3e96f11eeadd761d777e62404e
 
 &lt;p&gt;虽然不懂Ruby，但jekyll bootstrap把结构做的相当完美，过程很简单，下面把配置&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的方法记录一下。 当然，开始之前需要先注册好&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的个人账号&lt;/p&gt;
 
-&lt;p&gt;1 在_includes/JB/comments-providers文件夹下增加多说的配置文件duoshuo，内容如下， 其中把short_name的值使用双大括号’{}’括起来&lt;/p&gt;
-
-&lt;pre class=&quot;xml&quot;&gt;&lt;code class=&quot;xml&quot;&gt;
-&amp;lt;div class=&amp;quot;ds-thread&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-var duoshuoQuery = {short_name:&amp;#39;site.JB.comments.duoshuo.short_name&amp;#39;};
-    (function() {
-        var ds = document.createElement(&amp;#39;script&amp;#39;);
-         ds.type = &amp;#39;text/javascript&amp;#39;;ds.async = true;
-         ds.src = &amp;#39;http://static.duoshuo.com/embed.js&amp;#39;;
-         ds.charset = &amp;#39;UTF-8&amp;#39;;
-         (document.getElementsByTagName(&amp;#39;head&amp;#39;)[0]
-         || document.getElementsByTagName(&amp;#39;body&amp;#39;)[0]).appendChild(ds);
-    })();
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;p&gt;1 在_includes/JB/comments-providers文件夹下增加多说的配置文件duoshuo，内容如下&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/sw897/9130242.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
 &lt;p&gt;内容已经使用jb的模板变量，不需要修改可以直接拷贝使用。&lt;/p&gt;
 
-&lt;p&gt;2 在_includes/JB目录下，修改comments文件，在第4行插入duoshuo的判断段，前后去掉了关键字， 打开comments看一下就会明白&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  when &amp;quot;duoshuo&amp;quot;
-     include JB/comments-providers/duoshuo&lt;/code&gt;&lt;/pre&gt;
-
+&lt;p&gt;2 在_includes/JB目录下，修改comments文件，在第4行插入duoshuo的判断段&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/sw897/27427499bef0d8bd504f.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
 &lt;p&gt;3 最后修改_config.yml文件中comments部分即可&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;comments :

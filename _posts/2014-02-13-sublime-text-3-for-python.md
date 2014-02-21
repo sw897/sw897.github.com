@@ -29,9 +29,11 @@ Sublime Text 3的beta版本推出很长时间了，但其中文介绍文档非�
 ### 安装Package Control
 
 现在Sublime Text 3的安装方法和版本2一样，只是粘贴的代码内容稍有不同，在[Package Contorl网站][]上有安装方法。使用快捷键<code>ctrl+\`</code>或通过菜单选项<code>View > Show Console</code>进入控制台Console，然后粘贴如下代码，回车运行。
-```python
+
+{% highlight python %}
 import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
-```
+{% endhighlight %}
+
 安装完成后我们就正式开始配置Sublime Text!
 
 ### 安装Plugins的万能方法
@@ -50,49 +52,51 @@ sublime text可以通过插件安装很多主题，肯定有一款适合你。�
 
 
 * 配置文件内容
-```json
-    // Colors
-    "color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme",
-    "theme": "Soda Dark 3.sublime-theme",
-    // Font
-    "font_size": 12.0,
-    "font_options": ["subpixel_antialias", "no_bold"],
-    "line_padding_bottom": 1,
-    "line_padding_top": 1,
-    // Editor view
-    "draw_white_space": "all",
-    "fold_buttons": false,
-    "highlight_line": true,
-    "auto_complete": false,
-    "show_minimap": false,
-    "show_full_path": true,
-    // Editor behavior
-    "scroll_past_end": false,
-    "highlight_modified_tabs": true,
-    "find_selected_text": true,
-    // Whitespace - no tabs, trimming, end files with \n
-    "tab_size": 4,
-    "translate_tabs_to_spaces": true,
-    "trim_trailing_white_space_on_save": true,
-    "ensure_newline_at_eof_on_save": true,
-    // Sidebar
-    "file_exclude_patterns":
-    [
-        ".DS_Store",
-        "*.pid",
-        "*.pyc"
-    ],
-    "folder_exclude_patterns":
-    [
-        ".git",
-        "__pycache__"
-    ],
-    // Package Control
-    "ignored_packages":
-    [
-        "Vintage"
-    ]
-```
+
+{% highlight javascript %}
+// Colors
+"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme",
+"theme": "Soda Dark 3.sublime-theme",
+// Font
+"font_size": 12.0,
+"font_options": ["subpixel_antialias", "no_bold"],
+"line_padding_bottom": 1,
+"line_padding_top": 1,
+// Editor view
+"draw_white_space": "all",
+"fold_buttons": false,
+"highlight_line": true,
+"auto_complete": false,
+"show_minimap": false,
+"show_full_path": true,
+// Editor behavior
+"scroll_past_end": false,
+"highlight_modified_tabs": true,
+"find_selected_text": true,
+// Whitespace - no tabs, trimming, end files with \n
+"tab_size": 4,
+"translate_tabs_to_spaces": true,
+"trim_trailing_white_space_on_save": true,
+"ensure_newline_at_eof_on_save": true,
+// Sidebar
+"file_exclude_patterns":
+[
+    ".DS_Store",
+    "*.pid",
+    "*.pyc"
+],
+"folder_exclude_patterns":
+[
+    ".git",
+    "__pycache__"
+],
+// Package Control
+"ignored_packages":
+[
+    "Vintage"
+]
+{% endhighlight %}
+
 个人不喜欢自动切分换行功能，于是没有配置，所以后面把PEP8中的E501排除掉了
 
 ### 开发环境插件
@@ -111,7 +115,8 @@ sublime text可以通过插件安装很多主题，肯定有一款适合你。�
 
 * [Gist][]
 
-创建新Gists的插件
+创建、管理gist的插件，Gist是GitHub提供的又一强力工具，用Git将用户常用的代码片段在线管理起来。安装此插件后，打开其User-Setting，
+增加个人的GitHub访问Token后，即可通过快捷键或Console使用。
 
 * [Anaconda][]
 
@@ -130,9 +135,11 @@ Geek就是让一切变得更简单，该插件作者就为了简便，把这些�
 
 在<code>Packages/User</code>目录下创建<code>Python.sublime-settings</code>文件，增加如下内容
 
-    {
-        "auto_complete_triggers": [{"selector": "source.python - string - comment - constant.numeric", "characters": "."}]
-    }
+{% highlight json %}
+{
+    "auto_complete_triggers": [{"selector": "source.python - string - comment - constant.numeric", "characters": "."}]
+}
+{% endhighlight %}
 
 * 增加括号操作符后的参数自动完成
 
@@ -141,10 +148,9 @@ Geek就是让一切变得更简单，该插件作者就为了简便，把这些�
 
 * 忽略<code>AutoFormat PEP8</code>中E501的提示
 
-    "pep8_ignore":
-    \[
-        "E501"
-    \]
+{% highlight javascript %}
+"pep8_ignore":["E501"]
+{% endhighlight %}
 
 其他设置均使用默认值。
 

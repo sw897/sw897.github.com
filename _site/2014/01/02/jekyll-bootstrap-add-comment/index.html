@@ -138,30 +138,12 @@ var _hmt = _hmt || [];
 
 <p>虽然不懂Ruby，但jekyll bootstrap把结构做的相当完美，过程很简单，下面把配置<a href="www.duoshuo.com">多说</a>的方法记录一下。 当然，开始之前需要先注册好<a href="www.duoshuo.com">多说</a>的个人账号</p>
 
-<p>1 在_includes/JB/comments-providers文件夹下增加多说的配置文件duoshuo，内容如下， 其中把short_name的值使用双大括号’{}’括起来</p>
-
-<pre class="xml"><code class="xml">
-&lt;div class=&quot;ds-thread&quot;&gt;&lt;/div&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-var duoshuoQuery = {short_name:&#39;site.JB.comments.duoshuo.short_name&#39;};
-    (function() {
-        var ds = document.createElement(&#39;script&#39;);
-         ds.type = &#39;text/javascript&#39;;ds.async = true;
-         ds.src = &#39;http://static.duoshuo.com/embed.js&#39;;
-         ds.charset = &#39;UTF-8&#39;;
-         (document.getElementsByTagName(&#39;head&#39;)[0]
-         || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(ds);
-    })();
-&lt;/script&gt;
-</code></pre>
-
+<p>1 在_includes/JB/comments-providers文件夹下增加多说的配置文件duoshuo，内容如下</p>
+<script src='https://gist.github.com/sw897/9130242.js'><![CDATA[]]></script>
 <p>内容已经使用jb的模板变量，不需要修改可以直接拷贝使用。</p>
 
-<p>2 在_includes/JB目录下，修改comments文件，在第4行插入duoshuo的判断段，前后去掉了关键字， 打开comments看一下就会明白</p>
-
-<pre><code>  when &quot;duoshuo&quot;
-     include JB/comments-providers/duoshuo</code></pre>
-
+<p>2 在_includes/JB目录下，修改comments文件，在第4行插入duoshuo的判断段</p>
+<script src='https://gist.github.com/sw897/27427499bef0d8bd504f.js'><![CDATA[]]></script>
 <p>3 最后修改_config.yml文件中comments部分即可</p>
 
 <pre><code>comments :
@@ -182,7 +164,7 @@ var duoshuoQuery = {short_name:&#39;site.JB.comments.duoshuo.short_name&#39;};
   
      
     	<li><a href="/categories.html#jekyll-ref">
-    		jekyll <span>2</span>
+    		jekyll <span>3</span>
     	</a></li>
     
   
@@ -200,7 +182,7 @@ var duoshuoQuery = {short_name:&#39;site.JB.comments.duoshuo.short_name&#39;};
 
   
      
-    	<li><a href="/tags.html#Jekyll-ref">Jekyll <span>2</span></a></li>
+    	<li><a href="/tags.html#Jekyll-ref">Jekyll <span>3</span></a></li>
     
   
 

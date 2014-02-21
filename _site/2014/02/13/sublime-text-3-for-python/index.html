@@ -149,11 +149,8 @@ var _hmt = _hmt || [];
 <h3 id="package_control">安装Package Control</h3>
 
 <p>现在Sublime Text 3的安装方法和版本2一样，只是粘贴的代码内容稍有不同，在<a href="https://sublime.wbond.net">Package Contorl网站</a>上有安装方法。使用快捷键<code>ctrl+`</code>或通过菜单选项<code>View &gt; Show Console</code>进入控制台Console，然后粘贴如下代码，回车运行。</p>
-
-<pre class="python"><code class="python">
-import urllib.request,os,hashlib; h = &#39;7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0&#39;; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &#39;http://sublime.wbond.net/&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by)
-</code></pre>
-
+<div class='highlight'><pre><code class='python'><span class='kn'>import</span> <span class='nn'>urllib.request</span><span class='o'>,</span><span class='nn'>os</span><span class='o'>,</span><span class='nn'>hashlib</span><span class='p'>;</span> <span class='n'>h</span> <span class='o'>=</span> <span class='s'>&#39;7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0&#39;</span><span class='p'>;</span> <span class='n'>pf</span> <span class='o'>=</span> <span class='s'>&#39;Package Control.sublime-package&#39;</span><span class='p'>;</span> <span class='n'>ipp</span> <span class='o'>=</span> <span class='n'>sublime</span><span class='o'>.</span><span class='n'>installed_packages_path</span><span class='p'>();</span> <span class='n'>urllib</span><span class='o'>.</span><span class='n'>request</span><span class='o'>.</span><span class='n'>install_opener</span><span class='p'>(</span> <span class='n'>urllib</span><span class='o'>.</span><span class='n'>request</span><span class='o'>.</span><span class='n'>build_opener</span><span class='p'>(</span> <span class='n'>urllib</span><span class='o'>.</span><span class='n'>request</span><span class='o'>.</span><span class='n'>ProxyHandler</span><span class='p'>())</span> <span class='p'>);</span> <span class='n'>by</span> <span class='o'>=</span> <span class='n'>urllib</span><span class='o'>.</span><span class='n'>request</span><span class='o'>.</span><span class='n'>urlopen</span><span class='p'>(</span> <span class='s'>&#39;http://sublime.wbond.net/&#39;</span> <span class='o'>+</span> <span class='n'>pf</span><span class='o'>.</span><span class='n'>replace</span><span class='p'>(</span><span class='s'>&#39; &#39;</span><span class='p'>,</span> <span class='s'>&#39;%20&#39;</span><span class='p'>))</span><span class='o'>.</span><span class='n'>read</span><span class='p'>();</span> <span class='n'>dh</span> <span class='o'>=</span> <span class='n'>hashlib</span><span class='o'>.</span><span class='n'>sha256</span><span class='p'>(</span><span class='n'>by</span><span class='p'>)</span><span class='o'>.</span><span class='n'>hexdigest</span><span class='p'>();</span> <span class='k'>print</span><span class='p'>(</span><span class='s'>&#39;Error validating download (got </span><span class='si'>%s</span><span class='s'> instead of </span><span class='si'>%s</span><span class='s'>), please try manual install&#39;</span> <span class='o'>%</span> <span class='p'>(</span><span class='n'>dh</span><span class='p'>,</span> <span class='n'>h</span><span class='p'>))</span> <span class='k'>if</span> <span class='n'>dh</span> <span class='o'>!=</span> <span class='n'>h</span> <span class='k'>else</span> <span class='nb'>open</span><span class='p'>(</span><span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='o'>.</span><span class='n'>join</span><span class='p'>(</span> <span class='n'>ipp</span><span class='p'>,</span> <span class='n'>pf</span><span class='p'>),</span> <span class='s'>&#39;wb&#39;</span> <span class='p'>)</span><span class='o'>.</span><span class='n'>write</span><span class='p'>(</span><span class='n'>by</span><span class='p'>)</span>
+</code></pre></div>
 <p>安装完成后我们就正式开始配置Sublime Text!</p>
 
 <h3 id="plugins">安装Plugins的万能方法</h3>
@@ -169,54 +166,51 @@ import urllib.request,os,hashlib; h = &#39;7183a2d3e96f11eeadd761d777e62404e330c
 <p>sublime text可以通过插件安装很多主题，肯定有一款适合你。这里还是推荐在Sublime Text 2上一直使用的<a href="http://buymeasoda.github.io/soda-theme/">Theme - Soda Dark</a>主题， 颜色模板使用<a href="https://github.com/theymaybecoders/sublime-tomorrow-theme">Color Scheme - Tomorrow Night</a>，两者的搭配应该算的上经典，从notepad++转到Sublime Text 2时基本所有的介绍文档都是这么推荐的。 大家可以通过上面介绍的插件安装方法尝试一下。</p>
 
 <ul>
-<li>配置文件内容
-<pre class="json"><code class="json">
-  // Colors
-  &quot;color_scheme&quot;: &quot;Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme&quot;,
-  &quot;theme&quot;: &quot;Soda Dark 3.sublime-theme&quot;,
-  // Font
-  &quot;font_size&quot;: 12.0,
-  &quot;font_options&quot;: [&quot;subpixel_antialias&quot;, &quot;no_bold&quot;],
-  &quot;line_padding_bottom&quot;: 1,
-  &quot;line_padding_top&quot;: 1,
-  // Editor view
-  &quot;draw_white_space&quot;: &quot;all&quot;,
-  &quot;fold_buttons&quot;: false,
-  &quot;highlight_line&quot;: true,
-  &quot;auto_complete&quot;: false,
-  &quot;show_minimap&quot;: false,
-  &quot;show_full_path&quot;: true,
-  // Editor behavior
-  &quot;scroll_past_end&quot;: false,
-  &quot;highlight_modified_tabs&quot;: true,
-  &quot;find_selected_text&quot;: true,
-  // Whitespace - no tabs, trimming, end files with \n
-  &quot;tab_size&quot;: 4,
-  &quot;translate_tabs_to_spaces&quot;: true,
-  &quot;trim_trailing_white_space_on_save&quot;: true,
-  &quot;ensure_newline_at_eof_on_save&quot;: true,
-  // Sidebar
-  &quot;file_exclude_patterns&quot;:
-  [
-      &quot;.DS_Store&quot;,
-      &quot;*.pid&quot;,
-      &quot;*.pyc&quot;
-  ],
-  &quot;folder_exclude_patterns&quot;:
-  [
-      &quot;.git&quot;,
-      &quot;__pycache__&quot;
-  ],
-  // Package Control
-  &quot;ignored_packages&quot;:
-  [
-      &quot;Vintage&quot;
-  ]
-</code></pre>
-
-<p>个人不喜欢自动切分换行功能，于是没有配置，所以后面把PEP8中的E501排除掉了</p>
-</li>
+<li>配置文件内容</li>
 </ul>
+<div class='highlight'><pre><code class='javascript'><span class='c1'>// Colors</span>
+<span class='s2'>&quot;color_scheme&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme&quot;</span><span class='p'>,</span>
+<span class='s2'>&quot;theme&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Soda Dark 3.sublime-theme&quot;</span><span class='p'>,</span>
+<span class='c1'>// Font</span>
+<span class='s2'>&quot;font_size&quot;</span><span class='o'>:</span> <span class='mf'>12.0</span><span class='p'>,</span>
+<span class='s2'>&quot;font_options&quot;</span><span class='o'>:</span> <span class='p'>[</span><span class='s2'>&quot;subpixel_antialias&quot;</span><span class='p'>,</span> <span class='s2'>&quot;no_bold&quot;</span><span class='p'>],</span>
+<span class='s2'>&quot;line_padding_bottom&quot;</span><span class='o'>:</span> <span class='mi'>1</span><span class='p'>,</span>
+<span class='s2'>&quot;line_padding_top&quot;</span><span class='o'>:</span> <span class='mi'>1</span><span class='p'>,</span>
+<span class='c1'>// Editor view</span>
+<span class='s2'>&quot;draw_white_space&quot;</span><span class='o'>:</span> <span class='s2'>&quot;all&quot;</span><span class='p'>,</span>
+<span class='s2'>&quot;fold_buttons&quot;</span><span class='o'>:</span> <span class='kc'>false</span><span class='p'>,</span>
+<span class='s2'>&quot;highlight_line&quot;</span><span class='o'>:</span> <span class='kc'>true</span><span class='p'>,</span>
+<span class='s2'>&quot;auto_complete&quot;</span><span class='o'>:</span> <span class='kc'>false</span><span class='p'>,</span>
+<span class='s2'>&quot;show_minimap&quot;</span><span class='o'>:</span> <span class='kc'>false</span><span class='p'>,</span>
+<span class='s2'>&quot;show_full_path&quot;</span><span class='o'>:</span> <span class='kc'>true</span><span class='p'>,</span>
+<span class='c1'>// Editor behavior</span>
+<span class='s2'>&quot;scroll_past_end&quot;</span><span class='o'>:</span> <span class='kc'>false</span><span class='p'>,</span>
+<span class='s2'>&quot;highlight_modified_tabs&quot;</span><span class='o'>:</span> <span class='kc'>true</span><span class='p'>,</span>
+<span class='s2'>&quot;find_selected_text&quot;</span><span class='o'>:</span> <span class='kc'>true</span><span class='p'>,</span>
+<span class='c1'>// Whitespace - no tabs, trimming, end files with \n</span>
+<span class='s2'>&quot;tab_size&quot;</span><span class='o'>:</span> <span class='mi'>4</span><span class='p'>,</span>
+<span class='s2'>&quot;translate_tabs_to_spaces&quot;</span><span class='o'>:</span> <span class='kc'>true</span><span class='p'>,</span>
+<span class='s2'>&quot;trim_trailing_white_space_on_save&quot;</span><span class='o'>:</span> <span class='kc'>true</span><span class='p'>,</span>
+<span class='s2'>&quot;ensure_newline_at_eof_on_save&quot;</span><span class='o'>:</span> <span class='kc'>true</span><span class='p'>,</span>
+<span class='c1'>// Sidebar</span>
+<span class='s2'>&quot;file_exclude_patterns&quot;</span><span class='o'>:</span>
+<span class='p'>[</span>
+    <span class='s2'>&quot;.DS_Store&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;*.pid&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;*.pyc&quot;</span>
+<span class='p'>],</span>
+<span class='s2'>&quot;folder_exclude_patterns&quot;</span><span class='o'>:</span>
+<span class='p'>[</span>
+    <span class='s2'>&quot;.git&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;__pycache__&quot;</span>
+<span class='p'>],</span>
+<span class='c1'>// Package Control</span>
+<span class='s2'>&quot;ignored_packages&quot;</span><span class='o'>:</span>
+<span class='p'>[</span>
+    <span class='s2'>&quot;Vintage&quot;</span>
+<span class='p'>]</span>
+</code></pre></div>
+<p>个人不喜欢自动切分换行功能，于是没有配置，所以后面把PEP8中的E501排除掉了</p>
 
 <h3 id="_3">开发环境插件</h3>
 
@@ -240,7 +234,7 @@ import urllib.request,os,hashlib; h = &#39;7183a2d3e96f11eeadd761d777e62404e330c
 <li><a href="https://sublime.wbond.net/packages/Gist">Gist</a></li>
 </ul>
 
-<p>创建新Gists的插件</p>
+<p>创建、管理gist的插件，Gist是GitHub提供的又一强力工具，用Git将用户常用的代码片段在线管理起来。安装此插件后，打开其User-Setting， 增加个人的GitHub访问Token后，即可通过快捷键或Console使用。</p>
 
 <ul>
 <li><a href="https://sublime.wbond.net/packages/Anaconda">Anaconda</a></li>
@@ -261,11 +255,10 @@ import urllib.request,os,hashlib; h = &#39;7183a2d3e96f11eeadd761d777e62404e330c
 </ul>
 
 <p>在<code>Packages/User</code>目录下创建<code>Python.sublime-settings</code>文件，增加如下内容</p>
-
-<pre><code>{
-    &quot;auto_complete_triggers&quot;: [{&quot;selector&quot;: &quot;source.python - string - comment - constant.numeric&quot;, &quot;characters&quot;: &quot;.&quot;}]
-}</code></pre>
-
+<div class='highlight'><pre><code class='json'><span class='p'>{</span>
+    <span class='nt'>&quot;auto_complete_triggers&quot;</span><span class='p'>:</span> <span class='p'>[{</span><span class='nt'>&quot;selector&quot;</span><span class='p'>:</span> <span class='s2'>&quot;source.python - string - comment - constant.numeric&quot;</span><span class='p'>,</span> <span class='nt'>&quot;characters&quot;</span><span class='p'>:</span> <span class='s2'>&quot;.&quot;</span><span class='p'>}]</span>
+<span class='p'>}</span>
+</code></pre></div>
 <ul>
 <li>增加括号操作符后的参数自动完成</li>
 </ul>
@@ -273,13 +266,10 @@ import urllib.request,os,hashlib; h = &#39;7183a2d3e96f11eeadd761d777e62404e330c
 <p>在<code>Anaconda Setting</code>中修改<code>complete_parameters</code>参数的值为<code>true</code>。 这里还有一个参数为<code>complete_all_parameters</code>，设置其为<code>true</code>后，则带默认值的参数也会自动完成。</p>
 
 <ul>
-<li>
-<p>忽略<code>AutoFormat PEP8</code>中E501的提示</p>
-
-<p>“pep8_ignore”: [ “E501” ]</p>
-</li>
+<li>忽略<code>AutoFormat PEP8</code>中E501的提示</li>
 </ul>
-
+<div class='highlight'><pre><code class='javascript'><span class='s2'>&quot;pep8_ignore&quot;</span><span class='o'>:</span><span class='p'>[</span><span class='s2'>&quot;E501&quot;</span><span class='p'>]</span>
+</code></pre></div>
 <p>其他设置均使用默认值。</p>
 
 <p><img src='https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/sublime_anaconda.png' /></p>
@@ -338,6 +328,8 @@ import urllib.request,os,hashlib; h = &#39;7183a2d3e96f11eeadd761d777e62404e330c
       
       <li class="previous"><a href="/2014/02/10/dynamic-link-library-searching" title="动态链接库的搜索">&larr; 动态链接库的搜索</a></li>
       
+      
+        <li class="next"><a href="/2014/02/20/jekyll-bootstrap-seo" title="基于Jekyll Bootstrap的博客SEO优化">基于Jekyll Bootstrap的博客SEO优化&rarr;</a></li>
       
       </ul>
     </div>
