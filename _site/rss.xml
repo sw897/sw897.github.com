@@ -5,8 +5,8 @@
         <description>sw897's blog - sw897</description>
         <link>http://sw897.github.io</link>
         <link>http://sw897.github.io</link>
-        <lastBuildDate>2014-02-21T17:30:12+08:00</lastBuildDate>
-        <pubDate>2014-02-21T17:30:12+08:00</pubDate>
+        <lastBuildDate>2014-02-21T17:37:11+08:00</lastBuildDate>
+        <pubDate>2014-02-21T17:37:11+08:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -398,10 +398,15 @@
 
 &lt;p&gt;UGC制图是一种交互式制图，用户参与更新底图、扩充POI等数据&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;* [OpenStreetMap][]
-* [Google Map Maker][]
-* [Nokia HERE Map Creator][]
-* 当然还有移动终端应用[Waze][]，它的众包的概念，个人理解就是UGC的高阶模式&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;https://www.google.com/mapmaker&quot;&gt;Google Map Maker&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://heremaps.cn/mapcreator&quot;&gt;Nokia HERE Map Creator&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;当然还有移动终端应用&lt;a href=&quot;https://www.waze.com/editor/&quot;&gt;Waze&lt;/a&gt;，它的众包的概念，个人理解就是UGC的高阶模式&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;UGC制图公司或机构一般需要拥有海量基础数据，本身就是举足轻重的地图数据提供者，使用UGC的模式， 借助用户来改善地图数据，是“大家帮助大家”的思想。感兴趣的朋友可以加入到其中，做做贡献。&lt;/p&gt;
 
@@ -409,11 +414,17 @@
 
 &lt;p&gt;在线制图应用，主要是个人专题地图制图，用户提供专题数据，使用应用平台完成可视化与交互， 这种应用属于云计算的一种形式，即应用即服务。用户使用它完成工作或作品，然后共享分发&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;* [Mapbox][]
-* [CartoDB][]
-* [MangoMap][]
-* ArcGIS Online[地图故事][]
-* SuperMap[地图汇][]&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://tiles.mapbox.com/sw897&quot;&gt;Mapbox&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;https://sw897.CartoDB.com/dashboard/&quot;&gt;CartoDB&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;https://mangomap.com/maps&quot;&gt;MangoMap&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;ArcGIS Online&lt;a href=&quot;http://storymaps.arcgisonline.cn/home/index.html&quot;&gt;地图故事&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;SuperMap&lt;a href=&quot;http://www.dituhui.com/&quot;&gt;地图汇&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;这些应用是最近比较时兴的，它们一般技术先进并开放，把科研人员从基本编码中解放出来， 把非专业人员带入制图的世界，让专业人员更专注于专业的事情。总之，大体路线是提供Cloud Infrastructure和制图服务， 解决基础制图问题，包括底图，符号表达，专题可视化等等，剩下的，就是让用户专注专题数据，专注要表达的信息处理， 同时，可视化表达上，也有多种方案，可以让用户快速完成一个拥有绝佳交互体验与视觉冲击的地图。 但这些应用并不是免费的大餐，付费比较昂贵，对于一般用户，只能免费试用一下。&lt;/p&gt;
 

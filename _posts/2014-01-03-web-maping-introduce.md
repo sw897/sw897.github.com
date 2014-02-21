@@ -25,10 +25,10 @@ Web地图(WebMap)大家都不陌生，相信没有人没有用过GoogleMaps，�
 
 UGC制图是一种交互式制图，用户参与更新底图、扩充POI等数据
 
-    * [OpenStreetMap][]
-    * [Google Map Maker][]
-    * [Nokia HERE Map Creator][]
-    * 当然还有移动终端应用[Waze][]，它的众包的概念，个人理解就是UGC的高阶模式
+* [OpenStreetMap][]
+* [Google Map Maker][]
+* [Nokia HERE Map Creator][]
+* 当然还有移动终端应用[Waze][]，它的众包的概念，个人理解就是UGC的高阶模式
 
 UGC制图公司或机构一般需要拥有海量基础数据，本身就是举足轻重的地图数据提供者，使用UGC的模式，
 借助用户来改善地图数据，是“大家帮助大家”的思想。感兴趣的朋友可以加入到其中，做做贡献。
@@ -38,11 +38,11 @@ UGC制图公司或机构一般需要拥有海量基础数据，本身就是举�
 在线制图应用，主要是个人专题地图制图，用户提供专题数据，使用应用平台完成可视化与交互，
 这种应用属于云计算的一种形式，即应用即服务。用户使用它完成工作或作品，然后共享分发
 
-    * [Mapbox][]
-    * [CartoDB][]
-    * [MangoMap][]
-    * ArcGIS Online[地图故事][]
-    * SuperMap[地图汇][]
+* [Mapbox][]
+* [CartoDB][]
+* [MangoMap][]
+* ArcGIS Online[地图故事][]
+* SuperMap[地图汇][]
 
 这些应用是最近比较时兴的，它们一般技术先进并开放，把科研人员从基本编码中解放出来，
 把非专业人员带入制图的世界，让专业人员更专注于专业的事情。总之，大体路线是提供Cloud Infrastructure和制图服务，
