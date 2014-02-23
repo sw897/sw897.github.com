@@ -1,21 +1,19 @@
 ---
 layout: page
-title: "About"
-description: "关于"
+title: 关于
+description: "关于sw897"
 group: navigation
 comments: no
 ---
 {% include JB/setup %}
 
-人文+技术，谁也挡不住
+ABOUT,技术,人文
 
 ---
 
 ###联系方式：
 
 个人邮箱: [sunwei.r@gmail.com](mailto:sunwei.r@gmail.com)
-
-新浪微博: [万匹斯路飞](http://weibo.com/newmap)
 
 github : [sw897](https://github.com/sw897)
 

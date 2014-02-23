@@ -8,8 +8,8 @@ pygments: true
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
-title : sw897's blog
-tagline: sw897's blog
+title : sw897的博客
+tagline: 技术，人文，随笔
 author :
   name : sw897
   email : sunwei.r@gmail.com
