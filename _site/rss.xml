@@ -5,8 +5,8 @@
         <description>sw897的博客 - sw897</description>
         <link>http://sw897.github.io</link>
         <link>http://sw897.github.io</link>
-        <lastBuildDate>2014-02-23T09:44:45+08:00</lastBuildDate>
-        <pubDate>2014-02-23T09:44:45+08:00</pubDate>
+        <lastBuildDate>2014-02-26T11:13:30+08:00</lastBuildDate>
+        <pubDate>2014-02-26T11:13:30+08:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -214,7 +214,17 @@
 
 &lt;h3 id=&quot;_4&quot;&gt;结束&lt;/h3&gt;
 
-&lt;p&gt;只需要这几个插件的安装与配置，就能使sublime text 3成为一个高效的python开发工具，接下来，感受 Sublime Text 3的快如疾风，风驰电掣吧！&lt;/p&gt;</description>
+&lt;p&gt;只需要这几个插件的安装与配置，就能使sublime text 3成为一个高效的python开发工具，接下来，感受 Sublime Text 3的快如疾风，风驰电掣吧！&lt;/p&gt;
+
+&lt;h3 id=&quot;update20140226&quot;&gt;Update:2014-02-26&lt;/h3&gt;
+
+&lt;p&gt;使用OS X时间长了都忘记广大Windows用户存在GBK编码问题了。今天打开以前在Windows上写的 一些代码才发现中文注释都乱码了。解决办法很简单，安装插件&lt;a href=&quot;https://sublime.wbond.net/packages/ConvertToUTF8&quot;&gt;ConvertToUTF8&lt;/a&gt;即可。 另外，在Sublime Text 2上的插件&lt;a href=&quot;https://sublime.wbond.net/packages/GBK%20Encoding%20Support&quot;&gt;GBK Encoding Support&lt;/a&gt;不支持3版本，不能安装使用了。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://sublime.wbond.net/packages/ConvertToUTF8&quot;&gt;ConvertToUTF8&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;支持GBK等多种编码的文件的编辑与保存。&lt;/p&gt;</description>
                 <link>http://sw897.github.io/2014/02/13/sublime-text-3-for-python</link>
                 <guid>http://sw897.github.io/2014/02/13/sublime-text-3-for-python</guid>
                 <pubDate>2014-02-13T00:00:00+08:00</pubDate>
