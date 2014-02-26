@@ -164,12 +164,16 @@ Geek就是让一切变得更简单，该插件作者就为了简便，把这些�
 ### Update:2014-02-26
 
 使用OS X时间长了都忘记广大Windows用户存在GBK编码问题了。今天打开以前在Windows上写的
-一些代码才发现中文注释都乱码了。解决办法很简单，安装插件[ConvertToUTF8][]即可。
-另外，在Sublime Text 2上的插件[GBK Encoding Support][]不支持3版本，不能安装使用了。
+一些代码才发现中文注释都乱码了。解决办法很简单，安装插件[ConvertToUTF8][]即可，OS X或Linux还需要插件[Codecs33][]。
+另外，在Sublime Text 2上的插件[GBK Encoding Support][]不支持3版本。
 
 * [ConvertToUTF8][]
 
 支持GBK等多种编码的文件的编辑与保存。
+
+* [Codecs33][]
+
+CJK library files missing in the embedded Python of Sublime Text 3。
 
 
 
@@ -182,6 +186,7 @@ Geek就是让一切变得更简单，该插件作者就为了简便，把这些�
 [Gist]: https://sublime.wbond.net/packages/Gist
 [ConvertToUTF8]: https://sublime.wbond.net/packages/ConvertToUTF8
 [GBK Encoding Support]: https://sublime.wbond.net/packages/GBK%20Encoding%20Support
+[Codecs33]: https://sublime.wbond.net/packages/Codecs33
 
 
 
