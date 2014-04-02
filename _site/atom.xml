@@ -4,13 +4,108 @@
  <title>sw897的博客</title>
  <link href="http://sw897.github.io/" rel="self"/>
  <link href="http://sw897.github.io"/>
- <updated>2014-02-26T11:23:43+08:00</updated>
+ <updated>2014-04-02T17:36:28+08:00</updated>
  <id>http://sw897.github.io</id>
  <author>
    <name>sw897</name>
    <email>sunwei.r@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>使用Dash管理常用帮助文档</title>
+   <link href="http://sw897.github.io/2014/03/05/dash-for-documents-manager"/>
+   <updated>2014-03-05T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/03/05/dash-for-documents-manager</id>
+   <content type="html">&lt;h3 id=&quot;dash&quot;&gt;Dash介绍&lt;/h3&gt;
+
+&lt;p&gt;Dash是OS X上方便宜用的文档管理工具，提供了130+的API文档， 几乎包含了所有常用语言与流行开发框架，并保持着极高的更新速度。如果你是一名OS X上的程序员，对于开发，Dash绝对是神一样的利器。它可以直接在Apple Store上免费下载安装， 但喜欢恶作剧的开发者不会让你用得那么舒服，会不定时地出现等待页面，来打扰你的高效开发。 有时候，你会感觉到，通过Dash节省的Google的那几秒时间不够它等待的。这个时候，你就要在软件内 购买了，人民币128元，如果经济允许，还是可以购入的，因为它提供的文档及其管理功能，是无与伦比的。&lt;/p&gt;
+
+&lt;h3 id=&quot;docset&quot;&gt;DocSet扩展&lt;/h3&gt;
+
+&lt;p&gt;对于程序员来说，并不是提供了130+的文档就足够了，必然还有我们自己常用的，更小众的API。 Dash也想到了这点，提供了DIY的介绍。其&lt;a href=&quot;http://kapeli.com/docsets&quot;&gt;生成DocSets帮助文档&lt;/a&gt;中，有以下几种文档生成Docset的方法介绍：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://kapeli.com/docsets#objectivec&quot;&gt;AppleDoc(Objective-C Source Files)&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://kapeli.com/docsets#python&quot;&gt;Python,Sphinx or PyDoctor&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://kapeli.com/docsets#javadoc&quot;&gt;Javadoc&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://kapeli.com/docsets#rdoc&quot;&gt;R-doc or Yard&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://kapeli.com/docsets#scaladoc&quot;&gt;Scaladoc&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://kapeli.com/docsets#doxygen&quot;&gt;Doxygen(Source Files:C,C++,C#,PHP,Objective-C,Java,Python)&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;http://kapeli.com/docsets#dashDocset&quot;&gt;Any HTML Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以上基本包含了所有可能自动生成的API文档。具体操作可以参考文档进行。还有更进阶的，提供与分享Feed，启用帮助页面内的JavaScript等等，可以慢慢试用。&lt;/p&gt;
+
+&lt;h4 id=&quot;sphinxpydoctorapi&quot;&gt;使用&lt;code&gt;doc2dash&lt;/code&gt;转换Sphinx或PyDoctor生成的API文档&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;&quot;&gt;doc2dash&lt;/a&gt;可以方便地把使用Sphinx与Pydoctor生成的HTML文档转换成Dash要求的docset。 过程非常简单，以NumPy为例。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;文档准备&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;下载&lt;a href=&quot;http://docs.scipy.org/doc/numpy/numpy-html-1.8.1.zip&quot;&gt;HTML格式的文档&lt;/a&gt;，解压后目录numpy-html。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;使用PIP安装doc2dash&lt;/p&gt;
+
+&lt;p&gt;pip install doc2dash&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;使用doc2dash生成docset&lt;/p&gt;
+
+&lt;p&gt;doc2dash numpy-html&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;api&quot;&gt;使用&lt;code&gt;Doxygen&lt;/code&gt;直接转换API文档&lt;/h4&gt;
+
+&lt;p&gt;Doxygen可以自动提取多种语言(包括但不限于 C, C++, C#, PHP, Objective-C, Java, Python )的注释生成HTML等多种格式的文档，其中就可以直接生成Dash需要docset。 以OGR这个GISer熟知的库为例，介绍一下步骤。 (别问我OGR属于GDAL，为什么要专门提出OGR库这个问题，手工生成过这两个库文档的人都懂)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;下载GDAL源代码准备，最好先编译一下&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;修改doxygen默认配置&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;生成OGR文档的配置文件为gdal/ogr/doxygen，用文本编译器打开，添加以下配置。 如果有的可以直接修改值。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GENERATE_DOCSET   = YES
+DISABLE_INDEX     = YES 
+SEARCHENGINE      = NO
+GENERATE_TREEVIEW = NO&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;终端转到gdal/ogr/目录，执行&lt;code&gt;doxygen&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;运行成功，会在当前目录生成html目录，html目录会包含一个以往生成文档时没有makefile文件。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;终端转到html目录，执行make&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;运行成功，即得到docset文件&lt;/p&gt;
+
+&lt;h3 id=&quot;&quot;&gt;总结&lt;/h3&gt;
+
+&lt;p&gt;Dash是一款体形小巧、功能强大的文档管理工具，在线提供大量的API下载与更新，同时提供多种扩展方法，对提高开发效率有很大帮助。值得你拥有。&lt;/p&gt;
+
+&lt;p&gt;另：一般性html文档制作docset的方法以后再写。&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>基于Jekyll Bootstrap的博客SEO优化</title>
@@ -38,7 +133,7 @@
 &lt;pre&gt;&lt;code&gt;post.puts &amp;#39;keywords: &amp;quot;&amp;quot;&amp;#39;&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;这样下次再使用rake命令创建post时会自动增加keywords声明。然后修改自己在用的模板主文件。我这里是&lt;code&gt;_includes/themes/twitter/default.html&lt;/code&gt;，增加如下：&lt;/p&gt;
-&lt;script src=&#39;https://gist.github.com/sw897/9131091.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
+&lt;script src=&#39;https://gist.github.com/sw897/9131091.js&#39; /&gt;
 &lt;p&gt;这样，会在生成html中增加keywords的meta信息。&lt;/p&gt;
 
 &lt;p&gt;另外，title默认是文章标题，可以修改模板，增加博客主题内容，我的修改如下，这样在生成的所有页面中，title的内容为title之后加上&lt;strong&gt;sw897&amp;#39;s blog&lt;/strong&gt;&lt;/p&gt;
@@ -48,11 +143,11 @@
 &lt;h3 id=&quot;sitemaptxtsitemapxml&quot;&gt;sitemap.txt转为sitemap.xml&lt;/h3&gt;
 
 &lt;p&gt;jekyll bootstrap里自带有sitemap.txt，对于sitemap.txt与sitemap.xml的优劣，这里有篇&lt;a href=&quot;https://forums.digitalpoint.com/threads/xml-vs-txt-sitemap.114286/&quot;&gt;文章&lt;/a&gt;有讨论， 大体读了一下，大部分人的意思就是xml的比txt的强，既然如此，改一下又不麻烦，删除sitemap.txt，创建sitemap.xml，内容如下：&lt;/p&gt;
-&lt;script src=&#39;https://gist.github.com/sw897/9131118.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
+&lt;script src=&#39;https://gist.github.com/sw897/9131118.js&#39; /&gt;
 &lt;h3 id=&quot;robotstxt&quot;&gt;增加robots.txt&lt;/h3&gt;
 
 &lt;p&gt;robots.txt是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被（漫游器）获取的，以上摘自&lt;a href=&quot;&quot;&gt;robots.txt维基百科&lt;/a&gt;。在根目录下创建robots.txt，内容如下即可：&lt;/p&gt;
-&lt;script src=&#39;https://gist.github.com/sw897/9131109.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
+&lt;script src=&#39;https://gist.github.com/sw897/9131109.js&#39; /&gt;
 &lt;h3 id=&quot;_2&quot;&gt;增加外链&lt;/h3&gt;
 
 &lt;p&gt;在SEO中，外链能够极大的增加网站权重，让网站关键词有好的排名，这是因为搜索引擎是通过外链和锚文本来抓取网页内容的，增加外链能增加网站的曝光度，使网站权重得到提升。具体方法有很多，简单有效的两点：&lt;/p&gt;
@@ -464,11 +559,11 @@
 &lt;p&gt;虽然不懂Ruby，但jekyll bootstrap把结构做的相当完美，过程很简单，下面把配置&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的方法记录一下。 当然，开始之前需要先注册好&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;的个人账号&lt;/p&gt;
 
 &lt;p&gt;1 在&lt;code&gt;_includes/JB/comments-providers&lt;/code&gt;文件夹下增加多说的配置文件duoshuo，内容如下&lt;/p&gt;
-&lt;script src=&#39;https://gist.github.com/sw897/9130242.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
+&lt;script src=&#39;https://gist.github.com/sw897/9130242.js&#39; /&gt;
 &lt;p&gt;内容已经使用jb的模板变量，不需要修改可以直接拷贝使用。&lt;/p&gt;
 
 &lt;p&gt;2 在&lt;code&gt;_includes/JB&lt;/code&gt;目录下，修改comments文件，在第4行插入duoshuo的判断段&lt;/p&gt;
-&lt;script src=&#39;https://gist.github.com/sw897/9131080.js&#39;&gt;&lt;![CDATA[]]&gt;&lt;/script&gt;
+&lt;script src=&#39;https://gist.github.com/sw897/9131080.js&#39; /&gt;
 &lt;p&gt;3 最后修改&lt;code&gt;_config.yml&lt;/code&gt;文件中comments部分即可&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;comments :
