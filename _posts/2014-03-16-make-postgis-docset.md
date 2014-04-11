@@ -2,9 +2,9 @@
 layout: post
 title: "制作PostGIS的Dash文档"
 description: "以PostGIS为例，将一般HTML文档库制作为Dash支持的Docset格式"
-category: "OS"
+category: "技术"
 keywords: "Dash, Docsets, PostGIS"
-tags: [Dash, OS X, Docset]
+tags: [Dash,Docset,GIS]
 published: true
 ---
 {% include JB/setup %}

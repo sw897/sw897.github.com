@@ -2,9 +2,9 @@
 layout: post
 title: "Web Mapping之CartoDB"
 description: "在线地图制图应用，CartoDb"
-category: "Map"
+category: "技术"
 keywords: "Map, CartoDB"
-tags: [Map,CartoDB]
+tags: [Map,CartoDB,GIS]
 ---
 {% include JB/setup %}
 

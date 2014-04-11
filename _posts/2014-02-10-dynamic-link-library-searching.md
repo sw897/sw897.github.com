@@ -2,7 +2,7 @@
 layout: post
 title: "动态链接库的搜索"
 description: "在OS X, Windows, Linux三大常用桌面系统上的动态链接库的搜索顺序"
-category: "OS"
+category: "技术"
 keywords: "Linux, OS X, 动态链接库"
 tags: [Linux, OS X, 动态链接库]
 ---

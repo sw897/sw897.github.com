@@ -2,7 +2,7 @@
 layout: post
 title: "使用Dash管理常用帮助文档"
 description: "介绍文档管理工具Dash，总结多种生成docset的方法:使用doc2dash转换sphinx生成的python文档;直接使用doxygen生成docset"
-category: "OS"
+category: "工具"
 keywords: "Dash, Doc2Dash, Docsets, doxygen, GDAL, OGR"
 tags: [Dash, OS X, Docset]
 published: true

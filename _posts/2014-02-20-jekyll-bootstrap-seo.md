@@ -2,7 +2,7 @@
 layout: post
 title: "基于Jekyll Bootstrap的博客SEO优化"
 description: "使用Jekyll Bootstarp的博客SEO优化"
-category: "Jekyll"
+category: "技术"
 keywords: "SEO, Jekyll"
 tags: [SEO, Jekyll]
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: "使用Sublime Text 3做Python开发"
 description: "在Sublime Text 3下搭建python的开发环境,推荐Anaconda插件"
-category: "Python"
+category: "工具"
 keywords: "Sublime Text, Python, Anaconda, OS X"
 tags: [Sublime Text, Python, Anaconda, OS X]
 ---

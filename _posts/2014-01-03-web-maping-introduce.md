@@ -2,9 +2,9 @@
 layout: post
 title: "Web地图制图应用介绍"
 description: "在线地图制图应用，CartoDb, MapBox, 地图故事, 地图汇"
-category: "Map"
+category: "技术"
 keywords: "Map,CartoDB,MapBox"
-tags: [Map,CartoDB,MapBox]
+tags: [Map,CartoDB,MapBox,GIS]
 ---
 {% include JB/setup %}
 
