@@ -4,13 +4,119 @@
  <title>sw897的博客</title>
  <link href="http://sw897.github.io/" rel="self"/>
  <link href="http://sw897.github.io"/>
- <updated>2014-04-02T17:36:28+08:00</updated>
+ <updated>2014-04-11T15:29:33+08:00</updated>
  <id>http://sw897.github.io</id>
  <author>
    <name>sw897</name>
    <email>sunwei.r@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>制作PostGIS的Dash文档</title>
+   <link href="http://sw897.github.io/2014/03/16/make-postgis-docset"/>
+   <updated>2014-03-16T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/03/16/make-postgis-docset</id>
+   <content type="html">&lt;h3 id=&quot;postgis&quot;&gt;PostGIS介绍&lt;/h3&gt;
+
+&lt;p&gt;PostGIS 是开源数据库 PostgreSQL 的空间数据支持扩展，PostGIS 实现了Open Geospatial Consortium所提供的Simple Features的SQL实现参考。对于GIS用户而言，PostGIS是一个重要的GIS基础软件，因为目前它是为数不多的开源空间数据库存储方案之一。在国内，由于其开源的特性， 近几年在多领域的GIS系统构建中得到了应用。&lt;/p&gt;
+
+&lt;h3 id=&quot;dash&quot;&gt;制作Dash文档&lt;/h3&gt;
+
+&lt;p&gt;对于GIS行业如此重要的基础软件文档，并未进入Dash官方的法眼，没有提供在线的文档更新源，这就要我们自己动手构建其Docset。下面请跟随我一步步开始&lt;code&gt;postgis.docset&lt;/code&gt;制作。&lt;/p&gt;
+
+&lt;p&gt;1.创建Docset文件目录&lt;/p&gt;
+
+&lt;p&gt;Docset是Dash支持的一种目录结构包，首先为我们的构建目标&lt;code&gt;postgis.docset&lt;/code&gt;创建其目录结构。 可以在终端中执行如下命令，也可以手工创建。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir -p postgis.docset/Contents/Resources/Documents/&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2.拷贝PostGIS文档&lt;/p&gt;
+
+&lt;p&gt;将下载的最新的PostGIS文档拷贝到目录&lt;code&gt;postgis.docset/Contents/Resources/Documents/&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;3.创建Info.plist文件&lt;/p&gt;
+
+&lt;p&gt;下载&lt;a href=&quot;http://kapeli.com/dash_resources/Info.plist&quot;&gt;Info.plist示例文件&lt;/a&gt;，拷贝到目录 &lt;code&gt;postgis.docset/Contents/&lt;/code&gt;下，并稍做修改，以下是本文的示例&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;xml&#39;&gt;&lt;span class=&#39;cp&#39;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&#39;cp&#39;&gt;&amp;lt;!DOCTYPE plist PUBLIC &amp;quot;-//Apple//DTD PLIST 1.0//EN&amp;quot; &amp;quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&#39;nt&#39;&gt;&amp;lt;plist&lt;/span&gt; &lt;span class=&#39;na&#39;&gt;version=&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;quot;1.0&amp;quot;&lt;/span&gt;&lt;span class=&#39;nt&#39;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#39;nt&#39;&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
+    &lt;span class=&#39;nt&#39;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundleIdentifier&lt;span class=&#39;nt&#39;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class=&#39;nt&#39;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;postgis&lt;span class=&#39;nt&#39;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class=&#39;nt&#39;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundleName&lt;span class=&#39;nt&#39;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class=&#39;nt&#39;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;postgis&lt;span class=&#39;nt&#39;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class=&#39;nt&#39;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;DocSetPlatformFamily&lt;span class=&#39;nt&#39;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class=&#39;nt&#39;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;postgis&lt;span class=&#39;nt&#39;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class=&#39;nt&#39;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;isDashDocset&lt;span class=&#39;nt&#39;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class=&#39;nt&#39;&gt;&amp;lt;true/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#39;nt&#39;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;DashDocSetFamily&lt;span class=&#39;nt&#39;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class=&#39;nt&#39;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;dashtoc&lt;span class=&#39;nt&#39;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class=&#39;nt&#39;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;dashIndexFilePath&lt;span class=&#39;nt&#39;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class=&#39;nt&#39;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;index.html&lt;span class=&#39;nt&#39;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;span class=&#39;nt&#39;&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
+&lt;span class=&#39;nt&#39;&gt;&amp;lt;/plist&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;4.创建SQLite索引数据表&lt;/p&gt;
+
+&lt;p&gt;创建SQLite索引数据库文件&lt;code&gt;postgis.docset/Contents/Resources/docSet.dsidx&lt;/code&gt;，并在数据库中创建searchIndex数据表与索引anchor。&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;sql&#39;&gt;&lt;span class=&#39;k&#39;&gt;CREATE&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;TABLE&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;searchIndex&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;id&lt;/span&gt; &lt;span class=&#39;nb&#39;&gt;INTEGER&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;PRIMARY&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;KEY&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;name&lt;/span&gt; &lt;span class=&#39;nb&#39;&gt;TEXT&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;type&lt;/span&gt; &lt;span class=&#39;nb&#39;&gt;TEXT&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;path&lt;/span&gt; &lt;span class=&#39;nb&#39;&gt;TEXT&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;);&lt;/span&gt;
+&lt;span class=&#39;k&#39;&gt;CREATE&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;UNIQUE&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;INDEX&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;anchor&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;ON&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;searchIndex&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;name&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;type&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;path&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;5.添加索引记录&lt;/p&gt;
+
+&lt;p&gt;根据postgis文档，为Class,Function或Attribute等提供Dash内搜索的项目创建索引，也就是， 使用如下SQL语句向&lt;code&gt;searchIndex&lt;/code&gt;索引表插入一条记录。这个过程需要编写脚本执行。 后面会提供Python示例脚本。&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;sql&#39;&gt;&lt;span class=&#39;k&#39;&gt;INSERT&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;OR&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;IGNORE&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;INTO&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;searchIndex&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;name&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;type&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;path&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;VALUES&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;s1&#39;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;s1&#39;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;s1&#39;&gt;&amp;#39;path&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;经过以上几步，&lt;code&gt;postgis.docset&lt;/code&gt;文档便制作完成。双击加入Dash中即可使用。 相信一步步执行的朋友卡在了第5步，下面就是其Python脚本。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Python脚本&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Dash网站上有使用Python生成&lt;code&gt;postgredql.docset&lt;/code&gt;的脚本，使用&lt;code&gt;BeautifulSoup&lt;/code&gt;解析&lt;code&gt;bookindex.html&lt;/code&gt;生成。在生成&lt;code&gt;postgis.docset&lt;/code&gt;时， 由于主要查看函数的用法，介绍文档并不关注，于是直接遍历Documents目录， 根据文档列表生成Functions列表。&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;python&#39;&gt;&lt;span class=&#39;lineno&#39;&gt; 1&lt;/span&gt; &lt;span class=&#39;kn&#39;&gt;import&lt;/span&gt; &lt;span class=&#39;nn&#39;&gt;os&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt; 2&lt;/span&gt; &lt;span class=&#39;kn&#39;&gt;import&lt;/span&gt; &lt;span class=&#39;nn&#39;&gt;sqlite3&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt; 3&lt;/span&gt; 
+&lt;span class=&#39;lineno&#39;&gt; 4&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;db&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;sqlite3&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;connect&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;#39;postgis.docset/Contents/Resources/docSet.dsidx&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt; 5&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;cur&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;db&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;cursor&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;()&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt; 6&lt;/span&gt; 
+&lt;span class=&#39;lineno&#39;&gt; 7&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;try&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt; 8&lt;/span&gt;     &lt;span class=&#39;n&#39;&gt;cur&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;execute&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;#39;DROP TABLE searchIndex;&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt; 9&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;except&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt;10&lt;/span&gt;     &lt;span class=&#39;k&#39;&gt;pass&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt;11&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;cur&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;execute&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt;12&lt;/span&gt;     &lt;span class=&#39;s&#39;&gt;&amp;#39;CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt;13&lt;/span&gt; 
+&lt;span class=&#39;lineno&#39;&gt;14&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;cur&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;execute&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;#39;CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt;15&lt;/span&gt; 
+&lt;span class=&#39;lineno&#39;&gt;16&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;docpath&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;#39;postgis.docset/Contents/Resources/Documents&amp;#39;&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt;17&lt;/span&gt; 
+&lt;span class=&#39;lineno&#39;&gt;18&lt;/span&gt; &lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;root&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;dirs&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;files&lt;/span&gt; &lt;span class=&#39;ow&#39;&gt;in&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;os&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;walk&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;docpath&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;):&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt;19&lt;/span&gt;     &lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;path&lt;/span&gt; &lt;span class=&#39;ow&#39;&gt;in&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;files&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt;20&lt;/span&gt;         &lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;name&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;ext&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;os&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;path&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;splitext&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;path&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt;21&lt;/span&gt;         &lt;span class=&#39;k&#39;&gt;if&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;ext&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;lower&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;()&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;==&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;#39;.html&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt;22&lt;/span&gt;             &lt;span class=&#39;k&#39;&gt;if&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;name&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;[&lt;/span&gt;&lt;span class=&#39;mi&#39;&gt;0&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;mi&#39;&gt;3&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;]&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;==&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;#39;RT_&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt;23&lt;/span&gt;                 &lt;span class=&#39;n&#39;&gt;name&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;name&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;[&lt;/span&gt;&lt;span class=&#39;mi&#39;&gt;3&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:]&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt;24&lt;/span&gt;             &lt;span class=&#39;n&#39;&gt;cur&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;execute&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt;25&lt;/span&gt;                 &lt;span class=&#39;s&#39;&gt;&amp;#39;INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (?,?,?)&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;name&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;#39;func&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;path&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;))&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt;26&lt;/span&gt;             &lt;span class=&#39;k&#39;&gt;print&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;#39;name: &lt;/span&gt;&lt;span class=&#39;si&#39;&gt;%s&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;, path: &lt;/span&gt;&lt;span class=&#39;si&#39;&gt;%s&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;%&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;name&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;path&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt;27&lt;/span&gt; 
+&lt;span class=&#39;lineno&#39;&gt;28&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;db&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;commit&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;()&lt;/span&gt;
+&lt;span class=&#39;lineno&#39;&gt;29&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;db&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;close&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;faq&quot;&gt;FAQ&lt;/h3&gt;
+
+&lt;p&gt;以下是本文的可能的FAQ(常见问题)。&lt;/p&gt;
+
+&lt;p&gt;问：我不是程序员，看不懂怎么办？&lt;/p&gt;
+
+&lt;p&gt;答：那说明您根本不需要这样一个docset。&lt;/p&gt;
+
+&lt;p&gt;问：我知道怎么做，但你这里像Dash手册里一样，啰嗦这么多还是要我一步步自己操作，有什么用？&lt;/p&gt;
+
+&lt;p&gt;答：嗯~，为了表示诚意，我还是提供了制作的&lt;code&gt;postgis.docset&lt;/code&gt;文件下载的。 在我的github里，点一下&lt;a href=&quot;https://github.com/sw897/docset_postgis&quot;&gt;这里&lt;/a&gt;就可以了。不定时更新，有最新版本强迫症的朋友请走开。&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>使用Dash管理常用帮助文档</title>
