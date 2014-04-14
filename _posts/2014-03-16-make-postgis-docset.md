@@ -80,7 +80,7 @@ INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('name', 'type', 'pat
 * Python脚本
 
 Dash网站上有使用Python生成`postgredql.docset`的脚本，使用`BeautifulSoup`解析`bookindex.html`生成。在生成`postgis.docset`时，
-由于主要查看函数的用法，介绍文档并不关注，于是直接遍历Documents目录，
+由于主要查看函数的用法，介绍文档并不关注，结合postgis文档特点，直接遍历Documents目录，
 根据文档列表生成Functions列表。
 
 {% highlight python linenos %}

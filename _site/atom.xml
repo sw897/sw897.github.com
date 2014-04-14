@@ -4,13 +4,87 @@
  <title>sw897的博客</title>
  <link href="http://sw897.github.io/" rel="self"/>
  <link href="http://sw897.github.io"/>
- <updated>2014-04-11T16:55:14+08:00</updated>
+ <updated>2014-04-14T11:48:19+08:00</updated>
  <id>http://sw897.github.io</id>
  <author>
    <name>sw897</name>
    <email>sunwei.r@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>常见开源协议与GIS开源软件归类</title>
+   <link href="http://sw897.github.io/2014/03/30/open-source-licence-introduce"/>
+   <updated>2014-03-30T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/03/30/open-source-licence-introduce</id>
+   <content type="html">&lt;h3 id=&quot;&quot;&gt;介绍&lt;/h3&gt;
+
+&lt;p&gt;开源软件近几年越来越流行，从SourceForge到GitHub,Bitbucket，存在着不计其数的开源项目。在国内，几家大公司也开始开放平台，拥抱开源，CSDN的开源平台也红红火火。GIS行业内， 有那么几个主要的基础库与软件也是得到了广泛的应用，特别是OSGEO组织下的GDAL,MapServer等等。在使用这些开源软件的时候，其协议授权，也就是licence，是我们要特别注意的。这些开源协议明确说明了使用者应该遵循的原则，从而确定了使用者使用开源软件的方式与方法，能否二次开发，进而商业发布，还是只能开源。&lt;/p&gt;
+
+&lt;h3 id=&quot;_2&quot;&gt;开源授权&lt;/h3&gt;
+
+&lt;p&gt;开源协议有很多，任何人写一个开源软件都可以自定义一个licence。常见的有这么6种： GPL协议系列(v1,v2,v3…)，LGPL协议，BSD协议，Apache licence 2.0，MIT协议和Mozilla协议。 这几种协议规定都是很多页的英文，要仔细读完很需要时间与精力。好在介绍这些协议的文章有很多，最简单明白的是乌克兰程序员Paul Bagwell画的分析图，&lt;a href=&quot;http://www.ruanyifeng.com/&quot;&gt;阮一峰&lt;/a&gt;将这张图做了中文版，这里引用一下。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/licence-different.png&#39; /&gt;&lt;/p&gt;
+
+&lt;p&gt;有了这张图，在享用开源软件的“免费大餐”时，我们就可以吃得明白放心。&lt;/p&gt;
+
+&lt;h3 id=&quot;gis&quot;&gt;开源GIS&lt;/h3&gt;
+
+&lt;p&gt;GIS行业有一个开源组织叫&lt;a href=&quot;http://www.osgeo.org/home&quot;&gt;OSGeo&lt;/a&gt;， 全称是The Open Source Geospatial Foundation，就像Apache基金会， 它组织管理了诸多的GIS行业开源软件。如果罗列全部软件列表会很长，举几个耳熟能详的名字:GDAL/OGR,GeoTools,GeoServer,MapServer，当然还有OpenLayers,QGIS等等。还有一些不在OSGeo的开源软件， 如开源地图数据组织&lt;a href=&quot;http://www.openstreetmap.org/&quot;&gt;OpenStreetMap&lt;/a&gt;， 为支撑其数据同享与采集，也有大量的开源项目。还有一些独立的项目，如&lt;a href=&quot;http://mapnik.org/&quot;&gt;Mapnik&lt;/a&gt;，也有广泛的应用。&lt;/p&gt;
+
+&lt;p&gt;这些软件功能强大，可靠性高，在项目中应用，可以提升开发效率，提高软件稳定性。现将常见的一些软件的协议进行总结，根据协议结合上节中的开源授权分析图，可以方便地确定其应用场景。&lt;/p&gt;
+&lt;table class=&#39;gridtable&#39;&gt;
+&lt;tr&gt;
+    &lt;th&gt;开源软件&lt;/th&gt;&lt;th&gt;协议授权&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;GEOS&lt;/td&gt;&lt;td&gt;LGPL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;Proj4&lt;/td&gt;&lt;td&gt;MIT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;GDAL/OGR&lt;/td&gt;&lt;td&gt;MIT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;FDO&lt;/td&gt;&lt;td&gt;LGPL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;GeoTools&lt;/td&gt;&lt;td&gt;LGPL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;PostGIS&lt;/td&gt;&lt;td&gt;GPLv2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;MapServer&lt;/td&gt;&lt;td&gt;MIT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;GeoServer&lt;/td&gt;&lt;td&gt;GPLv2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;Mapnik&lt;/td&gt;&lt;td&gt;LGPL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;MapGuide Open Source&lt;/td&gt;&lt;td&gt;LGPL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;QGIS&lt;/td&gt;&lt;td&gt;自定义,类LGPL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;GRASS GIS&lt;/td&gt;&lt;td&gt;GPLv2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;OpenLayers&lt;/td&gt;&lt;td&gt;BSD&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;Leaflet&lt;/td&gt;&lt;td&gt;自定义,类Apache&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;GeoNetwork&lt;/td&gt;&lt;td&gt;GPLv2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</content>
+ </entry>
  
  <entry>
    <title>制作PostGIS的Dash文档</title>
@@ -74,7 +148,7 @@
 &lt;li&gt;Python脚本&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Dash网站上有使用Python生成&lt;code&gt;postgredql.docset&lt;/code&gt;的脚本，使用&lt;code&gt;BeautifulSoup&lt;/code&gt;解析&lt;code&gt;bookindex.html&lt;/code&gt;生成。在生成&lt;code&gt;postgis.docset&lt;/code&gt;时， 由于主要查看函数的用法，介绍文档并不关注，于是直接遍历Documents目录， 根据文档列表生成Functions列表。&lt;/p&gt;
+&lt;p&gt;Dash网站上有使用Python生成&lt;code&gt;postgredql.docset&lt;/code&gt;的脚本，使用&lt;code&gt;BeautifulSoup&lt;/code&gt;解析&lt;code&gt;bookindex.html&lt;/code&gt;生成。在生成&lt;code&gt;postgis.docset&lt;/code&gt;时， 由于主要查看函数的用法，介绍文档并不关注，结合postgis文档特点，直接遍历Documents目录， 根据文档列表生成Functions列表。&lt;/p&gt;
 &lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;python&#39;&gt;&lt;span class=&#39;lineno&#39;&gt; 1&lt;/span&gt; &lt;span class=&#39;kn&#39;&gt;import&lt;/span&gt; &lt;span class=&#39;nn&#39;&gt;os&lt;/span&gt;
 &lt;span class=&#39;lineno&#39;&gt; 2&lt;/span&gt; &lt;span class=&#39;kn&#39;&gt;import&lt;/span&gt; &lt;span class=&#39;nn&#39;&gt;sqlite3&lt;/span&gt;
 &lt;span class=&#39;lineno&#39;&gt; 3&lt;/span&gt; 
