@@ -4,13 +4,41 @@
  <title>sw897的博客</title>
  <link href="http://sw897.github.io/" rel="self"/>
  <link href="http://sw897.github.io"/>
- <updated>2014-04-14T11:48:19+08:00</updated>
+ <updated>2014-04-14T13:30:23+08:00</updated>
  <id>http://sw897.github.io</id>
  <author>
    <name>sw897</name>
    <email>sunwei.r@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>解决在负载均衡中session共享问题</title>
+   <link href="http://sw897.github.io/2014/04/11/session-in-a-load-balanced-share"/>
+   <updated>2014-04-11T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/04/11/session-in-a-load-balanced-share</id>
+   <content type="html">&lt;p&gt;今天同事偶尔问起来之前一个应用的架构，追问是如何解决session共享的问题的。 回忆了一下，好像真没有解决session共享，只是规避了共享的问题。 做法就是在nginx负载均衡的算法上，选择了ip_hash的方法。虽然只是控制相同session的请求转到同一台机器，但也算一种解决方法。&lt;/p&gt;
+
+&lt;p&gt;对于之前的项目，使用的是Nginx+PHP+MySQL， 其中在多台机器上跑PHP-FPM的FastCGI。 在这种结构下，要解决session共享问题有很多方法，这里总结一下。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;使用ip_hash&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如果使用Nginx的七层负载均衡，在配置文件中做如下设置&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;使用MySQL存储Session&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;使用memcache存储session&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+ </entry>
  
  <entry>
    <title>常见开源协议与GIS开源软件归类</title>
@@ -25,7 +53,7 @@
 
 &lt;p&gt;开源协议有很多，任何人写一个开源软件都可以自定义一个licence。常见的有这么6种： GPL协议系列(v1,v2,v3…)，LGPL协议，BSD协议，Apache licence 2.0，MIT协议和Mozilla协议。 这几种协议规定都是很多页的英文，要仔细读完很需要时间与精力。好在介绍这些协议的文章有很多，最简单明白的是乌克兰程序员Paul Bagwell画的分析图，&lt;a href=&quot;http://www.ruanyifeng.com/&quot;&gt;阮一峰&lt;/a&gt;将这张图做了中文版，这里引用一下。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/licence-different.png&#39; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#39;/assets/images/licence-different.png&#39; /&gt;&lt;/p&gt;
 
 &lt;p&gt;有了这张图，在享用开源软件的“免费大餐”时，我们就可以吃得明白放心。&lt;/p&gt;
 
@@ -358,7 +386,7 @@ GENERATE_TREEVIEW = NO&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;开始之前，看到&lt;a href=&quot;https://sublime.wbond.net&quot;&gt;Package Contorl网站&lt;/a&gt;上的一张统计图，给自己吃了个定心丸&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt=&#39;sublime text package control stat&#39; src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/sublime_pc_stat.png&#39; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#39;sublime text package control stat&#39; src=&#39;/assets/images/sublime_pc_stat.png&#39; /&gt;&lt;/p&gt;
 
 &lt;p&gt;可以看到，绝大部的插件已完成3版本的兼容，而且还有少量专为3定制的新插件。所以，大家可以放心转到3版本上来试用了。后面介绍的python开发环境支持插件就是从Sublime 3独有，具体是哪个这里暂不解密。&lt;/p&gt;
 
@@ -438,7 +466,7 @@ GENERATE_TREEVIEW = NO&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;版本库是软件开发中不可缺少的工具，该插件把Git常用命令加入了&lt;code&gt;Command Palette&lt;/code&gt;，让开发人员进行代码管理方便不少。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/sublime_git.png&#39; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#39;/assets/images/sublime_git.png&#39; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://sublime.wbond.net/packages/GitGutter&quot;&gt;GitGutter&lt;/a&gt;&lt;/li&gt;
@@ -446,7 +474,7 @@ GENERATE_TREEVIEW = NO&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;这个小插件是在修改后的文件行号前增加一些标识图片，方便与版本库对比，修改内容一目了然。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/sublime_gitgutter.png&#39; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#39;/assets/images/sublime_gitgutter.png&#39; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://sublime.wbond.net/packages/Gist&quot;&gt;Gist&lt;/a&gt;&lt;/li&gt;
@@ -490,7 +518,7 @@ GENERATE_TREEVIEW = NO&lt;/code&gt;&lt;/pre&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;其他设置均使用默认值。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/sublime_anaconda.png&#39; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#39;/assets/images/sublime_anaconda.png&#39; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;_4&quot;&gt;结束&lt;/h3&gt;
 
@@ -588,7 +616,7 @@ GENERATE_TREEVIEW = NO&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;每月1万次地图浏览&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img alt=&#39;cdb_freeserver&#39; src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/cdb_freeserver.png&#39; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#39;cdb_freeserver&#39; src=&#39;/assets/images/cdb_freeserver.png&#39; /&gt;&lt;/p&gt;
 
 &lt;p&gt;只能用少得可怜来形容。但这些足以来了解其灵活的功能会为您的工作带来的便利。如果有需求，可以转为付费用户。&lt;/p&gt;
 
@@ -602,7 +630,7 @@ GENERATE_TREEVIEW = NO&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;创建新表，并选择刚下载到本地的shp压缩包&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/cdb_newtable.png&#39; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#39;/assets/images/cdb_newtable.png&#39; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;
@@ -614,19 +642,19 @@ GENERATE_TREEVIEW = NO&lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/cdb_mapview.png&#39; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#39;/assets/images/cdb_mapview.png&#39; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;通过Wizards来配置专题地图表现，这里模仿blog中的设置，选择Toque进行时间序列可视化，其它设置如图&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/cdb_config.png&#39; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#39;/assets/images/cdb_config.png&#39; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;发布与分享，通过Publish功能，可以选择:URL,Embed,API三种发布方式，并可将url发布到facebook或twitter&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#39;https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/cdb_publish.png&#39; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#39;/assets/images/cdb_publish.png&#39; /&gt;&lt;/p&gt;
 
 &lt;p&gt;这里按embed的方式，引用交互地图&lt;/p&gt;
 &lt;iframe frameborder=&#39;0&#39; height=&#39;520&#39; src=&#39;http://sw897.cartodb.com/viz/68695938-7f47-11e3-9aeb-9b0c6170d3d4/embed_map?title=true&amp;amp;description=true&amp;amp;search=false&amp;amp;shareable=true&amp;amp;cartodb_logo=true&amp;amp;layer_selector=false&amp;amp;legends=false&amp;amp;scrollwheel=true&amp;amp;sublayer_options=1&amp;amp;sql=&amp;amp;zoom=3&amp;amp;center_lat=36.77409249464195&amp;amp;center_lon=-79.453125&#39; width=&#39;100%&#39;&gt; &lt;/iframe&gt;

@@ -21,7 +21,7 @@ tags: [Map,CartoDB,GIS]
 * 5M存储空间
 * 每月1万次地图浏览
 
-<img src="https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/cdb_freeserver.png" alt="cdb_freeserver" />
+<img src="{{ BASE_PATH }}/assets/images/cdb_freeserver.png" alt="cdb_freeserver" />
 
 只能用少得可怜来形容。但这些足以来了解其灵活的功能会为您的工作带来的便利。如果有需求，可以转为付费用户。
 
@@ -32,22 +32,22 @@ tags: [Map,CartoDB,GIS]
 
 * 创建新表，并选择刚下载到本地的shp压缩包
 
-<img src="https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/cdb_newtable.png">
+<img src="{{ BASE_PATH }}/assets/images/cdb_newtable.png">
 
 * 自动上传完成后会进入Table的浏览页面
 
 
 * 选择创建Map View，更换底图(BaseMap)
 
-<img src="https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/cdb_mapview.png">
+<img src="{{ BASE_PATH }}/assets/images/cdb_mapview.png">
 
 * 通过Wizards来配置专题地图表现，这里模仿blog中的设置，选择Toque进行时间序列可视化，其它设置如图
 
-<img src="https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/cdb_config.png">
+<img src="{{ BASE_PATH }}/assets/images/cdb_config.png">
 
 * 发布与分享，通过Publish功能，可以选择:URL,Embed,API三种发布方式，并可将url发布到facebook或twitter
 
-<img src="https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/cdb_publish.png">
+<img src="{{ BASE_PATH }}/assets/images/cdb_publish.png">
 
 这里按embed的方式，引用交互地图
 

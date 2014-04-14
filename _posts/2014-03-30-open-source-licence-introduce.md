@@ -20,7 +20,7 @@ published: true
 GPL协议系列(v1,v2,v3...)，LGPL协议，BSD协议，Apache licence 2.0，MIT协议和Mozilla协议。
 这几种协议规定都是很多页的英文，要仔细读完很需要时间与精力。好在介绍这些协议的文章有很多，最简单明白的是乌克兰程序员Paul Bagwell画的分析图，[阮一峰](http://www.ruanyifeng.com/)将这张图做了中文版，这里引用一下。
 
-<img src="https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/licence-different.png">
+<img src="{{ BASE_PATH }}/assets/images/licence-different.png">
 
 有了这张图，在享用开源软件的“免费大餐”时，我们就可以吃得明白放心。
 

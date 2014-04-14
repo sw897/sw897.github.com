@@ -20,7 +20,7 @@ Sublime Text 3的beta版本推出很长时间了，但其中文介绍文档非�
 
 开始之前，看到[Package Contorl网站][]上的一张统计图，给自己吃了个定心丸
 
-<img src="https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/sublime_pc_stat.png" alt="sublime text package control stat">
+<img src="{{ BASE_PATH }}/assets/images/sublime_pc_stat.png" alt="sublime text package control stat">
 
 可以看到，绝大部的插件已完成3版本的兼容，而且还有少量专为3定制的新插件。所以，大家可以放心转到3版本上来试用了。后面介绍的python开发环境支持插件就是从Sublime 3独有，具体是哪个这里暂不解密。
 
@@ -105,13 +105,13 @@ sublime text可以通过插件安装很多主题，肯定有一款适合你。�
 
 版本库是软件开发中不可缺少的工具，该插件把Git常用命令加入了<code>Command Palette</code>，让开发人员进行代码管理方便不少。
 
-<img src="https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/sublime_git.png">
+<img src="{{ BASE_PATH }}/assets/images/sublime_git.png">
 
 * [GitGutter][]
 
 这个小插件是在修改后的文件行号前增加一些标识图片，方便与版本库对比，修改内容一目了然。
 
-<img src="https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/sublime_gitgutter.png">
+<img src="{{ BASE_PATH }}/assets/images/sublime_gitgutter.png">
 
 * [Gist][]
 
@@ -154,7 +154,7 @@ Geek就是让一切变得更简单，该插件作者就为了简便，把这些�
 
 其他设置均使用默认值。
 
-<img src="https://dl.dropboxusercontent.com/u/57451074/github/sw897/images/sublime_anaconda.png">
+<img src="{{ BASE_PATH }}/assets/images/sublime_anaconda.png">
 
 ### 结束
 
