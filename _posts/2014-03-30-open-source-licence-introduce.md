@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "常见开源协议与GIS开源软件归类"
+title: "常见开源协议与GIS开源软件协议总结"
 description: "介绍与对比GPL,LGPL,BSD等常见开源协议，总结GIS开源所采用的开源协议"
 category: "技术"
 keywords: "OpenSource,GPL,BSD,GIS"
@@ -69,7 +69,7 @@ GIS行业有一个开源组织叫[OSGeo](http://www.osgeo.org/home)，
     <td>MapGuide Open Source</td><td>LGPL</td>
 </tr>
 <tr>
-    <td>QGIS</td><td>自定义,类LGPL</td>
+    <td>QGIS</td><td>GPLv2</td>
 </tr>
 <tr>
     <td>GRASS GIS</td><td>GPLv2</td>
@@ -84,6 +84,30 @@ GIS行业有一个开源组织叫[OSGeo](http://www.osgeo.org/home)，
     <td>GeoNetwork</td><td>GPLv2</td>
 </tr>
 </table>
+
+可以看到，这些软件或类库使用的协议基本都包括在上述6种内，其中使用较多的有下面几个。
+
+* LGPL
+
+LGPL是GPL的一个为主要为类库使用设计的开源协议。LGPL允许商业软件通过类库引用(link)方式使用LGPL类库而不需要开源商业软件的代码。这使得采用LGPL协议的开源代码可以被商业软件作为类库引用并发布和销售。但是如果修改LGPL协议的代码或者衍生，则所有修改的代码，涉及修改部分的额外代码和衍生的代码都必须采用LGPL协议。
+
+因此，LGPL协议的开源代码很适合作为第三方类库被商业软件引用，但不适合希望以LGPL协议代码为基础，通过修改和衍生的方式做二次开发的商业软件采用。
+
+采用LGPL的开源GIS类库有：GEOS,FDO,GeoTools,Mapnik,MapGuide Open Source
+
+* MIT,BSD,Apache
+
+这三个协议都对商业应用友好的许可，允许使用或在其代码上开发商业软件发布和销售。因为可以完全控制这些第三方的代码，在必要的时候可以修改或者二次开发。
+
+使用这类协议的开源GIS类库有：Proj4,GDAL/OGR,MapServer,OpenLayers,Leaflet
+
+* GPL
+
+GPL的出发点是代码的开源/免费使用和引用/修改/衍生代码的开源/免费使用，但不允许修改后和衍生的代码做为闭源的商业软件发布和销售。由于GPL严格要求使用了GPL类库的软件产品必须使用GPL协议，对于使用GPL协议的开源代码，商业软件或者对代码有保密要求的部门就不适合集成/采用作为类库和二次开发的基础。所以在借鉴这类协议下的开源代码时需要注意了。
+
+使用GPL系列协议的开源GIS类库有：PostGIS, Grass GIS, QGIS, GeoNetwork
+
+
 
 
 
