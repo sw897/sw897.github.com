@@ -4,7 +4,7 @@
  <title>sw897的博客</title>
  <link href="http://sw897.github.io/" rel="self"/>
  <link href="http://sw897.github.io"/>
- <updated>2014-04-14T13:30:23+08:00</updated>
+ <updated>2014-04-15T10:21:30+08:00</updated>
  <id>http://sw897.github.io</id>
  <author>
    <name>sw897</name>
@@ -19,35 +19,55 @@
    <id>http://sw897.github.io/2014/04/11/session-in-a-load-balanced-share</id>
    <content type="html">&lt;p&gt;今天同事偶尔问起来之前一个应用的架构，追问是如何解决session共享的问题的。 回忆了一下，好像真没有解决session共享，只是规避了共享的问题。 做法就是在nginx负载均衡的算法上，选择了ip_hash的方法。虽然只是控制相同session的请求转到同一台机器，但也算一种解决方法。&lt;/p&gt;
 
-&lt;p&gt;对于之前的项目，使用的是Nginx+PHP+MySQL， 其中在多台机器上跑PHP-FPM的FastCGI。 在这种结构下，要解决session共享问题有很多方法，这里总结一下。&lt;/p&gt;
+&lt;p&gt;对于之前的项目，使用的是Nginx+PHP+MySQL， 其中在多台机器上跑PHP-FPM的FastCGI。 在这种结构下，要解决session共享问题有很多方法。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;使用ip_hash&lt;/li&gt;
+&lt;li&gt;使用ip_hash等分配方法&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;如果使用Nginx的七层负载均衡，在配置文件中做如下设置&lt;/p&gt;
+&lt;p&gt;nginx中负载均衡配置时，可以选择ip_hash算法，这样同一个IP的请求会定向到同一台后端，这个IP下的某个客户端和某个后端建立起重色轻友的session，从而规避了多台后端之间的共享问题。ip_hash的配置如下：&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;nginx&#39;&gt;&lt;span class=&#39;k&#39;&gt;upstream&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;nginx.example.com&lt;/span&gt;
+&lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
+    &lt;span class=&#39;kn&#39;&gt;ip_hash&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
+    &lt;span class=&#39;kn&#39;&gt;server&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;192.168.0.1&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;mi&#39;&gt;80&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt; 
+    &lt;span class=&#39;kn&#39;&gt;server&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;192.168.0.2&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;&lt;span class=&#39;mi&#39;&gt;80&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
+&lt;span class=&#39;p&#39;&gt;}&lt;/span&gt;
+&lt;span class=&#39;k&#39;&gt;server&lt;/span&gt;
+&lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
+    &lt;span class=&#39;kn&#39;&gt;listen&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;80&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
+    &lt;span class=&#39;kn&#39;&gt;location&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;/&lt;/span&gt;
+    &lt;span class=&#39;p&#39;&gt;{&lt;/span&gt;
+        &lt;span class=&#39;kn&#39;&gt;proxy_pass&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;http://nginx.example.com&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;
+    &lt;span class=&#39;p&#39;&gt;}&lt;/span&gt;
+&lt;span class=&#39;p&#39;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;另外，Nginx负载均衡配置中，还可以选择使用upstream_hash这个第三方模块。这个模块多数情况下是用作url_hash的，但同样用来做session共享。&lt;/p&gt;
+
+&lt;p&gt;如果不使用Nginx做负载均衡，而使用F5等硬件实现，同样可以配置根据session进行后端分配，解决session同享问题。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;使用MySQL存储Session&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;使用MySQL存储session&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;li&gt;
-&lt;p&gt;使用memcache存储session&lt;/p&gt;
-&lt;/li&gt;
+&lt;p&gt;PHP可以配置将session保存在数据库中，这种方法是把存放session的表和其他数据库表放在一起，如果mysql也做了集群了话，每个mysql节点都要有这张表，并且这张session表的数据表要实时同步。 但是用数据库来同步session，会加大数据库的IO，增加数据库的负担。而且数据库读写速度较慢，不利于session的实时同步。&lt;/p&gt;
 
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;</content>
+&lt;ul&gt;
+&lt;li&gt;使用memcache存储session&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;PHP配置文件中设置存储方式为memcache，这样php自己会建立一个session集群，将session数据存储在memcache中。&lt;/p&gt;
+
+&lt;p&gt;用这种方式来同步session，不会加大数据库的负担，并且安全性比用cookie大大的提高，把session放到内存里面，比从文件中读取要快很多。但是memcache把内存分成很多种规格的存储块，有块就有大小，这种方式也就决定了，memcache不能完全利用内存，会产生内存碎片，如果存储块不足，还会产生内存溢出。&lt;/p&gt;</content>
  </entry>
  
  <entry>
-   <title>常见开源协议与GIS开源软件归类</title>
+   <title>开源GIS与开源协议授权总结</title>
    <link href="http://sw897.github.io/2014/03/30/open-source-licence-introduce"/>
    <updated>2014-03-30T00:00:00+08:00</updated>
    <id>http://sw897.github.io/2014/03/30/open-source-licence-introduce</id>
    <content type="html">&lt;h3 id=&quot;&quot;&gt;介绍&lt;/h3&gt;
 
-&lt;p&gt;开源软件近几年越来越流行，从SourceForge到GitHub,Bitbucket，存在着不计其数的开源项目。在国内，几家大公司也开始开放平台，拥抱开源，CSDN的开源平台也红红火火。GIS行业内， 有那么几个主要的基础库与软件也是得到了广泛的应用，特别是OSGEO组织下的GDAL,MapServer等等。在使用这些开源软件的时候，其协议授权，也就是licence，是我们要特别注意的。这些开源协议明确说明了使用者应该遵循的原则，从而确定了使用者使用开源软件的方式与方法，能否二次开发，进而商业发布，还是只能开源。&lt;/p&gt;
+&lt;p&gt;开源软件近几年越来越流行，从SourceForge到GitHub,Bitbucket，存在着不计其数的开源项目。在国内，几家大公司也开始开放平台，拥抱开源，CSDN的开源平台也红红火火。GIS行业内， 有那么几个主要的基础库与软件也是得到了广泛的应用，特别是OSGeo组织下的GDAL,MapServer等等。在使用这些开源软件的时候，其协议授权，也就是licence，是我们要特别注意的。这些开源协议明确说明了使用者应该遵循的原则，从而确定了使用者使用开源软件的方式与方法，能否二次开发，进而商业发布，还是只能开源。&lt;/p&gt;
 
 &lt;h3 id=&quot;_2&quot;&gt;开源授权&lt;/h3&gt;
 
@@ -59,9 +79,31 @@
 
 &lt;h3 id=&quot;gis&quot;&gt;开源GIS&lt;/h3&gt;
 
-&lt;p&gt;GIS行业有一个开源组织叫&lt;a href=&quot;http://www.osgeo.org/home&quot;&gt;OSGeo&lt;/a&gt;， 全称是The Open Source Geospatial Foundation，就像Apache基金会， 它组织管理了诸多的GIS行业开源软件。如果罗列全部软件列表会很长，举几个耳熟能详的名字:GDAL/OGR,GeoTools,GeoServer,MapServer，当然还有OpenLayers,QGIS等等。还有一些不在OSGeo的开源软件， 如开源地图数据组织&lt;a href=&quot;http://www.openstreetmap.org/&quot;&gt;OpenStreetMap&lt;/a&gt;， 为支撑其数据同享与采集，也有大量的开源项目。还有一些独立的项目，如&lt;a href=&quot;http://mapnik.org/&quot;&gt;Mapnik&lt;/a&gt;，也有广泛的应用。&lt;/p&gt;
+&lt;p&gt;GIS行业有一个开源组织叫&lt;a href=&quot;http://www.osgeo.org/home&quot;&gt;OSGeo&lt;/a&gt;， 全称是The Open Source Geospatial Foundation，就像Apache基金会， 它组织管理了诸多的GIS行业开源软件。还有很多不在OSGeo组织下的开源软件， 如开源地图数据组织&lt;a href=&quot;http://www.openstreetmap.org/&quot;&gt;OpenStreetMap&lt;/a&gt;， 为支撑其数据同享与采集，也有大量的开源项目。还有一些独立的项目，如&lt;a href=&quot;http://mapnik.org/&quot;&gt;Mapnik&lt;/a&gt;，也有广泛的应用。&lt;/p&gt;
 
-&lt;p&gt;这些软件功能强大，可靠性高，在项目中应用，可以提升开发效率，提高软件稳定性。现将常见的一些软件的协议进行总结，根据协议结合上节中的开源授权分析图，可以方便地确定其应用场景。&lt;/p&gt;
+&lt;p&gt;这些软件功能强大，可靠性高，在项目中应用，可以提升开发效率，提高软件稳定性。 按对商业应用、二次开发的友好程度对开源协议进行排序，&lt;code&gt;MIT&amp;gt;BSD&amp;gt;Apache&amp;gt;LGPL&amp;gt;GPL&lt;/code&gt;。这里将这5个协议按应用灵活度分为以下三组，总结一下部分开源GIS软件或类库的应用场景。&lt;/p&gt;
+
+&lt;h4 id=&quot;mitbsdapache&quot;&gt;MIT,BSD,Apache&lt;/h4&gt;
+
+&lt;p&gt;这三个协议都对商业应用友好的许可，允许使用或在其代码上开发商业软件发布和销售。因为可以完全控制这些第三方的代码，在必要的时候可以修改或者二次开发。&lt;/p&gt;
+
+&lt;p&gt;使用这类协议的开源GIS：Proj4, GDAL/OGR, MapServer, OpenLayers, Leaflet,ZOO-Project,PyCSW,pywps-4&lt;/p&gt;
+
+&lt;h4 id=&quot;lgpl&quot;&gt;LGPL&lt;/h4&gt;
+
+&lt;p&gt;LGPL是GPL的一个为主要为类库使用设计的开源协议。LGPL允许商业软件通过类库引用(link)方式使用LGPL类库而不需要开源商业软件的代码。这使得采用LGPL协议的开源代码可以被商业软件作为类库引用并发布和销售。但是如果修改LGPL协议的代码或者衍生，则所有修改的代码，涉及修改部分的额外代码和衍生的代码都必须采用LGPL协议。&lt;/p&gt;
+
+&lt;p&gt;因此，LGPL协议的开源代码很适合作为第三方类库被商业软件引用，但不适合希望以LGPL协议代码为基础，通过修改和衍生的方式做二次开发的商业软件采用。&lt;/p&gt;
+
+&lt;p&gt;使用LGPL的开源GIS：GEOS, FDO, GeoTools, Mapnik, MapGuide Open Source,OpenScales,OSGEarth&lt;/p&gt;
+
+&lt;h4 id=&quot;gpl&quot;&gt;GPL&lt;/h4&gt;
+
+&lt;p&gt;GPL的出发点是代码的开源/免费使用和引用/修改/衍生代码的开源/免费使用，但不允许修改后和衍生的代码做为闭源的商业软件发布和销售。由于GPL严格要求使用了GPL类库的软件产品必须使用GPL协议，对于使用GPL协议的开源代码，商业软件或者对代码有保密要求的部门就不适合集成/采用作为类库和二次开发的基础。所以在借鉴这类协议下的开源代码时需要注意了。&lt;/p&gt;
+
+&lt;p&gt;使用GPL系列协议的开源GIS：PostGIS, Grass GIS, QGIS, GeoNetwork,PyWPS&lt;/p&gt;
+
+&lt;h3 id=&quot;gis_2&quot;&gt;部分开源GIS与其协议授权对照表&lt;/h3&gt;
 &lt;table class=&#39;gridtable&#39;&gt;
 &lt;tr&gt;
     &lt;th&gt;开源软件&lt;/th&gt;&lt;th&gt;协议授权&lt;/th&gt;
@@ -88,16 +130,16 @@
     &lt;td&gt;MapServer&lt;/td&gt;&lt;td&gt;MIT&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-    &lt;td&gt;GeoServer&lt;/td&gt;&lt;td&gt;GPLv2&lt;/td&gt;
+    &lt;td&gt;Mapnik&lt;/td&gt;&lt;td&gt;LGPL&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-    &lt;td&gt;Mapnik&lt;/td&gt;&lt;td&gt;LGPL&lt;/td&gt;
+    &lt;td&gt;GeoServer&lt;/td&gt;&lt;td&gt;GPLv2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
     &lt;td&gt;MapGuide Open Source&lt;/td&gt;&lt;td&gt;LGPL&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-    &lt;td&gt;QGIS&lt;/td&gt;&lt;td&gt;自定义,类LGPL&lt;/td&gt;
+    &lt;td&gt;QGIS&lt;/td&gt;&lt;td&gt;GPLv2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
     &lt;td&gt;GRASS GIS&lt;/td&gt;&lt;td&gt;GPLv2&lt;/td&gt;
@@ -109,7 +151,28 @@
     &lt;td&gt;Leaflet&lt;/td&gt;&lt;td&gt;自定义,类Apache&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+    &lt;td&gt;OpenScales&lt;/td&gt;&lt;td&gt;LGPL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;OsgEarth&lt;/td&gt;&lt;td&gt;LGPL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;ZOO-Project&lt;/td&gt;&lt;td&gt;MIT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;PyWPS&lt;/td&gt;&lt;td&gt;GPL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;pywps-4&lt;/td&gt;&lt;td&gt;MIT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
     &lt;td&gt;GeoNetwork&lt;/td&gt;&lt;td&gt;GPLv2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;PyCSW&lt;/td&gt;&lt;td&gt;MIT&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;Routino&lt;/td&gt;&lt;td&gt;Affero GPLv3&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;</content>
  </entry>

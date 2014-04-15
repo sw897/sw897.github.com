@@ -17,22 +17,41 @@ published: true
 其中在多台机器上跑PHP-FPM的FastCGI。
 在这种结构下，要解决session共享问题有很多方法。
 
-* 使用ip_hash
+* 使用ip_hash等分配方法
 
 nginx中负载均衡配置时，可以选择ip_hash算法，这样同一个IP的请求会定向到同一台后端，这个IP下的某个客户端和某个后端建立起重色轻友的session，从而规避了多台后端之间的共享问题。ip_hash的配置如下：
 
-{% highlight conf %}
-
+{% highlight Nginx config files %}
+upstream nginx.example.com
+{
+    ip_hash;
+    server 192.168.0.1:80; 
+    server 192.168.0.2:80;
+}
+server
+{
+    listen 80;
+    location /
+    {
+        proxy_pass http://nginx.example.com;
+    }
+}
 {% endhighlight %}
 
-* 使用MySQL存储Session
+另外，Nginx负载均衡配置中，还可以选择使用upstream_hash这个第三方模块。这个模块多数情况下是用作url_hash的，但同样用来做session共享。
+
+如果不使用Nginx做负载均衡，而使用F5等硬件实现，同样可以配置根据session进行后端分配，解决session同享问题。
+
+* 使用MySQL存储session
 
 PHP可以配置将session保存在数据库中，这种方法是把存放session的表和其他数据库表放在一起，如果mysql也做了集群了话，每个mysql节点都要有这张表，并且这张session表的数据表要实时同步。
-用数据库来同步session，会加大数据库的IO，增加数据库的负担。而且数据库读写速度较慢，不利于session的适时同步。
+但是用数据库来同步session，会加大数据库的IO，增加数据库的负担。而且数据库读写速度较慢，不利于session的实时同步。
 
 * 使用memcache存储session
 
-memcache可以做分布式，php配置文件中设置存储方式为memcache，这样php自己会建立一个session集群，将session数据存储在memcache中。
+PHP配置文件中设置存储方式为memcache，这样php自己会建立一个session集群，将session数据存储在memcache中。
 
-以这种方式来同步session，不会加大数据库的负担，并且安全性比用cookie大大的提高，把session放到内存里面，比从文件中读取要快很多。但是memcache把内存分成很多种规格的存储块，有块就有大小，这种方式也就决定了，memcache不能完全利用内存，会产生内存碎片，如果存储块不足，还会产生内存溢出。
+用这种方式来同步session，不会加大数据库的负担，并且安全性比用cookie大大的提高，把session放到内存里面，比从文件中读取要快很多。但是memcache把内存分成很多种规格的存储块，有块就有大小，这种方式也就决定了，memcache不能完全利用内存，会产生内存碎片，如果存储块不足，还会产生内存溢出。
+
+
 
