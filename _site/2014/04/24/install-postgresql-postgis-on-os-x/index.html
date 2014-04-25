@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>在OS X上安装PostgreSQL与PostGIS | sw897's blog</title>
+    <meta name="description" content="在os x上安装使用postgresql与postgis">
+    <meta name="keywords" content="PostgreSQL,PostGIS,GIS">
+    <meta name="author" content="sw897">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/twitter/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+<!-- 百度异步统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?99b0271e86dcbaf261c060442ef468d3";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 百度异步统计 -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">sw897的博客</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/about.html">关于</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">存档</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">分类</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/rss.xml">订阅</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">标签</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>在OS X上安装PostgreSQL与PostGIS </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>24 April 2014</span>
+    </div>
+    <div class="content">
+      <p>PostgreSQL是流行的先进开源关系型数据库，PostGIS是PostgreSQL空间信息扩展部分，支持空间索引与空间查询。越来越多的GIS应用使用两者的组合来完成后台空间数据的存储与获取，支撑前端应用系统。因其良好的性能与稳定表现，持续得到大家的追捧。避开当前流行的大数据与NoSQL，这种组合是完成一个稳健GIS系统的经典组合。</p>
+
+<p>两个软件虽然都是开源软件，但有很好的社区支持，产品化非常好。特别是针对Windows平台的支持，简单易用的安装包，自带的可视化工具PgAdmin3以及shp2pgsql_GUI，让不熟悉两者，甚至是不熟悉数据库的开发人员也能快速上手：使用shp2pgsql_GUI把Shape文件导入到PostGIS；使用PgAdmin3可视化运行SQL操作数据。在生产环境中，一般选择使用Linux平台，安装可以选择对应的发行包，也可以手工编译安装，<code>configure &amp;&amp; make &amp;&amp; make install</code>一马平川。在OS X系统上，PostgreSQL的安装有多种方法，最简单的，还是类似Windows下的可视化安装包，但使用OS X的用户大多喜欢使用类似Linux的方法。所以，这里我们还是选用神器<code>brew</code>的方法，并可深入了解OS X的用户管理与数据库初始化。</p>
+
+<h3 id="">安装</h3>
+
+<p>使用<code>brew</code>安装，过程是相当的Nice。</p>
+<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>brew install postgresql   <span class='c'># 当前最新版本是9.3.4</span>
+<span class='nv'>$ </span>brew install postgis      <span class='c'># 当前最新版本是2.1.2</span>
+</code></pre></div>
+<p>安装PostGIS前，最好安装Proj4,GEOS,GDAL,GeoIP等开源GIS库，以支持空间分析、IP定位等。</p>
+<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>brew install proj     <span class='c'># 当前最新版本是4.8.0</span>
+<span class='nv'>$ </span>brew install geos     <span class='c'># 当前最新版本是3.4.2</span>
+<span class='nv'>$ </span>brew install gdal     <span class='c'># 当前最新版本是1.10.1_1</span>
+<span class='nv'>$ </span>brew install libgeoip
+</code></pre></div>
+<h3 id="_2">初始化</h3>
+
+<h4 id="_3">帐号配置</h4>
+
+<p>初始化数据库前需要指定一个用户帐号，使用安装PostgreSQL时默认创建的帐号<code>_postgres</code>，可以通过<code>/etc/passwd</code>文件查看帐号记录，也可以使用dscl工具进行查看。dscl工具是OS X上完成useradd,userdel,usermod等Linux平台上的工具功用的代替。以下使用dscl查看_postgres用户并修改其zsh登录。 具体选择哪种shell就按个人喜好了，具体系统中支持哪些可以查看<code>/etc/shells</code>文件。</p>
+<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>sudo dscl . list /Users | grep _postgres
+<span class='nv'>$ </span>sudo dscl . read /Users/_postgres
+<span class='nv'>$ </span>sudo dscl . change /Users/_postgres UserShell /usr/bin/false /bin/zsh
+</code></pre></div>
+<h4 id="_4">初始化数据库</h4>
+
+<p>创建数据库目录，修改目录访问权限并初始化。</p>
+<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>sudo mkdir /usr/local/var/postgres
+<span class='nv'>$ </span>sudo chown _postgres:_postgres /usr/local/var/postgres/
+<span class='nv'>$ </span>sudo su - _postgres
+<span class='nv'>$ </span>initdb /usr/local/var/postgres
+</code></pre></div>
+<p>我的机子，系统为OS X 10.9，按上面执行，在运行initdb时会提示<code>Permission denied</code>。问过google后，索性把<code>/usr/local/var</code>的权限增加了可写，问题解决。</p>
+
+<h3 id="_5">数据库管理控制</h3>
+
+<h4 id="launchctl">使用launchctl管理</h4>
+
+<ul>
+<li>登录时自动启动</li>
+</ul>
+<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>mkdir -p ~/Library/LaunchAgents
+<span class='nv'>$ </span>cp /usr/local/Cellar/postgresql/9.3.4/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
+<span class='nv'>$ </span>launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+</code></pre></div>
+<ul>
+<li>启动</li>
+</ul>
+<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+</code></pre></div>
+<ul>
+<li>停止</li>
+</ul>
+<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>launchctl unload  ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+</code></pre></div>
+<h4 id="pg_ctl">使用pg_ctl管理</h4>
+
+<ul>
+<li>启动</li>
+</ul>
+<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+</code></pre></div>
+<ul>
+<li>停止</li>
+</ul>
+<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>pg_ctl -D /usr/local/var/postgres <span class='nb'>stop</span> -s -m fast
+</code></pre></div>
+<h4 id="_6">进程验证</h4>
+
+<p><code>$ ps aux | grep postgres</code></p>
+
+<h3 id="_7">创建空间数据库</h3>
+
+<h4 id="91postgresql">9.1及以上版本的PostgreSQL</h4>
+
+<p>使用PostGIS 2.0+创建空间数据库非常的Nice</p>
+<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>createdb -E UTF8 --template<span class='o'>=</span>template0 postgis     <span class='c'>#创建postgis数据库</span>
+<span class='nv'>$ </span>psql -d postgis -c <span class='s2'>&quot;CREATE EXTENSION postgis;&quot;</span>    <span class='c'>#增加空间扩展</span>
+<span class='nv'>$ </span>psql -d postgis -c <span class='s2'>&quot;CREATE EXTENSION postgis_topology;&quot;</span>   <span class='c'>#增加空间拓扑扩展</span>
+<span class='nv'>$ </span>psql -d postgis -f legacy.sql                     <span class='c'>#兼容旧版扩展</span>
+</code></pre></div>
+<p>如果不需要兼容旧版本，或者不需要拓扑扩展等，也可以方便地移除</p>
+<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>psql -d postgis -f uninstall_legacy.sql
+<span class='nv'>$ </span>psql -d postgis -f uninstall_topology.sql
+<span class='nv'>$ </span>psql -d postgis -f uninstall_postgis.sql
+</code></pre></div>
+<h4 id="91postgresql_2">9.1以下版本PostgreSQL</h4>
+
+<p>老版本的Postgre创建空间数据库就稍有点麻烦，但本质上是一样的，也就是将空间扩展部分(数据表、函数、视图等)一个个地扩展到数据库中。为以后使用方便，一般是先创建一个空间数据库模板，这样，以后就以此为模板直接创建。</p>
+
+<ul>
+<li>创建空间数据库模板</li>
+</ul>
+
+<p>具体扩展哪些sql根据需求自行操作</p>
+<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ POSTGIS_SQL_PATH</span><span class='o'>=</span>/usr/local/share/postgis
+<span class='nv'>$ </span>createdb -E UTF8 --template<span class='o'>=</span>template0 template_postgis
+<span class='nv'>$ </span>createlang -d template_postgis plpgsql
+<span class='nv'>$ </span>psql -d postgres -c <span class='s2'>&quot;UPDATE pg_database SET datistemplate=&#39;true&#39; WHERE datname=&#39;template_postgis&#39;;&quot;</span>
+<span class='nv'>$ </span>psql -d template_postgis -f <span class='nv'>$POSTGIS_SQL_PATH</span>/postgis.sql
+<span class='nv'>$ </span>psql -d template_postgis -f <span class='nv'>$POSTGIS_SQL_PATH</span>/spatial_ref_sys.sql
+<span class='nv'>$ </span>psql -d template_postgis -c <span class='s2'>&quot;GRANT ALL ON geometry_columns TO PUBLIC;&quot;</span>
+<span class='nv'>$ </span>psql -d template_postgis -c <span class='s2'>&quot;GRANT ALL ON geography_columns TO PUBLIC;&quot;</span>
+<span class='nv'>$ </span>psql -d template_postgis -c <span class='s2'>&quot;GRANT ALL ON spatial_ref_sys TO PUBLIC;&quot;</span>
+</code></pre></div>
+<ul>
+<li>创建空间数据库及其用户</li>
+</ul>
+<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>createuser -P -d -e postgis   <span class='c'>#创建一个postgis普通用戶,用来登录空间数据库</span>
+<span class='nv'>$ </span>createdb -T template_postgis -E UTF8 postgis <span class='c'># 创建一个空间数据库</span>
+</code></pre></div>
+<p>更具体地可参考PostGIS用户手册。</p>
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#技术-ref">
+    		技术 <span>9</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+  
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#GIS-ref">GIS <span>5</span></a></li>
+    
+  
+
+
+
+    </ul>
+  
+
+    <hr>
+    <div class="pagination">
+      <ul class="pager">
+      
+      <li class="previous"><a href="/2014/04/11/session-in-a-load-balanced-share" title="解决在负载均衡中session共享问题">&larr; 解决在负载均衡中session共享问题</a></li>
+      
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:'sw897'};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p><small>Powered by <a href="http://jekyllbootstrap.com">Jekyll Bootstrap</a> & <a href="http://pages.github.com">GitHub</a> | &copy; 2014 by <a href="/about.html">sw897</a></small>
+        </p>
+      </footer>
+
+    </div>
+
+    
+
+  </body>
+</html>
+
