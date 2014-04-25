@@ -138,94 +138,99 @@ var _hmt = _hmt || [];
       <span>05 March 2014</span>
     </div>
     <div class="content">
-      <h3 id="dash">Dash介绍</h3>
+      
+<h3 id="dash">Dash介绍</h3>
 
-<p>Dash是OS X上方便宜用的文档管理工具，提供了130+的API文档， 几乎包含了所有常用语言与流行开发框架，并保持着极高的更新速度。如果你是一名OS X上的程序员，对于开发，Dash绝对是神一样的利器。它可以直接在Apple Store上免费下载安装， 但喜欢恶作剧的开发者不会让你用得那么舒服，会不定时地出现等待页面，来打扰你的高效开发。 有时候，你会感觉到，通过Dash节省的Google的那几秒时间不够它等待的。这个时候，你就要在软件内 购买了，人民币128元，如果经济允许，还是可以购入的，因为它提供的文档及其管理功能，是无与伦比的。</p>
+<p>Dash是OS X上方便宜用的文档管理工具，提供了130+的API文档，
+几乎包含了所有常用语言与流行开发框架，并保持着极高的更新速度。如果你是一名OS X上的程序员，对于开发，Dash绝对是神一样的利器。它可以直接在Apple Store上免费下载安装，
+但喜欢恶作剧的开发者不会让你用得那么舒服，会不定时地出现等待页面，来打扰你的高效开发。
+有时候，你会感觉到，通过Dash节省的Google的那几秒时间不够它等待的。这个时候，你就要在软件内
+购买了，人民币128元，如果经济允许，还是可以购入的，因为它提供的文档及其管理功能，是无与伦比的。</p>
 
 <h3 id="docset">DocSet扩展</h3>
 
-<p>对于程序员来说，并不是提供了130+的文档就足够了，必然还有我们自己常用的，更小众的API。 Dash也想到了这点，提供了DIY的介绍。其<a href="http://kapeli.com/docsets">生成DocSets帮助文档</a>中，有以下几种文档生成Docset的方法介绍：</p>
+<p>对于程序员来说，并不是提供了130+的文档就足够了，必然还有我们自己常用的，更小众的API。
+Dash也想到了这点，提供了DIY的介绍。其<a href="http://kapeli.com/docsets">生成DocSets帮助文档</a>中，有以下几种文档生成Docset的方法介绍：</p>
 
 <ul>
-<li><a href="http://kapeli.com/docsets#objectivec">AppleDoc(Objective-C Source Files)</a></li>
-
-<li><a href="http://kapeli.com/docsets#python">Python,Sphinx or PyDoctor</a></li>
-
-<li><a href="http://kapeli.com/docsets#javadoc">Javadoc</a></li>
-
-<li><a href="http://kapeli.com/docsets#rdoc">R-doc or Yard</a></li>
-
-<li><a href="http://kapeli.com/docsets#scaladoc">Scaladoc</a></li>
-
-<li><a href="http://kapeli.com/docsets#doxygen">Doxygen(Source Files:C,C++,C#,PHP,Objective-C,Java,Python)</a></li>
-
-<li><a href="http://kapeli.com/docsets#dashDocset">Any HTML Documentation</a></li>
+  <li><a href="http://kapeli.com/docsets#objectivec">AppleDoc(Objective-C Source Files)</a></li>
+  <li><a href="http://kapeli.com/docsets#python">Python,Sphinx or PyDoctor</a></li>
+  <li><a href="http://kapeli.com/docsets#javadoc">Javadoc</a></li>
+  <li><a href="http://kapeli.com/docsets#rdoc">R-doc or Yard</a></li>
+  <li><a href="http://kapeli.com/docsets#scaladoc">Scaladoc</a></li>
+  <li><a href="http://kapeli.com/docsets#doxygen">Doxygen(Source Files:C,C++,C#,PHP,Objective-C,Java,Python)</a></li>
+  <li><a href="http://kapeli.com/docsets#dashDocset">Any HTML Documentation</a></li>
 </ul>
 
 <p>以上基本包含了所有可能自动生成的API文档。具体操作可以参考文档进行。还有更进阶的，提供与分享Feed，启用帮助页面内的JavaScript等等，可以慢慢试用。</p>
 
-<h4 id="sphinxpydoctorapi">使用<code>doc2dash</code>转换Sphinx或PyDoctor生成的API文档</h4>
+<h4 id="codedoc2dashcodesphinxpydoctorapi">使用<code>doc2dash</code>转换Sphinx或PyDoctor生成的API文档</h4>
 
-<p><a href="">doc2dash</a>可以方便地把使用Sphinx与Pydoctor生成的HTML文档转换成Dash要求的docset。 过程非常简单，以NumPy为例。</p>
+<p><a href="">doc2dash</a>可以方便地把使用Sphinx与Pydoctor生成的HTML文档转换成Dash要求的docset。
+过程非常简单，以NumPy为例。</p>
 
 <ul>
-<li>文档准备</li>
+  <li>文档准备</li>
 </ul>
 
 <p>下载<a href="http://docs.scipy.org/doc/numpy/numpy-html-1.8.1.zip">HTML格式的文档</a>，解压后目录numpy-html。</p>
 
 <ul>
-<li>
-<p>使用PIP安装doc2dash</p>
+  <li>
+    <p>使用PIP安装doc2dash</p>
 
-<p>pip install doc2dash</p>
-</li>
+    <p>pip install doc2dash</p>
+  </li>
+  <li>
+    <p>使用doc2dash生成docset</p>
 
-<li>
-<p>使用doc2dash生成docset</p>
-
-<p>doc2dash numpy-html</p>
-</li>
+    <p>doc2dash numpy-html</p>
+  </li>
 </ul>
 
-<h4 id="api">使用<code>Doxygen</code>直接转换API文档</h4>
+<h4 id="codedoxygencodeapi">使用<code>Doxygen</code>直接转换API文档</h4>
 
-<p>Doxygen可以自动提取多种语言(包括但不限于 C, C++, C#, PHP, Objective-C, Java, Python )的注释生成HTML等多种格式的文档，其中就可以直接生成Dash需要docset。 以OGR这个GISer熟知的库为例，介绍一下步骤。 (别问我OGR属于GDAL，为什么要专门提出OGR库这个问题，手工生成过这两个库文档的人都懂)</p>
+<p>Doxygen可以自动提取多种语言(包括但不限于 C, C++, C#, PHP, Objective-C, Java, Python )的注释生成HTML等多种格式的文档，其中就可以直接生成Dash需要docset。
+以OGR这个GISer熟知的库为例，介绍一下步骤。
+(别问我OGR属于GDAL，为什么要专门提出OGR库这个问题，手工生成过这两个库文档的人都懂)</p>
 
 <ul>
-<li>
-<p>下载GDAL源代码准备，最好先编译一下</p>
-</li>
-
-<li>
-<p>修改doxygen默认配置</p>
-</li>
+  <li>
+    <p>下载GDAL源代码准备，最好先编译一下</p>
+  </li>
+  <li>
+    <p>修改doxygen默认配置</p>
+  </li>
 </ul>
 
-<p>生成OGR文档的配置文件为gdal/ogr/doxygen，用文本编译器打开，添加以下配置。 如果有的可以直接修改值。</p>
+<p>生成OGR文档的配置文件为gdal/ogr/doxygen，用文本编译器打开，添加以下配置。
+如果有的可以直接修改值。</p>
 
 <pre><code>GENERATE_DOCSET   = YES
 DISABLE_INDEX     = YES 
 SEARCHENGINE      = NO
-GENERATE_TREEVIEW = NO</code></pre>
+GENERATE_TREEVIEW = NO
+</code></pre>
 
 <ul>
-<li>终端转到gdal/ogr/目录，执行<code>doxygen</code></li>
+  <li>终端转到gdal/ogr/目录，执行<code>doxygen</code></li>
 </ul>
 
 <p>运行成功，会在当前目录生成html目录，html目录会包含一个以往生成文档时没有makefile文件。</p>
 
 <ul>
-<li>终端转到html目录，执行make</li>
+  <li>终端转到html目录，执行make</li>
 </ul>
 
 <p>运行成功，即得到docset文件</p>
 
-<h3 id="">总结</h3>
+<h3 id="section">总结</h3>
 
 <p>Dash是一款体形小巧、功能强大的文档管理工具，在线提供大量的API下载与更新，同时提供多种扩展方法，对提高开发效率有很大帮助。值得你拥有。</p>
 
 <p>另：一般性html文档制作docset的方法以后再写。</p>
+
+
     </div>
 
   

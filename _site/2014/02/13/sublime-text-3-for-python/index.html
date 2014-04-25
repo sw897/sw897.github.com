@@ -138,116 +138,135 @@ var _hmt = _hmt || [];
       <span>13 February 2014</span>
     </div>
     <div class="content">
-      <h3 id="">引言</h3>
+      
+<h3 id="section">引言</h3>
 
-<p>刚转到OS X平台时，寻找写Python,JavaScript,Markdown等文件的工具时，比较了许多工具， 最终选择了Sublime Text 2，主要原因是其跨平台， 想着以后再转到windows下开发时，不需要再重新适应其他工具。 Sublime Text 2学习曲线不像Vim那么陡峭，但想用得顺手，还是需要时间。在使用Sublime Text 2以后，还是有一段时间在怀念Notepad++的各种好，幻想notpad++明天会有OS X版本。 这段时间过后，越来越感觉到Sublime的强大，notepad++开始淡出了记忆。 Sublime Text 3的beta版本推出很长时间了，但其中文介绍文档非常少，多数介绍也只是停留在如何安装Package Control上，对开发相关插件介绍很少。正因为如此，许多人都在担心自己使用的plugins还不支持版本3，于是就一直不进行升级，我也是这种心态的其中一个。 这段时间有空，终于决定折腾一下。</p>
+<p>刚转到OS X平台时，寻找写Python,JavaScript,Markdown等文件的工具时，比较了许多工具，
+最终选择了Sublime Text 2，主要原因是其跨平台，
+想着以后再转到windows下开发时，不需要再重新适应其他工具。
+Sublime Text 2学习曲线不像Vim那么陡峭，但想用得顺手，还是需要时间。在使用Sublime Text 2以后，还是有一段时间在怀念Notepad++的各种好，幻想notpad++明天会有OS X版本。
+这段时间过后，越来越感觉到Sublime的强大，notepad++开始淡出了记忆。
+Sublime Text 3的beta版本推出很长时间了，但其中文介绍文档非常少，多数介绍也只是停留在如何安装Package Control上，对开发相关插件介绍很少。正因为如此，许多人都在担心自己使用的plugins还不支持版本3，于是就一直不进行升级，我也是这种心态的其中一个。
+这段时间有空，终于决定折腾一下。</p>
 
 <p>开始之前，看到<a href="https://sublime.wbond.net">Package Contorl网站</a>上的一张统计图，给自己吃了个定心丸</p>
 
-<p><img alt='sublime text package control stat' src='/assets/images/sublime_pc_stat.png' /></p>
+<p><img src="/assets/images/sublime_pc_stat.png" alt="sublime text package control stat" /></p>
 
 <p>可以看到，绝大部的插件已完成3版本的兼容，而且还有少量专为3定制的新插件。所以，大家可以放心转到3版本上来试用了。后面介绍的python开发环境支持插件就是从Sublime 3独有，具体是哪个这里暂不解密。</p>
 
 <p>当然，不排除有些奇葩插件还不支持3版本，但如果这样，我的建议就是把那个插件换掉吧，更新这么不及时，一定不是最合适的了。</p>
 
-<h3 id="package_control">安装Package Control</h3>
+<h3 id="package-control">安装Package Control</h3>
 
-<p>现在Sublime Text 3的安装方法和版本2一样，只是粘贴的代码内容稍有不同，在<a href="https://sublime.wbond.net">Package Contorl网站</a>上有安装方法。使用快捷键<code>ctrl+`</code>或通过菜单选项<code>View &gt; Show Console</code>进入控制台Console，然后粘贴如下代码，回车运行。</p>
-<div class='highlight'><pre><code class='python'><span class='kn'>import</span> <span class='nn'>urllib.request</span><span class='o'>,</span><span class='nn'>os</span><span class='o'>,</span><span class='nn'>hashlib</span><span class='p'>;</span> <span class='n'>h</span> <span class='o'>=</span> <span class='s'>&#39;7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0&#39;</span><span class='p'>;</span> <span class='n'>pf</span> <span class='o'>=</span> <span class='s'>&#39;Package Control.sublime-package&#39;</span><span class='p'>;</span> <span class='n'>ipp</span> <span class='o'>=</span> <span class='n'>sublime</span><span class='o'>.</span><span class='n'>installed_packages_path</span><span class='p'>();</span> <span class='n'>urllib</span><span class='o'>.</span><span class='n'>request</span><span class='o'>.</span><span class='n'>install_opener</span><span class='p'>(</span> <span class='n'>urllib</span><span class='o'>.</span><span class='n'>request</span><span class='o'>.</span><span class='n'>build_opener</span><span class='p'>(</span> <span class='n'>urllib</span><span class='o'>.</span><span class='n'>request</span><span class='o'>.</span><span class='n'>ProxyHandler</span><span class='p'>())</span> <span class='p'>);</span> <span class='n'>by</span> <span class='o'>=</span> <span class='n'>urllib</span><span class='o'>.</span><span class='n'>request</span><span class='o'>.</span><span class='n'>urlopen</span><span class='p'>(</span> <span class='s'>&#39;http://sublime.wbond.net/&#39;</span> <span class='o'>+</span> <span class='n'>pf</span><span class='o'>.</span><span class='n'>replace</span><span class='p'>(</span><span class='s'>&#39; &#39;</span><span class='p'>,</span> <span class='s'>&#39;%20&#39;</span><span class='p'>))</span><span class='o'>.</span><span class='n'>read</span><span class='p'>();</span> <span class='n'>dh</span> <span class='o'>=</span> <span class='n'>hashlib</span><span class='o'>.</span><span class='n'>sha256</span><span class='p'>(</span><span class='n'>by</span><span class='p'>)</span><span class='o'>.</span><span class='n'>hexdigest</span><span class='p'>();</span> <span class='k'>print</span><span class='p'>(</span><span class='s'>&#39;Error validating download (got </span><span class='si'>%s</span><span class='s'> instead of </span><span class='si'>%s</span><span class='s'>), please try manual install&#39;</span> <span class='o'>%</span> <span class='p'>(</span><span class='n'>dh</span><span class='p'>,</span> <span class='n'>h</span><span class='p'>))</span> <span class='k'>if</span> <span class='n'>dh</span> <span class='o'>!=</span> <span class='n'>h</span> <span class='k'>else</span> <span class='nb'>open</span><span class='p'>(</span><span class='n'>os</span><span class='o'>.</span><span class='n'>path</span><span class='o'>.</span><span class='n'>join</span><span class='p'>(</span> <span class='n'>ipp</span><span class='p'>,</span> <span class='n'>pf</span><span class='p'>),</span> <span class='s'>&#39;wb&#39;</span> <span class='p'>)</span><span class='o'>.</span><span class='n'>write</span><span class='p'>(</span><span class='n'>by</span><span class='p'>)</span>
+<p>现在Sublime Text 3的安装方法和版本2一样，只是粘贴的代码内容稍有不同，在<a href="https://sublime.wbond.net">Package Contorl网站</a>上有安装方法。使用快捷键<code>ctrl+\`</code>或通过菜单选项<code>View &gt; Show Console</code>进入控制台Console，然后粘贴如下代码，回车运行。</p>
+
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">urllib.request</span><span class="o">,</span><span class="nn">os</span><span class="o">,</span><span class="nn">hashlib</span><span class="p">;</span> <span class="n">h</span> <span class="o">=</span> <span class="s">&#39;7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0&#39;</span><span class="p">;</span> <span class="n">pf</span> <span class="o">=</span> <span class="s">&#39;Package Control.sublime-package&#39;</span><span class="p">;</span> <span class="n">ipp</span> <span class="o">=</span> <span class="n">sublime</span><span class="o">.</span><span class="n">installed_packages_path</span><span class="p">();</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">ProxyHandler</span><span class="p">())</span> <span class="p">);</span> <span class="n">by</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span> <span class="s">&#39;http://sublime.wbond.net/&#39;</span> <span class="o">+</span> <span class="n">pf</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="s">&#39;%20&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">read</span><span class="p">();</span> <span class="n">dh</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">by</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">();</span> <span class="k">print</span><span class="p">(</span><span class="s">&#39;Error validating download (got </span><span class="si">%s</span><span class="s"> instead of </span><span class="si">%s</span><span class="s">), please try manual install&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dh</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span> <span class="k">if</span> <span class="n">dh</span> <span class="o">!=</span> <span class="n">h</span> <span class="k">else</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">ipp</span><span class="p">,</span> <span class="n">pf</span><span class="p">),</span> <span class="s">&#39;wb&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">by</span><span class="p">)</span>
 </code></pre></div>
+
 <p>安装完成后我们就正式开始配置Sublime Text!</p>
 
 <h3 id="plugins">安装Plugins的万能方法</h3>
 
-<p>通过<code>ctrl+shift+p</code>进入<code>Command Palette</code>， 输入<code>Package Contorl: Install Package</code>或简写为<code>ip</code>， 回车执行，进入插件的搜索窗口，查找选择到需要的插件后，回车即可等待完成安装，招待状态在sublime最下面的状态栏内会有文字提示。</p>
+<p>通过<code>ctrl+shift+p</code>进入<code>Command Palette</code>，
+输入<code>Package Contorl: Install Package</code>或简写为<code>ip</code>，
+回车执行，进入插件的搜索窗口，查找选择到需要的插件后，回车即可等待完成安装，招待状态在sublime最下面的状态栏内会有文字提示。</p>
 
-<h3 id="_2">一般配置</h3>
-
-<ul>
-<li>主题</li>
-</ul>
-
-<p>sublime text可以通过插件安装很多主题，肯定有一款适合你。这里还是推荐在Sublime Text 2上一直使用的<a href="http://buymeasoda.github.io/soda-theme/">Theme - Soda Dark</a>主题， 颜色模板使用<a href="https://github.com/theymaybecoders/sublime-tomorrow-theme">Color Scheme - Tomorrow Night</a>，两者的搭配应该算的上经典，从notepad++转到Sublime Text 2时基本所有的介绍文档都是这么推荐的。 大家可以通过上面介绍的插件安装方法尝试一下。</p>
+<h3 id="section-1">一般配置</h3>
 
 <ul>
-<li>配置文件内容</li>
+  <li>主题</li>
 </ul>
-<div class='highlight'><pre><code class='javascript'><span class='c1'>// Colors</span>
-<span class='s2'>&quot;color_scheme&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme&quot;</span><span class='p'>,</span>
-<span class='s2'>&quot;theme&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Soda Dark 3.sublime-theme&quot;</span><span class='p'>,</span>
-<span class='c1'>// Font</span>
-<span class='s2'>&quot;font_size&quot;</span><span class='o'>:</span> <span class='mf'>12.0</span><span class='p'>,</span>
-<span class='s2'>&quot;font_options&quot;</span><span class='o'>:</span> <span class='p'>[</span><span class='s2'>&quot;subpixel_antialias&quot;</span><span class='p'>,</span> <span class='s2'>&quot;no_bold&quot;</span><span class='p'>],</span>
-<span class='s2'>&quot;line_padding_bottom&quot;</span><span class='o'>:</span> <span class='mi'>1</span><span class='p'>,</span>
-<span class='s2'>&quot;line_padding_top&quot;</span><span class='o'>:</span> <span class='mi'>1</span><span class='p'>,</span>
-<span class='c1'>// Editor view</span>
-<span class='s2'>&quot;draw_white_space&quot;</span><span class='o'>:</span> <span class='s2'>&quot;all&quot;</span><span class='p'>,</span>
-<span class='s2'>&quot;fold_buttons&quot;</span><span class='o'>:</span> <span class='kc'>false</span><span class='p'>,</span>
-<span class='s2'>&quot;highlight_line&quot;</span><span class='o'>:</span> <span class='kc'>true</span><span class='p'>,</span>
-<span class='s2'>&quot;auto_complete&quot;</span><span class='o'>:</span> <span class='kc'>false</span><span class='p'>,</span>
-<span class='s2'>&quot;show_minimap&quot;</span><span class='o'>:</span> <span class='kc'>false</span><span class='p'>,</span>
-<span class='s2'>&quot;show_full_path&quot;</span><span class='o'>:</span> <span class='kc'>true</span><span class='p'>,</span>
-<span class='c1'>// Editor behavior</span>
-<span class='s2'>&quot;scroll_past_end&quot;</span><span class='o'>:</span> <span class='kc'>false</span><span class='p'>,</span>
-<span class='s2'>&quot;highlight_modified_tabs&quot;</span><span class='o'>:</span> <span class='kc'>true</span><span class='p'>,</span>
-<span class='s2'>&quot;find_selected_text&quot;</span><span class='o'>:</span> <span class='kc'>true</span><span class='p'>,</span>
-<span class='c1'>// Whitespace - no tabs, trimming, end files with \n</span>
-<span class='s2'>&quot;tab_size&quot;</span><span class='o'>:</span> <span class='mi'>4</span><span class='p'>,</span>
-<span class='s2'>&quot;translate_tabs_to_spaces&quot;</span><span class='o'>:</span> <span class='kc'>true</span><span class='p'>,</span>
-<span class='s2'>&quot;trim_trailing_white_space_on_save&quot;</span><span class='o'>:</span> <span class='kc'>true</span><span class='p'>,</span>
-<span class='s2'>&quot;ensure_newline_at_eof_on_save&quot;</span><span class='o'>:</span> <span class='kc'>true</span><span class='p'>,</span>
-<span class='c1'>// Sidebar</span>
-<span class='s2'>&quot;file_exclude_patterns&quot;</span><span class='o'>:</span>
-<span class='p'>[</span>
-    <span class='s2'>&quot;.DS_Store&quot;</span><span class='p'>,</span>
-    <span class='s2'>&quot;*.pid&quot;</span><span class='p'>,</span>
-    <span class='s2'>&quot;*.pyc&quot;</span>
-<span class='p'>],</span>
-<span class='s2'>&quot;folder_exclude_patterns&quot;</span><span class='o'>:</span>
-<span class='p'>[</span>
-    <span class='s2'>&quot;.git&quot;</span><span class='p'>,</span>
-    <span class='s2'>&quot;__pycache__&quot;</span>
-<span class='p'>],</span>
-<span class='c1'>// Package Control</span>
-<span class='s2'>&quot;ignored_packages&quot;</span><span class='o'>:</span>
-<span class='p'>[</span>
-    <span class='s2'>&quot;Vintage&quot;</span>
-<span class='p'>]</span>
+
+<p>sublime text可以通过插件安装很多主题，肯定有一款适合你。这里还是推荐在Sublime Text 2上一直使用的<a href="http://buymeasoda.github.io/soda-theme/">Theme - Soda Dark</a>主题，
+颜色模板使用<a href="https://github.com/theymaybecoders/sublime-tomorrow-theme">Color Scheme - Tomorrow Night</a>，两者的搭配应该算的上经典，从notepad++转到Sublime Text 2时基本所有的介绍文档都是这么推荐的。
+大家可以通过上面介绍的插件安装方法尝试一下。</p>
+
+<ul>
+  <li>配置文件内容</li>
+</ul>
+
+<div class="highlight"><pre><code class="javascript"><span class="c1">// Colors</span>
+<span class="s2">&quot;color_scheme&quot;</span><span class="o">:</span> <span class="s2">&quot;Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme&quot;</span><span class="p">,</span>
+<span class="s2">&quot;theme&quot;</span><span class="o">:</span> <span class="s2">&quot;Soda Dark 3.sublime-theme&quot;</span><span class="p">,</span>
+<span class="c1">// Font</span>
+<span class="s2">&quot;font_size&quot;</span><span class="o">:</span> <span class="mf">12.0</span><span class="p">,</span>
+<span class="s2">&quot;font_options&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;subpixel_antialias&quot;</span><span class="p">,</span> <span class="s2">&quot;no_bold&quot;</span><span class="p">],</span>
+<span class="s2">&quot;line_padding_bottom&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="s2">&quot;line_padding_top&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="c1">// Editor view</span>
+<span class="s2">&quot;draw_white_space&quot;</span><span class="o">:</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span>
+<span class="s2">&quot;fold_buttons&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+<span class="s2">&quot;highlight_line&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="s2">&quot;auto_complete&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+<span class="s2">&quot;show_minimap&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+<span class="s2">&quot;show_full_path&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="c1">// Editor behavior</span>
+<span class="s2">&quot;scroll_past_end&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+<span class="s2">&quot;highlight_modified_tabs&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="s2">&quot;find_selected_text&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="c1">// Whitespace - no tabs, trimming, end files with \n</span>
+<span class="s2">&quot;tab_size&quot;</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+<span class="s2">&quot;translate_tabs_to_spaces&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="s2">&quot;trim_trailing_white_space_on_save&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="s2">&quot;ensure_newline_at_eof_on_save&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="c1">// Sidebar</span>
+<span class="s2">&quot;file_exclude_patterns&quot;</span><span class="o">:</span>
+<span class="p">[</span>
+    <span class="s2">&quot;.DS_Store&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;*.pid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;*.pyc&quot;</span>
+<span class="p">],</span>
+<span class="s2">&quot;folder_exclude_patterns&quot;</span><span class="o">:</span>
+<span class="p">[</span>
+    <span class="s2">&quot;.git&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;__pycache__&quot;</span>
+<span class="p">],</span>
+<span class="c1">// Package Control</span>
+<span class="s2">&quot;ignored_packages&quot;</span><span class="o">:</span>
+<span class="p">[</span>
+    <span class="s2">&quot;Vintage&quot;</span>
+<span class="p">]</span>
 </code></pre></div>
+
 <p>个人不喜欢自动切分换行功能，于是没有配置，所以后面把PEP8中的E501排除掉了</p>
 
-<h3 id="_3">开发环境插件</h3>
+<h3 id="section-2">开发环境插件</h3>
 
 <ul>
-<li><a href="https://sublime.wbond.net/packages/Git">Git</a></li>
+  <li><a href="https://sublime.wbond.net/packages/Git">Git</a></li>
 </ul>
 
 <p>版本库是软件开发中不可缺少的工具，该插件把Git常用命令加入了<code>Command Palette</code>，让开发人员进行代码管理方便不少。</p>
 
-<p><img src='/assets/images/sublime_git.png' /></p>
+<p><img src="/assets/images/sublime_git.png" /></p>
 
 <ul>
-<li><a href="https://sublime.wbond.net/packages/GitGutter">GitGutter</a></li>
+  <li><a href="https://sublime.wbond.net/packages/GitGutter">GitGutter</a></li>
 </ul>
 
 <p>这个小插件是在修改后的文件行号前增加一些标识图片，方便与版本库对比，修改内容一目了然。</p>
 
-<p><img src='/assets/images/sublime_gitgutter.png' /></p>
+<p><img src="/assets/images/sublime_gitgutter.png" /></p>
 
 <ul>
-<li><a href="https://sublime.wbond.net/packages/Gist">Gist</a></li>
+  <li><a href="https://sublime.wbond.net/packages/Gist">Gist</a></li>
 </ul>
 
-<p>创建、管理gist的插件，Gist是GitHub提供的又一强力工具，用Git将用户常用的代码片段在线管理起来。安装此插件后，打开其User-Setting， 增加个人的GitHub访问Token后，即可通过快捷键或Console使用。</p>
+<p>创建、管理gist的插件，Gist是GitHub提供的又一强力工具，用Git将用户常用的代码片段在线管理起来。安装此插件后，打开其User-Setting，
+增加个人的GitHub访问Token后，即可通过快捷键或Console使用。</p>
 
 <ul>
-<li><a href="https://sublime.wbond.net/packages/Anaconda">Anaconda</a></li>
+  <li><a href="https://sublime.wbond.net/packages/Anaconda">Anaconda</a></li>
 </ul>
 
-<p><a href="https://sublime.wbond.net/packages/Anaconda">Anaconda</a>绝对是换到Sublime Text 3后最令我兴奋的插件，没有之一。在Sublime Text 2的时代，为配置一个好用的python开发环境， 我们需要分别安装All Autocomplete,SublimeREPL,Pylinter和PEP8等诸多插件。 Geek就是让一切变得更简单，该插件作者就为了简便，把这些功能集中起来了。 <a href="https://sublime.wbond.net/packages/Anaconda">Anaconda</a>把PyFlakes, pep8 和 McCabe以插件的方式集成起来。安装<a href="https://sublime.wbond.net/packages/Anaconda">Anaconda</a>后，通过配置即可完成一个良好的Python开发环境。</p>
+<p><a href="https://sublime.wbond.net/packages/Anaconda">Anaconda</a>绝对是换到Sublime Text 3后最令我兴奋的插件，没有之一。在Sublime Text 2的时代，为配置一个好用的python开发环境，
+我们需要分别安装All Autocomplete,SublimeREPL,Pylinter和PEP8等诸多插件。
+Geek就是让一切变得更简单，该插件作者就为了简便，把这些功能集中起来了。
+<a href="https://sublime.wbond.net/packages/Anaconda">Anaconda</a>把PyFlakes, pep8 和 McCabe以插件的方式集成起来。安装<a href="https://sublime.wbond.net/packages/Anaconda">Anaconda</a>后，通过配置即可完成一个良好的Python开发环境。</p>
 
 <blockquote>
-<p>Anaconda is a python development suite that includes autocompletion, IDE features, linting with PyLint or PyFlakes + pep8, AutoPEP8 , Vagrant and more for Sublime Text 3.</p>
+  <p>Anaconda is a python development suite that includes autocompletion, IDE features, linting with PyLint or PyFlakes + pep8, AutoPEP8 , Vagrant and more for Sublime Text 3.</p>
 </blockquote>
 
 <p>安装时可以通过Package Control安装，也可以使用Git追踪最新版本。<a href="https://github.com/DamnWidget/anaconda">GitHub地址</a></p>
@@ -255,48 +274,57 @@ var _hmt = _hmt || [];
 <p>安装成功后在插件配置内打开<a href="https://sublime.wbond.net/packages/Anaconda">Anaconda</a>的REAMME，可以参考进行个性配置。我这里做了如下的修改：</p>
 
 <ul>
-<li>增加对象的点操作符时的自动提示</li>
+  <li>增加对象的点操作符时的自动提示</li>
 </ul>
 
 <p>在<code>Packages/User</code>目录下创建<code>Python.sublime-settings</code>文件，增加如下内容</p>
-<div class='highlight'><pre><code class='json'><span class='p'>{</span>
-    <span class='nt'>&quot;auto_complete_triggers&quot;</span><span class='p'>:</span> <span class='p'>[{</span><span class='nt'>&quot;selector&quot;</span><span class='p'>:</span> <span class='s2'>&quot;source.python - string - comment - constant.numeric&quot;</span><span class='p'>,</span> <span class='nt'>&quot;characters&quot;</span><span class='p'>:</span> <span class='s2'>&quot;.&quot;</span><span class='p'>}]</span>
-<span class='p'>}</span>
-</code></pre></div>
-<ul>
-<li>增加括号操作符后的参数自动完成</li>
-</ul>
 
-<p>在<code>Anaconda Setting</code>中修改<code>complete_parameters</code>参数的值为<code>true</code>。 这里还有一个参数为<code>complete_all_parameters</code>，设置其为<code>true</code>后，则带默认值的参数也会自动完成。</p>
+<div class="highlight"><pre><code class="json"><span class="p">{</span>
+    <span class="nt">&quot;auto_complete_triggers&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.python - string - comment - constant.numeric&quot;</span><span class="p">,</span> <span class="nt">&quot;characters&quot;</span><span class="p">:</span> <span class="s2">&quot;.&quot;</span><span class="p">}]</span>
+<span class="p">}</span>
+</code></pre></div>
 
 <ul>
-<li>忽略<code>AutoFormat PEP8</code>中E501的提示</li>
+  <li>增加括号操作符后的参数自动完成</li>
 </ul>
-<div class='highlight'><pre><code class='javascript'><span class='s2'>&quot;pep8_ignore&quot;</span><span class='o'>:</span><span class='p'>[</span><span class='s2'>&quot;E501&quot;</span><span class='p'>]</span>
+
+<p>在<code>Anaconda Setting</code>中修改<code>complete_parameters</code>参数的值为<code>true</code>。
+这里还有一个参数为<code>complete_all_parameters</code>，设置其为<code>true</code>后，则带默认值的参数也会自动完成。</p>
+
+<ul>
+  <li>忽略<code>AutoFormat PEP8</code>中E501的提示</li>
+</ul>
+
+<div class="highlight"><pre><code class="javascript"><span class="s2">&quot;pep8_ignore&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;E501&quot;</span><span class="p">]</span>
 </code></pre></div>
+
 <p>其他设置均使用默认值。</p>
 
-<p><img src='/assets/images/sublime_anaconda.png' /></p>
+<p><img src="/assets/images/sublime_anaconda.png" /></p>
 
-<h3 id="_4">结束</h3>
+<h3 id="section-3">结束</h3>
 
 <p>只需要这几个插件的安装与配置，就能使sublime text 3成为一个高效的python开发工具，接下来，感受 Sublime Text 3的快如疾风，风驰电掣吧！</p>
 
-<h3 id="update20140226">Update:2014-02-26</h3>
+<h3 id="update2014-02-26">Update:2014-02-26</h3>
 
-<p>使用OS X时间长了都忘记广大Windows用户存在GBK编码问题了。今天打开以前在Windows上写的 一些代码才发现中文注释都乱码了。解决办法很简单，安装插件<a href="https://sublime.wbond.net/packages/ConvertToUTF8">ConvertToUTF8</a>即可，OS X或Linux还需要插件<a href="https://sublime.wbond.net/packages/Codecs33">Codecs33</a>。 另外，在Sublime Text 2上的插件<a href="https://sublime.wbond.net/packages/GBK%20Encoding%20Support">GBK Encoding Support</a>不支持3版本。</p>
+<p>使用OS X时间长了都忘记广大Windows用户存在GBK编码问题了。今天打开以前在Windows上写的
+一些代码才发现中文注释都乱码了。解决办法很简单，安装插件<a href="https://sublime.wbond.net/packages/ConvertToUTF8">ConvertToUTF8</a>即可，OS X或Linux还需要插件<a href="https://sublime.wbond.net/packages/Codecs33">Codecs33</a>。
+另外，在Sublime Text 2上的插件<a href="https://sublime.wbond.net/packages/GBK%20Encoding%20Support">GBK Encoding Support</a>不支持3版本。</p>
 
 <ul>
-<li><a href="https://sublime.wbond.net/packages/ConvertToUTF8">ConvertToUTF8</a></li>
+  <li><a href="https://sublime.wbond.net/packages/ConvertToUTF8">ConvertToUTF8</a></li>
 </ul>
 
 <p>支持GBK等多种编码的文件的编辑与保存。</p>
 
 <ul>
-<li><a href="https://sublime.wbond.net/packages/Codecs33">Codecs33</a></li>
+  <li><a href="https://sublime.wbond.net/packages/Codecs33">Codecs33</a></li>
 </ul>
 
 <p>CJK library files missing in the embedded Python of Sublime Text 3。</p>
+
+
     </div>
 
   

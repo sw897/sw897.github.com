@@ -99,6 +99,35 @@ $ which jekyll
 * [搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
 * [Mac OS X 安装 Jekyll 记录][]
 
+***
+>Update 2014-04-25
+
+最近收到了GitHub发来提示说Maruku过时了，最好把MarkDown的解析器换成Kramdown，于是听话的更新一下。方法如下:
+
+* 安装kramdown
+
+`$ gem install kramdown`
+
+* 修改_config.yaml
+
+`markdown:kramdown`
+
+* 重新执行生成网站
+
+`$ jekyll serve`
+
+最后就得到错误，说是缺少karmdown。纳尼？明明刚安装成功了啊，重新来过，还是如此。
+
+没办法，把jekyll都重装，不行
+
+没办法，把ruby更新，还是不行
+
+最最后只能放弃了，重新Google了一个，发现了一个好东西，[GitHub pages-gem](https://github.com/github/pages-gem)，早知道有这个就不折腾了，一句话结束：
+
+`sudo gem install github-pages`
+
+
+
 
 [Homebrew]: http://brew.sh/
 [GitHub for Mac]: http://mac.github.com/

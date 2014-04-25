@@ -138,119 +138,149 @@ var _hmt = _hmt || [];
       <span>24 April 2014</span>
     </div>
     <div class="content">
-      <p>PostgreSQL是流行的先进开源关系型数据库，PostGIS是PostgreSQL空间信息扩展部分，支持空间索引与空间查询。越来越多的GIS应用使用两者的组合来完成后台空间数据的存储与获取，支撑前端应用系统。因其良好的性能与稳定表现，持续得到大家的追捧。避开当前流行的大数据与NoSQL，这种组合是完成一个稳健GIS系统的经典组合。</p>
+      
+<p>PostgreSQL是流行的先进开源关系型数据库，PostGIS是PostgreSQL空间信息扩展部分，支持空间索引与空间查询。越来越多的GIS应用使用两者的组合来完成后台空间数据的存储与获取，支撑前端应用系统。因其良好的性能与稳定表现，持续得到大家的追捧。避开当前流行的大数据与NoSQL，这种组合是完成一个稳健GIS系统的经典组合。</p>
 
 <p>两个软件虽然都是开源软件，但有很好的社区支持，产品化非常好。特别是针对Windows平台的支持，简单易用的安装包，自带的可视化工具PgAdmin3以及shp2pgsql_GUI，让不熟悉两者，甚至是不熟悉数据库的开发人员也能快速上手：使用shp2pgsql_GUI把Shape文件导入到PostGIS；使用PgAdmin3可视化运行SQL操作数据。在生产环境中，一般选择使用Linux平台，安装可以选择对应的发行包，也可以手工编译安装，<code>configure &amp;&amp; make &amp;&amp; make install</code>一马平川。在OS X系统上，PostgreSQL的安装有多种方法，最简单的，还是类似Windows下的可视化安装包，但使用OS X的用户大多喜欢使用类似Linux的方法。所以，这里我们还是选用神器<code>brew</code>的方法，并可深入了解OS X的用户管理与数据库初始化。</p>
 
-<h3 id="">安装</h3>
+<h3 id="section">安装</h3>
 
 <p>使用<code>brew</code>安装，过程是相当的Nice。</p>
-<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>brew install postgresql   <span class='c'># 当前最新版本是9.3.4</span>
-<span class='nv'>$ </span>brew install postgis      <span class='c'># 当前最新版本是2.1.2</span>
+
+<div class="highlight"><pre><code class="tcsh"><span class="nv">$ </span>brew install postgresql   <span class="c"># 当前最新版本是9.3.4</span>
+<span class="nv">$ </span>brew install postgis      <span class="c"># 当前最新版本是2.1.2</span>
 </code></pre></div>
+
 <p>安装PostGIS前，最好安装Proj4,GEOS,GDAL,GeoIP等开源GIS库，以支持空间分析、IP定位等。</p>
-<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>brew install proj     <span class='c'># 当前最新版本是4.8.0</span>
-<span class='nv'>$ </span>brew install geos     <span class='c'># 当前最新版本是3.4.2</span>
-<span class='nv'>$ </span>brew install gdal     <span class='c'># 当前最新版本是1.10.1_1</span>
-<span class='nv'>$ </span>brew install libgeoip
-</code></pre></div>
-<h3 id="_2">初始化</h3>
 
-<h4 id="_3">帐号配置</h4>
-
-<p>初始化数据库前需要指定一个用户帐号，使用安装PostgreSQL时默认创建的帐号<code>_postgres</code>，可以通过<code>/etc/passwd</code>文件查看帐号记录，也可以使用dscl工具进行查看。dscl工具是OS X上完成useradd,userdel,usermod等Linux平台上的工具功用的代替。以下使用dscl查看_postgres用户并修改其zsh登录。 具体选择哪种shell就按个人喜好了，具体系统中支持哪些可以查看<code>/etc/shells</code>文件。</p>
-<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>sudo dscl . list /Users | grep _postgres
-<span class='nv'>$ </span>sudo dscl . read /Users/_postgres
-<span class='nv'>$ </span>sudo dscl . change /Users/_postgres UserShell /usr/bin/false /bin/zsh
+<div class="highlight"><pre><code class="tcsh"><span class="nv">$ </span>brew install proj     <span class="c"># 当前最新版本是4.8.0</span>
+<span class="nv">$ </span>brew install geos     <span class="c"># 当前最新版本是3.4.2</span>
+<span class="nv">$ </span>brew install gdal     <span class="c"># 当前最新版本是1.10.1_1</span>
+<span class="nv">$ </span>brew install libgeoip
 </code></pre></div>
-<h4 id="_4">初始化数据库</h4>
+
+<h3 id="section-1">初始化</h3>
+
+<h4 id="section-2">帐号配置</h4>
+
+<p>初始化数据库前需要指定一个用户帐号，使用安装PostgreSQL时默认创建的帐号<code>_postgres</code>，可以通过<code>/etc/passwd</code>文件查看帐号记录，也可以使用dscl工具进行查看。dscl工具是OS X上完成useradd,userdel,usermod等Linux平台上的工具功用的代替。以下使用dscl查看_postgres用户并修改其zsh登录。
+具体选择哪种shell就按个人喜好了，具体系统中支持哪些可以查看<code>/etc/shells</code>文件。</p>
+
+<div class="highlight"><pre><code class="tcsh"><span class="nv">$ </span>sudo dscl . list /Users | grep _postgres
+<span class="nv">$ </span>sudo dscl . read /Users/_postgres
+<span class="nv">$ </span>sudo dscl . change /Users/_postgres UserShell /usr/bin/false /bin/zsh
+</code></pre></div>
+
+<h4 id="section-3">初始化数据库</h4>
 
 <p>创建数据库目录，修改目录访问权限并初始化。</p>
-<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>sudo mkdir /usr/local/var/postgres
-<span class='nv'>$ </span>sudo chown _postgres:_postgres /usr/local/var/postgres/
-<span class='nv'>$ </span>sudo su - _postgres
-<span class='nv'>$ </span>initdb /usr/local/var/postgres
+
+<div class="highlight"><pre><code class="tcsh"><span class="nv">$ </span>sudo mkdir /usr/local/var/postgres
+<span class="nv">$ </span>sudo chown _postgres:_postgres /usr/local/var/postgres/
+<span class="nv">$ </span>sudo su - _postgres
+<span class="nv">$ </span>initdb /usr/local/var/postgres
 </code></pre></div>
+
 <p>我的机子，系统为OS X 10.9，按上面执行，在运行initdb时会提示<code>Permission denied</code>。问过google后，索性把<code>/usr/local/var</code>的权限增加了可写，问题解决。</p>
 
-<h3 id="_5">数据库管理控制</h3>
+<h3 id="section-4">数据库管理控制</h3>
 
 <h4 id="launchctl">使用launchctl管理</h4>
 
 <ul>
-<li>登录时自动启动</li>
+  <li>登录时自动启动</li>
 </ul>
-<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>mkdir -p ~/Library/LaunchAgents
-<span class='nv'>$ </span>cp /usr/local/Cellar/postgresql/9.3.4/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
-<span class='nv'>$ </span>launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+
+<div class="highlight"><pre><code class="tcsh"><span class="nv">$ </span>mkdir -p ~/Library/LaunchAgents
+<span class="nv">$ </span>cp /usr/local/Cellar/postgresql/9.3.4/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
+<span class="nv">$ </span>launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 </code></pre></div>
-<ul>
-<li>启动</li>
-</ul>
-<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-</code></pre></div>
-<ul>
-<li>停止</li>
-</ul>
-<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>launchctl unload  ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-</code></pre></div>
-<h4 id="pg_ctl">使用pg_ctl管理</h4>
 
 <ul>
-<li>启动</li>
+  <li>启动</li>
 </ul>
-<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+
+<div class="highlight"><pre><code class="tcsh"><span class="nv">$ </span>launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 </code></pre></div>
+
 <ul>
-<li>停止</li>
+  <li>停止</li>
 </ul>
-<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>pg_ctl -D /usr/local/var/postgres <span class='nb'>stop</span> -s -m fast
+
+<div class="highlight"><pre><code class="tcsh"><span class="nv">$ </span>launchctl unload  ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 </code></pre></div>
-<h4 id="_6">进程验证</h4>
+
+<h4 id="pgctl">使用pg_ctl管理</h4>
+
+<ul>
+  <li>启动</li>
+</ul>
+
+<div class="highlight"><pre><code class="tcsh"><span class="nv">$ </span>pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+</code></pre></div>
+
+<ul>
+  <li>停止</li>
+</ul>
+
+<div class="highlight"><pre><code class="tcsh"><span class="nv">$ </span>pg_ctl -D /usr/local/var/postgres <span class="nb">stop</span> -s -m fast
+</code></pre></div>
+
+<h4 id="section-5">进程验证</h4>
 
 <p><code>$ ps aux | grep postgres</code></p>
 
-<h3 id="_7">创建空间数据库</h3>
+<h3 id="section-6">创建空间数据库</h3>
 
-<h4 id="91postgresql">9.1及以上版本的PostgreSQL</h4>
+<h4 id="postgresql">9.1及以上版本的PostgreSQL</h4>
 
 <p>使用PostGIS 2.0+创建空间数据库非常的Nice</p>
-<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>createdb -E UTF8 --template<span class='o'>=</span>template0 postgis     <span class='c'>#创建postgis数据库</span>
-<span class='nv'>$ </span>psql -d postgis -c <span class='s2'>&quot;CREATE EXTENSION postgis;&quot;</span>    <span class='c'>#增加空间扩展</span>
-<span class='nv'>$ </span>psql -d postgis -c <span class='s2'>&quot;CREATE EXTENSION postgis_topology;&quot;</span>   <span class='c'>#增加空间拓扑扩展</span>
-<span class='nv'>$ </span>psql -d postgis -f legacy.sql                     <span class='c'>#兼容旧版扩展</span>
+
+<div class="highlight"><pre><code class="tcsh"><span class="nv">$ </span>createdb -E UTF8 --template<span class="o">=</span>template0 postgis     <span class="c">#创建postgis数据库</span>
+<span class="nv">$ </span>psql -d postgis -c <span class="s2">&quot;CREATE EXTENSION postgis;&quot;</span>    <span class="c">#增加空间扩展</span>
+<span class="nv">$ </span>psql -d postgis -c <span class="s2">&quot;CREATE EXTENSION postgis_topology;&quot;</span>   <span class="c">#增加空间拓扑扩展</span>
+<span class="nv">$ </span>psql -d postgis -f legacy.sql                     <span class="c">#兼容旧版扩展</span>
 </code></pre></div>
+
 <p>如果不需要兼容旧版本，或者不需要拓扑扩展等，也可以方便地移除</p>
-<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>psql -d postgis -f uninstall_legacy.sql
-<span class='nv'>$ </span>psql -d postgis -f uninstall_topology.sql
-<span class='nv'>$ </span>psql -d postgis -f uninstall_postgis.sql
+
+<div class="highlight"><pre><code class="tcsh"><span class="nv">$ </span>psql -d postgis -f uninstall_legacy.sql
+<span class="nv">$ </span>psql -d postgis -f uninstall_topology.sql
+<span class="nv">$ </span>psql -d postgis -f uninstall_postgis.sql
 </code></pre></div>
-<h4 id="91postgresql_2">9.1以下版本PostgreSQL</h4>
+
+<h4 id="postgresql-1">9.1以下版本PostgreSQL</h4>
 
 <p>老版本的Postgre创建空间数据库就稍有点麻烦，但本质上是一样的，也就是将空间扩展部分(数据表、函数、视图等)一个个地扩展到数据库中。为以后使用方便，一般是先创建一个空间数据库模板，这样，以后就以此为模板直接创建。</p>
 
 <ul>
-<li>创建空间数据库模板</li>
+  <li>创建空间数据库模板</li>
 </ul>
 
 <p>具体扩展哪些sql根据需求自行操作</p>
-<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ POSTGIS_SQL_PATH</span><span class='o'>=</span>/usr/local/share/postgis
-<span class='nv'>$ </span>createdb -E UTF8 --template<span class='o'>=</span>template0 template_postgis
-<span class='nv'>$ </span>createlang -d template_postgis plpgsql
-<span class='nv'>$ </span>psql -d postgres -c <span class='s2'>&quot;UPDATE pg_database SET datistemplate=&#39;true&#39; WHERE datname=&#39;template_postgis&#39;;&quot;</span>
-<span class='nv'>$ </span>psql -d template_postgis -f <span class='nv'>$POSTGIS_SQL_PATH</span>/postgis.sql
-<span class='nv'>$ </span>psql -d template_postgis -f <span class='nv'>$POSTGIS_SQL_PATH</span>/spatial_ref_sys.sql
-<span class='nv'>$ </span>psql -d template_postgis -c <span class='s2'>&quot;GRANT ALL ON geometry_columns TO PUBLIC;&quot;</span>
-<span class='nv'>$ </span>psql -d template_postgis -c <span class='s2'>&quot;GRANT ALL ON geography_columns TO PUBLIC;&quot;</span>
-<span class='nv'>$ </span>psql -d template_postgis -c <span class='s2'>&quot;GRANT ALL ON spatial_ref_sys TO PUBLIC;&quot;</span>
+
+<div class="highlight"><pre><code class="tcsh"><span class="nv">$ POSTGIS_SQL_PATH</span><span class="o">=</span>/usr/local/share/postgis
+<span class="nv">$ </span>createdb -E UTF8 --template<span class="o">=</span>template0 template_postgis    <span class="c">#创建数据库</span>
+<span class="nv">$ </span>createlang -d template_postgis plpgsql                    <span class="c">#支持pl/pgsql</span>
+<span class="nv">$ </span>psql -d postgres -c <span class="s2">&quot;UPDATE pg_database SET datistemplate=&#39;true&#39; WHERE datname=&#39;template_postgis&#39;;&quot;</span>                                <span class="c">#设置为模板</span>
+<span class="nv">$ </span>psql -d template_postgis -f <span class="nv">$POSTGIS_SQL_PATH</span>/postgis.sql
+<span class="nv">$ </span>psql -d template_postgis -f <span class="nv">$POSTGIS_SQL_PATH</span>/spatial_ref_sys.sql
+<span class="nv">$ </span>psql -d template_postgis -c <span class="s2">&quot;GRANT ALL ON geometry_columns TO PUBLIC;&quot;</span>
+<span class="nv">$ </span>psql -d template_postgis -c <span class="s2">&quot;GRANT ALL ON geography_columns TO PUBLIC;&quot;</span>
+<span class="nv">$ </span>psql -d template_postgis -c <span class="s2">&quot;GRANT ALL ON spatial_ref_sys TO PUBLIC;&quot;</span>
 </code></pre></div>
+
 <ul>
-<li>创建空间数据库及其用户</li>
+  <li>创建空间数据库及其用户</li>
 </ul>
-<div class='highlight'><pre><code class='tcsh'><span class='nv'>$ </span>createuser -P -d -e postgis   <span class='c'>#创建一个postgis普通用戶,用来登录空间数据库</span>
-<span class='nv'>$ </span>createdb -T template_postgis -E UTF8 postgis <span class='c'># 创建一个空间数据库</span>
+
+<div class="highlight"><pre><code class="tcsh"><span class="nv">$ </span>createuser -P -d -e postgis   <span class="c">#创建一个postgis普通用戶,用来登录空间数据库</span>
+<span class="nv">$ </span>createdb -T template_postgis -E UTF8 postgis <span class="c"># 创建一个空间数据库</span>
 </code></pre></div>
+
 <p>更具体地可参考PostGIS用户手册。</p>
+
+
     </div>
 
   

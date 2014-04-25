@@ -130,9 +130,9 @@ $ psql -d postgis -f uninstall_postgis.sql
 
 {% highlight tcsh %}
 $ POSTGIS_SQL_PATH=/usr/local/share/postgis
-$ createdb -E UTF8 --template=template0 template_postgis
-$ createlang -d template_postgis plpgsql
-$ psql -d postgres -c "UPDATE pg_database SET datistemplate='true' WHERE datname='template_postgis';"
+$ createdb -E UTF8 --template=template0 template_postgis    #创建数据库
+$ createlang -d template_postgis plpgsql                    #支持pl/pgsql
+$ psql -d postgres -c "UPDATE pg_database SET datistemplate='true' WHERE datname='template_postgis';"                                #设置为模板
 $ psql -d template_postgis -f $POSTGIS_SQL_PATH/postgis.sql
 $ psql -d template_postgis -f $POSTGIS_SQL_PATH/spatial_ref_sys.sql
 $ psql -d template_postgis -c "GRANT ALL ON geometry_columns TO PUBLIC;"
