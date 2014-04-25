@@ -3,9 +3,9 @@
 <html lang="zh">
   <head>
     <meta charset="utf-8">
-    <title>在OS X上安装PostgreSQL与PostGIS | sw897's blog</title>
+    <title>在OS X上安装并使用PostgreSQL与PostGIS | sw897's blog</title>
     <meta name="description" content="在os x上安装使用postgresql与postgis">
-    <meta name="keywords" content="PostgreSQL,PostGIS,GIS">
+    <meta name="keywords" content="PostgreSQL,PostGIS,GIS,shp2pgsql">
     <meta name="author" content="sw897">
 
     <!-- Enable responsive viewport -->
@@ -129,7 +129,7 @@ var _hmt = _hmt || [];
       <div class="content">
         
 <div class="page-header">
-  <h1>在OS X上安装PostgreSQL与PostGIS </h1>
+  <h1>在OS X上安装并使用PostgreSQL与PostGIS </h1>
 </div>
 
 <div class="row-fluid post-full">
@@ -143,7 +143,7 @@ var _hmt = _hmt || [];
 
 <p>两个软件虽然都是开源软件，但有很好的社区支持，产品化非常好。特别是针对Windows平台的支持，简单易用的安装包，自带的可视化工具PgAdmin3以及shp2pgsql_GUI，让不熟悉两者，甚至是不熟悉数据库的开发人员也能快速上手：使用shp2pgsql_GUI把Shape文件导入到PostGIS；使用PgAdmin3可视化运行SQL操作数据。在生产环境中，一般选择使用Linux平台，安装可以选择对应的发行包，也可以手工编译安装，<code>configure &amp;&amp; make &amp;&amp; make install</code>一马平川。在OS X系统上，PostgreSQL的安装有多种方法，最简单的，还是类似Windows下的可视化安装包，但使用OS X的用户大多喜欢使用类似Linux的方法。所以，这里我们还是选用神器<code>brew</code>的方法，并可深入了解OS X的用户管理与数据库初始化。</p>
 
-<h3 id="section">安装</h3>
+<h3 id="section">一.安装</h3>
 
 <p>使用<code>brew</code>安装，过程是相当的Nice。</p>
 
@@ -159,9 +159,9 @@ var _hmt = _hmt || [];
 <span class="nv">$ </span>brew install libgeoip
 </code></pre></div>
 
-<h3 id="section-1">初始化</h3>
+<h3 id="section-1">二.初始化</h3>
 
-<h4 id="section-2">帐号配置</h4>
+<h4 id="section-2">1. 帐号配置</h4>
 
 <p>初始化数据库前需要指定一个用户帐号，使用安装PostgreSQL时默认创建的帐号<code>_postgres</code>，可以通过<code>/etc/passwd</code>文件查看帐号记录，也可以使用dscl工具进行查看。dscl工具是OS X上完成useradd,userdel,usermod等Linux平台上的工具功用的代替。以下使用dscl查看_postgres用户并修改其zsh登录。
 具体选择哪种shell就按个人喜好了，具体系统中支持哪些可以查看<code>/etc/shells</code>文件。</p>
@@ -171,7 +171,7 @@ var _hmt = _hmt || [];
 <span class="nv">$ </span>sudo dscl . change /Users/_postgres UserShell /usr/bin/false /bin/zsh
 </code></pre></div>
 
-<h4 id="section-3">初始化数据库</h4>
+<h4 id="section-3">2. 初始化数据库</h4>
 
 <p>创建数据库目录，修改目录访问权限并初始化。</p>
 
@@ -183,9 +183,9 @@ var _hmt = _hmt || [];
 
 <p>我的机子，系统为OS X 10.9，按上面执行，在运行initdb时会提示<code>Permission denied</code>。问过google后，索性把<code>/usr/local/var</code>的权限增加了可写，问题解决。</p>
 
-<h3 id="section-4">数据库管理控制</h3>
+<h3 id="section-4">三.数据库管理控制</h3>
 
-<h4 id="launchctl">使用launchctl管理</h4>
+<h4 id="launchctl">1. 使用launchctl管理</h4>
 
 <ul>
   <li>登录时自动启动</li>
@@ -210,7 +210,7 @@ var _hmt = _hmt || [];
 <div class="highlight"><pre><code class="tcsh"><span class="nv">$ </span>launchctl unload  ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 </code></pre></div>
 
-<h4 id="pgctl">使用pg_ctl管理</h4>
+<h4 id="pgctl">2. 使用pg_ctl管理</h4>
 
 <ul>
   <li>启动</li>
@@ -226,13 +226,13 @@ var _hmt = _hmt || [];
 <div class="highlight"><pre><code class="tcsh"><span class="nv">$ </span>pg_ctl -D /usr/local/var/postgres <span class="nb">stop</span> -s -m fast
 </code></pre></div>
 
-<h4 id="section-5">进程验证</h4>
+<h4 id="section-5">3. 进程验证</h4>
 
 <p><code>$ ps aux | grep postgres</code></p>
 
-<h3 id="section-6">创建空间数据库</h3>
+<h3 id="section-6">四.创建空间数据库</h3>
 
-<h4 id="postgresql">9.1及以上版本的PostgreSQL</h4>
+<h4 id="v91postgresql">1. V9.1及以上版本的PostgreSQL</h4>
 
 <p>使用PostGIS 2.0+创建空间数据库非常的Nice</p>
 
@@ -249,7 +249,7 @@ var _hmt = _hmt || [];
 <span class="nv">$ </span>psql -d postgis -f uninstall_postgis.sql
 </code></pre></div>
 
-<h4 id="postgresql-1">9.1以下版本PostgreSQL</h4>
+<h4 id="v91postgresql-1">2. V9.1以下版本PostgreSQL</h4>
 
 <p>老版本的Postgre创建空间数据库就稍有点麻烦，但本质上是一样的，也就是将空间扩展部分(数据表、函数、视图等)一个个地扩展到数据库中。为以后使用方便，一般是先创建一个空间数据库模板，这样，以后就以此为模板直接创建。</p>
 
@@ -278,7 +278,44 @@ var _hmt = _hmt || [];
 <span class="nv">$ </span>createdb -T template_postgis -E UTF8 postgis <span class="c"># 创建一个空间数据库</span>
 </code></pre></div>
 
-<p>更具体地可参考PostGIS用户手册。</p>
+<h3 id="section-7">五.导入空间数据</h3>
+
+<p>创建好空间数据库后就是导入数据了，当前有两种方法：使用shp2pgsql工具将shapefile转为新的或追加到一个空间数据表内；直接sql语句将数据插入到空间数据表。</p>
+
+<h4 id="shp2pgsqlshapefile">1. 使用shp2pgsql导入shapefile</h4>
+
+<p>shp2pgsql是一个命令行工具，支持多个参数用于控制导入数据的方式。shp2pgsql-gui是其可视化版本，将大部分的参数进行了可视化。同时，还可以将shp2pgsql配置为pgAdmin的插件。</p>
+
+<p>将一个shp导入到数据库中的例子</p>
+
+<pre><code>$ shp2pgsql -c -D -s 4269 -W GB18030 -i -I poi.shp myschema.poitable &gt; poi.sql
+$ psql -d postgis -f poi.sql
+</code></pre>
+
+<p>使用unix管道合并执行如下：</p>
+
+<p><code>$ shp2pgsql -c -D -s 4269 -W GB18030 -i -I poi.shp myschema.poitable | psql -d postgis</code></p>
+
+<h4 id="sql">2. 使用sql导入数据</h4>
+
+<p>创建好空间数据表后，可以直接使用sql语句向表中插入数据，以下poi.sql为一个示例</p>
+
+<div class="highlight"><pre><code class="sql"><span class="k">BEGIN</span><span class="p">;</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">poi</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+  <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ST_GeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(120 40)&#39;</span><span class="p">,</span><span class="mi">4326</span><span class="p">),</span><span class="s1">&#39;林静小吃&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">roads</span> <span class="p">(</span><span class="n">road_id</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+  <span class="k">VALUES</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">ST_GeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(121 41)&#39;</span><span class="p">,</span><span class="mi">4326</span><span class="p">),</span><span class="s1">&#39;石美泉加油站&#39;</span><span class="p">);</span>
+<span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div>
+
+<p>使用psql SQL终端导入</p>
+
+<p><code>psql -d postgis -f poi.sql</code></p>
+
+<h3 id="section-8">六.结束</h3>
+
+<p>接下来的内容应当是从postgis中查询获取数据，还有很多使用PostGIS管理空间数据要写的，但由于本文只是PostGIS/PostgreSQL在OS X上的安装记录，
+写到的或没写到的就这么多吧，具体可参考PostGIS用户手册。</p>
 
 
     </div>
