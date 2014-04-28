@@ -288,29 +288,42 @@ var _hmt = _hmt || [];
 
 <p>将一个shp导入到数据库中的例子</p>
 
-<pre><code>$ shp2pgsql -c -D -s 4269 -W GB18030 -i -I poi.shp myschema.poitable &gt; poi.sql
+<pre><code>$ shp2pgsql -c -D -s 4326 -W GB18030 -i -I poi.shp public.poi &gt; poi.sql
 $ psql -d postgis -f poi.sql
 </code></pre>
 
 <p>使用unix管道合并执行如下：</p>
 
-<p><code>$ shp2pgsql -c -D -s 4269 -W GB18030 -i -I poi.shp myschema.poitable | psql -d postgis</code></p>
+<p><code>$ shp2pgsql -c -D -s 4326 -W GB18030 -i -I poi.shp public.poi | psql -d postgis</code></p>
 
 <h4 id="sql">2. 使用sql导入数据</h4>
 
-<p>创建好空间数据表后，可以直接使用sql语句向表中插入数据，以下poi.sql为一个示例</p>
+<p>创建好空间数据表后，可以直接使用sql语句向表中插入数据，一个示例。</p>
 
-<div class="highlight"><pre><code class="sql"><span class="k">BEGIN</span><span class="p">;</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">poi</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-  <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ST_GeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(120 40)&#39;</span><span class="p">,</span><span class="mi">4326</span><span class="p">),</span><span class="s1">&#39;林静小吃&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">roads</span> <span class="p">(</span><span class="n">road_id</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-  <span class="k">VALUES</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">ST_GeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(121 41)&#39;</span><span class="p">,</span><span class="mi">4326</span><span class="p">),</span><span class="s1">&#39;石美泉加油站&#39;</span><span class="p">);</span>
-<span class="k">COMMIT</span><span class="p">;</span>
+<ul>
+  <li>创建空间数据表</li>
+</ul>
+
+<div class="highlight"><pre><code class="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">test_poi</span>
+<span class="p">(</span>
+  <span class="n">gid</span> <span class="nb">serial</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="n">geom</span> <span class="n">geometry</span><span class="p">(</span><span class="n">Point</span><span class="p">,</span><span class="mi">4326</span><span class="p">),</span>
+  <span class="n">name</span> <span class="nb">character</span> <span class="nb">varying</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+  <span class="k">CONSTRAINT</span> <span class="n">test_poi_pkey</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">gid</span><span class="p">)</span>
+<span class="p">);</span>
 </code></pre></div>
 
-<p>使用psql SQL终端导入</p>
+<ul>
+  <li>插入数据</li>
+</ul>
 
-<p><code>psql -d postgis -f poi.sql</code></p>
+<div class="highlight"><pre><code class="sql"><span class="k">BEGIN</span><span class="p">;</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">test_poi</span> <span class="p">(</span><span class="n">geom</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+  <span class="k">VALUES</span> <span class="p">(</span><span class="n">ST_GeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(120 40)&#39;</span><span class="p">,</span><span class="mi">4326</span><span class="p">),</span><span class="s1">&#39;林静小吃&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">test_poi</span> <span class="p">(</span><span class="n">geom</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+  <span class="k">VALUES</span> <span class="p">(</span><span class="n">ST_GeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(121 41)&#39;</span><span class="p">,</span><span class="mi">4326</span><span class="p">),</span><span class="s1">&#39;石美泉加油站&#39;</span><span class="p">);</span>
+<span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div>
 
 <h3 id="section-8">六.结束</h3>
 

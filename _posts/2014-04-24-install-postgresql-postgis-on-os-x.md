@@ -157,29 +157,40 @@ shp2pgsql是一个命令行工具，支持多个参数用于控制导入数据�
 
 将一个shp导入到数据库中的例子
 
-    $ shp2pgsql -c -D -s 4269 -W GB18030 -i -I poi.shp myschema.poitable > poi.sql
+    $ shp2pgsql -c -D -s 4326 -W GB18030 -i -I poi.shp public.poi > poi.sql
     $ psql -d postgis -f poi.sql
 
 使用unix管道合并执行如下：
 
-`$ shp2pgsql -c -D -s 4269 -W GB18030 -i -I poi.shp myschema.poitable | psql -d postgis`
+`$ shp2pgsql -c -D -s 4326 -W GB18030 -i -I poi.shp public.poi | psql -d postgis`
 
 #### 2. 使用sql导入数据
 
-创建好空间数据表后，可以直接使用sql语句向表中插入数据，以下poi.sql为一个示例
+创建好空间数据表后，可以直接使用sql语句向表中插入数据，一个示例。
+
+* 创建空间数据表
+
+{% highlight sql %}
+CREATE TABLE test_poi
+(
+  gid serial NOT NULL,
+  geom geometry(Point,4326),
+  name character varying(50),
+  CONSTRAINT test_poi_pkey PRIMARY KEY (gid)
+);
+{% endhighlight %}
+
+* 插入数据
 
 {% highlight sql %}
 BEGIN;
-INSERT INTO poi (id, geom, name)
-  VALUES (1,ST_GeomFromText('POINT(120 40)',4326),'林静小吃');
-INSERT INTO roads (road_id, geom, name)
-  VALUES (2,ST_GeomFromText('POINT(121 41)',4326),'石美泉加油站');
+INSERT INTO test_poi (geom, name)
+  VALUES (ST_GeomFromText('POINT(120 40)',4326),'林静小吃');
+INSERT INTO test_poi (geom, name)
+  VALUES (ST_GeomFromText('POINT(121 41)',4326),'石美泉加油站');
 COMMIT;
 {% endhighlight %}
 
-使用psql SQL终端导入
-
-`psql -d postgis -f poi.sql`
 
 ### 六.结束
 
