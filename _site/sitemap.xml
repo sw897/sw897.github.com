@@ -2,6 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
+        <loc>http://sw897.github.io/2014/05/09/four-ways-to-build-a-mobile-app-part1-native-ios</loc>
+    </url>
+
+    <url>
+        <loc>http://sw897.github.io/2014/05/03/the-real-reason-for-kramdown-missing</loc>
+    </url>
+
+    <url>
         <loc>http://sw897.github.io/2014/04/24/install-postgresql-postgis-on-os-x</loc>
     </url>
 

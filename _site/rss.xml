@@ -5,10 +5,472 @@
         <description>sw897的博客 - sw897</description>
         <link>http://sw897.github.io</link>
         <link>http://sw897.github.io</link>
-        <lastBuildDate>2014-04-28T09:09:08+08:00</lastBuildDate>
-        <pubDate>2014-04-28T09:09:08+08:00</pubDate>
+        <lastBuildDate>2014-05-14T13:36:02+08:00</lastBuildDate>
+        <pubDate>2014-05-14T13:36:02+08:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>[译]构建移动应用的4种方法: Native iOS应用</title>
+                <description>
+&lt;blockquote&gt;
+  &lt;p&gt;“构建移动应用的4种方法”是&lt;a href=&quot;http://www.smashingmagazine.com/author/peter-traeg/?rel=author&quot;&gt;Peter Traeg&lt;/a&gt;博客上的系列文章，是很不错的移动开发的入门介绍与总结。近期正好帮朋友完成了一个小iOS应用，想起这篇文章，空闲时间翻译一下，也算回顾。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;PS:非逐句翻译，实现的例子我也逐步验证了一下，实现代码地址为我的GitHub实现。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;原文地址:http://www.smashingmagazine.com/2013/11/22/four-ways-to-build-a-mobile-app-part1-native-ios/&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;开发移动应用有很多种方法，比较流行的有以下四种：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;native iOS&lt;/li&gt;
+  &lt;li&gt;native Android&lt;/li&gt;
+  &lt;li&gt;PhoneGap&lt;/li&gt;
+  &lt;li&gt;Appcelerator Titanium&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本主题分四篇文章来分别讲解以上四种方法，并通过分别实现相同一个简单的移动应用来大体介绍每种技术的实践。很少有开发人员可以有机会通过这么多种方法和工具来完成自己的移动开发，本主题正好可以扩展你的视野。&lt;/p&gt;
+
+&lt;p&gt;希望有了这方面的了解后，在开发移动应用时你可以更好地选择合适的开发工具。本主题的第一篇文章，我将还大体介绍一下背景，并深入介绍iOS下的开发。&lt;/p&gt;
+
+&lt;p&gt;为对比展示不同平台与开发工具在开发理念上的不同，我会使用每一种技术构建相同的一个简单应用。本专题不是让你选定其中某个特定的技术，而是让你了解在不同环境下开发时常用的方法与概念，并使用多种工具完成移动应用。&lt;/p&gt;
+
+&lt;p&gt;FasTip是一个简单的计算小费的应用，这个例子足够简单，只使用了每个平台的标准UI控件。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/fastip-app-screens-500-opt.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;上图依次展示了采用native iOS,PhoneGap和native Android实现的该应用程序。Appcelerator Titanium使用的是平台的native控件，因此它分别看起来分别与native iOS和native Android一样。该应用有两个页面：主页面展现计算小费的内容，还有一个设置页面用来设置小费的百分比。为了保持简单，我使用了每个平台的默认风格。所有应用的源代码都可以在&lt;a href=&quot;https://github.com/sw897/mobile-apps-4-ways&quot;&gt;GitHub&lt;/a&gt;上获取。&lt;/p&gt;
+
+&lt;h3 id=&quot;native-ios-&quot;&gt;Native iOS 开发&lt;/h3&gt;
+
+&lt;p&gt;大多数的苹果应用商店里的应用是使用Objective-C语言开发的，开发者一般使用Xcode来完成开发。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/xcode-screen-500-opt.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section&quot;&gt;获取开发工具&lt;/h4&gt;
+
+&lt;p&gt;为构建一个iOS应用，必须使用OS X系统，其它的操作系统是不支持的。需要的开发工具有iOS 7 SDK和Xcode 5，这是免费的应用。然后使用iOS模拟器来运行编译好的应用，iOS模拟器是iOS SDK的一部分。如果想在一台设备上运行并在苹果应用商店里发布，就需要每年支付99美元。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“&lt;a href=&quot;https://developer.apple.com/library/ios/documentation/ToolsLanguages/Conceptual/Xcode_Overview/About_Xcode/about.html&quot;&gt;关于Xcode&lt;/a&gt;,” iOS开发库, Apple&lt;/li&gt;
+  &lt;li&gt;“&lt;a href=&quot;https://developer.apple.com/devcenter/ios/index.action&quot;&gt;iOS开发者中心&lt;/a&gt;,” Apple&lt;/li&gt;
+  &lt;li&gt;“&lt;a href=&quot;https://developer.apple.com/programs/ios/&quot;&gt;iOS 开发&lt;/a&gt;,” Apple&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;创建工程&lt;/h4&gt;
+
+&lt;p&gt;安装好Xcode后，在欢迎页面选择&lt;code&gt;Create a new Xcode project&lt;/code&gt;或通过菜单&lt;code&gt;File&amp;gt;New Project&lt;/code&gt;，创建一个新工程。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/xcode-new-project-500-opt.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;像例子这种简单的应用，一般选择创建&lt;code&gt;Single View&lt;/code&gt;程序。点击&lt;code&gt;Next&lt;/code&gt;后出现应用基本信息对话框:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/new-project-options-500-opt.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Class Prefix&lt;/code&gt;设置会给使用Xcode创建的所有类添加一个唯一前缀。因为Objective-C不像Java一样支持&lt;code&gt;namespace&lt;/code&gt;(命名空间)，添加唯一前缀可以避免命名冲突。&lt;code&gt;Devices&lt;/code&gt;设置用来严格要求应用的运行平台是iPhone或iPad，&lt;code&gt;universal&lt;/code&gt;选项可以让应用同时支持两者。&lt;/p&gt;
+
+&lt;h4 id=&quot;navigationcontrollerviewcontroller&quot;&gt;导航控制器(NavigationController)与视图控制器(ViewController)&lt;/h4&gt;
+
+&lt;p&gt;iOS应用的界面实现由视图控制器控制。示例有两个ViewController:一个主页面与一个设置页面。视图控制器包含了与屏幕控件交互的逻辑，并与导航控制器交互。导航控制器实现两个视图之间的转换，它在每个视图顶部提供了一个导航条。导航控制器管理了一个由视图控制器组成的视图栈，从而实现在不同屏幕里移动。&lt;/p&gt;
+
+&lt;h4 id=&quot;storyboards-&quot;&gt;梗概系列板(storyboards): 可视化用户开发&lt;/h4&gt;
+
+&lt;p&gt;从iOS 5开始, Xcode提供了storyboards, storyboards让开发者快速地定义一系列的视图，并分别指定每一页的内容。这是示例应用在storyboard中的展示。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/storyboard-overview-500-opt.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;左侧的对象表示导航控制器，它使用户能够从一屏移到另一屏上。右边的两个对象所代表的是组成示例的两个屏幕或视图控制器。从主屏到设置屏的联线箭头，表示屏与屏之间的过渡。选择起始的视图按键同时按住&lt;code&gt;Ctrl&lt;/code&gt;键，拖动到目标视图控制器上，可以创建一个新的联线。苹果文件有这个操作的更&lt;a href=&quot;https://developer.apple.com/library/ios/recipes/xcode_help-interface_builder/articles-storyboard/StoryboardSegue.html&quot;&gt;详细介绍&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/storyboard-properties-500-opt.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如上图所示，
+In the example above, we can see that a text field has been selected, and the property panel is used to adjust the various attributes of the controls. When this application was created, the “universal” app option was selected, enabling the app to run on both an iPhone and iPad. As a result, two versions of the storyboard file have been created. When the app is running on an iPhone or iPod Touch, the _iPhone version of the file will be used, and the _iPad version will be used for iPads. This allows a different layout to be used for the iPad’s larger display. The view controller will automatically load the appropriate layout. Keep in mind that if your storyboards expose different sets of controls for the iPad and the iPhone, then you must account for this in the code for your view controller.&lt;/p&gt;
+
+&lt;p&gt;In addition to directly positioning items at particular coordinates on the screen, you can also use the Auto Layout system that was introduced in iOS 6. This enables you to define constraints in the relationships between controls in the view. The storyboard editor enables you to create and edit these constraints.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/storyboard-constraints-500-opt.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The constraints can also be manipulated programmatically. The Auto Layout mechanism is quite sophisticated and a bit daunting to use at first. Apple has an extensive guide on Auto Layout in its documentation.&lt;/p&gt;
+
+&lt;h4 id=&quot;storyboards&quot;&gt;关联Storyboards与代码&lt;/h4&gt;
+
+&lt;p&gt;为在代码中访问访问storyboard对象，必须指定两者间的关联。相比使用其它的开发环境，通过Xcode关联storyboard与代码很容易。开始关联前，必须先创建好一个视图控制器。这个过程如下：&lt;/p&gt;
+
+&lt;p&gt;1.选择&lt;code&gt;File → New File&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;2.在弹出的对话框中选择&lt;code&gt;Objective-C class&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/file-new-template-opt.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3.在接下来的对话框中设置类名并指定从UIViewController继承:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/file-new-options-500-opt.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;4.点击“Next”，提示创建的类文件存储位置.本例中选择工程根目录。&lt;/p&gt;
+
+&lt;p&gt;5.点击“Next”，视图控制器文件创建完成。现在，关联新创建的视图控制器与storyboard中的视图.&lt;/p&gt;
+
+&lt;p&gt;6.在storyboard中, 选中视图. 在&lt;code&gt;Identity Inspector&lt;/code&gt;面板, 选择待被关联的视图类:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/class-picker-opt.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;7.操作完成，视图控制器中的代码就被storyboard入口关联上了。&lt;/p&gt;
+
+&lt;p&gt;To reference the controls that you’ve dragged onto a storyboard from your Objective-C code, you’ll need to define these relationships. The storyboard editor has an “assistant editor” view to help with this. Basically, it’s a split-pane view that shows both the storyboard and your code. In this example, we’ll reference a button that’s already been placed on the storyboard:&lt;/p&gt;
+
+&lt;p&gt;1.首先，确认通过以上步骤完成了视图控制器类与storyboard中视图的关联。&lt;/p&gt;
+
+&lt;p&gt;2.通过点击类似&lt;code&gt;assistant-editor-icon&lt;/code&gt;的图标来选择辅助编辑器。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/assistant-editor-icon-opt.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3.A split-pane view will open, with the storyboard on the left and your view controller class on the right.&lt;/p&gt;
+
+&lt;p&gt;4.Select the button in your storyboard and, while holding down the Control key, drag from the button to the interface area of your code.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/create-outlet-500-opt.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;5.The resulting dialog will enable you to create an “outlet” for the button in your code. Simply give the button a name, and click the “Connect” button in the dialog. You may now reference the button in the view controller from your code.&lt;/p&gt;
+
+&lt;p&gt;6.Let’s hook up a method to be invoked when a person taps on the button. Select the button again, and use the same Control-and-drag maneuver to drop a reference into the interface section of your view controller.&lt;/p&gt;
+
+&lt;p&gt;7.This time, in the dialog box that appears, we’ll associate an “action,” rather than an outlet. Choose “Action” from the “Connection” drop-down menu, and enter a name like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/create-action-500-opt.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For the “Event,” use the default of “Touch Up Inside,” and press the “Connect” button.&lt;/p&gt;
+
+&lt;p&gt;8.Note that your class now has an interface with two entries in it:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;objective-c&quot;&gt;&lt;span class=&quot;k&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FTSettingsViewController&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@property&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weak&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nonatomic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;IBOutlet&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UIButton&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;IBAction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;tappedMyButton:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;sender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The IBOutlet item is used to identify anything that you’re referencing from the storyboard, and the IBAction is used to identify actions that come from the storyboard. Notice also that Xcode has an empty method where you can place the code to be run when the user taps on the control:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;objective-c&quot;&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;IBAction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;tappedMyButton:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;sender&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The process above does take some getting used to and could certainly be made more intuitive. After some practice, it will get less awkward. You might find it useful to bookmark the section of the Xcode documentation that describes how to “Connect User Interface Objects to Your Code.”&lt;/p&gt;
+
+&lt;p&gt;As we’ll see later, you can also add objects to the view and manipulate their properties programmatically. In fact, applications of even moderate complexity typically perform a lot of manipulation in code. For complex apps, some developers eschew the storyboard and use the code-based alternative almost entirely.&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;开始编写代码&lt;/h4&gt;
+
+&lt;p&gt;For even the most basic of applications to function, some code must be written. So far in the storyboard, we’ve laid out our user interface and the interactions between the view controllers. But no code has been written to perform the calculations, to persist the settings of the tip percentage and so on. That is all done by you, the developer, in Objective-C.&lt;/p&gt;
+
+&lt;p&gt;When an application is running, its overall lifecycle is handled by something called an “application delegate.” Various methods in this delegate are called when key events in the application’s lifecycle occur. These events could be any of the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;程序启动&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;程序转到后台&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;程序转到前台&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;程序结束&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;接收到推送消息&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The events above are handled in a file called AppDelegate. For our sample application, the default handling of these events is just fine; we don’t need to take any special action. The documentation has an overview of the application’s lifecycle and of responding to changes in an app’s state.
+The next area of attention is the view controller. Just as with the application delegate, the view controller has its own lifecycle. The view controller’s lifecycle includes methods that are invoked when the following happens:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;视图控制器加载&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;视图控制器准备在屏幕上显示或已显示&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;视图控制器准备在屏幕上隐藏或已隐藏&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;视图边框改变(如设备旋转)，视图重新加载&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;示例应用代码主要在FTViewController.m文件中。以下是初始化屏幕的相关代码：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;objective-c&quot;&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;viewWillAppear:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;BOOL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;animated&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Restore any default tip percentage if available&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;NSUserDefaults&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;defaults&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSUserDefaults&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;standardUserDefaults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tipPercentage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;defaults&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;floatForKey&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;tipPercentage&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tipPercentage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;_tipPercentage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tipPercentage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;_tipPercentage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;15.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tipAmountLabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stringWithFormat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;%0.2f%%&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_tipPercentage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;示例应用中，we want to use whatever tip percentage value was stored in the past. To do this, we can use NSUserDefaults, which is a persistent data store to hold settings and preferences for an application. Keep in mind that these values are not encrypted in any way, so this is not the best place to store sensitive data, such as passwords. A KeyChain API is provided in the iOS SDK to store such data. In the code above, we’re attempting to retrieve the tipPercentage setting. If that’s not found, we’ll just default to 15%.
+When the user taps the “Calculate Tip” button, the following code is run:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;objective-c&quot;&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;IBAction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;didTapCalculate:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;sender&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;checkAmount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tipAmount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;totalAmount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;checkAmountTextField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;checkAmount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;checkAmountTextField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;floatValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;tipAmount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;checkAmount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_tipPercentage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;totalAmount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;checkAmount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tipAmount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tipAmountLabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stringWithFormat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;$%0.2f&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tipAmount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;totalAmountLabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stringWithFormat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;$%0.2f&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;totalAmount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;checkAmountTextField&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resignFirstResponder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We’re simply reading the value that the user has inputted in the “Amount” field and then calculating the tip’s value. Note how the stringWithFormat method is used to display the tipAmount value as a currency value.
+When the user taps the “Settings” button in the navigation controller, the segue that we established in the storyboard will push the settings’ view controller onto the stack. A separate view controller file, FTSettingsViewController, will now handle the interactions on this screen. Pressing the “Done” button on this screen will run the following code:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;objective-c&quot;&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;IBAction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;didTapDone:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;sender&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tipPercentage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tipPercentage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tipPercentageTextField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;floatValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tipPercentage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;NSUserDefaults&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;defaults&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSUserDefaults&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;standardUserDefaults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;defaults&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setFloat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tipPercentage&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;forKey&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;tipPercentage&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;defaults&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;synchronize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+        &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;navigationController&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;popViewControllerAnimated&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;YES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;p&quot;&gt;[[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UIAlertView&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initWithTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;Invalid input&amp;quot;&lt;/span&gt;
+                                    &lt;span class=&quot;nl&quot;&gt;message:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;Percentage must be a decimal value&amp;quot;&lt;/span&gt;
+                                   &lt;span class=&quot;nl&quot;&gt;delegate:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;
+                          &lt;span class=&quot;nl&quot;&gt;cancelButtonTitle:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;ok&amp;quot;&lt;/span&gt;
+                          &lt;span class=&quot;nl&quot;&gt;otherButtonTitles:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Here we’re retrieving the value from the text field and making sure that the inputted value is greater than 0. If it is, then we use NSUserDefaults to persist the setting. Calling the synchronize method is what will actually save the values to storage. After we’ve saved the value, we use the popViewControllerAnimated method on the navigation controller to remove the settings view and return to the prior screen. Note that if the user does not fill in the percentage correctly, then they will be shown the standard iOS UIAlertView dialog and will remain on the settings screen.&lt;/p&gt;
+
+&lt;p&gt;In the section above on view controllers and storyboards, I mentioned that the controls in a view can be manipulated programmatically. While that was not necessary for our application, the following is a snippet of code that creates a button and adds it to a particular location on the screen:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;objective-c&quot;&gt;&lt;span class=&quot;n&quot;&gt;CGRect&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buttonRect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CGRectMake&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;75&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;150&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;UIButton&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myButton&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UIButton&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buttonWithType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UIButtonTypeRoundedRect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;myButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frame&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buttonRect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myButton&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;Click me!&amp;quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;forState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UIControlStateNormal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;addSubview&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Generally speaking, all of the controls that you place in a view extend from an ancestor class named UIView. As such, buttons, labels, text-input fields and so on are all UIViews. One instance of a UIView is in the view controller. This can be referenced in your view controller’s code as self.view. The iOS SDK positions items in a view based on a frame, also referred to as CGRect, which is a structure that contains the x and y coordinates of the item, as well as the width and height of the object. Note in the code above that the button is instantiated and assigned a frame (location and size) and then added to the view controller’s view.&lt;/p&gt;
+
+&lt;h4 id=&quot;ios&quot;&gt;运行与调试iOS应用程序&lt;/h4&gt;
+
+&lt;p&gt;安装好Xcode与iOS SDK后，模拟iOS设备的iOS模拟器就安装好了。
+When Xcode and the iOS SDK are installed, so is the iOS simulator, which simulates an iOS device directly on your machine. Xcode has a drop-down menu that allows you to select different device configurations. Pressing the “Run” button in the upper-left corner will build the app and then run it in the chosen simulator.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/device-chooser-500-opt.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Using the menu above, you can switch between iPhones and iPads of different sizes, as well as between Retina and non-Retina versions of each device.
+Debugging is done simply by clicking in the left margin of the code editor, where the line numbers appear. When the execution of your app reaches the breakpoint, the app will stop and the variable values in effect at that moment in time will appear below the code editor:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/breakpoint-variables-500-opt.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Some things, such as push notifications, cannot readily be tested in the simulator. For these things, you will need to test on a device, which requires you to register as an Apple developer for $99 a year. Once you have joined, you can plug in your device with a USB cable. Xcode will prompt you for your credentials and will offer to “provision” the device for you. Once the device is recognized, it will be shown in the same menu that allows you to switch between device simulators.
+In Xcode, by going to Window → Organizer in the menu, you can display a tool that enables you to manage all of the devices visible in Xcode and to examine crash logs and more. The Organizer window also lets you take and export screenshots of your application.&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;总结&lt;/h3&gt;
+
+&lt;p&gt;到目前为止，我们已经了解了开发一个简单的iOS本地应用的基本内容。大多的应用比这要复杂，但以下基本的构成内容：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Xcode&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;开发环境&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Storyboards&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;用来设计与配置用户接口&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;View controllers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;storyboard中定义的视图的基本逻辑控制&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Navigation controllers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;不同视图间的切换控制&lt;/p&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;学习资源&lt;/h4&gt;
+
+&lt;p&gt;学习iOS开发，可以参阅以下资源：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.amazon.com/iOS-Programming-Edition-Guides-ebook/dp/B007OWBAB0/ref=tmm_kin_title_0?ie=UTF8&amp;amp;qid=1365887748&amp;amp;sr=8-1&quot;&gt;iOS Programming: The Big Nerd Ranch Guide&lt;/a&gt;, Joe Conway and Aaron Hillegass&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这本书很妙，它包含了Objective-C与iOS的开发，并通过很好的例子来保持你的兴趣。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.amazon.com/Objective-C-Programming-Ranch-Guide-Guides/dp/0321706285/ref=pd_bxgy_b_text_y&quot;&gt;Objective-C Programming: The Big Nerd Ranch Guide&lt;/a&gt;, Aaron Hillegass&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这本书提供了Objective-C更详细的信息，可以让你超越iOS开发，深入语言的特性。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“&lt;a href=&quot;https://itunes.apple.com/us/course/coding-together-developing/id593208016&quot;&gt;Coding Together: Developing iOS 6 Apps for iPhone and iPad&lt;/a&gt;,” Stanford University&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;该系列的视频在iTunes U上。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“&lt;a href=&quot;https://developer.apple.com/wwdc/videos/&quot;&gt;WWDC 2013 Session Videos&lt;/a&gt;,” Apple&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;每届WDC(世界开发者大会)后，苹果发布的大会视频内容。适合所有的iOS开发者。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“&lt;a href=&quot;https://developer.apple.com/library/ios/navigation/&quot;&gt;iOS 7 Design Resources&lt;/a&gt;,” Apple&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;该iOS文档很好，有很多关于iOS SDK的关键功能的指南。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.raywenderlich.com/&quot;&gt;Ray Wenderlich: Tutorials for iPhone / iOS Developers and Gamers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ray 分享了极多的教程系列, 并定期添加新的内容. 高级教程成本出售。&lt;/p&gt;
+
+&lt;p&gt;我们就这样结束应用开发的第一部分。我希望它让你了解了iOS原生应用开发的基本概念。在本系列的下一篇文章将介绍如何使用Android原生开发工具来构建相同的应用程序。&lt;/p&gt;
+
+</description>
+                <link>http://sw897.github.io/2014/05/09/four-ways-to-build-a-mobile-app-part1-native-ios</link>
+                <guid>http://sw897.github.io/2014/05/09/four-ways-to-build-a-mobile-app-part1-native-ios</guid>
+                <pubDate>2014-05-09T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>Jekyll换用kramdown后提示Missing dependency: kramdown真正原因</title>
+                <description>
+&lt;p&gt;使用Jekyll在GitHub上建立博客以来，一直感觉其简单易用，得心应手。具体安装配置也记录在第一篇文章&lt;a href=&quot;/2013/12/31/beginning-at-the-last-day-2013/&quot;&gt;开始于2013的最后一天&lt;/a&gt;。
+问题出现在4月底，GitHub-Pages发邮件提示MarkDown的默认解析器由暮色的Maruku换成朝阳的Kramdown，建议在本地生成html时最好也做一下更新。&lt;/p&gt;
+
+&lt;h4 id=&quot;section&quot;&gt;初次尝试&lt;/h4&gt;
+
+&lt;p&gt;1.执行&lt;code&gt;sudo gem install kramdown&lt;/code&gt;安装kramdown&lt;/p&gt;
+
+&lt;p&gt;2.修改在_config.yaml中的配置：&lt;code&gt;markdown: kramdown&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;3.执行&lt;code&gt;jekyll serve&lt;/code&gt;启动本地服务器&lt;/p&gt;
+
+&lt;p&gt;提示“You are missing a library required for Markdown. Please run: $ [sudo] gem install kramdown”。重新安装kramdown还是如此。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;二次尝试&lt;/h4&gt;
+
+&lt;p&gt;出现以上问题后，没有深究原因，在GitHub上查了一下，找到了项目&lt;a href=&quot;https://github.com/github/pages-gem&quot;&gt;GitHub pages-gem&lt;/a&gt;，直接安装GitHub-Pages，执行：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$sudo gem install github-pages
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;偶然地，这样竟然没问题。洋洋得意，直接把方法更新在&lt;a href=&quot;/2013/12/31/beginning-at-the-last-day-2013/&quot;&gt;第一篇&lt;/a&gt;的记录里了。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;最终方案&lt;/h4&gt;
+
+&lt;p&gt;一段时间，在使用Brew更新过Ruby后，再次遇到一样的问题。这次要仔细一下了，不然更新一下，无休止出现这种问题，让人太恼火了。问了Google，stackoverflow，没有发现相同问题的。于是就怀疑是自己的环境问题。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;回顾环境&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;1.Mac OS X 10.9.2系统&lt;/p&gt;
+
+&lt;p&gt;2.最新的brew环境&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;安装过程&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;执行以下命令安装ruby,github-pages&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$brew install ruby
+$sudo gem install github-pages
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;查找原因&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;1.检查ruby,gem版本&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$which ruby
+/usr/local/bin/ruby
+$which gem
+/usr/local/bin/ruby
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;结果是是brew安装的最新版本2.1.2。而不是OS X自带的老版本。&lt;/p&gt;
+
+&lt;p&gt;2.检查jekyll版本&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$which jekyll
+/usr/bin/jekyll
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;竟然是&lt;code&gt;/usr/bin&lt;/code&gt;下的，其加载的gems库是&lt;code&gt;/Library/Ruby/Gems/2.0.0/gems&lt;/code&gt;目录，不是brew安装的gem对应的库。再看一下brew安装gem对应的jekyll情况&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$gem which jekyll
+/usr/local/Cellar/ruby/2.1.2/lib/ruby/gems/2.1.0/gems/jekyll-1.5.1/lib/jekyll.rb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;哈，原因找到了：安装jekyll后，没有将执行文件jekyll拷贝到可执行目录，一直在用的是/usr/bin/jekyll，也就是系统ruby下安装的。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;解决办法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;link gem对应的jekyll到&lt;code&gt;/usr/local/bin&lt;/code&gt;下，使jekyll默认为该版本&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$sudo ln -s /usr/local/Cellar/ruby/2.1.2/bin/jekyll /usr/local/bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;执行&lt;code&gt;jekyll serve&lt;/code&gt;，一直正常。收官！&lt;/p&gt;
+
+</description>
+                <link>http://sw897.github.io/2014/05/03/the-real-reason-for-kramdown-missing</link>
+                <guid>http://sw897.github.io/2014/05/03/the-real-reason-for-kramdown-missing</guid>
+                <pubDate>2014-05-03T00:00:00+08:00</pubDate>
+        </item>
 
         <item>
                 <title>在OS X上安装并使用PostgreSQL与PostGIS</title>

@@ -3,9 +3,9 @@
 <html lang="zh">
   <head>
     <meta charset="utf-8">
-    <title>给jekyll bootstrap增加评论系统 | sw897's blog</title>
-    <meta name="description" content="给jekyll bootstrap增加多说评论系统">
-    <meta name="keywords" content="Jekyll, Jekyll Bootstrap, Comment, 多说">
+    <title>Jekyll换用kramdown后提示Missing dependency: kramdown真正原因 | sw897's blog</title>
+    <meta name="description" content="Jekyll换用kramdown后提示Missing dependency: kramdown真正原因">
+    <meta name="keywords" content="jekyll,kramdown,ruby,gem">
     <meta name="author" content="sw897">
 
     <!-- Enable responsive viewport -->
@@ -129,47 +129,98 @@ var _hmt = _hmt || [];
       <div class="content">
         
 <div class="page-header">
-  <h1>给jekyll bootstrap增加评论系统 </h1>
+  <h1>Jekyll换用kramdown后提示Missing dependency: kramdown真正原因 </h1>
 </div>
 
 <div class="row-fluid post-full">
   <div class="span12">
     <div class="date">
-      <span>02 January 2014</span>
+      <span>03 May 2014</span>
     </div>
     <div class="content">
       
-<p>jekyll bootstrap默认的评论系统是disqus,同时还可以配置使用livefyre,intensedebate,facebook，
-这些虽然都不错，不过不符合我国国情，有必要换成国内的常用评论系统，用来支持国内的SNS平台，
-比如新浪微博，豆瓣，人人等。国内评论系统也很多，常用的有<a href="www.duoshuo.com">多说</a>和<a href="http://www.uyan.cc/">友言</a>。</p>
+<p>使用Jekyll在GitHub上建立博客以来，一直感觉其简单易用，得心应手。具体安装配置也记录在第一篇文章<a href="/2013/12/31/beginning-at-the-last-day-2013/">开始于2013的最后一天</a>。
+问题出现在4月底，GitHub-Pages发邮件提示MarkDown的默认解析器由暮色的Maruku换成朝阳的Kramdown，建议在本地生成html时最好也做一下更新。</p>
 
-<p>虽然不懂Ruby，但jekyll bootstrap把结构做的相当完美，过程很简单，下面把配置<a href="www.duoshuo.com">多说</a>的方法记录一下。
-当然，开始之前需要先注册好<a href="www.duoshuo.com">多说</a>的个人账号</p>
+<h4 id="section">初次尝试</h4>
 
-<p>1 在<code>\_includes/JB/comments-providers</code>文件夹下增加多说的配置文件duoshuo，内容如下</p>
+<p>1.执行<code>sudo gem install kramdown</code>安装kramdown</p>
 
-<script src="https://gist.github.com/sw897/9130242.js"></script>
+<p>2.修改在_config.yaml中的配置：<code>markdown: kramdown</code></p>
 
-<p>内容已经使用jb的模板变量，不需要修改可以直接拷贝使用。</p>
+<p>3.执行<code>jekyll serve</code>启动本地服务器</p>
 
-<p>2 在<code>\_includes/JB</code>目录下，修改comments文件，在第4行插入duoshuo的判断段</p>
+<p>提示“You are missing a library required for Markdown. Please run: $ [sudo] gem install kramdown”。重新安装kramdown还是如此。</p>
 
-<script src="https://gist.github.com/sw897/9131080.js"></script>
+<h4 id="section-1">二次尝试</h4>
 
-<p>3 最后修改<code>\_config.yml</code>文件中comments部分即可</p>
+<p>出现以上问题后，没有深究原因，在GitHub上查了一下，找到了项目<a href="https://github.com/github/pages-gem">GitHub pages-gem</a>，直接安装GitHub-Pages，执行：</p>
 
-<pre><code>comments :
-    provider : duoshuo
-    duoshuo:
-       short_name : 你的多说账号
+<pre><code>$sudo gem install github-pages
 </code></pre>
 
-<p>经过以上3步即可配置完成，有兴趣的朋友可以用同样方法可以试试<a href="http://www.uyan.cc/">友言</a>，除评论系统账号部分，全部能用，
-其实可以向jekyll bootstrap提交一下代码，方便国人配置使用。</p>
+<p>偶然地，这样竟然没问题。洋洋得意，直接把方法更新在<a href="/2013/12/31/beginning-at-the-last-day-2013/">第一篇</a>的记录里了。</p>
 
-<p><strong>Updated:2014-02-21</strong></p>
+<h4 id="section-2">最终方案</h4>
 
-<p>之前一直苦恼于怎样在markdown中直接贴Jekyll的相关代码，因为<strong>{}</strong>、<strong>%</strong>等关键字包含内容会自动解释，后来结合Gist终于解决：把代码创建gist后，再嵌入回来。虽然会影响速度，但完美解决生成HTML时代码解释运行的问题。</p>
+<p>一段时间，在使用Brew更新过Ruby后，再次遇到一样的问题。这次要仔细一下了，不然更新一下，无休止出现这种问题，让人太恼火了。问了Google，stackoverflow，没有发现相同问题的。于是就怀疑是自己的环境问题。</p>
+
+<ul>
+  <li>回顾环境</li>
+</ul>
+
+<p>1.Mac OS X 10.9.2系统</p>
+
+<p>2.最新的brew环境</p>
+
+<ul>
+  <li>安装过程</li>
+</ul>
+
+<p>执行以下命令安装ruby,github-pages</p>
+
+<pre><code>$brew install ruby
+$sudo gem install github-pages
+</code></pre>
+
+<ul>
+  <li>查找原因</li>
+</ul>
+
+<p>1.检查ruby,gem版本</p>
+
+<pre><code>$which ruby
+/usr/local/bin/ruby
+$which gem
+/usr/local/bin/ruby
+</code></pre>
+
+<p>结果是是brew安装的最新版本2.1.2。而不是OS X自带的老版本。</p>
+
+<p>2.检查jekyll版本</p>
+
+<pre><code>$which jekyll
+/usr/bin/jekyll
+</code></pre>
+
+<p>竟然是<code>/usr/bin</code>下的，其加载的gems库是<code>/Library/Ruby/Gems/2.0.0/gems</code>目录，不是brew安装的gem对应的库。再看一下brew安装gem对应的jekyll情况</p>
+
+<pre><code>$gem which jekyll
+/usr/local/Cellar/ruby/2.1.2/lib/ruby/gems/2.1.0/gems/jekyll-1.5.1/lib/jekyll.rb
+</code></pre>
+
+<p>哈，原因找到了：安装jekyll后，没有将执行文件jekyll拷贝到可执行目录，一直在用的是/usr/bin/jekyll，也就是系统ruby下安装的。</p>
+
+<ul>
+  <li>解决办法</li>
+</ul>
+
+<p>link gem对应的jekyll到<code>/usr/local/bin</code>下，使jekyll默认为该版本</p>
+
+<pre><code>$sudo ln -s /usr/local/Cellar/ruby/2.1.2/bin/jekyll /usr/local/bin
+</code></pre>
+
+<p>执行<code>jekyll serve</code>，一直正常。收官！</p>
 
 
     </div>
@@ -202,7 +253,9 @@ var _hmt = _hmt || [];
 
   
      
-    	<li><a href="/tags.html#Jekyll-ref">Jekyll <span>3</span></a></li>
+    	<li><a href="/tags.html#jekyll-ref">jekyll <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#ruby-ref">ruby <span>1</span></a></li>
     
   
 
@@ -215,10 +268,10 @@ var _hmt = _hmt || [];
     <div class="pagination">
       <ul class="pager">
       
-      <li class="previous"><a href="/2013/12/31/beginning-at-the-last-day-2013" title="开始于2013的最后一天">&larr; 开始于2013的最后一天</a></li>
+      <li class="previous"><a href="/2014/04/24/install-postgresql-postgis-on-os-x" title="在OS X上安装并使用PostgreSQL与PostGIS">&larr; 在OS X上安装并使用PostgreSQL与PostGIS</a></li>
       
       
-        <li class="next"><a href="/2014/01/03/web-maping-introduce" title="Web地图制图应用介绍">Web地图制图应用介绍&rarr;</a></li>
+        <li class="next"><a href="/2014/05/09/four-ways-to-build-a-mobile-app-part1-native-ios" title="[译]构建移动应用的4种方法: Native iOS应用">[译]构建移动应用的4种方法: Native iOS应用&rarr;</a></li>
       
       </ul>
     </div>
