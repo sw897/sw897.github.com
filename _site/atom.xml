@@ -1,18 +1,23 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
-<channel>
-        <title>sw897的博客</title>
-        <description>sw897的博客 - sw897</description>
-        <link>http://sw897.github.io</link>
-        <link>http://sw897.github.io</link>
-        <lastBuildDate>2014-05-20T13:29:16+08:00</lastBuildDate>
-        <pubDate>2014-05-20T13:29:16+08:00</pubDate>
-        <ttl>1800</ttl>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>sw897的博客</title>
+ <link href="http://sw897.github.io/" rel="self"/>
+ <link href="http://sw897.github.io"/>
+ <updated>2014-05-20T13:29:16+08:00</updated>
+ <id>http://sw897.github.io</id>
+ <author>
+   <name>sw897</name>
+   <email>sunwei.r@gmail.com</email>
+ </author>
 
-
-        <item>
-                <title>[译]构建移动应用的4种方法: Native iOS应用</title>
-                <description>
+ 
+ <entry>
+   <title>[译]构建移动应用的4种方法: Native iOS应用</title>
+   <link href="http://sw897.github.io/2014/05/19/four-ways-to-build-a-mobile-app-part1-native-ios"/>
+   <updated>2014-05-19T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/05/19/four-ways-to-build-a-mobile-app-part1-native-ios</id>
+   <content type="html">
 &lt;blockquote&gt;
   &lt;p&gt;“构建移动应用的4种方法”是&lt;a href=&quot;http://www.smashingmagazine.com/author/peter-traeg/?rel=author&quot;&gt;Peter Traeg&lt;/a&gt;博客上的系列文章，是很不错的移动开发的入门介绍与总结。近期帮朋友完成了一个小iOS应用，想起这篇文章，空闲时间翻译一下，也算回顾。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -373,15 +378,15 @@
 
 &lt;p&gt;我们就这样结束应用开发的第一部分。我希望它让你了解了iOS原生应用开发的基本概念。在本系列的下一篇文章将介绍如何使用Android原生开发工具来构建相同的应用程序。&lt;/p&gt;
 
-</description>
-                <link>http://sw897.github.io/2014/05/19/four-ways-to-build-a-mobile-app-part1-native-ios</link>
-                <guid>http://sw897.github.io/2014/05/19/four-ways-to-build-a-mobile-app-part1-native-ios</guid>
-                <pubDate>2014-05-19T00:00:00+08:00</pubDate>
-        </item>
-
-        <item>
-                <title>Jekyll换用kramdown后提示Missing dependency: kramdown真正原因</title>
-                <description>
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Jekyll换用kramdown后提示Missing dependency: kramdown真正原因</title>
+   <link href="http://sw897.github.io/2014/05/03/the-real-reason-for-kramdown-missing"/>
+   <updated>2014-05-03T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/05/03/the-real-reason-for-kramdown-missing</id>
+   <content type="html">
 &lt;p&gt;使用Jekyll在GitHub上建立博客以来，一直感觉其简单易用，得心应手。具体安装配置也记录在第一篇文章&lt;a href=&quot;/2013/12/31/beginning-at-the-last-day-2013/&quot;&gt;“开始于2013的最后一天”&lt;/a&gt;。
 问题出现在4月底，GitHub-Pages发邮件提示MarkDown的默认解析器由暮色的Maruku换成朝阳的Kramdown，建议在本地生成html时最好也做一下更新。&lt;/p&gt;
 
@@ -465,15 +470,15 @@ $which gem
 
 &lt;p&gt;执行&lt;code&gt;jekyll serve&lt;/code&gt;，一直正常。收官！&lt;/p&gt;
 
-</description>
-                <link>http://sw897.github.io/2014/05/03/the-real-reason-for-kramdown-missing</link>
-                <guid>http://sw897.github.io/2014/05/03/the-real-reason-for-kramdown-missing</guid>
-                <pubDate>2014-05-03T00:00:00+08:00</pubDate>
-        </item>
-
-        <item>
-                <title>在OS X上安装并使用PostgreSQL与PostGIS</title>
-                <description>
+</content>
+ </entry>
+ 
+ <entry>
+   <title>在OS X上安装并使用PostgreSQL与PostGIS</title>
+   <link href="http://sw897.github.io/2014/04/24/install-postgresql-postgis-on-os-x"/>
+   <updated>2014-04-24T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/04/24/install-postgresql-postgis-on-os-x</id>
+   <content type="html">
 &lt;p&gt;PostgreSQL是流行的先进开源关系型数据库，PostGIS是PostgreSQL空间信息扩展部分，支持空间索引与空间查询。越来越多的GIS应用使用两者的组合来完成后台空间数据的存储与获取，支撑前端应用系统。因其良好的性能与稳定表现，持续得到大家的追捧。避开当前流行的大数据与NoSQL，这种组合是完成一个稳健GIS系统的经典组合。&lt;/p&gt;
 
 &lt;p&gt;两个软件虽然都是开源软件，但有很好的社区支持，产品化非常好。特别是针对Windows平台的支持，简单易用的安装包，自带的可视化工具PgAdmin3以及shp2pgsql_GUI，让不熟悉两者，甚至是不熟悉数据库的开发人员也能快速上手：使用shp2pgsql_GUI把Shape文件导入到PostGIS；使用PgAdmin3可视化运行SQL操作数据。在生产环境中，一般选择使用Linux平台，安装可以选择对应的发行包，也可以手工编译安装，&lt;code&gt;configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install&lt;/code&gt;一马平川。在OS X系统上，PostgreSQL的安装有多种方法，最简单的，还是类似Windows下的可视化安装包，但使用OS X的用户大多喜欢使用类似Linux的方法。所以，这里我们还是选用神器&lt;code&gt;brew&lt;/code&gt;的方法，并可深入了解OS X的用户管理与数据库初始化。&lt;/p&gt;
@@ -665,15 +670,15 @@ $ psql -d postgis -f poi.sql
 &lt;p&gt;接下来的内容应当是从postgis中查询获取数据，还有很多使用PostGIS管理空间数据要写的，但由于本文只是PostGIS/PostgreSQL在OS X上的安装记录，
 写到的或没写到的就这么多吧，具体可参考PostGIS用户手册。&lt;/p&gt;
 
-</description>
-                <link>http://sw897.github.io/2014/04/24/install-postgresql-postgis-on-os-x</link>
-                <guid>http://sw897.github.io/2014/04/24/install-postgresql-postgis-on-os-x</guid>
-                <pubDate>2014-04-24T00:00:00+08:00</pubDate>
-        </item>
-
-        <item>
-                <title>解决在负载均衡中session共享问题</title>
-                <description>
+</content>
+ </entry>
+ 
+ <entry>
+   <title>解决在负载均衡中session共享问题</title>
+   <link href="http://sw897.github.io/2014/04/11/session-in-a-load-balanced-share"/>
+   <updated>2014-04-11T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/04/11/session-in-a-load-balanced-share</id>
+   <content type="html">
 &lt;p&gt;今天同事偶尔问起来之前一个应用的架构，追问是如何解决session共享的问题的。
 回忆了一下，好像真没有解决session共享，只是规避了共享的问题。
 做法就是在nginx负载均衡的算法上，选择了ip_hash的方法。虽然只是控制相同session的请求转到同一台机器，但也算一种解决方法。&lt;/p&gt;
@@ -717,15 +722,15 @@ $ psql -d postgis -f poi.sql
 
 &lt;p&gt;用这种方式来同步session，不会加大数据库的负担，并且安全性比用cookie大大的提高，把session放到内存里面，比从文件中读取要快很多。但是memcache把内存分成很多种规格的存储块，有块就有大小，这种方式也就决定了，memcache不能完全利用内存，会产生内存碎片，如果存储块不足，还会产生内存溢出。&lt;/p&gt;
 
-</description>
-                <link>http://sw897.github.io/2014/04/11/session-in-a-load-balanced-share</link>
-                <guid>http://sw897.github.io/2014/04/11/session-in-a-load-balanced-share</guid>
-                <pubDate>2014-04-11T00:00:00+08:00</pubDate>
-        </item>
-
-        <item>
-                <title>开源GIS与开源协议授权总结</title>
-                <description>
+</content>
+ </entry>
+ 
+ <entry>
+   <title>开源GIS与开源协议授权总结</title>
+   <link href="http://sw897.github.io/2014/03/30/open-source-licence-introduce"/>
+   <updated>2014-03-30T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/03/30/open-source-licence-introduce</id>
+   <content type="html">
 &lt;h3 id=&quot;section&quot;&gt;介绍&lt;/h3&gt;
 
 &lt;p&gt;开源软件近几年越来越流行，从SourceForge到GitHub,Bitbucket，存在着不计其数的开源项目。在国内，几家大公司也开始开放平台，拥抱开源，CSDN的开源平台也红红火火。GIS行业内，
@@ -846,15 +851,15 @@ GPL协议系列(v1,v2,v3…)，LGPL协议，BSD协议，Apache licence 2.0，MIT
 &lt;/tr&gt;
 &lt;/table&gt;
 
-</description>
-                <link>http://sw897.github.io/2014/03/30/open-source-licence-introduce</link>
-                <guid>http://sw897.github.io/2014/03/30/open-source-licence-introduce</guid>
-                <pubDate>2014-03-30T00:00:00+08:00</pubDate>
-        </item>
-
-        <item>
-                <title>制作PostGIS的Dash文档</title>
-                <description>
+</content>
+ </entry>
+ 
+ <entry>
+   <title>制作PostGIS的Dash文档</title>
+   <link href="http://sw897.github.io/2014/03/16/make-postgis-docset"/>
+   <updated>2014-03-16T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/03/16/make-postgis-docset</id>
+   <content type="html">
 &lt;h3 id=&quot;postgis&quot;&gt;PostGIS介绍&lt;/h3&gt;
 
 &lt;p&gt;PostGIS 是开源数据库 PostgreSQL 的空间数据支持扩展，PostGIS 实现了Open Geospatial Consortium所提供的Simple Features的SQL实现参考。对于GIS用户而言，PostGIS是一个重要的GIS基础软件，因为目前它是为数不多的开源空间数据库存储方案之一。在国内，由于其开源的特性，
@@ -972,15 +977,15 @@ GPL协议系列(v1,v2,v3…)，LGPL协议，BSD协议，Apache licence 2.0，MIT
 &lt;p&gt;答：嗯~，为了表示诚意，我还是提供了制作的&lt;code&gt;postgis.docset&lt;/code&gt;文件下载的。
 在我的github里，点一下&lt;a href=&quot;https://github.com/sw897/docset_postgis&quot;&gt;这里&lt;/a&gt;就可以了。不定时更新，有最新版本强迫症的朋友请走开。&lt;/p&gt;
 
-</description>
-                <link>http://sw897.github.io/2014/03/16/make-postgis-docset</link>
-                <guid>http://sw897.github.io/2014/03/16/make-postgis-docset</guid>
-                <pubDate>2014-03-16T00:00:00+08:00</pubDate>
-        </item>
-
-        <item>
-                <title>使用Dash管理常用帮助文档</title>
-                <description>
+</content>
+ </entry>
+ 
+ <entry>
+   <title>使用Dash管理常用帮助文档</title>
+   <link href="http://sw897.github.io/2014/03/05/dash-for-documents-manager"/>
+   <updated>2014-03-05T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/03/05/dash-for-documents-manager</id>
+   <content type="html">
 &lt;h3 id=&quot;dash&quot;&gt;Dash介绍&lt;/h3&gt;
 
 &lt;p&gt;Dash是OS X上方便宜用的文档管理工具，提供了130+的API文档，
@@ -1072,15 +1077,15 @@ GENERATE_TREEVIEW = NO
 
 &lt;p&gt;另：一般性html文档制作docset的方法以后再写。&lt;/p&gt;
 
-</description>
-                <link>http://sw897.github.io/2014/03/05/dash-for-documents-manager</link>
-                <guid>http://sw897.github.io/2014/03/05/dash-for-documents-manager</guid>
-                <pubDate>2014-03-05T00:00:00+08:00</pubDate>
-        </item>
-
-        <item>
-                <title>基于Jekyll Bootstrap的博客SEO优化</title>
-                <description>
+</content>
+ </entry>
+ 
+ <entry>
+   <title>基于Jekyll Bootstrap的博客SEO优化</title>
+   <link href="http://sw897.github.io/2014/02/20/jekyll-bootstrap-seo"/>
+   <updated>2014-02-20T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/02/20/jekyll-bootstrap-seo</id>
+   <content type="html">
 &lt;p&gt;写博客是为了共享与交流，但一个新博客，其搜索、关注度都很低。
 这就要想想是为什么了？当然，最重要的一点，博客需要创造价值内容，没有内容就没有价值，
 从而没有阅读，没有评论，没有交互。但对于一个新博客，如果不是靠&lt;code&gt;ctrl+c&lt;/code&gt;与&lt;code&gt;ctrl+v&lt;/code&gt;起家，由于时间短，内容是不会太多的。这个第一步怎样走出去？
@@ -1150,15 +1155,15 @@ GENERATE_TREEVIEW = NO
 
 &lt;p&gt;最后，也是最重要的，坚持! 自勉！&lt;/p&gt;
 
-</description>
-                <link>http://sw897.github.io/2014/02/20/jekyll-bootstrap-seo</link>
-                <guid>http://sw897.github.io/2014/02/20/jekyll-bootstrap-seo</guid>
-                <pubDate>2014-02-20T00:00:00+08:00</pubDate>
-        </item>
-
-        <item>
-                <title>使用Sublime Text 3做Python开发</title>
-                <description>
+</content>
+ </entry>
+ 
+ <entry>
+   <title>使用Sublime Text 3做Python开发</title>
+   <link href="http://sw897.github.io/2014/02/13/sublime-text-3-for-python"/>
+   <updated>2014-02-13T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/02/13/sublime-text-3-for-python</id>
+   <content type="html">
 &lt;h3 id=&quot;section&quot;&gt;引言&lt;/h3&gt;
 
 &lt;p&gt;刚转到OS X平台时，寻找写Python,JavaScript,Markdown等文件的工具时，比较了许多工具，
@@ -1344,15 +1349,15 @@ Geek就是让一切变得更简单，该插件作者就为了简便，把这些�
 
 &lt;p&gt;CJK library files missing in the embedded Python of Sublime Text 3。&lt;/p&gt;
 
-</description>
-                <link>http://sw897.github.io/2014/02/13/sublime-text-3-for-python</link>
-                <guid>http://sw897.github.io/2014/02/13/sublime-text-3-for-python</guid>
-                <pubDate>2014-02-13T00:00:00+08:00</pubDate>
-        </item>
-
-        <item>
-                <title>动态链接库的搜索</title>
-                <description>
+</content>
+ </entry>
+ 
+ <entry>
+   <title>动态链接库的搜索</title>
+   <link href="http://sw897.github.io/2014/02/10/dynamic-link-library-searching"/>
+   <updated>2014-02-10T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/02/10/dynamic-link-library-searching</id>
+   <content type="html">
 &lt;blockquote&gt;
   &lt;p&gt;在OS X下安装一些开源软件，其动态链接库的依赖比较复杂，为了搞明白还是花了些功夫。
 在这里把Windows,Linux,OS X这三种常用桌面的动态链接库的搜索方法总结一下。
@@ -1429,15 +1434,15 @@ install name 可能是&lt;code&gt;/usr/local/lib/liba.dylib&lt;/code&gt;，
 因为 app_a 通过修改 -rpath 就可以测试正在写的 liba 或者是 deploy 到&lt;code&gt;/usr/local/lib&lt;/code&gt;下的两个版本。
 尽管仍然是&lt;code&gt;-L some-dir -la&lt;/code&gt;链接 app_a 的，这里的 some-dir 可以是&lt;code&gt;/usr/local/lib&lt;/code&gt;也可以是开发环境下的目录。&lt;/p&gt;
 
-</description>
-                <link>http://sw897.github.io/2014/02/10/dynamic-link-library-searching</link>
-                <guid>http://sw897.github.io/2014/02/10/dynamic-link-library-searching</guid>
-                <pubDate>2014-02-10T00:00:00+08:00</pubDate>
-        </item>
-
-        <item>
-                <title>Web Mapping之CartoDB</title>
-                <description>
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Web Mapping之CartoDB</title>
+   <link href="http://sw897.github.io/2014/01/17/web-mapping-cartodb"/>
+   <updated>2014-01-17T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/01/17/web-mapping-cartodb</id>
+   <content type="html">
 &lt;h3 id=&quot;section&quot;&gt;介绍&lt;/h3&gt;
 
 &lt;blockquote&gt;
@@ -1536,15 +1541,15 @@ From polygons to points. From hundreds to millions. No limits with CartoDB.&lt;/
   &lt;/li&gt;
 &lt;/ul&gt;
 
-</description>
-                <link>http://sw897.github.io/2014/01/17/web-mapping-cartodb</link>
-                <guid>http://sw897.github.io/2014/01/17/web-mapping-cartodb</guid>
-                <pubDate>2014-01-17T00:00:00+08:00</pubDate>
-        </item>
-
-        <item>
-                <title>Web地图制图应用介绍</title>
-                <description>
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Web地图制图应用介绍</title>
+   <link href="http://sw897.github.io/2014/01/03/web-maping-introduce"/>
+   <updated>2014-01-03T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/01/03/web-maping-introduce</id>
+   <content type="html">
 &lt;pre&gt;&lt;code&gt;本文介绍一下当前流行的在线地图制图应用。
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -1608,15 +1613,15 @@ From polygons to points. From hundreds to millions. No limits with CartoDB.&lt;/
 &lt;p&gt;这里主要介绍几个制图应用，至于如何选择，还要看大家的需求而定。
 个人比较推荐的是&lt;a href=&quot;https://sw897.CartoDB.com/dashboard/&quot;&gt;CartoDB&lt;/a&gt;，本身功能强大，分发方便，又提供多种层次接口，可伸缩性强，适合有一定想法的用户。&lt;/p&gt;
 
-</description>
-                <link>http://sw897.github.io/2014/01/03/web-maping-introduce</link>
-                <guid>http://sw897.github.io/2014/01/03/web-maping-introduce</guid>
-                <pubDate>2014-01-03T00:00:00+08:00</pubDate>
-        </item>
-
-        <item>
-                <title>给jekyll bootstrap增加评论系统</title>
-                <description>
+</content>
+ </entry>
+ 
+ <entry>
+   <title>给jekyll bootstrap增加评论系统</title>
+   <link href="http://sw897.github.io/2014/01/02/jekyll-bootstrap-add-comment"/>
+   <updated>2014-01-02T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2014/01/02/jekyll-bootstrap-add-comment</id>
+   <content type="html">
 &lt;p&gt;jekyll bootstrap默认的评论系统是disqus,同时还可以配置使用livefyre,intensedebate,facebook，
 这些虽然都不错，不过不符合我国国情，有必要换成国内的常用评论系统，用来支持国内的SNS平台，
 比如新浪微博，豆瓣，人人等。国内评论系统也很多，常用的有&lt;a href=&quot;www.duoshuo.com&quot;&gt;多说&lt;/a&gt;和&lt;a href=&quot;http://www.uyan.cc/&quot;&gt;友言&lt;/a&gt;。&lt;/p&gt;
@@ -1649,15 +1654,15 @@ From polygons to points. From hundreds to millions. No limits with CartoDB.&lt;/
 
 &lt;p&gt;之前一直苦恼于怎样在markdown中直接贴Jekyll的相关代码，因为&lt;strong&gt;{}&lt;/strong&gt;、&lt;strong&gt;%&lt;/strong&gt;等关键字包含内容会自动解释，后来结合Gist终于解决：把代码创建gist后，再嵌入回来。虽然会影响速度，但完美解决生成HTML时代码解释运行的问题。&lt;/p&gt;
 
-</description>
-                <link>http://sw897.github.io/2014/01/02/jekyll-bootstrap-add-comment</link>
-                <guid>http://sw897.github.io/2014/01/02/jekyll-bootstrap-add-comment</guid>
-                <pubDate>2014-01-02T00:00:00+08:00</pubDate>
-        </item>
-
-        <item>
-                <title>开始于2013的最后一天</title>
-                <description>
+</content>
+ </entry>
+ 
+ <entry>
+   <title>开始于2013的最后一天</title>
+   <link href="http://sw897.github.io/2013/12/31/beginning-at-the-last-day-2013"/>
+   <updated>2013-12-31T00:00:00+08:00</updated>
+   <id>http://sw897.github.io/2013/12/31/beginning-at-the-last-day-2013</id>
+   <content type="html">
 &lt;p&gt;终于开始自己的博客了。&lt;/p&gt;
 
 &lt;p&gt;今天是一年的最后一天，是一个结束，而预示着一个新的开始。&lt;/p&gt;
@@ -1793,12 +1798,8 @@ From polygons to points. From hundreds to millions. No limits with CartoDB.&lt;/
 
 &lt;p&gt;&lt;code&gt;sudo gem install github-pages&lt;/code&gt;&lt;/p&gt;
 
-</description>
-                <link>http://sw897.github.io/2013/12/31/beginning-at-the-last-day-2013</link>
-                <guid>http://sw897.github.io/2013/12/31/beginning-at-the-last-day-2013</guid>
-                <pubDate>2013-12-31T00:00:00+08:00</pubDate>
-        </item>
-
-
-</channel>
-</rss>
+</content>
+ </entry>
+ 
+ 
+</feed>
